@@ -1,0 +1,160 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "{Name}",
+    "size": "huge",
+    "subheader": "Assign Data Editors for Deployment Samplers"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "children": [
+      {
+        "key": "DataEditor",
+        "data-buildertype": "dictionary",
+        "label": "Data Editor",
+        "fluid": true,
+        "selection": true,
+        "dataModel": "vSP_dataEditors",
+        "columns": "Name ASC",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "setOwnerSample"
+            ],
+            "targets": [
+              "gridview_1"
+            ],
+            "parameters": []
+          }
+        },
+        "style-customcss": "",
+        "clearable": true,
+        "multiple": true,
+        "search": true
+      }
+    ],
+    "style-width": "400px",
+    "style-marginBottom": "20px"
+  },
+  {
+    "key": "gridview_1",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "UIDName",
+        "name": "UID (Name)",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "PeerName",
+        "name": "Peer UID (Name)",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "StatusTitle",
+        "name": "Status",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "RespDateStart",
+        "name": "Response Start",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      },
+      {
+        "key": "RespDateEnd",
+        "name": "Response Complete",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      },
+      {
+        "key": "DueDate",
+        "name": "Due Date",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      }
+    ],
+    "defaultSort": "UIDName ASC",
+    "rowKey": "ListSampleId",
+    "multiselect": true,
+    "events": {
+      "onSelectionChanged": {
+        "active": false,
+        "actions": [
+          "logToConsole"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "minHeight": "300px",
+    "pagerType": "",
+    "pageSize": "80",
+    "rowHeight": "80"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "children": [
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Save",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "saveDplySampleOwner"
+            ],
+            "targets": [
+              "gridview_1"
+            ],
+            "parameters": []
+          }
+        }
+      },
+      {
+        "key": "button_2",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "primary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        },
+        "secondary": true,
+        "inverted": true
+      }
+    ],
+    "style-marginBottom": "20px"
+  }
+]

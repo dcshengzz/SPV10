@@ -1,0 +1,195 @@
+[
+  {
+    "key": "headerDataEditorList",
+    "data-buildertype": "header",
+    "content": "Sector/Segment Response Dashboard - {dplyHeader}",
+    "size": "huge",
+    "subheader": "",
+    "style-marginTop": "10px"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "deployment",
+        "data-buildertype": "dictionary",
+        "label": "Deployment",
+        "fluid": true,
+        "selection": true,
+        "dataModel": "QNN_DPLY",
+        "columns": "Name ASC",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "changeHeader",
+              "onChangeDeployment"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "search": true,
+        "clearable": false,
+        "onChangeTimeout": "200",
+        "filters": "",
+        "style-height": "",
+        "paging": true
+      },
+      {
+        "key": "qnType",
+        "data-buildertype": "dropdown",
+        "label": "Questionnaire Type",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "II",
+            "text": "II"
+          },
+          {
+            "key": 2,
+            "value": "IU",
+            "text": "IU"
+          },
+          {
+            "key": 3,
+            "value": "MI",
+            "text": "MI"
+          },
+          {
+            "text": "MP",
+            "value": "MP"
+          }
+        ],
+        "events": {
+          "onClick": {
+            "active": false,
+            "actions": [],
+            "targets": [],
+            "parameters": []
+          },
+          "onChange": {
+            "active": true,
+            "actions": [
+              "changeQnType"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "style-height": "",
+        "style-hidden": false
+      },
+      {
+        "key": "filter",
+        "data-buildertype": "dropdown",
+        "label": "",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [],
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "multiple": true,
+        "style-width": "50%",
+        "style-height": "",
+        "reference": "",
+        "other-visibleConition": "data.onOverallResponse == 1"
+      },
+      {
+        "key": "companyType",
+        "data-buildertype": "dropdown",
+        "label": "Company Type",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "TA",
+            "text": "TA"
+          },
+          {
+            "key": 2,
+            "value": "TS",
+            "text": "TS"
+          },
+          {
+            "key": 3,
+            "value": "MTS",
+            "text": "MTS"
+          },
+          {
+            "text": "STS",
+            "value": "STS"
+          }
+        ],
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "multiple": true,
+        "style-width": "50%",
+        "style-height": "",
+        "reference": "",
+        "other-visibleConition": "data.onOverallResponse == 1"
+      },
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "searchBtn",
+            "data-buildertype": "button",
+            "content": "Apply",
+            "primary": true,
+            "other-visibleConition": "data.onOverallResponse == 1 && data.showSearchBtn == 1",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "changeQnType",
+                  "onClickSearch"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "floated": "right"
+          }
+        ],
+        "style-height": "20px",
+        "style-width": "50%",
+        "style-marginTop": "15px",
+        "style-marginBottom": "15px"
+      },
+      {
+        "key": "result",
+        "data-buildertype": "staticcontent",
+        "content": "Text...",
+        "isHtml": true,
+        "fetchData": true,
+        "isPre": true
+      }
+    ],
+    "style-source": "",
+    "style-marginBottom": "30px"
+  }
+]

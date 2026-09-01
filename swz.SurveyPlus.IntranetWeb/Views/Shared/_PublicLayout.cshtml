@@ -1,0 +1,32 @@
+﻿@using swz.Clover.Core
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SurveyPlus</title>
+    <link rel="Shortcut Icon" href="@Url.Content("~/images/favicon.ico")" type="image/x-icon">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+</head>
+<body>
+    <script src="@Url.Content("~/scripts/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/alertify.js")" type="text/javascript"></script>
+    <script>window.paceOptions = { restartOnPushState: false };</script>
+    <script src="@Url.Content("~/scripts/pace.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.loadingModal.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/Chart.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/css/base/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/pace-theme-minimal.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/semantic.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/swz-formbuilder.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/clover-style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/jquery.loadingModal.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+
+    <script>
+        $(document).ajaxStart(function () { Pace.restart(); });
+    </script>
+
+    @RenderBody()
+</body>
+</html>

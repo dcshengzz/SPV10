@@ -1,0 +1,121 @@
+[
+  {
+    "key": "form_ReportSnapshot",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Report Snapshot",
+        "size": "medium"
+      },
+      {
+        "key": "Name",
+        "data-buildertype": "input",
+        "label": "Deployment",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "readOnly": true
+      },
+      {
+        "key": "rs_SaveSnapshot",
+        "data-buildertype": "checkbox",
+        "label": "Save Snapshot Daily",
+        "toggle": true,
+        "defaultValue": "0"
+      },
+      {
+        "key": "rs_SettingsForm",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "rs_EmailRecipients",
+            "data-buildertype": "dictionary",
+            "label": "Email Recipient/s",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "vSP_dataEditors",
+            "columns": "Name ASC",
+            "paging": true,
+            "search": true,
+            "multiple": true,
+            "clearable": true,
+            "other-customValidation": "((data.rs_EmailOnSuccess || data.rs_EmailOnFailure) && (value==null || value.length==0)) ? \"required for sending notifications\" : true;",
+            "reference": "Email Recipients"
+          },
+          {
+            "key": "formgroup_email",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "children": [
+              {
+                "key": "rs_EmailOnSuccess",
+                "data-buildertype": "checkbox",
+                "label": "Email on Success",
+                "toggle": true
+              },
+              {
+                "key": "rs_EmailOnFailure",
+                "data-buildertype": "checkbox",
+                "label": "Email on Failure",
+                "toggle": true
+              }
+            ],
+            "orientation": "grouped"
+          }
+        ],
+        "other-visibleConition": "Utils.isSelected(data.rs_SaveSnapshot)",
+        "other-customValidation": ""
+      },
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "style-width": "100%",
+        "style-marginTop": "20px",
+        "children": [
+          {
+            "key": "btnSave",
+            "data-buildertype": "button",
+            "content": "Save",
+            "primary": true,
+            "style-marginRight": "20px",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "validate",
+                  "onClickSave"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          },
+          {
+            "key": "btnCancel",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "style-marginRight": "20px",
+            "secondary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "redirectToForm"
+                ],
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "formName",
+                    "value": "QNN_DPLY"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "style-width": "800px"
+  }
+]

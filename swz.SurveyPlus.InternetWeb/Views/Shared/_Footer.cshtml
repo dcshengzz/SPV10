@@ -1,0 +1,132 @@
+﻿@using swz.SurveyPlus.InternetApplication;
+@{
+    CommonPageSettingsOptions commonPageSettings = (CommonPageSettingsOptions)(ViewData["CommonPageSettings"] ??null);
+    bool isBottomPartEmpty = string.IsNullOrEmpty(commonPageSettings?.ExternalLinks?.ReportVulnerabilityUrl) &&
+        string.IsNullOrEmpty(commonPageSettings?.ExternalLinks?.PrivacyUrl) &&
+        string.IsNullOrEmpty(commonPageSettings?.ExternalLinks?.TermOfUseUrl) && commonPageSettings?.Copyright == null;
+}
+
+<div class='sgds-footer'>
+    <div class="top-section">
+        <div class="sgds-container is-fluid">
+            <div class="row" style="border-bottom: .5px solid #CCC; padding-bottom: 10px">
+                <div class="is-inline-block">
+                    <ul>
+                        @{
+                            if (!string.IsNullOrEmpty(commonPageSettings.ApplicationName))
+                            {
+                                <li>
+                                    <h5 class="has-text-white" style="margin-bottom: 10px"><b>@Html.Raw(commonPageSettings.ApplicationName)</b></h5>
+                                </li>
+                            }
+
+                        }
+                    </ul>
+                </div>
+                <div class="is-inline-block" style=" margin-top: 10px;">
+                    @{
+                        if (commonPageSettings?.ExternalLinks != null)
+                        {
+                            <ul>
+                                @{
+                                    if (!string.IsNullOrEmpty(commonPageSettings.ExternalLinks.AboutUsUrl))
+                                    {
+                                        <li>
+                                            <a href="@commonPageSettings.ExternalLinks.AboutUsUrl" target="_blank">About Us</a>
+                                        </li>
+                                    }
+                                    if (!string.IsNullOrEmpty(commonPageSettings.ExternalLinks.ReachUrl))
+                                    {
+                                        <li>
+                                            <a href="@commonPageSettings.ExternalLinks.ReachUrl" target="_blank">Reach</a>
+                                        </li>
+                                    }
+                                    if (!string.IsNullOrEmpty(commonPageSettings.ExternalLinks.ContactUrl))
+                                    {
+                                        <li>
+                                            <a href="@commonPageSettings.ExternalLinks.ContactUrl" target="_blank">Contact</a>
+                                        </li>
+                                    }
+                                    if (!string.IsNullOrEmpty(commonPageSettings.ExternalLinks.FeedbackUrl))
+                                    {
+                                        <li>
+                                            <a href="@commonPageSettings.ExternalLinks.FeedbackUrl" target="_blank">Feedback</a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    @{
+        if (!isBottomPartEmpty)
+        {
+            <div class="bottom-section">
+                <div class="sgds-container is-fluid">
+                    <div class="row">
+                        <div class="is-inline-block">
+                            @{
+                                if (commonPageSettings?.ExternalLinks != null)
+                                {
+                                    <ul>
+                                        @{
+                                            if (!string.IsNullOrEmpty(commonPageSettings.ExternalLinks.ReportVulnerabilityUrl))
+                                            {
+                                                <li>
+                                                    <a href="@commonPageSettings.ExternalLinks.ReportVulnerabilityUrl" target="_blank">Report Vulnerability</a>
+                                                </li>
+                                            }
+                                            if (!string.IsNullOrEmpty(commonPageSettings.ExternalLinks.PrivacyUrl))
+                                            {
+                                                <li>
+                                                    <a href="@commonPageSettings.ExternalLinks.PrivacyUrl" target="_blank">Privacy</a>
+                                                </li>
+                                            }
+                                            if (!string.IsNullOrEmpty(commonPageSettings.ExternalLinks.TermOfUseUrl))
+                                            {
+                                                <li>
+                                                    <a href="@commonPageSettings.ExternalLinks.TermOfUseUrl" target="_blank">Terms of Use</a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                }
+                            }
+                        </div>
+                        <div class="is-inline-block">
+                            @{
+                                if (commonPageSettings?.Copyright != null)
+                                {
+                                    <p class="is-hidden-touch">
+                                        @{
+                                            if (!string.IsNullOrEmpty(commonPageSettings.Copyright.CopyrightYear))
+                                            {
+                                                <span>@Html.Raw(commonPageSettings.Copyright.CopyrightYear)</span>
+                                            }
+                                            if (!string.IsNullOrEmpty(commonPageSettings.Copyright.LastUpdate))
+                                            {
+                                                <span>@Html.Raw(commonPageSettings.Copyright.LastUpdate)</span>
+                                            }
+                                        }
+                                    </p>
+
+                                            if (!string.IsNullOrEmpty(commonPageSettings.Copyright.CopyrightYear))
+                                            {
+                                        <p class="is-hidden-desktop">@Html.Raw(commonPageSettings.Copyright.CopyrightYear)</p>
+                                            }
+                                            if (!string.IsNullOrEmpty(commonPageSettings.Copyright.LastUpdate))
+                                            {
+                                        <p class="is-hidden-desktop last-updated">@Html.Raw(commonPageSettings.Copyright.LastUpdate)</p>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

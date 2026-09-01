@@ -1,0 +1,18 @@
+﻿[
+  {
+    "key": "subject",
+    "data-buildertype": "staticcontent",
+    "content": "Deployment Workflow Has Completed",
+    "isHtml": true
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container"
+  },
+  {
+    "key": "body",
+    "data-buildertype": "staticcontent",
+    "content": "Dear {Name},<br>\n<p>\nDeployment \"{DplyName}\" has been approved. It is now active.<br>\nRemarks:\n<pre>{Remarks}</pre><br>\nUrl: <a href='{SiteUrl}/form/swzdplylist'>OSS</a>.<br>\n</p>\n\n<p>\nRegards\n</p>\n",
+    "isHtml": true
+  }
+]

@@ -1,0 +1,885 @@
+{
+    
+   getCount: function(args){
+        
+
+ var htmlTable = '<table style="border-color: black; width: 100px; height: 100px;" border="1"><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>';
+
+ CloverApp.API.setDataField('HTMLTable',htmlTable);
+        
+    },
+
+  onSearch: function (args){
+
+
+
+        console.log(args.data);
+    var _loadingStart = function() {
+        $('body').loadingModal({
+            text: 'Loading...',
+            animation: 'foldingCube',
+            backgroundColor: '#1262E2'
+        });
+    };
+    
+    var _loadingStop = function() {
+        $('body').loadingModal('destroy');
+    };
+   
+    // Implement function to remove element from array
+    var _removeElement = function(array, element) {
+        var _index = array.indexOf(element);
+        if (_index == -1) return;
+        array.splice(_index, 1);
+    };
+    // Implement function to add elemenbt 
+    var _addUniqueElement = function(array, element) {
+        var _index = array.indexOf(element);
+        if (_index > -1) return;
+        array.push(element);
+    };
+    
+    var _getNumOfWeeks = function(totweeks){
+            var arr = [];
+            
+            if(totweeks == 1)
+            {
+                var obj = { key : 1 ,
+                value : 1 };
+                
+                arr.push(obj);
+            }
+           /* if(totweeks == 1)
+            {
+                var obj = { key : 1 ,
+                value : 1 ,
+                text : "Latest Week"};
+                
+                arr.push(obj);
+            }*/
+            else
+            {
+                 for(let k = 1; k <= totweeks; k++)
+                 {
+               var obj = {
+                        key: k, 
+                        value:k,
+                        text: "Week " + k
+                     };
+                     arr.push(obj);
+                }
+            }
+           
+            return arr;
+        }
+    var dplyId = args.data.ddlDeployment;
+    var surveyType = args.data.ddlSurveyType;
+    var weeks = args.data.ddlWeek;
+    
+    if(dplyId == undefined || dplyId == '' && surveyType == undefined || surveyType == "")
+       return alertify.error('Invalid input');
+    
+    var formData = new FormData();
+        formData.append('dplyId', dplyId);
+        formData.append('rType',surveyType);
+        formData.append('weekNumber',weeks);
+        
+     var url = '/report/dailyereport';
+     
+     var _loadingPromise = new Promise(function(resolve, reject) {
+            _loadingStart();
+
+            setTimeout(() => {
+                resolve({});
+            }, 2000);
+        });
+        
+    var _hideControls = args.state.app.form.models.hideControls;
+    return () => {
+    _loadingStart();
+     return fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                _loadingStop();
+                if (response.success) {
+                    console.log("Response", response);
+                    debugger;
+                    var totweeks = response.count;
+                    var UpperTable = response.UpperTable;
+                    var active = response.Active;
+                    var LowerTable = response.LowerTable;
+                    var htmlTables = '';
+                    var weeksVal = 0;
+                     
+                     
+                     
+                   if(weeks !== null && weeks !== undefined)
+                   {
+                        weeksVal = Object.keys(weeks).length;
+                   }
+                   
+                      if(totweeks == 0)
+                       {
+                        htmlTables = '<br>'+'<table style="width:100%;text-align:center;border-collapse:inherit;border-radius:10px;" border="1" bordercolor="#808080" cellpadding="15" background-color="rgba(230, 247, 255,0.1)"><tbody><tr><td><h4>There is no report snapshot saved for this survey.'+'</h4></td></tr></tbody></table>'+'<br>'+'<hr>';
+                       }
+                      else if(weeks === null || weeks === undefined || weeksVal === 0 )
+                      {
+                        upperRows = UpperTable[totweeks];
+                        middleRows = active[totweeks];
+                        lowerRows = LowerTable[totweeks];
+                        if(upperRows.length == 0 || middleRows.length == 0 || lowerRows.length == 0)
+                       {
+                         htmlTable = '<br>'+'<table style="width:100%;text-align:center;border-collapse:inherit;border-radius:10px;" border="1" bordercolor="#808080" cellpadding="15" background-color="rgba(230, 247, 255,0.1)"><tbody><tr><td><h4>There is no report snapshot saved for week : '+ totweeks + '</h4></td></tr></tbody></table>'+'<br>'+'<hr>';
+                       }
+                        else
+                        {
+                            
+                        var tableStart =  '<br>'+'<br>' +'<table style="width:100%;text-align:center;border-collapse:inherit;border-radius:10px;background-color:rgba(230, 247, 255,0.1);" border="1" bordercolor="#808080" cellpadding="15"><tbody style="border-color:#cccccc;">';
+                        var tableContent = '';
+                        var tableContent2 = '';
+                        var tableContent3 = '';
+                        var tableEnd = '</tbody></table>';
+                       
+                       console.log("upperRow", upperRows);
+                       console.log("MRow", middleRows);
+                       console.log("LRow", lowerRows);
+                       
+                       var preResponse;
+                       if(totweeks !== null && totweeks !== 0 && totweeks !== 1)
+                       {
+                             preResponse = UpperTable[totweeks - 1];
+                       }
+                      
+                   
+                        for(let h = 0 ; h < upperRows.length; h++){
+                           
+                            if(totweeks == null || totweeks == 0 || totweeks == 1 )
+                            {
+                                if(h == 0)
+                                {
+                                 let rowS = '<tr>';
+                                 let rowE = '</tr>';
+                                 let UrowData = '<th style="padding:5px;font-size:16px;width:20%;">' + upperRows[h].EnterpriseType + '</th>' + '<th style="padding:5px;font-size:16px"  colspan="5">' + upperRows[h].ActiveCases + '</th>';
+                                 tableContent = tableContent + rowS + UrowData + rowE;
+                                }
+                                else if ( h == 1)
+                                {
+                                 let rowS = '<tr>';
+                                 let rowE = '</tr>';
+                                 let UrowData = '<th style="padding:5px;font-size:16px;width:20%;">' + upperRows[h].EnterpriseType + '</th>' + '<th style="padding:5px;font-size:16px">' + upperRows[h].ActiveCases + '</th>' + '<th style="padding:5px;font-size:16px">' + upperRows[h].InactiveCases + '</th>'+'<th style="padding:5px;font-size:16px;width:10%;">' + upperRows[h].SampleSize + '</th>'+'<th style="padding:5px;font-size:16px;width:10%;">' + upperRows[h].SampleSizeAft + '</th>'+'<th style="padding:5px;font-size:16px">' + upperRows[h].ResponseRate + '</th>';
+                                 tableContent = tableContent + rowS + UrowData + rowE;
+                                }
+                                else if (h == upperRows.length-1)
+                                {
+                                    let rowS = '<tr bgcolor="#ffad33">';
+                                     let rowE = '</tr>';
+                                     let UrowData = '<td style="padding:5px;width:20%;">' + upperRows[h].EnterpriseType + '</td>' + '<td style="padding:5px">' + upperRows[h].ActiveCases + '</td>' + '<td style="padding:5px">' + upperRows[h].InactiveCases + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[h].SampleSize + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[h].SampleSizeAft + '</td>'+'<td style="padding:5px">' + upperRows[h].ResponseRate + '</td>';
+                                     tableContent = tableContent + rowS + UrowData + rowE;  
+                                }
+                                else
+                                {
+                                     let rowS = '<tr>';
+                                     let rowE = '</tr>';
+                                     let UrowData = '<td style="padding:5px;width:20%;">' + upperRows[h].EnterpriseType + '</td>' + '<td style="padding:5px">' + upperRows[h].ActiveCases + '</td>' + '<td style="padding:5px">' + upperRows[h].InactiveCases + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[h].SampleSize + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[h].SampleSizeAft + '</td>'+'<td style="padding:5px">' + upperRows[h].ResponseRate + '</td>';
+                                     tableContent = tableContent + rowS + UrowData + rowE;  
+                                }
+  
+                         
+                            }
+                            else 
+                            {
+                                
+                                  if(h == 0)
+                                {
+                                 let rowS = '<tr>';
+                                 let rowE = '</tr>';
+                                 let UrowData = '<th style="padding:5px;font-size:16px;width:20%;">' + upperRows[h].EnterpriseType + '</th>' + '<th style="padding:5px;font-size:16px"  colspan="6">' + upperRows[h].ActiveCases + '</th>';
+                                 tableContent = tableContent + rowS + UrowData + rowE;
+                                }
+                                else if ( h == 1)
+                                {
+                                 let rowS = '<tr>';
+                                 let rowE = '</tr>';
+                                 let UrowData = '<th style="padding:5px;font-size:16px;width:20%;">' + upperRows[h].EnterpriseType + '</th>' + '<th style="padding:5px;font-size:16px">' + upperRows[h].ActiveCases + '</th>' + '<th style="padding:5px;font-size:16px">' + upperRows[h].InactiveCases + '</th>'+'<th style="padding:5px;font-size:16px;width:10%;">' + upperRows[h].SampleSize + '</th>'+'<th style="padding:5px;font-size:16px;width:10%;">' + upperRows[h].SampleSizeAft + '</th>'+'<th style="padding:5px;font-size:16px">' + upperRows[h].ResponseRate + '</th>'+'<th style="padding:5px;font-size:16px">' + upperRows[h].ResponseRateforPweek + '</th>';//+'<th style="padding:5px;font-size:16px">' + preResponse[h].ResponseRate + '</th>';
+                                 tableContent = tableContent + rowS + UrowData + rowE;
+                                }
+                                else if (h == upperRows.length-1)
+                                {
+                                    let rowS = '<tr bgcolor="#ffad33">';
+                                     let rowE = '</tr>';
+                                     let UrowData = '<td style="padding:5px;width:20%;">' + upperRows[h].EnterpriseType + '</td>' + '<td style="padding:5px">' + upperRows[h].ActiveCases + '</td>' + '<td style="padding:5px">' + upperRows[h].InactiveCases + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[h].SampleSize + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[h].SampleSizeAft + '</td>'+'<td style="padding:5px">' + upperRows[h].ResponseRate + '</td>'+'<td style="padding:5px">' + upperRows[h].ResponseRateforPweek + '</td>';//+'<td style="padding:5px">' + preResponse[h].ResponseRate + '</td>';
+                                     tableContent = tableContent + rowS + UrowData + rowE;  
+                                }
+                                else
+                                {
+                                     let rowS = '<tr>';
+                                     let rowE = '</tr>';
+                                     let UrowData = '<td style="padding:5px;width:20%;">' + upperRows[h].EnterpriseType + '</td>' + '<td style="padding:5px">' + upperRows[h].ActiveCases + '</td>' + '<td style="padding:5px">' + upperRows[h].InactiveCases + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[h].SampleSize + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[h].SampleSizeAft + '</td>'+'<td style="padding:5px">' + upperRows[h].ResponseRate + '</td>'+'<td style="padding:5px">' + upperRows[h].ResponseRateforPweek + '</td>';//+'<td style="padding:5px">' + preResponse[h].ResponseRate + '</td>';
+                                     tableContent = tableContent + rowS + UrowData + rowE;  
+                                }
+  
+                    
+                            }
+                                    
+                         
+                            
+                       }
+                    
+                        for(let g = 0 ; g < middleRows.length; g++){
+                            let rowSU = '<tr>';
+                            let rowEU = '</tr>';
+                             let MrowData = '';
+                            
+                            if( surveyType == 'MP' || surveyType == 'IU')
+                            
+                            {
+                               if(g == 0)
+                               {
+                                   MrowData = '<th style="padding:5px;font-size:16px;">' + middleRows[g].ResponseCategory + '</th>' + '<th style="padding:5px;font-size:16px;">' + middleRows[g].Status + '</th>' + '<th style="padding:5px;font-size:16px;">' + middleRows[g].TA + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[g].MTS + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[g].STS + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[g].Total + '</th>'+'<th></th>';                    
+                               }
+                               else if (g == middleRows.length-1)
+                               {
+                                   MrowData = '<td style="padding:5px">' + middleRows[g].ResponseCategory + '</td>' + '<td style="padding:5px" bgcolor="#b3d9ff">' + middleRows[g].Status + '</td>' + '<td style="padding:5px">' + middleRows[g].TA + '</td>'+'<td style="padding:5px">' + middleRows[g].MTS + '</td>'+'<td style="padding:5px">' + middleRows[g].STS + '</td>'+'<td style="padding:5px">' + middleRows[g].Total + '</td>'+'<td></td>';                              
+                               }
+                               else
+                               {
+                                   MrowData = '<td style="padding:5px">' + middleRows[g].ResponseCategory + '</td>' + '<td style="padding:5px">' + middleRows[g].Status + '</td>' + '<td style="padding:5px">' + middleRows[g].TA + '</td>'+'<td style="padding:5px">' + middleRows[g].MTS + '</td>'+'<td style="padding:5px">' + middleRows[g].STS + '</td>'+'<td style="padding:5px">' + middleRows[g].Total + '</td>'+'<td></td>';                                                   
+                               }
+                         
+                            }
+                            else
+                            {
+                                
+                                if(g == 0)
+                                {
+                                   MrowData = '<th style="padding:5px;font-size:16px;">' + middleRows[g].ResponseCategory + '</th>' + '<th style="padding:5px;font-size:16px;">' + middleRows[g].Status + '</th>' + '<th style="padding:5px;font-size:16px;">' + middleRows[g].TA + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[g].TS + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[g].Total + '</th>'+'<th style="padding:5px;font-size:16px;"> </th>'+'<th style="padding:5px;font-size:16px;"> </th>' ;                                    
+                                }
+                                else if (g == middleRows.length-1)
+                                {
+                                    MrowData = '<td style="padding:5px">' + middleRows[g].ResponseCategory + '</td>' + '<td style="padding:5px" bgcolor="#b3d9ff">' + middleRows[g].Status + '</td>' + '<td style="padding:5px">' + middleRows[g].TA + '</td>'+'<td style="padding:5px">' + middleRows[g].TS + '</td>'+'<td style="padding:5px">' + middleRows[g].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td style="padding:5px"> </td>' ;                                    
+                                }
+                                else
+                                {
+                                   MrowData = '<td style="padding:5px">' + middleRows[g].ResponseCategory + '</td>' + '<td style="padding:5px">' + middleRows[g].Status + '</td>' + '<td style="padding:5px">' + middleRows[g].TA + '</td>'+'<td style="padding:5px">' + middleRows[g].TS + '</td>'+'<td style="padding:5px">' + middleRows[g].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td style="padding:5px"> </td>' ;                                                                       
+                                }
+                         
+                            }
+                           
+                            tableContent2 = tableContent2 + rowSU + MrowData + rowEU;
+                            
+                       }
+                   
+                        for(let k = 0 ; k < lowerRows.length; k++){
+                            let rowSL = '<tr>';
+                            let rowEL = '</tr>';
+                            let LrowData = '';
+                            if( surveyType == 'MP' || surveyType == 'IU')
+                            {
+                             
+                                if( k == lowerRows.length-2 )
+                                {
+                              
+                                    LrowData = '<td style="padding:5px">' + lowerRows[k].ResponseCategory + '</td>' + '<td style="padding:5px" bgcolor="#b3d9ff">' + lowerRows[k].Status + '</td>' + '<td style="padding:5px;font-size:16px;">' + lowerRows[k].TA + '</td>'+'<td style="padding:5px;font-size:16px;">' + lowerRows[k].MTS + '</td>'+'<td style="padding:5px;font-size:16px;">' + lowerRows[k].STS + '</td>'+'<td style="padding:5px;font-size:16px;">' + lowerRows[k].Total + '</td>'+'<td></td>';
+                                }
+                                else if( k == lowerRows.length-5 )
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[k].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[k].Status + '</td>' + '<td style="padding:5px">' + lowerRows[k].TA + '</td>'+'<td style="padding:5px">' + lowerRows[k].MTS + '</td>'+'<td style="padding:5px">' + lowerRows[k].STS + '</td>'+'<td style="padding:5px">' + lowerRows[k].Total + '</td>'+'<td></td>';
+                                }
+                                else if ( k == lowerRows.length-10 )
+                                {
+                                   LrowData = '<td style="padding:5px">' + lowerRows[k].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[k].Status + '</td>' + '<td style="padding:5px">' + lowerRows[k].TA + '</td>'+'<td style="padding:5px">' + lowerRows[k].MTS + '</td>'+'<td style="padding:5px">' + lowerRows[k].STS + '</td>'+'<td style="padding:5px">' + lowerRows[k].Total + '</td>'+'<td></td>';                                
+                                }
+                                else
+                                {
+                                   LrowData = '<td style="padding:5px">' + lowerRows[k].ResponseCategory + '</td>' + '<td style="padding:5px">' + lowerRows[k].Status + '</td>' + '<td style="padding:5px">' + lowerRows[k].TA + '</td>'+'<td style="padding:5px">' + lowerRows[k].MTS + '</td>'+'<td style="padding:5px">' + lowerRows[k].STS + '</td>'+'<td style="padding:5px">' + lowerRows[k].Total + '</td>'+'<td></td>';                                    
+                                }
+                                
+                            }
+                            else
+                            {
+                                if( k == lowerRows.length-2 )
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[k].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[k].Status + '</td>' + '<td style="padding:5px">' + lowerRows[k].TA + '</td>'+'<td style="padding:5px">' + lowerRows[k].TS + '</td>'+'<td style="padding:5px">' + lowerRows[k].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td style="padding:5px"> </td>';
+                                }
+                                else if( k == lowerRows.length-5 )
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[k].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[k].Status + '</td>' + '<td style="padding:5px">' + lowerRows[k].TA + '</td>'+'<td style="padding:5px">' + lowerRows[k].TS + '</td>'+'<td style="padding:5px">' + lowerRows[k].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td style="padding:5px"> </td>';
+                                }
+                                else if ( k == lowerRows.length-10 )
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[k].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[k].Status + '</td>' + '<td style="padding:5px">' + lowerRows[k].TA + '</td>'+'<td style="padding:5px">' + lowerRows[k].TS + '</td>'+'<td style="padding:5px">' + lowerRows[k].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td style="padding:5px"> </td>';
+                                }
+                                else
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[k].ResponseCategory + '</td>' + '<td style="padding:5px">' + lowerRows[k].Status + '</td>' + '<td style="padding:5px">' + lowerRows[k].TA + '</td>'+'<td style="padding:5px">' + lowerRows[k].TS + '</td>'+'<td style="padding:5px">' + lowerRows[k].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td style="padding:5px"> </td>';
+                                }
+                         
+                        
+                            }
+                                tableContent3 = tableContent3 + rowSL + LrowData + rowEL;
+                            
+                       }
+                       
+                       
+                       
+                        var htmlTable = tableStart + tableContent + tableContent2 + tableContent3 + tableEnd;
+                        
+                        }
+                        htmlTables = htmlTables + htmlTable;
+                   }
+                      else
+                      {
+                        
+                      var weekFilterCount = Object.keys(weeks).length;
+                      var htmlTables = '';
+                      
+                      for (var v = 0 ; v < weekFilterCount; v++)
+                        {
+                         
+                        
+                        var tableContent = '';
+                        var tableContent2 = '';
+                        var tableContent3 = '';
+                        
+                        var filterWeek = weeks[v];
+                           
+                             upperRows = UpperTable[filterWeek];
+                             middleRows = active[filterWeek];
+                             lowerRows = LowerTable[filterWeek];
+                             
+                             if(upperRows.length == 0 || middleRows.length == 0 || lowerRows.length == 0)
+                             {
+                                 htmlTable = '<br>'+'<table style="width:100%;text-align:center;border-collapse:inherit;border-radius:10px;" border="1" bordercolor="#808080" cellpadding="15" background-color="rgba(230, 247, 255,0.1)"><tbody><tr><td><h4> There is no report snapshot saved for week : '+ filterWeek + '</h4></td></tr></tbody></table>'+'<br>'+'<hr>';
+                             }
+                             else
+                             {
+                                 
+                            
+                           
+                        var tableStart =  '<br>'+'<br>'+'<table style="width:100%;text-align:center;border-collapse:inherit;border-radius:10px;" border="1" bordercolor="#808080" cellpadding="15" background-color="rgba(230, 247, 255,0.1)"><tbody style="border-color:#cccccc;">';
+                        var tableEnd = '</tbody></table>'+'<br>'+'<br>'+'<hr>';
+                       
+                       console.log("upperRow", upperRows);
+                       console.log("MRow", middleRows);
+                       console.log("LRow", lowerRows);  
+                       var preResponse;
+                  
+                       if(filterWeek !== null && filterWeek !== 0 && filterWeek !== 1)
+                       {
+                           preResponse = UpperTable[filterWeek - 1];
+                       }
+                     
+                      
+                           
+                     for(let p = 0 ; p < upperRows.length; p++){
+           
+           
+                     if(filterWeek == null || filterWeek == 0 || filterWeek == 1)
+                        
+                        {
+                            let rowS = '<tr>';
+                            let rowE = '</tr>';
+                            let UrowData = '<td style="padding:5px">' + upperRows[p].EnterpriseType + '</td>' + '<td>' + upperRows[p].ActiveCases + '</td>' + '<td>' + upperRows[p].InactiveCases + '</td>'+'<td>' + upperRows[p].SampleSize + '</td>'+'<td>' + upperRows[p].SampleSizeAft + '</td>'+'<td>' + upperRows[p].ResponseRate + '</td>' ;
+                            //tableContent = tableContent + rowS + UrowData + rowE;
+
+
+
+                                     if(p == 0)
+                                {
+                                 let rowS = '<tr>';
+                                 let rowE = '</tr>';
+                                 let UrowData = '<th style="padding:5px;font-size:16px;width:20%;">' + upperRows[p].EnterpriseType + '</th>' + '<th style="padding:5px;font-size:16px"  colspan="5">' + upperRows[p].ActiveCases + '</th>';
+                                 tableContent = tableContent + rowS + UrowData + rowE;
+                                }
+                                else if ( p == 1)
+                                {
+                                 let rowS = '<tr>';
+                                 let rowE = '</tr>';
+                                 let UrowData = '<th style="padding:5px;font-size:16px;width:20%;">' + upperRows[p].EnterpriseType + '</th>' + '<th style="padding:5px;font-size:16px">' + upperRows[p].ActiveCases + '</th>' + '<th style="padding:5px;font-size:16px">' + upperRows[p].InactiveCases + '</th>'+'<th style="padding:5px;font-size:16px;width:10%;">' + upperRows[p].SampleSize + '</th>'+'<th style="padding:5px;font-size:16px;width:10%;">' + upperRows[p].SampleSizeAft + '</th>'+'<th style="padding:5px;font-size:16px">' + upperRows[p].ResponseRate + '</th>';
+                                 tableContent = tableContent + rowS + UrowData + rowE;
+                                }
+                                else if (p == upperRows.length-1)
+                                {
+                                    let rowS = '<tr bgcolor="#ffad33">';
+                                     let rowE = '</tr>';
+                                     let UrowData = '<td style="padding:5px;width:20%;">' + upperRows[p].EnterpriseType + '</td>' + '<td style="padding:5px">' + upperRows[p].ActiveCases + '</td>' + '<td style="padding:5px">' + upperRows[p].InactiveCases + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[p].SampleSize + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[p].SampleSizeAft + '</td>'+'<td style="padding:5px">' + upperRows[p].ResponseRate + '</td>';
+                                     tableContent = tableContent + rowS + UrowData + rowE;  
+                                }
+                                else
+                                {
+                                     let rowS = '<tr>';
+                                     let rowE = '</tr>';
+                                     let UrowData = '<td style="padding:5px;width:20%;">' + upperRows[p].EnterpriseType + '</td>' + '<td style="padding:5px">' + upperRows[p].ActiveCases + '</td>' + '<td style="padding:5px">' + upperRows[p].InactiveCases + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[p].SampleSize + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[p].SampleSizeAft + '</td>'+'<td style="padding:5px">' + upperRows[p].ResponseRate + '</td>';
+                                     tableContent = tableContent + rowS + UrowData + rowE;  
+                                }
+
+
+                         }
+                         else
+                         {
+                                if(p == 0)
+                                {
+                                 let rowS = '<tr>';
+                                 let rowE = '</tr>';
+                                 let UrowData = '<th style="padding:5px;font-size:16px;width:15%;">' + upperRows[p].EnterpriseType + '</th>' + '<th style="padding:5px;font-size:16px"  colspan="6">' + upperRows[p].ActiveCases + '</th>';
+                                 tableContent = tableContent + rowS + UrowData + rowE;
+                                }
+                                else if ( p == 1)
+                                {
+                                 let rowS = '<tr>';
+                                 let rowE = '</tr>';
+                                 let UrowData = '<th style="padding:5px;font-size:16px;width:20%;">' + upperRows[p].EnterpriseType + '</th>' + '<th style="padding:5px;font-size:16px">' + upperRows[p].ActiveCases + '</th>' + '<th style="padding:5px;font-size:16px">' + upperRows[p].InactiveCases + '</th>'+'<th style="padding:5px;font-size:16px;width:10%;">' + upperRows[p].SampleSize + '</th>'+'<th style="padding:5px;font-size:16px;width:10%;">' + upperRows[p].SampleSizeAft + '</th>'+'<th style="padding:5px;font-size:16px">' + upperRows[p].ResponseRate +'</th>'+'<th style="padding:5px;font-size:16px">' + upperRows[p].ResponseRateforPweek + '</th>';//+'<th style="padding:5px;font-size:16px">' + preResponse[p].ResponseRate + '</th>';
+                                 tableContent = tableContent + rowS + UrowData + rowE;
+                                }
+                                else if (p == upperRows.length-1)
+                                {
+                                     let rowS = '<tr bgcolor="#ffad33">';
+                                     let rowE = '</tr>';
+                                     let UrowData = '<td style="padding:5px;width:20%;">' + upperRows[p].EnterpriseType + '</td>' + '<td style="padding:5px">' + upperRows[p].ActiveCases + '</td>' + '<td style="padding:5px">' + upperRows[p].InactiveCases + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[p].SampleSize + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[p].SampleSizeAft + '</td>'+'<td style="padding:5px">' + upperRows[p].ResponseRate + '</td>'+'<td style="padding:5px">' + upperRows[p].ResponseRateforPweek + '</td>';//+'<td style="padding:5px">' + preResponse[p].ResponseRate + '</td>';
+                                     tableContent = tableContent + rowS + UrowData + rowE;  
+                                }
+                                else
+                                {
+                                     let rowS = '<tr>';
+                                     let rowE = '</tr>';
+                                     let UrowData = '<td style="padding:5px;width:20%;">' + upperRows[p].EnterpriseType + '</td>' + '<td style="padding:5px">' + upperRows[p].ActiveCases + '</td>' + '<td style="padding:5px">' + upperRows[p].InactiveCases + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[p].SampleSize + '</td>'+'<td style="padding:5px;width:10%;">' + upperRows[p].SampleSizeAft + '</td>'+'<td style="padding:5px">' + upperRows[p].ResponseRate + '</td>'+'<td style="padding:5px">' + upperRows[p].ResponseRateforPweek + '</td>';//+'<td style="padding:5px">' + preResponse[p].ResponseRate + '</td>';
+                                     tableContent = tableContent + rowS + UrowData + rowE;  
+                                }
+                         }
+           
+                            
+                       }
+                       
+                      
+                     for(let q = 0 ; q < middleRows.length; q++){
+                            let rowSU = '<tr>';
+                            let rowEU = '</tr>';
+                            let MrowData = '';
+                            
+                            if( surveyType == 'MP' || surveyType == 'IU')
+                            
+                            {
+                               if(q == 0)
+                               {
+                                   MrowData = '<th style="padding:5px;font-size:16px;">' + middleRows[q].ResponseCategory + '</th>' + '<th style="padding:5px;font-size:16px;">' + middleRows[q].Status + '</th>' + '<th style="padding:5px;font-size:16px;">' + middleRows[q].TA + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[q].MTS + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[q].STS + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[q].Total + '</th>'+'<th></th>';                    
+                               }
+                               else if (q == middleRows.length-1)
+                               {
+                                   MrowData = '<td style="padding:5px">' + middleRows[q].ResponseCategory + '</td>' + '<td style="padding:5px" bgcolor="#b3d9ff">' + middleRows[q].Status + '</td>' + '<td style="padding:5px">' + middleRows[q].TA + '</td>'+'<td style="padding:5px">' + middleRows[q].MTS + '</td>'+'<td style="padding:5px">' + middleRows[q].STS + '</td>'+'<td style="padding:5px">' + middleRows[q].Total + '</td>'+'<td></td>';                              
+                               }
+                               else
+                               {
+                                   MrowData = '<td style="padding:5px">' + middleRows[q].ResponseCategory + '</td>' + '<td style="padding:5px">' + middleRows[q].Status + '</td>' + '<td style="padding:5px">' + middleRows[q].TA + '</td>'+'<td style="padding:5px">' + middleRows[q].MTS + '</td>'+'<td style="padding:5px">' + middleRows[q].STS + '</td>'+'<td style="padding:5px">' + middleRows[q].Total + '</td>'+'<td></td>';                                                   
+                               }
+                         
+                            }
+                            else
+                             {
+                                
+                                if(q == 0)
+                                {
+                                   MrowData = '<th style="padding:5px;font-size:16px;">' + middleRows[q].ResponseCategory + '</th>' + '<th style="padding:5px;font-size:16px;">' + middleRows[q].Status + '</th>' + '<th style="padding:5px;font-size:16px;">' + middleRows[q].TA + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[q].TS + '</th>'+'<th style="padding:5px;font-size:16px;">' + middleRows[q].Total + '</th>'+'<th style="padding:5px;font-size:16px;"> </th>'+'<th> </th>';                                    
+                                }
+                                else if (q == middleRows.length-1)
+                                {
+                                    MrowData = '<td style="padding:5px">' + middleRows[q].ResponseCategory + '</td>' + '<td style="padding:5px" bgcolor="#b3d9ff">' + middleRows[q].Status + '</td>' + '<td style="padding:5px">' + middleRows[q].TA + '</td>'+'<td style="padding:5px">' + middleRows[q].TS + '</td>'+'<td style="padding:5px">' + middleRows[q].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td></td>' ;                                    
+                                }
+                                else
+                                {
+                                   MrowData = '<td style="padding:5px">' + middleRows[q].ResponseCategory + '</td>' + '<td style="padding:5px">' + middleRows[q].Status + '</td>' + '<td style="padding:5px">' + middleRows[q].TA + '</td>'+'<td style="padding:5px">' + middleRows[q].TS + '</td>'+'<td style="padding:5px">' + middleRows[q].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td></td>' ;                                                                       
+                                }
+                         
+                            }
+                           
+                            tableContent2 = tableContent2 + rowSU + MrowData + rowEU;
+                            
+                       }
+                       
+                     for(let r = 0 ; r < lowerRows.length; r++){
+                            let rowSL = '<tr>';
+                            let rowEL = '</tr>';
+                            let LrowData = '';
+                            if( surveyType == 'MP' || surveyType == 'IU')
+                            {
+                             
+                                if( r == lowerRows.length-2 )
+                                {
+                              
+                                    LrowData = '<td style="padding:5px">' + lowerRows[r].ResponseCategory + '</td>' + '<td style="padding:5px" bgcolor="#b3d9ff">' + lowerRows[r].Status + '</td>' + '<td style="padding:5px;font-size:16px;">' + lowerRows[r].TA + '</td>'+'<td style="padding:5px;font-size:16px;">' + lowerRows[r].MTS + '</td>'+'<td style="padding:5px;font-size:16px;">' + lowerRows[r].STS + '</td>'+'<td style="padding:5px;font-size:16px;">' + lowerRows[r].Total + '</td>'+'<td></td>';
+                                }
+                                else if( r == lowerRows.length-5 )
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[r].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[r].Status + '</td>' + '<td style="padding:5px">' + lowerRows[r].TA + '</td>'+'<td style="padding:5px">' + lowerRows[r].MTS + '</td>'+'<td style="padding:5px">' + lowerRows[r].STS + '</td>'+'<td style="padding:5px">' + lowerRows[r].Total + '</td>'+'<td></td>';
+                                }
+                                else if ( r == lowerRows.length-10 )
+                                {
+                                   LrowData = '<td style="padding:5px">' + lowerRows[r].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[r].Status + '</td>' + '<td style="padding:5px">' + lowerRows[r].TA + '</td>'+'<td style="padding:5px">' + lowerRows[r].MTS + '</td>'+'<td style="padding:5px">' + lowerRows[r].STS + '</td>'+'<td style="padding:5px">' + lowerRows[r].Total + '</td>'+'<td></td>';                                
+                                }
+                                else
+                                {
+                                   LrowData = '<td style="padding:5px">' + lowerRows[r].ResponseCategory + '</td>' + '<td style="padding:5px">' + lowerRows[r].Status + '</td>' + '<td style="padding:5px">' + lowerRows[r].TA + '</td>'+'<td style="padding:5px">' + lowerRows[r].MTS + '</td>'+'<td style="padding:5px">' + lowerRows[r].STS + '</td>'+'<td style="padding:5px">' + lowerRows[r].Total + '</td>'+'<td></td>';                                    
+                                }
+                                
+                            }
+                            else
+                            {
+                                if( r == lowerRows.length-2 )
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[r].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[r].Status + '</td>' + '<td style="padding:5px">' + lowerRows[r].TA + '</td>'+'<td style="padding:5px">' + lowerRows[r].TS + '</td>'+'<td style="padding:5px">' + lowerRows[r].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td></td>';
+                                }
+                                else if( r == lowerRows.length-5 )
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[r].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[r].Status + '</td>' + '<td style="padding:5px">' + lowerRows[r].TA + '</td>'+'<td style="padding:5px">' + lowerRows[r].TS + '</td>'+'<td style="padding:5px">' + lowerRows[r].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td></td>';
+                                }
+                                else if ( r == lowerRows.length-10 )
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[r].ResponseCategory + '</td>' + '<td style="padding:5px"  bgcolor="#b3d9ff">' + lowerRows[r].Status + '</td>' + '<td style="padding:5px">' + lowerRows[r].TA + '</td>'+'<td style="padding:5px">' + lowerRows[r].TS + '</td>'+'<td style="padding:5px">' + lowerRows[r].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td></td>';
+                                }
+                                else
+                                {
+                                    LrowData = '<td style="padding:5px">' + lowerRows[r].ResponseCategory + '</td>' + '<td style="padding:5px">' + lowerRows[r].Status + '</td>' + '<td style="padding:5px">' + lowerRows[r].TA + '</td>'+'<td style="padding:5px">' + lowerRows[r].TS + '</td>'+'<td style="padding:5px">' + lowerRows[r].Total + '</td>'+'<td style="padding:5px"> </td>'+'<td></td>';
+                                }
+                        
+                            }
+                                tableContent3 = tableContent3 + rowSL + LrowData + rowEL;
+                        
+                       }
+                          
+                        var htmlTable = tableStart + tableContent + tableContent2 + tableContent3 + tableEnd;
+                }
+                             htmlTables = htmlTables + htmlTable;
+                        }
+
+                    }
+                   
+                    var exportData = response;
+                    CloverApp.API.setDataField('HTMLTable',htmlTables);
+                    CloverApp.API.setDataField('exportData', exportData);
+                    CloverApp.API.setDataField('ddlData',exportData);
+                    CloverApp.API.setDataField('btnSearch', true);
+                    var ddlRewrite = function (model) {
+                        model['data-elements'] = _getNumOfWeeks(totweeks);
+                    }
+                    CloverApp.API.rewriteControlModel("ddlWeek", ddlRewrite);
+                    _removeElement(_hideControls, 'ddlWeek');
+                    
+                    console.log("args data", args.data);
+                    console.log("Hide control ddl week", _hideControls);
+                    return Promise.resolve(
+                        {
+                            stateDelta: {
+                                app: {
+                                    form: {
+                                        models: {
+                                            hideControls: _hideControls
+                                        }
+                                    }
+                                },
+                            }
+                        });  
+                        
+               } else {
+                    alertify.error(response.message);
+                }
+
+            })
+           .catch(error => {
+               alertify.error(error.message);;
+            });
+    };
+  },
+  
+   onExport : function(args){
+      
+      
+                     console.log("args", args.data);
+  
+                     var exportData = args.data.exportData;
+                     var Length = exportData.count;
+                     var weeks = args.data.ddlWeek;
+    
+                    var active = exportData.Active;
+                    var LowerTable = exportData.LowerTable;
+                    var UpperTable = exportData.UpperTable;
+                     var LowerRows;
+                     var MiddleRows;
+                     var UpperRows;
+                   var weeksVal;
+                   if(weeks !== null && weeks !== undefined)
+                   {
+                        weeksVal = Object.keys(weeks).length;
+                   }
+                     if(weeks === null || weeks === undefined || weeksVal === 0 )
+                    {
+                             LowerRows = LowerTable[Length];
+                             MiddleRows = active[Length];
+                             UpperRows = UpperTable[Length];
+             
+                            var objArray; 
+                            var str = ' ';
+             
+                            var UTable = UpperRows.concat(MiddleRows);
+                            objArray = UTable.concat(LowerRows);
+              
+               
+              
+                            var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+                         
+                          
+                          for (var n = 0; n< array.length; n++)
+                          {
+                              var line = ' ';
+                              
+                              for (var index in array[n])
+                              {
+                                  line += ' '+ array[n][index] + ',';
+                                  
+                              }
+                              
+                              line.slice(0,line.length-1);
+                              str += line + '\r\n';
+                          }
+              
+            
+                            var surveyType = args.data.ddlSurveyType;
+                            var filename = "IMDADailyResponseReport_"+surveyType+"_Week"+ Length ;
+                   
+                             var downloadLink = document.createElement("a");
+                             var blob = new Blob(["\ufeff",str]);
+                             var url = URL.createObjectURL(blob);
+                            downloadLink.href = url;
+                            downloadLink.download = filename+".csv"; 
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+      
+                           
+                           
+                       }
+                    else
+                    {
+                            var weekFilterCount = Object.keys(weeks).length;
+                            
+                           for (var z = 0 ; z < weekFilterCount; z++)
+                           {
+                           
+                               
+                                var filterWeek = weeks[z];
+                               
+                                 UpperRows = UpperTable[filterWeek];
+                                 MiddleRows = active[filterWeek];
+                                 LowerRows = LowerTable[filterWeek];
+                                  var objArray; 
+                            var str = ' ';
+             
+                            var FilterTable = UpperRows.concat(MiddleRows);
+                            objArray = FilterTable.concat(LowerRows);
+              
+               
+              
+                            var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+                         
+                          
+                          for (var n = 0; n< array.length; n++)
+                          {
+                              var line = ' ';
+                              
+                              for (var index in array[n])
+                              {
+                                  line += ' '+ array[n][index] + ',';
+                                  
+                              }
+                              
+                              line.slice(0,line.length-1);
+                              str += line + '\r\n';
+                          }
+              
+                            var surveyType = args.data.ddlSurveyType;
+                            var filename = "IMDADailyResponseReport_"+surveyType+"_Week"+ filterWeek ;
+                             var downloadLink = document.createElement("a");
+                             var blob = new Blob(["\ufeff",str]);
+                             var url = URL.createObjectURL(blob);
+                            downloadLink.href = url;
+                            downloadLink.download = filename+".csv"; 
+                            document.body.appendChild(downloadLink);
+                            downloadLink.click();
+                            document.body.removeChild(downloadLink);
+          
+                           }
+                           
+                       }
+                   
+  },
+  
+   onChange : function(args){
+       
+     
+     
+   
+    debugger;
+     CloverApp.API.setDataField("ddlWeek",[]); 
+            var ddlRewrite = function (model) {
+                  
+                            model['data-elements'] = 0;
+                        }
+          
+          CloverApp.API.setDataField('btnSearch',undefined);
+          CloverApp.API.rewriteControlModel("ddlWeek",ddlRewrite); 
+          //CloverApp.API.setDataField("ddlWeek",false);
+          CloverApp.API.setDataField("ddlSurveyType", []);
+          CloverApp.API.setDataField('HTMLTable',' ');
+
+               
+       
+   },
+   
+   
+   
+   
+   btnCSV : function(args){
+    
+          console.log("args", args.data);
+             debugger;
+                   
+  
+                     var exportData = args.data.exportData;
+                     var Length = exportData.count;
+                     var weeks = args.data.ddlWeek;
+    
+                     var active = exportData.Active;
+                     var LowerTable = exportData.LowerTable;
+                     var UpperTable = exportData.UpperTable;
+                     var LowerRows;
+                     var MiddleRows;
+                     var UpperRows;
+                     
+                        if(weeks !== null && weeks !== undefined)
+                   
+                   {
+                        weeksVal = Object.keys(weeks).length;
+                   }
+               
+                   if(weeks === null || weeks === undefined || weeksVal === 0 )
+                   
+                   
+                   {
+                         LowerRows = LowerTable[Length];
+                         MiddleRows = active[Length];
+                         UpperRows = UpperTable[Length];
+         
+                        var objArray; 
+                        var str = ' ';
+         
+                        var UTable = UpperRows.concat(MiddleRows);
+                        objArray = UTable.concat(LowerRows);
+          
+           
+          
+                        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+                     
+                      
+                      for (var n = 0; n< array.length; n++)
+                      {
+                          var line = ' ';
+                          
+                          for (var index in array[n])
+                          {
+                              line += ' '+ array[n][index] + ',';
+                              
+                          }
+                          
+                          line.slice(0,line.length-1);
+                          str += line + '\r\n';
+                      }
+          
+        
+                        var surveyType = args.data.ddlSurveyType;
+                        var filename = "IMDADailyResponseReport_"+surveyType+"_Week"+ Length ;
+               
+                         var downloadLink = document.createElement("a");
+                         var blob = new Blob(["\ufeff",str]);
+                         var url = URL.createObjectURL(blob);
+                        downloadLink.href = url;
+                        downloadLink.download = filename+".csv"; 
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+  
+                   }
+                   
+                   
+                else
+                   {
+                        var weekFilterCount = Object.keys(weeks).length;
+                        
+                       
+                          
+                        var objArray1 = []; //array
+                        var str = ' ';
+                        
+                        for (var z = 0 ; z < weekFilterCount; z++)
+                       {
+                       
+                           
+                         var filterWeek = weeks[z];
+                           
+                         UpperRows = UpperTable[filterWeek];
+                         MiddleRows = active[filterWeek];
+                         LowerRows = LowerTable[filterWeek];
+         
+                         var FilterTable = UpperRows.concat(MiddleRows);
+                         second = FilterTable.concat(LowerRows);
+                         
+                         objArray1.push(second);
+                         
+                         
+          
+                       }
+                       
+                        var objArray = [];
+                       for (let l = 0 ; l < objArray1.length ; l++)
+                       {
+                            objArray = objArray.concat(objArray1[l]);
+                       }
+                        console.log(objArray);
+          
+                      var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+                      for (var n = 0; n< array.length; n++)
+                      {
+                          var line = ' ';
+                          
+                          for (var index in array[n])
+                          {
+                              line += ' '+ array[n][index] + ',';
+                              
+                          }
+                          
+                          line.slice(0,line.length-1);
+                          str += line + '\r\n';
+                      }
+          
+                        var surveyType = args.data.ddlSurveyType;
+                        var filename = "IMDADailyResponseReport_"+surveyType+"_Week"+ filterWeek ;
+                         var downloadLink = document.createElement("a");
+                         var blob = new Blob(["\ufeff",str]);
+                         var url = URL.createObjectURL(blob);
+                        downloadLink.href = url;
+                        downloadLink.download = filename+".csv"; 
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+      
+                       }
+                       
+
+  },
+  
+  
+}
+

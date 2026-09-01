@@ -1,0 +1,160 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "User Access Matrix",
+    "size": "huge",
+    "textAlign": "left",
+    "style-marginBottom": "20px",
+    "subheader": "Schedule 'by Role++' PDF Emails"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "structDivision",
+            "data-buildertype": "dropdown",
+            "label": "Organisation",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [],
+            "style-width": "200px",
+            "style-marginBottom": "20px",
+            "placeholder": "Organization",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "initSchedule"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          },
+          {
+            "key": "formgroup_1",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "orientation": "grouped",
+            "other-visibleConition": "(data.structDivision !== undefined &&  data.structDivision  !== \"\")",
+            "children": [
+              {
+                "key": "isEnable",
+                "data-buildertype": "checkbox",
+                "label": "On / Off",
+                "toggle": true,
+                "style-marginBottom": "20px",
+                "events": {}
+              },
+              {
+                "key": "schedule",
+                "data-buildertype": "dropdown",
+                "label": "Schedule",
+                "fluid": false,
+                "selection": true,
+                "data-elements": [
+                  {
+                    "key": 1,
+                    "value": "Daily",
+                    "text": "Daily"
+                  },
+                  {
+                    "key": 2,
+                    "value": "Weekly",
+                    "text": "Weekly"
+                  },
+                  {
+                    "key": 3,
+                    "value": "Monthly",
+                    "text": "Monthly"
+                  },
+                  {
+                    "value": "Yearly",
+                    "text": "Yearly"
+                  }
+                ],
+                "style-width": "200px",
+                "style-marginBottom": "20px",
+                "other-customValidation": "value !== null && value !== '' ? true : 'Please select a schedule.'",
+                "events": {},
+                "other-required": true
+              },
+              {
+                "key": "receiver",
+                "data-buildertype": "input",
+                "label": "Recipients (Comma delimited list of email addresses)",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "placeholder": "admin@example.com, admin2@example.com",
+                "style-width": "640px",
+                "style-marginBottom": "20px"
+              }
+            ],
+            "style-source": "border-top: 1px solid black; padding-top: 20px;"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btn_Save",
+                "data-buildertype": "button",
+                "content": "Save",
+                "primary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "saveSetting"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "floated": "",
+                "buttonType": "submit",
+                "other-readOnlyConition": "",
+                "other-visibleConition": "(data.structDivision !== undefined &&  data.structDivision  !== \"\")",
+                "style-marginRight": "20px"
+              },
+              {
+                "key": "btn_Cancel",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "redirect"
+                    ],
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "name": "target",
+                        "value": "UserAccessMatrix"
+                      }
+                    ]
+                  }
+                },
+                "style-marginRight": "20px"
+              }
+            ],
+            "style-float": "left"
+          }
+        ],
+        "style-source": "",
+        "other-visibleConition": "",
+        "events": {}
+      }
+    ],
+    "events": {},
+    "other-visibleConition": ""
+  }
+]

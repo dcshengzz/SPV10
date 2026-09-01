@@ -1,0 +1,42 @@
+﻿@* _Layout, used for help screen, password reset form (but not change password form), download pdf form (legacy/unused now?) 
+    This was previously used for direct URL / refresh access to surveys, but StarterApplication now uses shared Index.cshtml and thus _RespLayout
+    Note that the login page uses the NoTimeoutScript variant of this and has diverged *@
+@using swz.SurveyPlus.InternetApplication;
+@{
+    string cspNonce = (string)Context.Items["CSP_NONCE"];
+    CommonPageSettingsOptions commonPageSettings = (CommonPageSettingsOptions)(ViewData["CommonPageSettings"] ?? null);
+    bool isAgencyBannerEnable = commonPageSettings?.AgencyBanner != null && commonPageSettings.AgencyBanner.Enable;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Layout i -->
+<head>
+    <title>@(commonPageSettings.ShortApplicationName)</title>
+    <link rel="Shortcut Icon" href="@String.Format("/{0}/favicon.ico", commonPageSettings.BrandingImagePath)" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <script id="wogaa"></script>
+</head>
+<body>
+    <script src="@Url.Content("~/scripts/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/alertify.js")" type="text/javascript"></script>
+    <script nonce="@(cspNonce)">window.paceOptions = { restartOnPushState: false };</script>
+    <script src="@Url.Content("~/scripts/pace.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.loadingModal.min.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/css/base/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/pace-theme-minimal.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/semantic.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/swz-formbuilder.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/clover-style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/jquery.loadingModal.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/scripts/session.timeout.js")" type="text/javascript"></script>
+    <link href="@Url.Content("~/css/sgds.css?ver=177")" rel="stylesheet" />
+    <script nonce="@(cspNonce)">
+        $(document).ajaxStart(function () { Pace.restart(); });
+    </script>
+    @{ if (isAgencyBannerEnable) @await Html.PartialAsync("_SgGovBanner.cshtml") }
+    @RenderBody()
+    @await Html.PartialAsync("_Footer.cshtml")
+</body>
+</html>

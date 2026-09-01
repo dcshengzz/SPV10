@@ -1,0 +1,133 @@
+Expires 2036-08-07, has no password and encryption turned off
+
+
+certutil -v -dump saml-test-spverification.pfx
+Certificates: Not Encrypted
+================ Certificate 0 ================
+================ Begin Nesting Level 1 ================
+Element 0:
+X509 Certificate:
+Version: 3
+Serial Number: 413a9c703f9f67af84edded358328009646c4fc2
+Signature Algorithm:
+    Algorithm ObjectId: 1.2.840.113549.1.1.11 sha256RSA
+    Algorithm Parameters:
+    05 00
+Issuer:
+    CN=saml-test-spverification
+    OU=Softworkz
+    O=Softworkz
+    L=SG
+    S=SG
+    C=SG
+  Name Hash(sha1): 212f3ef9372e9f4bbb7632af431e6f6c56e7495d
+  Name Hash(md5): 4bcc5a0636fa4dc015d067e2ce1d6165
+
+ NotBefore: 2026-08-10 16:42
+ NotAfter: 2036-08-07 16:42
+
+Subject:
+    CN=saml-test-spverification
+    OU=Softworkz
+    O=Softworkz
+    L=SG
+    S=SG
+    C=SG
+  Name Hash(sha1): 212f3ef9372e9f4bbb7632af431e6f6c56e7495d
+  Name Hash(md5): 4bcc5a0636fa4dc015d067e2ce1d6165
+
+Public Key Algorithm:
+    Algorithm ObjectId: 1.2.840.113549.1.1.1 RSA (RSA_SIGN)
+    Algorithm Parameters:
+    05 00
+Public Key Length: 2048 bits
+Public Key: UnusedBits = 0
+    0000  30 82 01 0a 02 82 01 01  00 c9 e1 79 21 af 12 9f
+    0010  eb 27 d5 c0 92 d9 83 cd  8b 6c 56 12 ad 67 1e b8
+    0020  3a 6e ec ff 0d 43 92 a3  e1 22 d5 e9 ed e8 49 be
+    0030  7a 1e f2 13 a6 dd 81 f9  14 61 50 f4 ad e3 78 fb
+    0040  b8 21 cc a8 b1 b3 6e 0a  80 17 20 cd dd e1 a0 a2
+    0050  62 65 89 90 1d 8b 7b 55  2a 0b 45 96 38 76 7f c0
+    0060  f1 5f 60 fa f6 d2 26 f3  bc d3 5b c9 dd 5a bf 3a
+    0070  c9 72 aa 96 4e ed c7 74  a7 3e 96 28 3c 4b 67 fe
+    0080  4a d3 84 24 41 dc d2 72  01 32 74 0b 3b 99 1c 14
+    0090  1c 37 bb 8e 34 bb 2a 04  fe 31 30 2f 83 cc e9 1c
+    00a0  93 c4 f9 c2 95 f0 50 2b  34 88 9a ca 72 bc d7 1f
+    00b0  35 c9 a4 53 44 a6 54 0a  11 1e 5a bb 50 5a 16 b8
+    00c0  67 0a ca b2 fa 8f a4 9f  fc d6 ae d5 47 8a c7 8a
+    00d0  ae d9 9c 69 10 06 a9 fb  f0 83 78 69 98 87 2d 3b
+    00e0  79 6b 02 3d bd de 98 56  2f 7a e8 9e 59 25 d7 37
+    00f0  28 83 b8 6b 9b f4 f4 24  f8 f3 d8 0f c4 92 75 de
+    0100  37 6b 41 a9 95 28 17 9f  95 02 03 01 00 01
+Certificate Extensions: 3
+    2.5.29.14: Flags = 0, Length = 16
+    Subject Key Identifier
+        aee7b3b491c7d1e3da833e3c114212cc82fa67f3
+
+    2.5.29.35: Flags = 0, Length = 18
+    Authority Key Identifier
+        KeyID=aee7b3b491c7d1e3da833e3c114212cc82fa67f3
+
+    2.5.29.19: Flags = 1(Critical), Length = 5
+    Basic Constraints
+        Subject Type=CA
+        Path Length Constraint=None
+
+Signature Algorithm:
+    Algorithm ObjectId: 1.2.840.113549.1.1.11 sha256RSA
+    Algorithm Parameters:
+    05 00
+Signature: UnusedBits=0
+    0000  de 05 dd ac 99 5b 10 0c  13 8e 7c 90 4c 1b 92 a4
+    0010  d3 bd e2 1e 42 dc f4 21  e3 ff be 3d 43 c0 ea 0e
+    0020  fc bd 18 16 de 3e 79 62  62 8c 4a 5b b4 4a 07 9b
+    0030  c1 fe 06 50 66 cd f7 83  80 79 f9 3c d9 09 97 82
+    0040  51 90 1e 66 bf 20 d4 56  a7 5d a7 29 5a 6b 3e ad
+    0050  d5 ea 89 f8 05 a5 6c e2  3c c7 eb d5 44 9a cf 5e
+    0060  18 c4 d8 16 40 3d d1 98  dc a1 ca a6 4f 51 aa 8f
+    0070  90 ed d6 33 f7 6f 35 06  d1 dd 41 f1 c6 e3 91 35
+    0080  c5 48 cb da 4c 25 10 9e  4b 34 96 a1 3d 32 63 e5
+    0090  b2 bb 77 0e 1d 1a 21 77  ee 46 d6 5b cf fa 6e c0
+    00a0  75 e2 f5 c2 c5 85 b7 8c  a5 ba ce 2a 89 12 98 c0
+    00b0  2f 38 02 45 cf 29 a4 37  32 88 65 c9 c9 77 c1 3c
+    00c0  d7 0d 04 55 2a 66 67 b8  05 17 e0 c5 92 1a b6 26
+    00d0  00 41 03 fa f9 63 2d 65  cf ab 89 2d 3e 3e 30 7d
+    00e0  88 6d 2e 88 6a fd de 07  64 31 4a ee 69 30 61 15
+    00f0  b0 64 f1 c5 8d 5f 26 20  ca 01 db 13 f0 dc 9c c4
+Signature matches Public Key
+Root Certificate: Subject matches Issuer
+Key Id Hash(rfc-sha1): aee7b3b491c7d1e3da833e3c114212cc82fa67f3
+Key Id Hash(sha1): fa682e7f1b93af77e11c0ed2982d5fcd48d03c50
+Key Id Hash(bcrypt-sha1): 08fe7e7210c7733624697153afb761c7ec367b00
+Key Id Hash(bcrypt-sha256): 4e512e0d42b7dfc25b28351cb9a13b73e817196340713f63087c23df558366cc
+Key Id Hash(md5): 3abbda98e838b74df2a4b4f8a289b003
+Key Id Hash(sha256): 5299a78895e1691a524476ee8730b9eae6a4d638300fce04983c7c9f247b99dd
+Key Id Hash(pin-sha256): l/ugSzuUYjyDKP4pwBuXZ4Uikucsl48pSYzXLrIfO6g=
+Key Id Hash(pin-sha256-hex): 97fba04b3b94623c8328fe29c01b9767852292e72c978f29498cd72eb21f3ba8
+Cert Hash(md5): cd7bd65e8f59c0b6e7094e890dc7cbd6
+Cert Hash(sha1): eee75289784fcbadeb762edc2a81d61640606730
+Cert Hash(sha256): cb6b6a24b48b30c6f0a34c9335457976915da60a66c1d73e999493672c19f87f
+Signature Hash: f741f945c7a15e277bcfbeb61b5c17456ed9cd8123a5cf23a37ab06fb7f09e60
+----------------  End Nesting Level 1  ----------------
+
+  CERT_KEY_IDENTIFIER_PROP_ID(20):
+    aee7b3b491c7d1e3da833e3c114212cc82fa67f3
+
+  CERT_MD5_HASH_PROP_ID(4):
+    cd7bd65e8f59c0b6e7094e890dc7cbd6
+
+  CERT_SHA1_HASH_PROP_ID(3):
+    eee75289784fcbadeb762edc2a81d61640606730
+
+  CERT_KEY_PROV_INFO_PROP_ID(2):
+    Key Container = PfxContainer
+    Provider = PfxProvider
+    ProviderType = 0
+  Flags = 0
+    KeySpec = 0 -- XCN_AT_NONE
+
+  CERT_ACCESS_STATE_PROP_ID(14):
+  AccessState = 0
+
+Encryption test FAILED
+CertUtil: -dump command completed successfully.

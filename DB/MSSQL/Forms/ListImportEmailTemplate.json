@@ -1,0 +1,18 @@
+[
+  {
+    "key": "subject",
+    "data-buildertype": "staticcontent",
+    "content": "List \"{ListName}\" Import Result",
+    "isHtml": true
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container"
+  },
+  {
+    "key": "body",
+    "data-buildertype": "staticcontent",
+    "content": "<style>\ntable, th, td {\n  border: 1px solid black;\n  border-collapse: collapse;\n}\nth, td{\ntext-align:left;\n}\n</style>\n\nDear {Name},<br>\n<p>\nList \"{ListName}\" import has completed.<br>\nTotal Rows                   : {TotalRows}.<br>\nSample Updated      : {SampleUpdated}.<br>\nSample Added           : {SampleAdded}.<br>\nSample Duplicated : {SampleDuplicated}.<br>\nError Count                : {ErrorCount}.<br>\n{ErrorSummary}<br>\n</p>\n\n<p>\nImport job duration was about {DurationMinutes} minutes.\n</p>\n\n<p>\nRegards\n</p>\n",
+    "isHtml": true
+  }
+]

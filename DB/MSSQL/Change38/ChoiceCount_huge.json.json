@@ -1,0 +1,86 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Frequency Count Report",
+        "size": "huge",
+        "textAlign": "left",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "dplyId",
+            "data-buildertype": "dictionary",
+            "label": "Deployment",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "QNN_DPLY",
+            "paging": true,
+            "pageSize": "20",
+            "columns": "Name ASC",
+            "clearable": true,
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "getCounts",
+                  "apply"
+                ],
+                "targets": [
+                  "button_1"
+                ],
+                "parameters": [
+                  {
+                    "name": "column",
+                    "value": "*"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "style-marginBottom": "10px"
+  },
+  {
+    "key": "button_1",
+    "data-buildertype": "button",
+    "content": "Export",
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "onExport"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "primary": true,
+    "other-visibleConition": "data.dplyId !== undefined && data.dplyId != \"\" ? true : false",
+    "other-required": false,
+    "toggle": false
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "dplychoiceqnns",
+        "data-buildertype": "dplychoiceqnns",
+        "events": {},
+        "other-visibleConition": "",
+        "style-marginTop": ""
+      }
+    ],
+    "style-marginTop": "30px"
+  }
+]

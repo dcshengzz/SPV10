@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>swz.Clover.DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{7b0ccc24-7740-4848-a363-29e3ba1d0d92}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>swz.Clover.DB</RootNamespace>
+    <AssemblyName>swz.Clover.DB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <SuppressTSqlWarnings>71558</SuppressTSqlWarnings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="HangFire\" />
+    <Folder Include="HangFire\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+    <Folder Include="Security\" />
+    <Folder Include="Storage\" />
+    <Folder Include="dbo\Synonyms\" />
+    <Folder Include="Snapshots" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\dwAppSettings.sql" />
+    <Build Include="dbo\Tables\dwSecurityGroup.sql" />
+    <Build Include="dbo\Tables\dwSecurityUserImpersonation.sql" />
+    <Build Include="dbo\Tables\dwSecurityUserState.sql" />
+    <Build Include="dbo\Tables\dwUploadedFiles.sql" />
+    <Build Include="dbo\Tables\QNN_AUDIT_TRAIL.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_SCHEDULER.sql" />
+    <Build Include="dbo\Tables\QNN_LIST_PROP_OPT.sql" />
+    <Build Include="dbo\Tables\QNN_LIST_REVIEW.sql" />
+    <Build Include="dbo\Tables\QNN_LIST_REVIEW_FILES.sql" />
+    <Build Include="dbo\Tables\QNN_LIST_SAMPLE_PROP.sql" />
+    <Build Include="dbo\Tables\QNN_LIST_SAMPLE_UPD_NOTIF.sql" />
+    <Build Include="dbo\Tables\QNN_QNN_REVIEW.sql" />
+    <Build Include="dbo\Tables\QNN_QNN_REVIEW_FILES.sql" />
+    <Build Include="dbo\Tables\QNN_REPORT_SNAPSHOT.sql" />
+    <Build Include="dbo\Tables\QNN_RESP_ADMIN.sql" />
+    <Build Include="dbo\Tables\DotNetCoreSession.sql" />
+    <Build Include="dbo\Tables\QNN_RESP_ANS.sql" />
+    <Build Include="dbo\Tables\QNN_STATUS_FLOW.sql" />
+    <Build Include="dbo\Tables\QNN_TRK_LIST.sql" />
+    <Build Include="dbo\Tables\dwSecurityPermissionGroup.sql" />
+    <Build Include="dbo\Tables\WorkflowGlobalParameter.sql" />
+    <Build Include="dbo\Tables\dwSecurityPermission.sql" />
+    <Build Include="dbo\Tables\WorkflowInbox.sql" />
+    <Build Include="dbo\Tables\WorkflowProcessInstance.sql" />
+    <Build Include="dbo\Tables\dwSecurityRoleToSecurityPermission.sql" />
+    <Build Include="dbo\Tables\WorkflowProcessInstancePersistence.sql" />
+    <Build Include="dbo\Tables\dwSecurityUserToSecurityRole.sql" />
+    <Build Include="dbo\Tables\WorkflowProcessInstanceStatus.sql" />
+    <Build Include="dbo\Tables\dwSecurityGroupToSecurityRole.sql" />
+    <Build Include="dbo\Tables\WorkflowProcessScheme.sql" />
+    <Build Include="dbo\Tables\dwSecurityGroupToSecurityUser.sql" />
+    <Build Include="dbo\Tables\WorkflowProcessTimer.sql" />
+    <Build Include="dbo\Tables\WorkflowProcessTransitionHistory.sql" />
+    <Build Include="dbo\Tables\WorkflowScheme.sql" />
+    <Build Include="dbo\Tables\XmlKeys.sql" />
+    <Build Include="HangFire\Tables\AggregatedCounter.sql" />
+    <Build Include="dbo\Tables\StructDivision.sql" />
+    <Build Include="HangFire\Tables\Counter.sql" />
+    <Build Include="dbo\Tables\QNN_SAMPLE.sql" />
+    <Build Include="HangFire\Tables\Hash.sql" />
+    <Build Include="dbo\Tables\QNN_SAMPLE_STRUCTDIVISION.sql" />
+    <Build Include="HangFire\Tables\Job.sql" />
+    <Build Include="HangFire\Tables\JobParameter.sql" />
+    <Build Include="HangFire\Tables\JobQueue.sql" />
+    <Build Include="HangFire\Tables\List.sql" />
+    <Build Include="dbo\Tables\dwSecurityRole.sql" />
+    <Build Include="HangFire\Tables\Schema.sql" />
+    <Build Include="dbo\Tables\QNN_LIST_SAMPLE.sql" />
+    <Build Include="HangFire\Tables\Server.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_SAMPLE_INFO.sql" />
+    <Build Include="HangFire\Tables\Set.sql" />
+    <Build Include="dbo\Tables\JsonWebTokens.sql" />
+    <Build Include="HangFire\Tables\State.sql" />
+    <Build Include="dbo\Tables\QNN_LIST_PROP.sql" />
+    <Build Include="dbo\Tables\QNN_LIST.sql" />
+    <Build Include="dbo\Tables\AuditLog.sql" />
+    <Build Include="dbo\Tables\dwSecurityCredential.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_MSG.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_MSG_SAMPLE.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY.sql" />
+    <Build Include="dbo\Tables\QNN_RESP.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_SAMPLE_OWNER.sql" />
+    <Build Include="dbo\Tables\QNN_QNN.sql" />
+    <Build Include="dbo\Tables\dwMetadata.sql" />
+    <Build Include="dbo\Tables\QNN_QNN_FIELD.sql" />
+    <Build Include="dbo\Tables\QNN_QNN_FORM.sql" />
+    <Build Include="dbo\Tables\QNN_STATUS.sql" />
+    <Build Include="dbo\Tables\QNN_TRK_LIST_SAMPLE.sql" />
+    <Build Include="dbo\Tables\dwSecurityUser.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_SAMPLE_DUEDATE.sql" />
+    <Build Include="dbo\Views\dwV_Security_UserRole.sql" />
+    <Build Include="dbo\Views\dwV_Security_CheckPermissionUser.sql" />
+    <Build Include="dbo\Views\dwV_Security_CheckPermissionGroup.sql" />
+    <Build Include="dbo\Views\vStructDivisionParents.sql" />
+    <Build Include="dbo\Views\vSP_QnnSampleActive.sql" />
+    <Build Include="dbo\Views\vStructDivisionParentsAndThis.sql" />
+    <Build Include="dbo\Views\vHeads.sql" />
+    <Build Include="dbo\Views\vSP_dataEditors.sql" />
+    <Build Include="dbo\Views\vSP_DplySample.sql" />
+    <Build Include="dbo\Views\vStructDivisionUsers.sql" />
+    <Build Include="dbo\Views\vUsers.sql" />
+    <Build Include="dbo\Views\vSP_ListPropCount.sql" />
+    <Build Include="dbo\Views\vSP_auditlog.sql" />
+    <Build Include="dbo\Views\vSP_QnnSampleActiveForGrid.sql" />
+    <Build Include="dbo\Views\vSP_ListSampleCount.sql" />
+    <Build Include="dbo\Views\vSP_ListWithCount.sql" />
+    <Build Include="dbo\Views\vSP_DplyMsgWithSampleCount.sql" />
+    <Build Include="dbo\Views\vSP_DplyMsgSample.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentSampleCount.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentRespCount.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentOwner.sql" />
+    <Build Include="dbo\Views\vSP_DataEditorDeployment.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentWithRespCount.sql" />
+    <Build Include="dbo\Views\vSP_StructDivision.sql" />
+    <Build Include="dbo\Views\vSP_SurveyForm.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentOnline.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentSampleAndPeerSample.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentRespCompleteCount.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentSample.sql" />
+    <Build Include="dbo\Views\vSP_DplySampleDueDate.sql" />
+    <Build Include="dbo\Views\vSP_ListSampleInfo.sql" />
+    <Build Include="dbo\Functions\IsFileToken.sql" />
+    <Build Include="dbo\Functions\StrToGuid.sql" />
+    <Build Include="dbo\Functions\splitIds.sql" />
+    <Build Include="dbo\Stored Procedures\JsonWebTokens_GetById.sql" />
+    <Build Include="dbo\Stored Procedures\JsonWebTokens_GetUserTokens.sql" />
+    <Build Include="dbo\Stored Procedures\JsonWebTokens_Add.sql" />
+    <Build Include="dbo\Stored Procedures\JsonWebTokens_Update.sql" />
+    <Build Include="dbo\Stored Procedures\DropWorkflowInbox.sql" />
+    <Build Include="dbo\Stored Procedures\JsonWebTokens_DeleteById.sql" />
+    <Build Include="dbo\Stored Procedures\DropWorkflowProcess.sql" />
+    <Build Include="dbo\Stored Procedures\JsonWebTokens_DeleteByUser.sql" />
+    <Build Include="dbo\Stored Procedures\DropWorkflowProcesses.sql" />
+    <Build Include="dbo\Stored Procedures\JsonWebTokens_DeleteExpired.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_AddDplySampleInfoByListId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_DeleteAllRespAnsByRespId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_DeleteByTableNameAndIds.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_DeleteSampleOwnerByIds.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_DeleteSampleProp.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetDailySnapShot.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetDplyChoiceCount.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetDplyUploadedFiles.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetListSampleProfile.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetOverallResponseByDplyId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetResponseAftRemovalByDplyId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetSectorByDplyId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetSectorResponseByDplyId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetSegmentByDplyId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetSegmentResponseByDplyId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetStatusResponseByDplyId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetTrkListSample.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetWeek.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetWeeklyActiveResponseByDplyId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetWeightgroupbyDplyID.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_InsertResp.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_UpdateDplySampleInfo.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_UpdateResp.sql" />
+    <Build Include="dbo\Stored Procedures\spWorkflowProcessResetRunningStatus.sql" />
+    <Build Include="dbo\User Defined Types\IdsTableType.sql" />
+    <Build Include="Security\HangFire.sql" />
+    <Build Include="dbo\Tables\QNN_RULE.sql" />
+    <Build Include="dbo\Tables\QNN_HELP.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_TRANSITIONHISTORY.sql" />
+    <Build Include="dbo\Tables\QNN_QNN_FILE.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_DATASET.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_DeleteQnnDplyDataset.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_CopyRecurrentDply.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_CountRecurrenceAfter.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_CopySampleOwner.sql" />
+    <Build Include="dbo\Tables\QNN_RESP_DELEGATION.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetAddDplySampleInfoCount.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_DeleteAuditLogBeforeCreatedDate.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_MSG_FORSTATUS.sql" />
+    <Build Include="dbo\Tables\QNN_GLOBAL_MSG_SAMPLE.sql" />
+    <Build Include="dbo\Tables\QNN_GLOBAL_MSG_FORSTATUS.sql" />
+    <Build Include="dbo\Tables\QNN_GLOBAL_MSG.sql" />
+    <Build Include="dbo\Views\vSP_GlobalMsgWithSampleCount.sql" />
+    <Build Include="dbo\Views\vSP_GlobalMsgSample.sql" />
+    <Build Include="dbo\Tables\AccessReportSchedule.sql" />
+    <Build Include="dbo\Tables\QNN_GLOBAL_MSG_USER.sql" />
+    <Build Include="dbo\Views\vStructDivisionParentsAndThisName.sql" />
+    <Build Include="dbo\Views\vSP_GlobalMsgUser.sql" />
+    <Build Include="dbo\Views\vSP_ListSampleRespInfo.sql" />
+    <Build Include="dbo\Views\vSP_ListSampleOwnerInfo.sql" />
+    <Build Include="dbo\Views\vSP_ListSampleIdSegment.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_DeleteSampleOwnerByDplyId.sql" />
+    <Build Include="dbo\Views\vSP_DplySampleInfoResponseCount.sql" />
+    <Build Include="dbo\Views\vSP_RespDelegationGrid.sql" />
+    <Build Include="dbo\Views\vSP_RespDelegationActive.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_RECURRENCE_PREPOPULATE_FIELD.sql" />
+    <Build Include="dbo\Views\vSP_DeploymentRecurrencePrePopulateFields.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetRecurrencePreviousRespAns.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_UpdateRecurrencePrePopulateField.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_CUSTOM_RECURRENCE.sql" />
+    <Build Include="dbo\Views\vSP_ListSampleInfoResp.sql" />
+    <Build Include="dbo\Views\vSP_ListFileForm.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetRespAnsWithDetailsDataCollection.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetDplyUploadedFilesDataCollection.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetMonthlyAccessLogs.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetAuditLogsBeforeCreatedDate.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetUploadedFiles.sql" />
+    <Build Include="dbo\Views\vSP_RespParticipation.sql" />
+    <Build Include="dbo\Stored Procedures\JsonWebTokens_ExtendExpiry.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetDplyWordCount.sql" />
+    <Build Include="dbo\Tables\QNN_SHORT_LINK.sql" />
+    <Build Include="dbo\Views\vSP_ShortLink.sql" />
+    <Build Include="dbo\Tables\QNN_STYLE.sql" />
+    <Build Include="dbo\Tables\QNN_STYLE.sql" />
+    <Build Include="dbo\Views\vSP_TagsSearch.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetActiveTagsByStruct.sql" />
+    <Build Include="dbo\Views\vSP_TagsWithStructDivisionId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetStatusResponseDetails.sql" />
+    <Build Include="dbo\Views\vPlaceholder.sql" />
+    <Build Include="dbo\Synonyms\sySP_vSP_AuditLog.sql" />
+    <Build Include="dbo\Stored Procedures\InsertAuditLog.sql" />
+    <Build Include="dbo\Synonyms\sy_AuditLog.sql" />
+    <Build Include="dbo\Tables\AuditUserName.sql" />
+    <Build Include="dbo\Tables\AuditSampleName.sql" />
+    <Build Include="dbo\Tables\AuditDivisionName.sql" />
+    <Build Include="dbo\Synonyms\sy_AuditUserName.sql" />
+    <Build Include="dbo\Synonyms\sy_AuditSampleName.sql" />
+    <Build Include="dbo\Synonyms\sy_AuditDivisionName.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_SyncAuditSampleName.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetAllSampleUid.sql" />
+    <Build Include="dbo\Tables\QNN_SAMPLE_ADDRESS.sql" />
+    <Build Include="dbo\Views\vSP_ListSampleAddress.sql" />
+    <Build Include="dbo\Tables\QNN_SCHEDULED_EXPORT_RECIPIENT.sql" />
+    <Build Include="dbo\Views\vSP_UserRole.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetMailMergeFiles.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_SetListSamplesActiveYN.sql" />
+    <Build Include="dbo\Tables\RespondentSessionTokenId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_UpdateRespondentSessionTokenId.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetRespondentSessionTokenId.sql" />
+    <Build Include="dbo\Tables\QNN_FILE_TICKET.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetListSampleUids.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetDplySampleInfoIdForDply.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_UpdateDplySampleInfoForImport.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetSingleResponseData.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetResponseSampleInfo.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetListSampleProps.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_TakeReportSnapshot.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetRespAnsRows.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetSampleIdentity.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_InsertAllSamplesToDataEditor.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_PurgeResp.sql" />
+    <Build Include="dbo\Tables\QNN_DPLY_STRATA_QUOTA.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetResponseStratumCount.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_CopyStrataQuota.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_UpdateQnnRespAns.sql" />
+    <Build Include="dbo\User Defined Types\RespAnsUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetDueDate.sql" />
+    <Build Include="dbo\Tables\QNN_SAMPLE_REMARKS.sql" />
+    <Build Include="dbo\Stored Procedures\GetObjectPageUsage.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_ListUserProfiles.sql" />
+    <Build Include="dbo\Views\vSP_RespSummary.sql" />
+    <Build Include="dbo\Tables\QNN_RESP_PDF_EXPORT.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_LogPdfGeneration.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_UpdatePdfExportStatus.sql" />
+    <Build Include="dbo\Stored Procedures\spSP_GetMetadataChangeDate.sql" />
+    <Build Include="dbo\Tables\SamlRecentAssertion.sql" />
+    <Build Include="dbo\Stored Procedures\InsertSamlRecentAssertion.sql" />
+    <Build Include="dbo\Stored Procedures\CleanupSamlRecentAssertion.sql" />
+    <Build Include="dbo\Views\vSP_auditlogpoor.sql" />
+    <Build Include="dbo\Synonyms\sySP_vSP_AuditLogPoor.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\150\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\150\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+</Project>

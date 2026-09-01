@@ -1,0 +1,151 @@
+[
+  {
+    "key": "headerDataEditorList",
+    "data-buildertype": "header",
+    "content": "Data Editor",
+    "size": "huge",
+    "subheader": "View a list of deployments under you",
+    "style-marginTop": "10px"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "input_1",
+        "data-buildertype": "input",
+        "label": "",
+        "fluid": true,
+        "onChangeTimeout": "200",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "setFilter",
+              "applyFilter"
+            ],
+            "targets": [
+              "grid"
+            ],
+            "parameters": [
+              {
+                "name": "column",
+                "value": "*"
+              }
+            ]
+          }
+        },
+        "labelPosition": "",
+        "inverted": false,
+        "transparent": false,
+        "style-width": "50%",
+        "placeholder": "Search.."
+      }
+    ],
+    "style-source": "",
+    "style-marginBottom": "30px"
+  },
+  {
+    "key": "grid",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "type": "custom",
+        "width": ""
+      },
+      {
+        "key": "IsAnonymous",
+        "resizable": true,
+        "name": "Anonymous",
+        "type": "checkbox",
+        "sortable": true,
+        "filterable": false
+      },
+      {
+        "key": "IsMultipleResponse",
+        "name": "Multiple",
+        "type": "checkbox",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false
+      },
+      {
+        "key": "StatusText",
+        "name": "Status",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "Title",
+        "name": "Form",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "Tags",
+        "name": "Tags",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "type": "custom",
+        "width": ""
+      },
+      {
+        "key": "Responses",
+        "name": "Responses",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "DateEnd",
+        "name": "Date End",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "type": "datetime",
+        "width": ""
+      }
+    ],
+    "editForm": "QNN_DPLY_SAMPLE_INFO",
+    "multiselect": false,
+    "pagerType": "",
+    "defaultSort": "CreatedDate ASC",
+    "autoHeight": false,
+    "offSet": "",
+    "rowKey": "Id",
+    "events": {
+      "onRowClick": {
+        "active": false,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onSelectionChanged": {
+        "active": false,
+        "actions": [
+          "gridRefresh"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "style-customcss": "",
+    "style-source": "",
+    "pageSize": "50",
+    "minHeight": "",
+    "rowHeight": "80"
+  }
+]

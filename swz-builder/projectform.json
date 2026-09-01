@@ -1,0 +1,64 @@
+[
+    {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Project",
+        "size": "medium",
+        "subheader": "",
+        "textAlign": "center"
+    },
+    {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+            {
+                "key": "name",
+                "data-buildertype": "input",
+                "label": "Name",
+                "fluid": true,
+                "placeholder": "Set project's name"
+            },
+            {
+                "key": "type",
+                "data-buildertype": "dropdown",
+                "label": "Type",
+                "fluid": true,
+                "selection": true,
+                "data-elements": "[{key: 1, value: 1, text: 'Fix price'},\n{key: 2, value: 2, text: 'Time & Material'},\n{key: 3, value: 3, text: 'Support'}]",
+                "placeholder": "Choose a type of project"
+            },
+            {
+                "key": "datestart",
+                "data-buildertype": "input",
+                "label": "Data start",
+                "fluid": true,
+                "type": "date"
+            },
+            {
+                "key": "budget",
+                "data-buildertype": "input",
+                "label": "Budget",
+                "fluid": true,
+                "placeholder": "500000.00",
+                "type": "number"
+            },
+            {
+                "key": "description",
+                "data-buildertype": "textarea",
+                "label": "Description",
+                "fluid": true,
+                "rows": "6",
+                "autoHeight": true
+            },
+            {
+                "key": "save",
+                "data-buildertype": "button",
+                "content": "Save",
+                "floated": "right",
+                "primary": true,
+                "secondary": false,
+                "toggle": false
+            }
+        ]
+    }
+]

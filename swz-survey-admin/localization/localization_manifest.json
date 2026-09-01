@@ -1,0 +1,46 @@
+{
+    "defaultLocale": "en",
+    "langs": [
+        {
+            "name": "English",
+            "locale": "en",
+            "flag":"us",
+            "scripts": ["workflowdesigner.localization_en.js", "cloveradmin.localization_en.js"]
+        },
+        {
+            "name": "French",
+            "locale": "fr",
+            "scripts": ["workflowdesigner.localization_fr.js", "cloveradmin.localization_fr.js"]
+        },
+        {
+            "name": "Germany",
+            "locale": "de",
+            "scripts": ["workflowdesigner.localization_de.js", "cloveradmin.localization_de.js"]
+        },
+        {
+            "name": "Italian",
+            "locale": "it",
+            "scripts": ["workflowdesigner.localization_it.js", "cloveradmin.localization_it.js"]
+        },
+        {
+            "name": "Portuguese",
+            "locale": "pt",
+            "scripts": ["workflowdesigner.localization_pt.js", "cloveradmin.localization_pt.js"]
+        },
+        {
+            "name": "Russian",
+            "locale": "ru",
+            "scripts": ["workflowdesigner.localization_ru.js", "cloveradmin.localization_ru.js"]
+        },
+        {
+            "name": "Spanish",
+            "locale": "es",
+            "scripts": ["workflowdesigner.localization_es.js", "cloveradmin.localization_es.js"]
+        },
+        {
+            "name": "Turkish",
+            "locale": "tr",
+            "scripts": ["workflowdesigner.localization_tr.js", "cloveradmin.localization_tr.js"]
+        }
+    ]
+}

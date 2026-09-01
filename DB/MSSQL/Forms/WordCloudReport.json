@@ -1,0 +1,70 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Word Cloud Report",
+        "size": "huge",
+        "textAlign": "left",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "dictDeploymentId",
+            "data-buildertype": "dictionary",
+            "label": "Deployment",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "QNN_DPLY",
+            "columns": "Name ASC",
+            "paging": true,
+            "clearable": true,
+            "pageSize": "",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "init",
+                  "getFields"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          },
+          {
+            "key": "dropDown_wordCloudFields",
+            "data-buildertype": "dropdown",
+            "label": "Question",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [],
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "genWordCloud"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "other-visibleConition": ""
+          },
+          {
+            "key": "WordCloudReport_1",
+            "data-buildertype": "WordCloudReport",
+            "events": {}
+          }
+        ]
+      }
+    ],
+    "style-marginBottom": "10px"
+  }
+]

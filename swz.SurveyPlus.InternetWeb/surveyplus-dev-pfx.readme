@@ -1,0 +1,259 @@
+Expires 2027-11-19, has no password
+
+
+
+certutil -dump -v surveyplus-dev.pfx
+Enter PFX password:
+================ Certificate 0 ================
+================ Begin Nesting Level 1 ================
+Element 0:
+X509 Certificate:
+Version: 3
+Serial Number: 639c8f6e79ba6e7368b6fafbb3b5cd499294961b
+Signature Algorithm:
+    Algorithm ObjectId: 1.2.840.113549.1.1.11 sha256RSA
+    Algorithm Parameters:
+    05 00
+Issuer:
+    CN=surveyplus-dev
+    OU=Softworkz
+    O=Softworkz
+    L=SG
+    S=SG
+    C=SG
+  Name Hash(sha1): 016de14623087280d7d41913f8c4b270524a531f
+  Name Hash(md5): a88e14aa1b2747a2d7df8d25c1aac2b7
+
+ NotBefore: 2022-11-20 11:42
+ NotAfter: 2027-11-19 11:42
+
+Subject:
+    CN=surveyplus-dev
+    OU=Softworkz
+    O=Softworkz
+    L=SG
+    S=SG
+    C=SG
+  Name Hash(sha1): 016de14623087280d7d41913f8c4b270524a531f
+  Name Hash(md5): a88e14aa1b2747a2d7df8d25c1aac2b7
+
+Public Key Algorithm:
+    Algorithm ObjectId: 1.2.840.113549.1.1.1 RSA (RSA_SIGN)
+    Algorithm Parameters:
+    05 00
+Public Key Length: 2048 bits
+Public Key: UnusedBits = 0
+    0000  30 82 01 0a 02 82 01 01  00 9d ff da 15 9d 29 d1
+    0010  f3 af 1a 49 05 61 b8 3a  29 69 f4 bf be 80 36 90
+    0020  bc 9a d5 a0 10 f6 0d d9  4c ae 5f 35 7e ba 04 dc
+    0030  67 d1 29 eb 10 53 6f 37  7e f4 ff 91 bf 27 b2 b1
+    0040  fe 5b 63 5f 96 b5 f0 27  bb f5 7a c3 25 d7 70 2b
+    0050  c0 37 32 1a c6 2c 61 ce  bb bc 7a 3f 9b 25 c8 bc
+    0060  42 37 4d 4d 89 68 2a 46  d4 67 99 0c 62 8f 65 81
+    0070  83 33 04 cb 4e 5c f7 32  54 54 13 19 8b 8d 58 6c
+    0080  ca 7d 91 08 cd d3 98 b4  78 e9 80 cd f3 1b d5 50
+    0090  81 5e 6b 8c 92 36 27 4c  eb 88 01 06 23 9d cd 4a
+    00a0  5c af 74 c8 c4 7d e4 f0  d0 d3 fd c9 5a 94 08 08
+    00b0  2a 8c 59 fb 7a b9 bf 66  57 87 b4 9b df 88 29 02
+    00c0  ae c1 4c 03 b3 dc 12 0d  ad 09 61 39 8e cb 9a 04
+    00d0  96 fd a7 13 c3 5e 36 f0  b4 f8 35 57 94 c8 2c b0
+    00e0  fc 30 ef 6c a5 a6 8d d6  6c 42 48 74 a9 e4 70 3d
+    00f0  2a 1e e9 7d f7 8c d1 15  90 8a 7b af 7f 1d 9e b2
+    0100  98 78 2f c0 cc af ed 60  27 02 03 01 00 01
+Certificate Extensions: 3
+    2.5.29.14: Flags = 0, Length = 16
+    Subject Key Identifier
+        3645ce36ad5194aff00380b14144f951ddc3b3da
+
+    2.5.29.35: Flags = 0, Length = 18
+    Authority Key Identifier
+        KeyID=3645ce36ad5194aff00380b14144f951ddc3b3da
+
+    2.5.29.19: Flags = 1(Critical), Length = 5
+    Basic Constraints
+        Subject Type=CA
+        Path Length Constraint=None
+
+Signature Algorithm:
+    Algorithm ObjectId: 1.2.840.113549.1.1.11 sha256RSA
+    Algorithm Parameters:
+    05 00
+Signature: UnusedBits=0
+    0000  fd 7c b6 a4 d1 de 5d 4a  a7 43 97 ed 45 f2 bb d9
+    0010  3a ae 80 be c6 4b aa f6  e5 13 f8 b4 f9 4c 7c 90
+    0020  2b 49 4f a0 67 e6 7b 22  ed f8 aa 18 a8 77 19 9c
+    0030  97 f1 b3 8e 0e 91 9e 1e  bf e0 4b 40 40 01 ef 47
+    0040  eb b7 88 07 60 cf c5 11  13 e6 b7 7d 14 22 7c 3d
+    0050  d1 39 24 7b e7 b3 81 e1  2c bd 59 2f f3 98 98 68
+    0060  36 e2 16 32 2a 9f c2 f5  0a 12 32 a4 3b 2f 5c 4b
+    0070  3a 24 ba 1b f4 24 0f e4  2a 4c cc 34 55 b5 c0 52
+    0080  fc f0 99 8f ca 46 7b fc  37 1f f2 24 3d 25 21 35
+    0090  7d b3 de 56 68 14 fc 6a  d9 db 1d 42 2e 9c 92 e2
+    00a0  eb 41 e5 c4 e3 7e 32 a5  d9 a0 13 ab 7a 3a db 06
+    00b0  56 4d d5 7f 44 94 41 ba  a7 44 89 9b bf 77 c1 bc
+    00c0  d3 29 04 31 ab 17 47 34  12 d2 11 a1 71 89 6c e1
+    00d0  db da 17 0c a2 be f3 82  ee 42 95 fc db d8 ba 19
+    00e0  9a 21 1e 99 d0 1c 13 a4  f7 36 ad 53 21 57 cc d7
+    00f0  6c 8a da 67 fa b7 78 c3  07 a0 3c 10 1d d7 3d 83
+Signature matches Public Key
+Root Certificate: Subject matches Issuer
+Key Id Hash(rfc-sha1): 3645ce36ad5194aff00380b14144f951ddc3b3da
+Key Id Hash(sha1): 5acadcedfa369ac07956bd3d38180e9651248063
+Key Id Hash(bcrypt-sha1): 190578c2631734780570ce4bee25e4866655daf9
+Key Id Hash(bcrypt-sha256): 37b957011295adc4d8e8fbe870745f94ee33af3ad346ba674aaf4927fd544cdb
+Key Id Hash(md5): 18fb3bdc8fbfb31e5a29a9c447127b1a
+Key Id Hash(sha256): 75599dc557b335215001a9ba769f2f2daad7d38af9e8bba86ff0e35a0535add1
+Key Id Hash(pin-sha256): vBGqJ7b08aCG4J+JY4ydp2quIGh/GE7ANjU8IiT0Rto=
+Key Id Hash(pin-sha256-hex): bc11aa27b6f4f1a086e09f89638c9da76aae20687f184ec036353c2224f446da
+Cert Hash(md5): 9c854a0c12976d5d03a5cbbb84a4565c
+Cert Hash(sha1): 77437edd5aa2ec25992d7e811ae83c6dde507427
+Cert Hash(sha256): dcc27f91b346b01b6104acf5d85ff3b1c734c3a0fab85d4f12cd11c55925d2a7
+Signature Hash: 0debe4c5e7ab5bfcc07eb4fb3b45cafd57e371fa19df291bba74242242e641d5
+----------------  End Nesting Level 1  ----------------
+
+  CERT_KEY_IDENTIFIER_PROP_ID(20):
+    3645ce36ad5194aff00380b14144f951ddc3b3da
+
+  CERT_MD5_HASH_PROP_ID(4):
+    9c854a0c12976d5d03a5cbbb84a4565c
+
+  CERT_SHA1_HASH_PROP_ID(3):
+    77437edd5aa2ec25992d7e811ae83c6dde507427
+
+  CERT_KEY_CONTEXT_PROP_ID(5):
+    hCryptProv = 00000226E5D52520
+    KeySpec = 1 -- AT_KEYEXCHANGE
+
+  CERT_ACCESS_STATE_PROP_ID(14):
+  AccessState = 0
+
+  Cached Key Identifier: 3645ce36ad5194aff00380b14144f951ddc3b3da
+    Key Container = {4AED6187-8F7F-4569-A434-4D91E998995C}
+    Provider = Microsoft Enhanced Cryptographic Provider v1.0
+    ProviderType = 1
+  Flags = 20 (32)
+    CRYPT_MACHINE_KEYSET -- 20 (32)
+    KeySpec = 1 -- AT_KEYEXCHANGE
+  Provider = Microsoft Enhanced Cryptographic Provider v1.0
+  ProviderType = 1
+  RSA
+  PP_KEYSTORAGE = 1
+    CRYPT_SEC_DESCR -- 1
+  KP_PERMISSIONS = 3f (63)
+    CRYPT_ENCRYPT -- 1
+    CRYPT_DECRYPT -- 2
+    CRYPT_EXPORT -- 4
+    CRYPT_READ -- 8
+    CRYPT_WRITE -- 10 (16)
+    CRYPT_MAC -- 20 (32)
+
+  D:(A;OICIID;GAGR;;;SY)(A;OICIID;GAGR;;;BA)(A;OICIID;GAGR;;;S-1-5-21-3832361244-1868319336-563002497-1002)
+
+    Allow Full Control  NT AUTHORITY\SYSTEM
+    Allow Full Control  BUILTIN\Administrators
+    Allow Full Control  DESKTOP-0202H0P\localuser
+
+
+Private Key:
+  PRIVATEKEYBLOB
+  Version: 2
+  aiKeyAlg: 0xa400
+    CALG_RSA_KEYX
+    Algorithm Class: 0xa000(5) ALG_CLASS_KEY_EXCHANGE
+    Algorithm Type: 0x400(2) ALG_TYPE_RSA
+    Algorithm Sub-id: 0x0(0) ALG_SID_RSA_ANY
+  0000  52 53 41 32                                        RSA2
+  0000  ...
+  048c
+Encryption test passed
+CertUtil: -dump command completed successfully.
+
+
+
+
+
+
+
+
+certutil -dump surveyplus-dev-private-key.pem
+  0000  ...
+  04c2
+    0000  30 82 04 be 02 01 00 30  0d 06 09 2a 86 48 86 f7   0......0...*.H..
+    0010  0d 01 01 01 05 00 04 82  04 a8 30 82 04 a4 02 01   ..........0.....
+    0020  00 02 82 01 01 00 9d ff  da 15 9d 29 d1 f3 af 1a   ...........)....
+    0030  49 05 61 b8 3a 29 69 f4  bf be 80 36 90 bc 9a d5   I.a.:)i....6....
+    0040  a0 10 f6 0d d9 4c ae 5f  35 7e ba 04 dc 67 d1 29   .....L._5~...g.)
+    0050  eb 10 53 6f 37 7e f4 ff  91 bf 27 b2 b1 fe 5b 63   ..So7~....'...[c
+    0060  5f 96 b5 f0 27 bb f5 7a  c3 25 d7 70 2b c0 37 32   _...'..z.%.p+.72
+    0070  1a c6 2c 61 ce bb bc 7a  3f 9b 25 c8 bc 42 37 4d   ..,a...z?.%..B7M
+    0080  4d 89 68 2a 46 d4 67 99  0c 62 8f 65 81 83 33 04   M.h*F.g..b.e..3.
+    0090  cb 4e 5c f7 32 54 54 13  19 8b 8d 58 6c ca 7d 91   .N\.2TT....Xl.}.
+    00a0  08 cd d3 98 b4 78 e9 80  cd f3 1b d5 50 81 5e 6b   .....x......P.^k
+    00b0  8c 92 36 27 4c eb 88 01  06 23 9d cd 4a 5c af 74   ..6'L....#..J\.t
+    00c0  c8 c4 7d e4 f0 d0 d3 fd  c9 5a 94 08 08 2a 8c 59   ..}......Z...*.Y
+    00d0  fb 7a b9 bf 66 57 87 b4  9b df 88 29 02 ae c1 4c   .z..fW.....)...L
+    00e0  03 b3 dc 12 0d ad 09 61  39 8e cb 9a 04 96 fd a7   .......a9.......
+    00f0  13 c3 5e 36 f0 b4 f8 35  57 94 c8 2c b0 fc 30 ef   ..^6...5W..,..0.
+    0100  6c a5 a6 8d d6 6c 42 48  74 a9 e4 70 3d 2a 1e e9   l....lBHt..p=*..
+    0110  7d f7 8c d1 15 90 8a 7b  af 7f 1d 9e b2 98 78 2f   }......{......x/
+    0120  c0 cc af ed 60 27 02 03  01 00 01 02 82 01 00 4b   ....`'.........K
+    0130  6f 6e 76 47 55 42 32 70  75 c2 4b 59 7e 95 f6 53   onvGUB2pu.KY~..S
+    0140  ea 50 e9 e9 59 23 fd 88  87 5a 26 fe f3 59 be 6c   .P..Y#...Z&..Y.l
+    0150  ba 74 56 0f 06 67 1d 02  16 5b 6e ae 07 39 9d d9   .tV..g...[n..9..
+    0160  e7 73 74 aa c5 7c 8a 0e  a4 01 6d 79 6c 31 ec 61   .st..|....myl1.a
+    0170  a5 bd 2a 82 13 c2 2f c1  aa a0 71 e1 9a c9 13 85   ..*.../...q.....
+    0180  47 70 ba e8 6d 50 c4 e4  96 79 e0 92 e5 2c 70 19   Gp..mP...y...,p.
+    0190  0e 4f 85 77 25 65 92 78  77 5f 82 08 8c d5 70 c1   .O.w%e.xw_....p.
+    01a0  bb 64 c4 e6 35 43 ab e2  0b af 02 66 76 50 23 6e   .d..5C.....fvP#n
+    01b0  24 d5 1a b5 71 db d9 3f  e3 ae 8d 78 65 f7 f2 0c   $...q..?...xe...
+    01c0  90 ed 1d 9c 0a 3f 40 73  ce ac e6 f1 fa 44 5f 6c   .....?@s.....D_l
+    01d0  43 b6 82 45 9c ae f1 96  68 b5 56 f0 f7 c5 85 bd   C..E....h.V.....
+    01e0  61 4e fe ea a3 90 53 13  09 fd 1b cc 45 0f 1c a2   aN....S.....E...
+    01f0  e8 3f 44 51 c1 6e c8 aa  10 99 37 1b 2d f6 7c ab   .?DQ.n....7.-.|.
+    0200  e2 65 58 46 a0 23 07 a3  4b a2 3a 02 63 50 05 5c   .eXF.#..K.:.cP.\
+    0210  2c 40 e3 4b 57 9e 8e 24  c4 5c ef 7d c3 27 ca 2a   ,@.KW..$.\.}.'.*
+    0220  5a 01 17 99 b1 f4 82 9b  0f af 56 1c f1 bc a1 02   Z.........V.....
+    0230  81 81 00 f8 b1 64 a2 6d  52 21 f6 22 9c 3f 81 a9   .....d.mR!.".?..
+    0240  71 63 f6 6f a8 38 7d be  87 ff 72 6f b1 60 08 be   qc.o.8}...ro.`..
+    0250  39 f6 34 74 28 cc 6b 03  62 c0 a5 9a 01 42 84 c4   9.4t(.k.b....B..
+    0260  47 72 30 ae 41 cf c3 b0  3a 63 59 78 4a 6b 6f dc   Gr0.A...:cYxJko.
+    0270  d5 2e b6 53 32 ae df fa  bf 5c 49 f9 ac c6 d0 ac   ...S2....\I.....
+    0280  29 cc 76 32 c2 f4 1b 06  b2 74 d6 aa 75 84 e3 66   ).v2.....t..u..f
+    0290  81 01 9b 48 ad 7e ca 0d  69 76 ba 5b ff 4f 69 1f   ...H.~..iv.[.Oi.
+    02a0  02 5b 38 60 76 9c e1 74  f4 d4 1f 19 cb ee 39 33   .[8`v..t......93
+    02b0  a6 82 5f 02 81 81 00 a2  a4 48 d6 97 aa 3a d6 ff   .._......H...:..
+    02c0  29 21 6e 6a ae 15 ec 45  6f 7c 30 32 2a c6 1f 84   )!nj...Eo|02*...
+    02d0  bd a0 8d 06 65 3c 9b 07  01 07 f2 c1 3c 6f cd 8e   ....e<......<o..
+    02e0  09 e3 29 f9 78 c0 62 0f  56 fa 1e ad 62 5d e4 5e   ..).x.b.V...b].^
+    02f0  73 12 45 32 55 24 75 c9  77 74 3e 96 f2 82 a6 0e   s.E2U$u.wt>.....
+    0300  6c 63 c2 b3 0e 9d f2 cb  69 1d f5 b8 f7 1e df fa   lc......i.......
+    0310  ca 6e 8b 50 7b f3 10 eb  95 d8 b3 e7 3c 1a 69 e8   .n.P{.......<.i.
+    0320  b1 63 5c 73 51 0c 04 98  cb db 0c d6 e0 5f 69 0e   .c\sQ........_i.
+    0330  e9 85 96 ef 8e 47 39 02  81 80 71 e3 e3 5f 53 4b   .....G9...q.._SK
+    0340  42 cc 52 ab 55 96 0e c0  23 f4 4e cc 2e 1a bf ef   B.R.U...#.N.....
+    0350  ce 37 5d 19 51 0e 8f f7  41 5e 62 37 f0 ed ad 1e   .7].Q...A^b7....
+    0360  43 75 53 62 f2 50 95 06  d7 2f 9e 0d fb 94 f5 96   CuSb.P.../......
+    0370  b7 ba d8 90 d4 44 e5 50  27 d5 4d a2 af 5d 59 9a   .....D.P'.M..]Y.
+    0380  db 2b f1 90 83 78 3a ef  e5 77 d7 e5 5a 1f 2a 60   .+...x:..w..Z.*`
+    0390  fd 8a f5 83 5e 39 39 cf  28 aa 31 8d 6a bc 23 8a   ....^99.(.1.j.#.
+    03a0  41 da 34 99 66 87 90 b0  e6 8f 99 f5 98 00 d4 2b   A.4.f..........+
+    03b0  ef 1c d3 16 86 61 61 db  06 67 02 81 81 00 9c 34   .....aa..g.....4
+    03c0  ed 40 2d aa 71 98 cc b8  d4 43 18 72 da db 72 55   .@-.q....C.r..rU
+    03d0  01 11 c9 1d 0b ec 79 b1  26 e2 4b a2 2f f3 35 66   ......y.&.K./.5f
+    03e0  e8 1b 5f 3c 8c a5 00 26  be e7 31 93 a8 32 86 49   .._<...&..1..2.I
+    03f0  23 31 13 95 c6 57 ef de  d5 4d 60 6a 25 fa 7a e5   #1...W...M`j%.z.
+    0400  1f e0 7d 59 ad e1 8f 38  cb 17 d4 a1 d5 51 bb cb   ..}Y...8.....Q..
+    0410  d9 da 87 2b d1 9b 8d 63  9f 88 6e 64 9d af 42 95   ...+...c..nd..B.
+    0420  48 ec 80 ca 59 14 1f 49  40 05 2b 3c 4c 2e 9e 12   H...Y..I@.+<L...
+    0430  2c f0 c7 ef f7 b3 0f 7f  79 ae dd a5 e9 01 02 81   ,.......y.......
+    0440  81 00 a9 be 32 8b 7f 59  6e 1d 48 73 8d 1a fa 0d   ....2..Yn.Hs....
+    0450  bb 7c 5e cb e2 b5 fe de  9e 81 4b c2 fb ce b1 d8   .|^.......K.....
+    0460  1f 71 7c a1 ec ac 70 6d  d2 78 6b 2d 26 58 3e dd   .q|...pm.xk-&X>.
+    0470  2e 51 be df 90 2a 9f a9  87 fd 7d 6c bb 71 ec 1a   .Q...*....}l.q..
+    0480  5b 36 66 37 bd df a7 00  aa e3 11 10 3f fe 7c b6   [6f7........?.|.
+    0490  43 a6 1c 07 24 f4 51 f0  fd a5 81 c0 f6 5f 00 ce   C...$.Q......_..
+    04a0  c0 42 8b df c0 26 68 23  15 13 45 2b 3d de f8 b4   .B...&h#..E+=...
+    04b0  84 a2 93 63 e9 c8 80 e6  f6 eb ef 0d 97 b0 ec 8b   ...c............
+    04c0  24 f8                                              $.
+CertUtil: -dump command completed successfully.
+

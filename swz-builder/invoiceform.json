@@ -1,0 +1,96 @@
+[
+  {
+    "key": "sidemenu",
+    "data-buildertype": "menu",
+    "items": [
+      {
+        "target": "/form/SwzQnnList",
+        "title": "Questionaires",
+        "visibleCondition": "CloverApp.API.checkRole('SurveyAdmin')==true",
+        "children": [
+          {
+            "title": "Form Designer",
+            "target": "/surveydesigner",
+            "visibleCondition": "CloverApp.API.checkRole('SurveyDesigner')==true"
+          },
+          {
+            "target": "/form/SwzQnnList",
+            "title": "Form Properties",
+            "visibleCondition": "CloverApp.API.checkRole('SurveyAdmin')==true"
+          }
+        ]
+      },
+      {
+        "target": "/form/SwzListList",
+        "title": "List",
+        "visibleCondition": "CloverApp.API.checkRole('SurveyAdmin')==true",
+        "children": [
+          {
+            "target": "/form/SwzListList",
+            "title": "Sample List",
+            "visibleCondition": "CloverApp.API.checkRole('SurveyAdmin')==true"
+          },
+          {
+            "target": "/form/SwzTrkLists",
+            "title": "Track List",
+            "visibleCondition": "CloverApp.API.checkRole('SurveyAdmin')==true"
+          }
+        ]
+      },
+      {
+        "target": "/form/SwzDplyList",
+        "title": "Deployment",
+        "children": [],
+        "visibleCondition": "CloverApp.API.checkRole('SurveyAdmin')==true"
+      },
+      {
+        "title": "Data Editor",
+        "target": "/form/DataEditorDeploymentList",
+        "visibleCondition": "CloverApp.API.checkRole('DataEditor')==true"
+      },
+      {
+        "title": "Category",
+        "target": "/form/SwzCategoryList",
+        "visibleCondition": "CloverApp.API.checkRole('SurveyAdmin')==true"
+      },
+      {
+        "target": "/form/organizations",
+        "title": "Organizations",
+        "visibleCondition": "CloverApp.API.checkRole('Admins')==true"
+      },
+      {
+        "title": "Respondent Content Management",
+        "target": "/form/SwzRespAdminList",
+        "children": [],
+        "visibleCondition": "CloverApp.API.checkRole('Admins')==true"
+      },
+      {
+        "target": "/useradmin",
+        "title": "Security",
+        "visibleCondition": "CloverApp.API.checkRole('SurveyAdmin')==true"
+      },
+      {
+        "target": "/form/audittrail",
+        "title": "Audit Trail",
+        "visibleCondition": "\t CloverApp.API.checkRole('Admins')==true"
+      }
+    ],
+    "vertical": true,
+    "events": {
+      "onItemClick": {
+        "active": true,
+        "actions": [
+          "redirect"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "link": true,
+    "fluid": false,
+    "tabular": false,
+    "secondary": false,
+    "pointing": false,
+    "other-visibleConition": ""
+  }
+]

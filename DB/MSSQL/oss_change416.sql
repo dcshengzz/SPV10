@@ -1,0 +1,977 @@
+-- Will UPDATE existing row(s) in dwMetadata for the following:
+-- QNN_DPLY-code.js
+
+UPDATE [dwMetadata] SET
+[Id]='6518a592-09cd-4b6f-8235-deeebb8b81cf', [StructDivisionId]='f6e34bdf-b769-42dd-a2be-fee67faf9045', 
+[Folder]=N'metadata/forms', [FileName]=N'QNN_DPLY-code.js', [IsDeleted]=0, 
+[CreatedBy]='540e514c-911f-4a03-ac90-c450c28838c5', [CreatedDate]='2019-03-28 21:49:21.290', 
+[DeletedBy]=NULL, [DeletedDate]=NULL, 
+[UpdatedBy]='b9d69ba9-282b-d3d2-8f23-efc2596a082c', [UpdatedDate]='2023-08-03 15:26:12.800', 
+[Data]=N'{
+    init: function(args) {
+        console.log(''QNN_DPLY'', args);
+        
+        if(!args.data.Id){
+            CloverApp.API.setDataField("State", "Active");   
+            CloverApp.API.setDataField("StateName", "Active");     
+            CloverApp.API.setDataField("RecurrenceFrequency", "");      
+        }
+        
+        //qnn_dplyUserActions.showHideControls(args);
+        var showHideControls = qnn_dplyUserActions.showHideControls(args);
+        var hideControls = showHideControls.hideControls;
+        var showControls = showHideControls.showControls;
+        showControls.forEach(c=>qnn_dplyUserActions.removeElement(args.state.app.form.models.hideControls, c));
+        hideControls.forEach(c=>qnn_dplyUserActions.addUniqueElement(args.state.app.form.models.hideControls, c)); 
+        
+        
+         // Implement function to remove element from array
+        var _removeElement = function(array, element) {
+            var _index = array.indexOf(element);
+            if (_index == -1) return;
+            array.splice(_index, 1);
+        };
+        // Implement function to add elemenbt 
+        var _addUniqueElement = function(array, element) {
+            var _index = array.indexOf(element);
+            if (_index > -1) return;
+            array.push(element);
+        };
+
+        CloverApp.API.setDataField("cbMailMerge", false);
+        CloverApp.API.setDataField("cbEmail", false);
+        CloverApp.API.setDataField("subject", "");
+        CloverApp.API.setDataField("msgContent", "");
+        
+        if(args.data.Id){
+            try{
+                qnn_dplyUserActions.checkQnnFields(args.data.dictQuestionnaire);                  
+            }
+            catch(error) {
+                //ignore
+            }
+        }          
+
+        var dplyId = args.data.Id;
+
+        if (args.data.Id == null) 
+            return {
+                app: {
+                    form: {
+                        models: {
+                            hideControls: args.state.app.form.models.hideControls
+                        }
+                    }
+                }
+            };
+    
+        if(args.data.IsAnonymous){
+            qnn_dplyUserActions.getAnonymousSurveyLink(args);
+        }
+
+        //Tags init
+        if(args.data.Tags !== null) {
+            //parse json return data after a save
+            if(!Array.isArray(args.data.Tags)) {
+                args.data.Tags = JSON.parse(args.data.Tags);
+                CloverApp.API.setDataField("Tags", args.data.Tags);
+            } 
+            qnn_dplyUserActions.rewriteActiveTags(args);
+        } else {
+            CloverApp.API.setDataField("Tags", new Array());
+        }
+        
+        
+        // Only get category details
+        // iff args.data.Id is not null
+    
+        var url = ''/snapData/get?id='' + dplyId;
+        // _loadingStart();
+        var d1 = new Date();
+        return ()=>{
+            return fetch(url,
+                {
+                    credentials: ''same-origin'',
+                    method: ''get''
+                })
+                .then(response => response.json())
+                .then(response => {
+                    Pace.stop();
+                    qnn_dplyUserActions.showHideControls(args);  
+                    console.log("Response is", response);
+                    if (response.success) {
+                        
+                        var _hideControls = args.state.app.form.models.hideControls;
+                        var items = response.items;
+                        if (items != null)
+                        {
+                    
+                        var obj = typeof items != ''object'' ? JSON.parse(items) : items;
+                        var valChkScheduler = obj[0].Id;
+                        var EmailRecipients = obj[0].EmailRecipients;
+                        var valEmailSuccess ;
+                        var valEmailFailure ;
+                        
+                        if(obj[0].EmailSuccess == true)
+                        {
+                            valEmailSuccess = ''1'';
+                        }
+                        else
+                        valEmailSuccess = ''0'';
+                            
+                        if(obj[0].EmailFailure == true)
+                        {
+                            valEmailFailure = ''1'';
+                        }
+                        else
+                        {
+                            valEmailFailure = ''0'';
+                        }
+                        
+                        // var recipients = [];
+                        
+                        var recipients = [];
+                        if(EmailRecipients == "No Recipient")
+                        {
+                            recipients = [];
+                        }
+                        else
+                        {
+                            var breakRecepient = EmailRecipients.split('','');
+                            for (let r = 0 ; r < breakRecepient.length ; r++ )
+                            {
+                            recipients.push(breakRecepient[r]);
+                        }
+                        
+                        }
+                
+                        /*// alert(items.length);
+                        if(items !== undefined && items.length > 0){
+                            _removeElement(_hideControls, dailySsForm);
+                        }
+                        // recipients.push(EmailRecipients);*/
+                    
+                        CloverApp.API.setDataField("chkScheduler", 1);
+                        CloverApp.API.setDataField("ddlEmailReceipients",recipients);
+                        CloverApp.API.setDataField("chkEmailSuccess", valEmailSuccess);
+                        CloverApp.API.setDataField("chkEmailFail", valEmailFailure);
+                        
+                        _removeElement(_hideControls, ''dailySsForm'');  
+                        _hideControls.concat(hideControls);
+                        return Promise.resolve(
+                            {
+                                stateDelta: {
+                                    app: {
+                                        form: {
+                                            models: {
+                                                hideControls: _hideControls
+                                            }
+                                        }
+                                    },
+                                }
+                            });  
+                            
+                        }
+                        else
+                        {
+                            CloverApp.API.setDataField("chkScheduler", 0);
+                            CloverApp.API.setDataField("ddlEmailReceipients", []);
+                            CloverApp.API.setDataField("chkEmailSuccess", false);
+                            CloverApp.API.setDataField("chkEmailFail", false);
+                            return {
+                                app: {
+                                    form: {
+                                        models: {
+                                            hideControls: args.state.app.form.models.hideControls
+                                        }
+                                    }
+                                }
+                            };                    
+                        }
+                    
+                        //  _loadingStop();
+                    
+                    } // end if response.success        
+                }) // end then => response
+   
+            .catch(function(ex) {
+                alertify.error("Could not Data due to " + ex);
+            });
+        }; //end return  
+    }, //end of init
+
+    //Called from init
+    checkQnnFields: function(qnnId){    
+        const formData = new FormData();
+        formData.append(''qnnId'', qnnId);
+        loadingStart("Verifying survey field alias");
+        postFormRequest("/qnn/checkfields",formData).then(
+            response => {
+               //No action 
+            }, reason => {
+                console.log(reason);
+                alertify.alert(reason);
+            }
+        ).finally(loadingStop);
+    }, //end of checkQnnFields
+    
+    setDplyState: function(args){
+        if(args.data.EnableWorkflow==1){
+            if(!args.data.Id){
+                CloverApp.API.setDataField("State", "Draft");             
+                CloverApp.API.setDataField("StateName", "Draft");                    
+            }
+        }  
+        else{
+            CloverApp.API.setDataField("State", "Active");             
+            CloverApp.API.setDataField("StateName", "Active");                
+        }          
+    },
+    
+    toggleCompletionUrl: function(args){
+        if(!Utils.isSelected(args.data.IsAnonymous)){
+            CloverApp.API.setDataField("textCompleteURL", null);              
+        }         
+    },
+    
+    toggleAnonymousSurvey: function(args){
+        if(!Utils.isSelected(args.data.IsAnonymous)){
+            CloverApp.API.setDataField("textCompleteURL", null);
+        }else{
+            CloverApp.API.setDataField("IsMultipleResponse", 0);
+        }
+    },
+    
+    downloadInvalidColumns(args) {
+        //CloverApp.API.setDataField("invalidQnnColumns",[''A11'', ''B22'', ''C33'']);
+        
+        var downloadFile = function(type) {
+            var invalidItems = args.data[type]
+            if(invalidItems !== undefined && invalidItems.length > 0){
+                var rows = [];
+                rows.push(invalidItems);
+                let csvContent = "data:text/csv;charset=utf-8,";
+            
+                rows.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+                });
+        
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", type + ".csv");
+                document.body.appendChild(link); // Required for FF
+        
+                link.click(); 
+
+            }else{
+                alert(''No information found'')
+            }                 
+        } 
+        downloadFile(''invalidQnnColumns'');
+    }, // end of downloadInvalidColumns
+    
+    downloadInvalidDates(args) {
+          var downloadFile = function(type) {
+            var invalidItems = args.data[type]
+            if(invalidItems !== undefined && invalidItems.length > 0){
+                var rows = [];
+                rows.push(invalidItems);
+                let csvContent = "data:text/csv;charset=utf-8,";
+            
+                rows.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+                });
+        
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", type + ".csv");
+                document.body.appendChild(link); // Required for FF
+        
+                link.click(); 
+
+            }else{
+                alert(''No information found'')
+            }                 
+        } 
+        downloadFile(''invalidDates_Updated'');        
+    }, //end of downloadInvalidDates
+    
+    downloadInvalidUIDs(args) {
+          var downloadFile = function(type) {
+            var invalidItems = args.data[type]
+            if(invalidItems !== undefined && invalidItems.length > 0){
+                var rows = [];
+                rows.push(invalidItems);
+                let csvContent = "data:text/csv;charset=utf-8,";
+            
+                rows.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+                });
+        
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", type + ".csv");
+                document.body.appendChild(link); // Required for FF
+        
+                link.click(); 
+
+            }else{
+                alert(''No information found'')
+            }                 
+        } 
+        downloadFile(''invalidUIDs'');        
+    }, //end of downloadInvalidUIDS
+    
+    viewArgs(args){
+      console.log("View Args", args);  
+    },
+    
+    submitFile(args){
+        var token = args.data.listFile;
+        var dplyId = args.data.Id;
+        var qnnId = args.data.dictQuestionnaire;
+        var listId = args.data.dictList;
+
+        var errors = {};
+        if (qnnId == null || qnnId == undefined)
+         alertify.error("Questionnaire not selected");
+        if (listId == null || listId == undefined)    
+         alertify.error("List not selected''");
+        if (dplyId == null || dplyId == undefined)    
+         alertify.error("There is no existing deployment");
+         
+         if (token == null || token == undefined){
+             errors.token = ''Please select csv file'';
+                
+            if(errors.token){
+              throw {
+                  level: 1,
+                  message: ''Check errors on the form!'',
+                  formerrors: {main: errors}
+              };
+            }
+            return {};
+        }
+        
+        var url = ''/deployment/importresponse?token='' + token + ''&qnnId='' + qnnId + ''&listId='' + listId + ''&dplyId='' + dplyId;
+
+        var d1 = new Date();
+        Utils.loadingStart();
+        return ()=>{
+            return fetch(url,
+            {
+                credentials: ''same-origin'',
+                method: ''get''
+            })
+            .then(response => response.json())
+            .then(response => {
+                Utils.loadingStop();
+              
+                if (response.success) {
+                    var _securitySiteIdRewriter = function (model) {
+                        model.filters = ''[{"column":"IsDeleted", "value": "0", "term":"="}]'';
+                        model.disabled = false;
+                    };
+                    
+                    alertify.success(''The changes have been applied!'');
+                    console.log("Response is", response);
+                    
+                    CloverApp.API.setDataField("totalRows", response.statistics.totalRows);
+                    CloverApp.API.setDataField("totalSampleResponseAdded", response.statistics.totalSampleResponseAdded);
+                    CloverApp.API.setDataField("totalSampleNoResponse", response.statistics.totalSampleNoResponse);
+                    CloverApp.API.setDataField("totalSampleResponseAnsAdded", response.statistics.totalSampleResponseAnsAdded);                    
+                    CloverApp.API.setDataField("totalInvalidQnnColumns", response.totalInvalidQnnColumns);
+                    CloverApp.API.setDataField("totalInvalidUIDs", response.totalInvalidUIDs);
+                    CloverApp.API.setDataField("totalInvalidDates_Updated", response.totalInvalidDates_Updated);
+                    CloverApp.API.setDataField("totalInvalidScore_Updated", response.totalInvalidScore_Updated);
+                   
+                    if(response.statistics.totalSampleResponseAdded !== null && response.statistics.totalSampleResponseAdded != undefined){
+                        CloverApp.API.setDataField("invalidQnnColumns", response.invalidQnnColumns);
+                        CloverApp.API.setDataField("invalidUIDs", response.invalidUIDs);
+                        CloverApp.API.setDataField("invalidDates_Updated", response.invalidDates_Updated);
+                        return Promise.resolve(
+                        {
+                            stateDelta: {
+                                app: {
+                                    form: {
+                                        models: {
+                                            hideControls: []
+                                        }
+                                    }
+                                },
+                            }
+                        });  
+                    }
+                } else {
+                    alertify.error("Invalid");
+                    console.log(response.message);
+                }
+            })
+            .catch(error => {
+                Utils.loadingStop();
+                //alertify.error(error.message);;
+                console.log(error.message);
+            });
+        };
+    }, // end of submitFile
+    
+    closeModal: function (args){
+        console.log("Close modal", args);
+        args.component.refs.importModal.close();
+        if(args.component.refs.moreModal !== undefined)
+            args.component.refs.moreModal.close();
+        return {
+            app: {
+              form: {
+                  data: {
+                      modified: {
+                          inputImportListSample:null,
+                            /*totalRows: null,
+                            totalSampleResponseAdded: null,
+                            totalSampleResponseAnsAdded: null,
+                            totalInvalidQnnColumns: null,
+                            totalInvalidUIDs: null,
+                            totalInvalidDates_Updated: null,
+                            totalInvalidScore_Updated: null,
+                            invalidQnnColumns: null,
+                            invalidUIDs: null,
+                            invalidDates_Updated: null*/
+                      }
+                  },
+                  models:{
+                       hideControls: []
+                }
+              }
+            }
+        }       
+    }, //end of closeModal
+    
+    closeMoreModal: function (args){
+        console.log("Close open modal", args);
+        args.component.refs.moreModal.close();
+        return {
+            app: {
+              form: {
+                  data: {
+                      modified: {
+                          inputImportListSample:null,
+                            /*totalRows: null,
+                            totalSampleResponseAdded: null,
+                            totalSampleResponseAnsAdded: null,
+                            totalInvalidQnnColumns: null,
+                            totalInvalidUIDs: null,
+                            totalInvalidDates_Updated: null,
+                            totalInvalidScore_Updated: null,
+                            invalidQnnColumns: null,
+                            invalidUIDs: null,
+                            invalidDates_Updated: null*/
+                      }
+                  },
+                  models:{
+                       hideControls: []//[totalSampleResponseAdded, totalSampleResponseAnsAdded, totalInvalidQnnColumns, totalInvalidUIDs, totalInvalidDates_Updated, totalInvalidScore_Updated, invalidQnnColumns, invalidUIDs, invalidDates_Updated]
+                  }
+              }
+            }
+        }       
+    }, //end of closeMoreModal
+    
+    toggoleIpInclusive: function(args){
+        if(args.data.RestrictIpInclusive==1){
+            CloverApp.API.setDataField("RestrictIpInclusive", "1");   
+        }  
+        else{
+            CloverApp.API.setDataField("RestrictIpInclusive", "0");              
+        }        
+    },
+    
+    showHideControls: function(args){
+        var hideControls = [];
+        var showControls = [];
+        if(args.data.RestrictIp==1){
+            CloverApp.API.setDataField("RestrictIp", "1"); 
+            if(args.data.RestrictIpInclusive==1){
+                args.data.RestrictIpInclusive=''1'';
+                CloverApp.API.setDataField("RestrictIpInclusive", "1");   
+            }  
+            else{
+                args.data.RestrictIpInclusive=''0'';
+                CloverApp.API.setDataField("RestrictIpInclusive", "0");              
+            }            
+            qnn_dplyUserActions.addUniqueElement(showControls, ''RestrictIpInclusive'');
+            qnn_dplyUserActions.addUniqueElement(showControls, ''countryOrIpRange'');  
+
+            if(args.data.IpCountry || (!args.data.IpCountry && !args.data.IpRange)){
+                args.data.countryOrIpRange=''1'';
+            }
+            else{
+                args.data.countryOrIpRange=''0'';
+            }  
+         
+            
+            if(args.data.countryOrIpRange==1){
+                CloverApp.API.setDataField("countryOrIpRange", ''1'');
+                qnn_dplyUserActions.addUniqueElement(hideControls, ''IpRange'');  
+                qnn_dplyUserActions.addUniqueElement(showControls, ''IpCountry'');                      
+            }
+            else{
+                CloverApp.API.setDataField("countryOrIpRange", ''0'');
+                qnn_dplyUserActions.addUniqueElement(hideControls, ''IpCountry'');  
+                qnn_dplyUserActions.addUniqueElement(showControls, ''IpRange'');                         
+            } 
+        } else {
+            //if not restricting IP
+            CloverApp.API.setDataField("RestrictIp", "0");
+            qnn_dplyUserActions.addUniqueElement(hideControls, ''RestrictIpInclusive'');  
+            qnn_dplyUserActions.addUniqueElement(hideControls, ''countryOrIpRange'');    
+            qnn_dplyUserActions.addUniqueElement(hideControls, ''IpRange'');  
+            qnn_dplyUserActions.addUniqueElement(hideControls, ''IpCountry'');                
+        }        
+
+        return {hideControls: hideControls, showControls: showControls};
+    },
+    
+    //TODO - refactoe
+    removeElement: function(array, element) {
+        var _index = array.indexOf(element);
+        if (_index == -1) return;
+        array.splice(_index, 1);
+    },
+    
+    //TODO - refactor
+    addUniqueElement: function(array, element) {
+        var _index = array.indexOf(element);
+        if (_index > -1) return;
+        array.push(element);
+    },
+        
+    setIpRestriction: function(args){
+        //qnn_dplyUserActions.showHideControls(args);
+        var showHideControls = qnn_dplyUserActions.showHideControls(args);
+        var hideControls = showHideControls.hideControls;
+        var showControls = showHideControls.showControls;
+        showControls.forEach(c=>qnn_dplyUserActions.removeElement(args.state.app.form.models.hideControls, c));
+        hideControls.forEach(c=>qnn_dplyUserActions.addUniqueElement(args.state.app.form.models.hideControls, c));
+        
+        console.log(args)
+        return {
+            app: {
+                form: {
+                    models: {
+                        hideControls: args.state.app.form.models.hideControls
+                    }
+                }
+            }
+        };        
+    }, //end of setIpRestriction
+    
+    onClickSave: function (args){
+        const data = args.data.chkScheduler;
+        const dplyId = args.data.Id;
+        
+        const emailSuccess = args.data.chkEmailSuccess;
+        const emailFail = args.data.chkEmailFail;
+        const userId = args.data.ddlEmailReceipients;
+   
+        const formData = new FormData();
+        formData.append(''CheckBox'', data);
+        formData.append(''dplyId'',dplyId);
+        formData.append(''emailSuccess'',emailSuccess);
+        formData.append(''emailFail'',emailFail);
+        formData.append(''userId'',userId);       
+        
+        Utils.loadingStart();
+        Utils.postFormRequest("/report/updateSnapshotJob",formData).then(
+            response => {
+                console.log(data);
+            }, reason => {
+                console.error(reason);
+                alertify.error(reason);
+            }
+        ).finally(Utils.loadingStop);
+    }, //end of onClickSave
+    
+    parseHtml: function(args) {
+        return {
+              app: {
+                  form: {
+                      data: {
+                          modified: {
+                             msgContent: args.component.refs.htmlEditor.state.htmlData,
+                             msgContentJson: args.component.refs.htmlEditor.state.jsonData
+                            }
+                        }
+                    }
+                }
+        };  
+    },
+    
+    dropdownQuestionnaireOnChange: function(args) {
+        var qnnId = args.sourceControlValue;
+        var options = args.sourceControlRef.state.options;
+        console.log("Args is", args);
+        if(args.data.SurveyName=="" || args.data.SurveyName ==null){
+            if(options !== undefined && options.length > 0){
+                for(var i = 0; i < options.length; i++){
+                    if(options[i].key == qnnId){
+                        CloverApp.API.setDataField("SurveyName", options[i]["text"]);
+                        break;
+                    }
+                }
+            }
+        }   
+    },
+    
+    radioCompletionActionOnChange: function(args) {
+    },
+
+    radioCompletionNavBackOnChange: function(args) {
+    },
+
+    radioCompletionNavCancelOnChange: function(args) {
+    },
+
+    btnSaveOnClick: function(args) {
+        // Insert [QNN_DPLY_SAMPLE_INFO]
+    },
+
+    clearContent: function(args){
+        if(args.data.countryOrIpRange=="1"){
+            CloverApp.API.setDataField("IpRange", null);
+            qnn_dplyUserActions.removeElement(args.state.app.form.models.hideControls, ''IpCountry'');
+            qnn_dplyUserActions.addUniqueElement(args.state.app.form.models.hideControls, ''IpRange'');             
+            
+            return {
+                app: {
+                  form: {
+                      models:{
+                          hideControls: args.state.app.form.models.hideControls
+                      }
+                  }
+                }
+            }
+        }
+        else{
+            CloverApp.API.setDataField("IpCountry", null);
+            qnn_dplyUserActions.removeElement(args.state.app.form.models.hideControls, ''IpRange'');
+            qnn_dplyUserActions.addUniqueElement(args.state.app.form.models.hideControls, ''IpCountry'');      
+            return {
+                app: {
+                  form: {
+                      models:{
+                          hideControls: args.state.app.form.models.hideControls
+                      }
+                  }
+                }
+            }            
+        }
+    }, //end of clearContent
+
+    navigateParentDeployment: function(args) {
+        if(args.data.RecurrenceOfDplyId) {
+            //CloverApp.API.redirectToForm("QNN_DPLY",args.data.RecurrenceOfDplyId);
+            location.href = "/form/QNN_DPLY/" + encodeURIComponent(args.data.RecurrenceOfDplyId);
+        } else {
+            alertify.error("This deployment does not have a parent");
+        } 
+    },
+    
+    updateFeatureInteraction: function(args) {
+        const isExcelEnabled = Utils.isSelected(args.data.IsExcelEnabled);
+        const isDelegationEnabled = Utils.isSelected(args.data.RequireAccessCode);
+        const isAnonymous = Utils.isSelected(args.data.IsAnonymous);
+        const isMultipleResponse = Utils.isSelected(args.data.IsMultipleResponse);
+        const isDirectAccessEnabled = Utils.isSelected(args.data.IsDirectAccessEnabled);
+        
+        if(isAnonymous) {
+            if(isExcelEnabled) {
+                alertify.error("Online Excel forms are not supported for anonymous surveys");
+                CloverApp.API.setDataField("IsExcelEnabled",0);
+            }
+            
+            if(isDelegationEnabled) {
+                alertify.error("Delegation Access Code is not supported for anonymous surveys");
+                CloverApp.API.setDataField("RequireAccessCode", 0);
+            }
+            
+            if(isDirectAccessEnabled) {
+                alertify.error("Direct Access feature is not applicable for anonymous surveys (use anonymous survey links)");
+                CloverApp.API.setDataField("IsDirectAccessEnabled",0);
+                Utils.queueHideControl("IsDirectAccessForComplete","hide");
+            }
+        }
+        
+        if(isMultipleResponse) {
+            if(isExcelEnabled) {
+                alertify.error("Online Excel forms are not supported for multiple response surveys");
+                CloverApp.API.setDataField("IsExcelEnabled",0);
+            }
+            
+            if(isDirectAccessEnabled) {  
+                alertify.error("Direct Access is not supported for multiple response surveys");
+                CloverApp.API.setDataField("IsDirectAccessEnabled",0);
+                Utils.queueHideControl("IsDirectAccessForComplete","hide");
+            }
+        }
+        
+    },
+    
+    validateSampleList: function (args){
+        const listId =  args.data.dictList;
+        
+        if(listId !== ''00000000-0000-0000-0000-000000000000''){
+            Utils.loadingStart("Verifying list has samples...");
+            Utils.getRequest("/deployment/CheckListHasSample/" + encodeURIComponent(listId)).then(
+                response => {
+                    if(!response.result) {
+                        CloverApp.API.setDataField("dictList", "");
+                        const selectedList = args.component.refs.dictList.state.options[args.component.refs.dictList.state.options.map(e=> e.value).indexOf(listId)].text;
+                        alertify.error("Sample List " + selectedList + " is empty.");
+                    }else if(Utils.isSelected(args.data.IsAnonymous) && !response.isAnonymousSampleOnly){
+                        CloverApp.API.setDataField("dictList", "");
+                        alertify.error("Anonymous Survey is ONLY allow for Anonymous Sample.")
+                    }
+                }, reason => {
+                    console.log(''validateSampleList'', reason);
+                }
+            ).finally(Utils.loadingStop);
+        }
+    },
+    
+    getAnonymousSurveyLink: function (args){
+        const dplyId =  args.data.Id;
+        const qnnId =  args.data.dictQuestionnaire;
+        const iconClass = "copy outline icon";
+        const iconBtnClass = "ui icon button mini secondary";
+        const surveyLinkKey = ''anonymous-survey-'';
+        let htmlLink = "";
+        Utils.loadingStart();
+        Utils.getRequest("/deployment/GenerateAnonymousSurveyURL/" + encodeURIComponent(dplyId) +"/"+ encodeURIComponent(qnnId))
+        .then(response => {
+                if(response.success && response.result) {
+                    htmlLink += ''<div><i style="display:block;margin-bottom:14px;">Click the copy button to get Anonymous Survey URL:</i>'';
+                    response.result.forEach(function(item, index){
+                        //Does not show as hyperlink due to access anonymous survey will attempt to logout.
+                        //let urlLink = ''<li><a href="'' + item.link +''" target="_blank">'' + item.link + ''&nbsp<i>(''+ item.lang +'')</i></a></li>'';
+                        let iconBtn = ''<button id="btn-''+surveyLinkKey+index+''" name="btnCopy-anonymous-survey-link" title="Copy" data-link-id="''+surveyLinkKey+index+''" class="''+iconBtnClass+''"><i data-link-id="''+surveyLinkKey+index+''" class="''+iconClass+''" ariahidden="true"></i></button>'';
+                        //this urlText is required for the copy action.
+                        let urlText = ''<span id="link-''+surveyLinkKey+index+''" style="display:none;">''+item.url +''</span>'';
+                        let headerDiv = ''<div style="margin:18px 18px 0px 18px; word-break: break-word;">''+iconBtn +'' '' +item.language + '' '' +urlText+''</div>'';
+                        let qrCodeImg = ''<img style="display:block; margin-left:auto; margin-right:auto; margin-bottom:9px; width:200px; height:200px" src="data:image/png;base64,'' + item.qrCode +''"  alt="''+item.url+''"/>'';
+                        let listItem = ''<div style="width:210px;margin-bottom:14px;margin-right:14px;float:left;border:1px solid rgba(34, 36, 38, 0.15);">''+ headerDiv + qrCodeImg + ''</div>'';
+                        htmlLink += listItem;
+                    });
+                    
+                    htmlLink += "</div>"
+                    
+                    CloverApp.API.setDataField("anonymousSurveyLink", htmlLink);
+                    
+                    //Due to security issue does not allow "unsafe inline", bind separately
+                    document.getElementsByName("btnCopy-anonymous-survey-link").forEach(function(btn){
+                       btn.addEventListener("click",function(e){
+                           e.preventDefault();
+                           const copyText = document.getElementById("link-" + e.target.getAttribute(''data-link-id'')).innerText
+                           navigator.clipboard.writeText(copyText);
+                           alertify.success(''Copied to clipboard!'');
+                       })
+                    });
+                }else{
+                    CloverApp.API.setDataField("anonymousSurveyLink", "");
+                }
+            }, reason => {
+                console.log(''getAnonymousSurveyLink'', reason);
+            }
+        ).finally(Utils.loadingStop);
+    },
+    
+    openTagsModal: function(args){
+        try{
+            let tagsData = args.data.Tags;
+            let NumberOfUniqueTagsShows = 10;
+            if(Array.isArray(tagsData)){
+                NumberOfUniqueTagsShows = NumberOfUniqueTagsShows + tagsData.length;
+            }
+            Utils.loadingStart();
+            Utils.getRequest("/tags/getActiveTags?number=" + encodeURIComponent(NumberOfUniqueTagsShows))
+            .then(response => {
+                    if(response.success && response.item !== null) {
+                        var result = response.item;
+                        args.data.TagsSearched = result;
+                        CloverApp.API.setDataField("TagsSearched", result);
+                        let tagsSearched = result;
+                        if(Array.isArray(tagsData)){
+                            tagsSearched = tagsSearched.filter(x => !tagsData.includes(x));
+                        }
+                        qnn_dplyUserActions.rewriteSearchedTags(tagsSearched);
+                        qnn_dplyUserActions.rewriteDdTags(args);
+                    }
+                }, reason => {
+                    switch(reason) {
+                      case ''TAGS_NOT_FOUND'':
+                        qnn_dplyUserActions.rewriteSearchedTags('''');
+                        break;
+                      default:
+                        console.error(reason);
+                        alertify.error(reason);
+                    }
+                }
+            ).finally(Utils.loadingStop);
+        }catch(e){
+            console.log(e);
+        }
+    },
+    
+    searchTagsInDB:function(args){
+        try{
+            let tagsToSearch = JSON.stringify(args.data.TagsSearch);
+            let tagsData = args.data.Tags;
+            Utils.loadingStart();
+            Utils.getRequest("/tags/searchTags?search=" + encodeURIComponent(tagsToSearch))
+            .then(response => {
+                    if(response.success && response.item !== null) {
+                        var result = response.item;
+                        if(Array.isArray(tagsData)){
+                            result = result.filter(x => !tagsData.includes(x));
+                        }
+                        qnn_dplyUserActions.rewriteSearchedTags(result);
+                    }
+                }, reason => {
+                    if(reason == "TAGS_NOT_FOUND"){
+                        qnn_dplyUserActions.rewriteSearchedTags("");
+                    } else {
+                        alertify.error(reason);
+                    }
+            }
+            ).finally(Utils.loadingStop);
+        }catch(e){
+            console.log(e);
+        }
+    },
+    
+    rewriteSearchedTags:function(data){
+        const divTagsSearchResult = function (model) {
+            model.children.splice(2);
+            if(data.length == 0){
+                var label = new Array();
+                label[''content''] = "Tag Not Found...";
+                label[''data-buildertype''] = "staticcontent";
+                label[''key''] = "lblNotFound";
+                model.children[2] = label;
+            }
+            for (x=0;x<data.length;x++){
+                var tag = window.globalUserActions.createSearchedTagsButton(data[x]);
+                model.children[x+2] = tag;
+                if(x==9){
+                    //show only 10 result
+                    break;
+                }
+            }
+            return model;
+        };
+        CloverApp.API.rewriteControlModel("divTagsSearchResult", divTagsSearchResult);
+        CloverApp.API.setDataField("divTagsSearchResult", null);
+    },
+    
+    closeTagsModal: function (args){
+        args.component.refs.mdlTag.close();
+        
+        var originalTags = args.data.Tags;
+        if(args.data.addedTags != null && originalTags != null){
+            originalTags = args.data.Tags.filter(x => !args.data.addedTags.includes(x));
+        }
+        args.data.Tags = originalTags;
+        args.data.addedTags = null;
+        CloverApp.API.setDataField("ddTags", null);
+        CloverApp.API.setDataField("Tags", originalTags);
+    },
+    
+    saveActiveTags: function(args){
+        args.data.addedTags = null;
+        //remove duplicate tags
+        let newTags = args.data.ddTags;
+        newTags = newTags.filter((newTags) => newTags != '' '');
+        newTags = newTags.map(newTags => {return newTags.trim()});
+        
+        var unique = [...new Set(newTags)];
+        args.data.ddTags = unique;
+        args.data.Tags = unique;
+        CloverApp.API.setDataField("ddTags", unique);
+        CloverApp.API.setDataField("Tags", unique);
+        
+        qnn_dplyUserActions.rewriteActiveTags(args);
+        args.component.refs.mdlTag.close();
+    },
+    
+    rewriteActiveTags: function(args){
+        let divActiveTags = function (model) {
+            model.children.splice(2);
+            for (x=0;x<args.data.Tags.length;x++){
+                var tag = window.globalUserActions.createTagsButton(args.data.Tags[x]);
+                model.children[x+2] = tag;
+            }
+            return model;
+        };
+        CloverApp.API.rewriteControlModel("divActiveTags", divActiveTags);
+        CloverApp.API.setDataField("divActiveTags", null);
+    },
+    
+    rewriteDdTags: function(args){
+        let ddTags = args.data.Tags;
+        const ddTagsRewrite = function (model) {
+            model[''data-elements''] = new Array();
+            return model;
+        };
+        CloverApp.API.rewriteControlModel("ddTags", ddTagsRewrite);
+        CloverApp.API.setDataField("ddTags", ddTags);
+    },
+    
+    addTagToDropdown: function (args){
+        var tagsName = args.sourceControlRef.props.additionalParams.model.content;
+        let ddTags = args.data.ddTags;
+        
+        //this is use to remove the added tags when cancel
+        if(Array.isArray(args.data.addedTags)) {
+            if(!args.data.addedTags.includes(tagsName)) {
+                args.data.addedTags.push(tagsName);
+            }
+        } else {
+            args.data.addedTags = new Array(tagsName);
+        }
+        
+        if(ddTags!=null){
+            if(!ddTags.includes(tagsName)) {
+                ddTags.push(tagsName);
+                CloverApp.API.setDataField("ddTags", ddTags);
+            }
+        } else {
+            args.data.ddTags = new Array(tagsName);
+        }
+        args.component.refs.ddTags.forceUpdate();
+    },
+    
+    removeTagInDiv: function(args){
+        var tagKeyName = args.sourceControlRef.props.name
+        const divTagsSearchResult = function (model) {
+            for(x=0;x<model.children.length;x++){
+                if(model.children[x].key == tagKeyName) {
+                    model.children.splice(x, 1);
+                    break;
+                }
+            }
+            return model;
+        };
+        CloverApp.API.rewriteControlModel("divTagsSearchResult", divTagsSearchResult);
+        CloverApp.API.setDataField("divTagsSearchResult", null);
+    },
+    
+    addTagsSession: function(args){
+        let tagsName = args.sourceControlRef.props.additionalParams.model.content;
+        sessionStorage.setItem("tagsName", tagsName);
+    },
+}' WHERE [Id]='6518a592-09cd-4b6f-8235-deeebb8b81cf';
+

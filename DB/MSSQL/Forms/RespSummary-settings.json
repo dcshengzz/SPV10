@@ -1,0 +1,238 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "f6e34bdf-b769-42dd-a2be-fee67faf9045",
+  "name": "RespSummary",
+  "lastUpdate": "2026-02-12T19:56:21.6839165+08:00",
+  "entityId": "82c6c804-408b-43c2-9b9a-1c80ec1bd61b",
+  "isTemplate": false,
+  "triggers": [],
+  "dataMap": [
+    {
+      "id": "21488984-9369-960a-0188-f6cd226f2efd",
+      "attributeId": "a1fc3710-6607-43b9-af7d-725bd2680d8a",
+      "control": "CompletedResponder",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "77966d01-7df8-8042-64dd-0a25bda0e2e1",
+      "attributeId": "78d16203-5cf4-4916-9ab8-88c1f54ce8ed",
+      "control": "CompletedResponseAs",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "61a9fa70-5077-e503-2d54-b4fcae0514ee",
+      "attributeId": "4b44a2ee-f1f2-44d2-9009-3b8a47ecc480",
+      "control": "CompletedResponseBy",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "378214fc-7998-8baa-2222-6b4a54ea553e",
+      "attributeId": "8af9b9cb-4861-4441-83a8-59d48741fb6c",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "fda34e1b-4cd6-ea1b-2bb6-23520e8c1207",
+      "attributeId": "d4272417-1958-4ac8-bfc8-ac00d68a626b",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "a8246ac2-e93b-51bf-9bee-c5051632a0e9",
+      "attributeId": "09704840-97e0-47be-9f1a-52466b9525cd",
+      "control": "DateComplete",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "779b0f51-72fa-5028-f7d2-5b391112a4e3",
+      "attributeId": "76d1727b-8f70-47e7-b151-8006a69e9ece",
+      "control": "DateStart",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "1bef9046-8270-b687-bc3a-7f05d02fb07d",
+      "attributeId": "61c77c81-2aca-43ea-b229-9d4c4fe13bf7",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "b40d07be-a132-bd5e-8866-bceb0c0fd711",
+      "attributeId": "3def2475-2145-4db2-a729-287b8d588647",
+      "control": "DplyName",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "1405a8b9-65a2-05b5-1282-349c2a26e22d",
+      "attributeId": "254248a3-2e6b-4a4c-97c2-a55fc6ef8f19",
+      "control": "DueDate",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "17b323ea-f04d-586d-7c00-f87a4f492cff",
+      "attributeId": "867ec6d6-7ba4-4f4b-82ce-e7c319f54edf",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "8d1c5ffa-2c81-8403-4415-a77095de3c05",
+      "attributeId": "4b649d9d-c01d-4a1e-97a9-741bfcd1059d",
+      "control": "InitialResponder",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "52da2759-1b4c-a265-1e07-7022585c6e3c",
+      "attributeId": "ab586032-ea40-4c94-95d8-102559233931",
+      "control": "InitialResponseAs",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "6d914a54-b7db-0b32-3269-6a44d21765cf",
+      "attributeId": "90fa91ee-7076-4081-8c98-2d566e37c556",
+      "control": "InitialResponseBy",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "a4aa8ff9-7dd0-e417-939e-642b3b720e73",
+      "attributeId": "81476eab-98c7-4f36-aed3-852ba932a089",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "b5632413-072e-7b82-5550-38740c6edfa2",
+      "attributeId": "3f339c6d-7107-4c1c-bbbd-41a8d9123ea4",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "1d9bb939-9df0-0b90-95e2-fbc764f5b537",
+      "attributeId": "c87c3611-0101-4e3a-847e-f7cbab904144",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "3febb2ed-6026-7d92-48a7-695b592bf895",
+      "attributeId": "6bb23850-d7e9-4917-81b2-9e5b197834f2",
+      "control": "LastResponder",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "7b022589-591f-449d-9e23-c2aa9cc00a82",
+      "attributeId": "c7edc3ed-7e20-48c7-93b6-1d9f077f4dd4",
+      "control": "LastResponseAs",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "e6b3c193-2201-c3f6-a131-fa4a1d988db0",
+      "attributeId": "234855c6-2fb6-450f-812b-182c08731834",
+      "control": "LastResponseBy",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "02d28467-b7e6-3452-845f-25700b204648",
+      "attributeId": "e3478e40-3a3b-4820-aa1d-2a226f425d2c",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "360a6be2-b2a5-fc56-c1a5-54b106bfbea4",
+      "attributeId": "ee08a947-9e37-4f27-b58f-e1d334b1b205",
+      "control": "Name",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "868830fa-574c-d3c4-15f4-2a6f986c3fcc",
+      "attributeId": "b4248fa0-bb7d-45ed-a3ee-21f90a46ef23",
+      "control": "Remarks",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "b993ec4a-a83b-cbf2-accc-1810c4f21c91",
+      "attributeId": "50040e51-72f2-4757-8013-4c99d851bbd4",
+      "control": "StatusTitle",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "a99525e2-6f41-55a7-d5e3-4b4390b44580",
+      "attributeId": "eb9b046c-2790-444b-9db0-0b69da854bd0",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "7aaf82b2-d3d6-1388-038e-67b037d2443e",
+      "attributeId": "7e05448b-904e-4851-8d99-9a9d43076353",
+      "control": "UID",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "d63bbacb-8e00-bfce-f55b-341efb023226",
+      "attributeId": "156a26fb-a63b-44c9-9aaf-f887ff3ac9aa",
+      "control": "UpdatedDate",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "558fa305-2c87-1b2e-9de3-dbd185486361",
+      "attributeId": "387476f0-3010-4567-8ccd-6cbe0a83f512",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "0b09bba3-668c-33ed-01d6-976282bd86d9",
+      "attributeId": "be3a069e-516e-4d6c-9635-96002b0cfb1b",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "02597774-9c44-b139-42bb-3b4ea5a094e9",
+      "attributeId": "bf19adb8-56df-4141-9c44-e6a4df1a9b2f",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "b1706988-f8f3-a158-fd2c-4e4472b0c402",
+      "attributeId": "e12f30b6-28cb-4e41-9f59-a29262139ffe",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "62cf29b0-33f1-42b0-1bf4-c1e898e9111c",
+      "attributeId": "f82385e4-2568-4ef9-8a3d-379ab58bd3ac",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "720b2e83-97dc-a2b2-1c63-37f4e54bab09",
+      "attributeId": "7769b993-2944-4bfc-aaeb-bfc540d5dc6c",
+      "control": "StatusModifyByName",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "786e7bc9-7832-d347-cbf3-d4dc395957f1",
+      "attributeId": "a5656cf1-874d-4f0f-acab-03a6621e1034",
+      "control": "StatusModifyOn",
+      "isEditable": true,
+      "isLoadable": true
+    }
+  ],
+  "dataColl": [],
+  "securityGroup": "DataEditor",
+  "isArchived": false
+}

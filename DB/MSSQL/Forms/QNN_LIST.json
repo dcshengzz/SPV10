@@ -1,0 +1,1264 @@
+[
+  {
+    "key": "container_9",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "headerName",
+        "data-buildertype": "header",
+        "content": "Sample List",
+        "size": "large",
+        "subheader": "",
+        "style-marginTop": "",
+        "style-marginLeft": "",
+        "style-source": "",
+        "style-width": "300px",
+        "events": {},
+        "style-customcss": ""
+      }
+    ],
+    "style-source": "",
+    "style-marginTop": "",
+    "style-marginBottom": "20px",
+    "style-marginLeft": "",
+    "style-float": "",
+    "style-width": "",
+    "style-customcss": ""
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "container_26",
+            "data-buildertype": "container",
+            "style-float": "",
+            "children": [
+              {
+                "key": "headerProperties",
+                "data-buildertype": "header",
+                "content": "Basic Properties",
+                "size": "medium"
+              },
+              {
+                "key": "container_28",
+                "data-buildertype": "container",
+                "style-source": "clear:both;",
+                "style-height": "",
+                "children": []
+              },
+              {
+                "key": "formgroup_5",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "nameInput",
+                    "data-buildertype": "input",
+                    "label": "Name",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "type": "text",
+                    "readOnly": false,
+                    "events": {},
+                    "labelPosition": "",
+                    "style-width": "",
+                    "other-required": true,
+                    "reference": "Name"
+                  },
+                  {
+                    "key": "headerDescription",
+                    "data-buildertype": "textarea",
+                    "label": "Description",
+                    "fluid": true,
+                    "other-required": false,
+                    "events": {}
+                  }
+                ],
+                "orientation": "grouped"
+              },
+              {
+                "key": "formgroup_7",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": []
+              },
+              {
+                "key": "staticcontent_3",
+                "data-buildertype": "staticcontent",
+                "content": "Tags",
+                "isHtml": true,
+                "style-marginBottom": "4px",
+                "style-source": "color:#97A3B4;\nfont-size:12px;\nfont-weight:400;\nline-height:16px;"
+              },
+              {
+                "key": "divActiveTags",
+                "data-buildertype": "container",
+                "style-source": "clear:both;\nborder:1px solid rgba(34,36,38,.15);\nborder-radius: 5px;\npadding:9.5px 14px;",
+                "events": {},
+                "children": [
+                  {
+                    "key": "mdlTag",
+                    "data-buildertype": "swzmodal",
+                    "content": "Add/Remove Tags",
+                    "compact": true,
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "openTagsModal"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "children": [
+                      {
+                        "key": "header_4",
+                        "data-buildertype": "header",
+                        "content": "Add/Remove Tags",
+                        "size": "medium"
+                      },
+                      {
+                        "key": "message_1",
+                        "data-buildertype": "message",
+                        "header": "",
+                        "content": "Add a custom tag by typing in the Tags",
+                        "info": true
+                      },
+                      {
+                        "key": "staticcontent_5",
+                        "data-buildertype": "staticcontent",
+                        "content": "Tags",
+                        "isHtml": true,
+                        "style-marginBottom": "4px",
+                        "style-source": "color:#97A3B4;\nfont-size:12px;\nfont-weight:400;\nline-height:16px;"
+                      },
+                      {
+                        "key": "ddTags",
+                        "data-buildertype": "dropdown",
+                        "label": "",
+                        "fluid": true,
+                        "selection": true,
+                        "data-elements": [],
+                        "placeholder": "Type and add tag here",
+                        "search": true,
+                        "multiple": true,
+                        "allowAddItems": true,
+                        "style-marginBottom": "20px",
+                        "events": {}
+                      },
+                      {
+                        "key": "divTagsSearchResult",
+                        "data-buildertype": "container",
+                        "style-source": "clear:both;\nborder:1px solid rgba(34,36,38,.15);\nborder-radius: 5px;\npadding:9.5px 14px;\nmin-height:45px;",
+                        "style-marginBottom": "10px",
+                        "events": {},
+                        "children": [
+                          {
+                            "key": "formgroup_10",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "orientation": "grouped",
+                            "children": [
+                              {
+                                "key": "staticcontent_6",
+                                "data-buildertype": "staticcontent",
+                                "content": "Search For Tags",
+                                "isHtml": true,
+                                "style-marginBottom": "4px",
+                                "style-source": "color:#97A3B4;\nfont-size:12px;\nfont-weight:400;\nline-height:16px;"
+                              },
+                              {
+                                "key": "TagsSearch",
+                                "data-buildertype": "input",
+                                "label": "",
+                                "fluid": false,
+                                "onChangeTimeout": 200,
+                                "placeholder": "Search Tags...",
+                                "events": {
+                                  "onChange": {
+                                    "active": true,
+                                    "actions": [
+                                      "searchTagsInDB"
+                                    ],
+                                    "targets": [],
+                                    "parameters": []
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "key": "staticcontent_7",
+                            "data-buildertype": "staticcontent",
+                            "content": "<hr>",
+                            "isHtml": true,
+                            "style-marginBottom": "10px",
+                            "style-source": "",
+                            "style-marginTop": "10px"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "container_24",
+                        "data-buildertype": "container",
+                        "style-float": "left",
+                        "style-marginTop": "30px",
+                        "style-marginBottom": "20px",
+                        "children": [
+                          {
+                            "key": "btnTagsSave",
+                            "data-buildertype": "button",
+                            "content": "Save",
+                            "primary": true,
+                            "events": {
+                              "onClick": {
+                                "active": true,
+                                "actions": [
+                                  "saveActiveTags"
+                                ],
+                                "targets": [],
+                                "parameters": []
+                              }
+                            }
+                          },
+                          {
+                            "key": "button_2",
+                            "data-buildertype": "button",
+                            "content": "Cancel",
+                            "events": {
+                              "onClick": {
+                                "active": true,
+                                "actions": [
+                                  "closeTagsModal"
+                                ],
+                                "targets": [],
+                                "parameters": []
+                              }
+                            },
+                            "secondary": true
+                          }
+                        ]
+                      }
+                    ],
+                    "size": "tiny",
+                    "style-display": "none",
+                    "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")"
+                  },
+                  {
+                    "key": "staticcontent_4",
+                    "data-buildertype": "staticcontent",
+                    "content": "<hr>",
+                    "isHtml": true,
+                    "style-marginBottom": "10px",
+                    "style-source": "",
+                    "style-marginTop": "10px"
+                  }
+                ],
+                "style-marginTop": "",
+                "style-marginBottom": "15px"
+              },
+              {
+                "key": "formgroup_4",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "TrkListIds",
+                    "data-buildertype": "dictionary",
+                    "label": "Track List",
+                    "fluid": true,
+                    "selection": true,
+                    "dataModel": "QNN_TRK_LIST",
+                    "columns": "Name ASC",
+                    "events": {},
+                    "multiple": true,
+                    "clearable": true,
+                    "style-hidden": false
+                  }
+                ],
+                "style-marginTop": "15px"
+              },
+              {
+                "key": "formgroup_2",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "toggleStatus",
+                    "data-buildertype": "checkbox",
+                    "label": "Status",
+                    "toggle": true,
+                    "events": {},
+                    "style-width": "300px"
+                  }
+                ]
+              },
+              {
+                "key": "formgroup_11",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "Archived",
+                    "data-buildertype": "checkbox",
+                    "label": "Archived",
+                    "toggle": true,
+                    "events": {},
+                    "style-width": "300px"
+                  }
+                ]
+              }
+            ],
+            "style-source": "border: 1px solid rgba(34,36,38,.15);\npadding: 10px;"
+          },
+          {
+            "key": "container_13",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_2",
+                "data-buildertype": "container",
+                "style-float": "left",
+                "children": [
+                  {
+                    "key": "container_7",
+                    "data-buildertype": "container",
+                    "style-float": "",
+                    "style-width": "100%",
+                    "children": [
+                      {
+                        "key": "form_4",
+                        "data-buildertype": "form",
+                        "children": [
+                          {
+                            "key": "headerUser",
+                            "data-buildertype": "header",
+                            "content": "Records User Control",
+                            "size": "medium"
+                          },
+                          {
+                            "key": "formgroup_8",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "children": [
+                              {
+                                "key": "toggleEditName",
+                                "data-buildertype": "checkbox",
+                                "label": "Edit Name",
+                                "toggle": true
+                              }
+                            ]
+                          },
+                          {
+                            "key": "formgroup_3",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "children": [
+                              {
+                                "key": "toggleEditEmail",
+                                "data-buildertype": "checkbox",
+                                "label": "Edit Email",
+                                "toggle": true
+                              }
+                            ]
+                          },
+                          {
+                            "key": "formgroup_9",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "children": [
+                              {
+                                "key": "togglePassword",
+                                "data-buildertype": "checkbox",
+                                "label": "Edit Password",
+                                "toggle": true
+                              }
+                            ]
+                          }
+                        ],
+                        "style-source": "float:left"
+                      }
+                    ],
+                    "other-visibleConition": "",
+                    "style-hidden": true
+                  },
+                  {
+                    "key": "container_11",
+                    "data-buildertype": "container",
+                    "children": [],
+                    "style-float": "",
+                    "style-source": "clear:both",
+                    "style-customcss": "",
+                    "style-width": ""
+                  }
+                ],
+                "style-source": "",
+                "style-width": "100%",
+                "style-marginTop": "10px"
+              }
+            ],
+            "style-width": "100%"
+          }
+        ]
+      },
+      {
+        "key": "container_4",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "header_2",
+            "data-buildertype": "header",
+            "content": "List Sample Properties",
+            "size": "medium"
+          },
+          {
+            "key": "collectioneditor_1",
+            "data-buildertype": "collectioneditor",
+            "idField": "Id",
+            "parentIdField": "ParentId",
+            "columns": [
+              {
+                "key": "Alias",
+                "name": "Alias",
+                "width": "",
+                "control": "input"
+              },
+              {
+                "key": "ReqdYN",
+                "name": "Reqd",
+                "control": "checkbox",
+                "width": "5%"
+              },
+              {
+                "key": "UsrEditYN",
+                "name": "UsrEdit",
+                "control": "checkbox",
+                "width": "5%"
+              },
+              {
+                "key": "TxtRow",
+                "name": "TxtRow",
+                "control": "number",
+                "width": "10%"
+              },
+              {
+                "key": "TxtRegExp",
+                "name": "TxtRegExp",
+                "width": "25%",
+                "control": "input"
+              },
+              {
+                "key": "TxtRegExpErr",
+                "name": "TxtRegExpErr",
+                "width": "20%",
+                "control": "input"
+              }
+            ],
+            "header": false,
+            "headerTitle": "List Sample Properties",
+            "hierarchical": false,
+            "placeholders": {
+              "Type": [
+                {
+                  "key": "Type",
+                  "data-buildertype": "input",
+                  "label": "",
+                  "fluid": true,
+                  "onChangeTimeout": 200,
+                  "readOnly": true,
+                  "defaultValue": "1",
+                  "style-hidden": false
+                }
+              ]
+            },
+            "events": {},
+            "style-width": "100%",
+            "style-customcss": "hmr-block",
+            "style-marginBottom": "20px"
+          }
+        ],
+        "style-customcss": "",
+        "style-width": "100%",
+        "style-source": "padding: 10px;\nborder: 1px solid rgba(34,36,38,.15);",
+        "style-hidden": false,
+        "other-visibleConition": "",
+        "style-float": "left",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "container_5",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "btnSave",
+            "data-buildertype": "button",
+            "content": "Save",
+            "events": {
+              "onClick": {
+                "actions": [
+                  "processTrkList",
+                  "validate",
+                  "save"
+                ],
+                "active": true,
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "target",
+                    "value": "/form/SwzListList"
+                  }
+                ]
+              }
+            },
+            "primary": false,
+            "secondary": true
+          },
+          {
+            "key": "btnCancel",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "events": {
+              "onClick": {
+                "actions": [
+                  "exit",
+                  "redirect"
+                ],
+                "active": true,
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "target",
+                    "value": "/form/swzlistlist"
+                  }
+                ]
+              }
+            },
+            "secondary": true
+          }
+        ],
+        "style-float": "left",
+        "style-marginBottom": "1em"
+      }
+    ],
+    "style-width": "",
+    "style-marginBottom": ""
+  },
+  {
+    "key": "cnt_visuallyDivideMasterAndDetail",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "staticcontent_1",
+        "data-buildertype": "staticcontent",
+        "content": "<br/>\n<br/>\n<hr />",
+        "isHtml": true,
+        "style-source": "",
+        "style-marginBottom": ""
+      }
+    ],
+    "style-float": "",
+    "style-source": "text-align: center;\nclear: both;",
+    "style-marginBottom": "20px",
+    "other-customValidation": "",
+    "other-visibleConition": "data.Id!=null",
+    "style-marginTop": ""
+  },
+  {
+    "key": "container_16",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "style-width": "100%",
+    "children": [
+      {
+        "key": "form_6",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "container_15",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "headerRecords",
+                "data-buildertype": "header",
+                "content": "Records ",
+                "size": "medium",
+                "subheader": "Samples in this list"
+              },
+              {
+                "key": "container_17",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnCreate2",
+                    "data-buildertype": "button",
+                    "content": "Create",
+                    "primary": true,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "newListSample"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "style-source": "float:left",
+                    "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")"
+                  }
+                ],
+                "style-float": "left"
+              },
+              {
+                "key": "container_19",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnDisable",
+                    "data-buildertype": "button",
+                    "content": "Disable",
+                    "primary": false,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "confirm",
+                          "toggleListSamplesActive"
+                        ],
+                        "targets": [
+                          "gridviewSample"
+                        ],
+                        "parameters": [
+                          {
+                            "name": "confirmTitle",
+                            "value": "disableSamplesConfirmTitle"
+                          },
+                          {
+                            "name": "confirmText",
+                            "value": "disableSamplesConfirmText"
+                          },
+                          {
+                            "name": "action",
+                            "value": "disable"
+                          }
+                        ]
+                      }
+                    },
+                    "style-source": "float:left",
+                    "secondary": true,
+                    "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")"
+                  },
+                  {
+                    "key": "btnEnable",
+                    "data-buildertype": "button",
+                    "content": "Enable",
+                    "primary": false,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "toggleListSamplesActive"
+                        ],
+                        "targets": [
+                          "gridviewSample"
+                        ],
+                        "parameters": [
+                          {
+                            "name": "action",
+                            "value": "enable"
+                          }
+                        ]
+                      }
+                    },
+                    "style-source": "float:left",
+                    "secondary": true,
+                    "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")"
+                  }
+                ],
+                "style-float": "left"
+              },
+              {
+                "key": "container_22",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnDeleteSample",
+                    "data-buildertype": "button",
+                    "content": "Delete Samples & Data",
+                    "primary": false,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "confirm",
+                          "deleteListSample",
+                          "gridRefresh"
+                        ],
+                        "targets": [
+                          "gridviewSample"
+                        ],
+                        "parameters": [
+                          {
+                            "name": "confirmTitle",
+                            "value": "deleteListSamplesConfirmTitle"
+                          },
+                          {
+                            "name": "confirmText",
+                            "value": "deleteListSamplesConfirmText"
+                          }
+                        ]
+                      }
+                    },
+                    "style-source": "float:left",
+                    "secondary": true,
+                    "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")"
+                  }
+                ],
+                "style-float": "left"
+              },
+              {
+                "key": "container_18",
+                "data-buildertype": "container",
+                "style-float": "left",
+                "children": [
+                  {
+                    "key": "modalImportSample",
+                    "data-buildertype": "swzmodal",
+                    "style-display": "none",
+                    "children": [
+                      {
+                        "key": "formImportList",
+                        "data-buildertype": "form",
+                        "children": [
+                          {
+                            "key": "formgroup_6",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "children": [
+                              {
+                                "key": "header_5",
+                                "data-buildertype": "header",
+                                "content": "Import Samples from CSV",
+                                "size": "small",
+                                "subheader": ""
+                              }
+                            ]
+                          },
+                          {
+                            "key": "inputPassword",
+                            "data-buildertype": "input",
+                            "label": "Password for new or password_reset samples (optional)",
+                            "fluid": true,
+                            "onChangeTimeout": 200,
+                            "type": "text",
+                            "style-width": "200px"
+                          },
+                          {
+                            "key": "container_21",
+                            "data-buildertype": "container",
+                            "children": [
+                              {
+                                "key": "inputImportListSample",
+                                "data-buildertype": "input",
+                                "label": "",
+                                "fluid": true,
+                                "onChangeTimeout": 200,
+                                "type": "file",
+                                "events": {
+                                  "onChange": {
+                                    "active": false,
+                                    "actions": [],
+                                    "targets": [],
+                                    "parameters": []
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "key": "container_14",
+                            "data-buildertype": "container",
+                            "children": [
+                              {
+                                "key": "button_7",
+                                "data-buildertype": "button",
+                                "content": "Submit",
+                                "primary": true,
+                                "events": {
+                                  "onClick": {
+                                    "active": true,
+                                    "actions": [
+                                      "importSamples"
+                                    ],
+                                    "targets": [
+                                      "gridviewSample"
+                                    ],
+                                    "parameters": []
+                                  }
+                                }
+                              },
+                              {
+                                "key": "button_8",
+                                "data-buildertype": "button",
+                                "content": "Cancel",
+                                "secondary": true,
+                                "events": {
+                                  "onClick": {
+                                    "active": true,
+                                    "actions": [
+                                      "closeImportModal"
+                                    ],
+                                    "targets": [],
+                                    "parameters": []
+                                  }
+                                }
+                              }
+                            ],
+                            "style-float": "right",
+                            "style-source": "padding: 1em\n"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sampleListImportHeader",
+                        "data-buildertype": "header",
+                        "content": "Sample List Import Complete",
+                        "size": "large",
+                        "events": {},
+                        "other-visibleConition": "(data.sampleAdded != null && data.sampleAdded != undefined)",
+                        "style-hidden": true,
+                        "textAlign": "left"
+                      },
+                      {
+                        "key": "importSummaryStatic",
+                        "data-buildertype": "staticcontent",
+                        "content": "<table class=\"swzTable\" border=\"0\">\n<tr style=\"background-color: #F5F5F5;\"><td>Total Rows</td><td style=\"color: green; padding-left: 32px; padding-right: 32px; width: 250px; text-align: right;\">{totalRows}</td></tr>\n<tr><td>Sample Added</td><td style=\"color: black; padding-left: 32px; text-align: right;  padding-right: 32px;\">{sampleAdded}</td></tr>\n<tr><td>Sample Updated</td><td style=\"color: black; padding-left: 32px; text-align: right;  padding-right: 32px;\">{sampleUpdated}</td></tr>\n<tr><td>Sample Duplicated</td><td style=\"color: black; padding-left: 32px; text-align: right;  padding-right: 32px;\">{sampleDuplicated}</td></tr>\n<tr><td>Invalid Rows</td><td style=\"color: red; padding-left: 32px; text-align: right; padding-right: 32px;\">{invalidRows}</td></tr>\n</table>",
+                        "isHtml": true,
+                        "style-font-size": "15px",
+                        "style-hidden": true,
+                        "other-visibleConition": "(data.sampleAdded != null && data.sampleAdded != undefined)",
+                        "events": {}
+                      },
+                      {
+                        "key": "containerInvalidDetails",
+                        "data-buildertype": "container",
+                        "children": [
+                          {
+                            "key": "header_2",
+                            "data-buildertype": "header",
+                            "content": "Invalid Rows Detail",
+                            "size": "medium",
+                            "other-visibleConition": ""
+                          },
+                          {
+                            "key": "form_2",
+                            "data-buildertype": "form",
+                            "children": [
+                              {
+                                "key": "formgroup_1",
+                                "data-buildertype": "formgroup",
+                                "widths": "equal",
+                                "orientation": "grouped",
+                                "children": [
+                                  {
+                                    "key": "container_3",
+                                    "data-buildertype": "container",
+                                    "style-float": "",
+                                    "children": [
+                                      {
+                                        "key": "invalidRowsDetail",
+                                        "data-buildertype": "collectioneditor",
+                                        "idField": "Id",
+                                        "parentIdField": "ParentId",
+                                        "columns": [
+                                          {
+                                            "key": "RowNo",
+                                            "name": "Row No",
+                                            "control": "span",
+                                            "width": ""
+                                          },
+                                          {
+                                            "key": "ErrField",
+                                            "name": "Field",
+                                            "control": "span",
+                                            "width": ""
+                                          },
+                                          {
+                                            "key": "ErrMsg",
+                                            "name": "Error Message",
+                                            "control": "span",
+                                            "width": ""
+                                          }
+                                        ],
+                                        "disableAdd": false,
+                                        "disableDelete": false,
+                                        "other-visibleConition": "",
+                                        "header": false,
+                                        "headerTitle": "Pre-Populate Fields",
+                                        "events": {},
+                                        "readOnly": true
+                                      }
+                                    ],
+                                    "style-width": "",
+                                    "style-marginBottom": "",
+                                    "events": {},
+                                    "other-visibleConition": "",
+                                    "style-customcss": "",
+                                    "style-source": "overflow-y: scroll;\nmax-height: 300px;\noverflow-x: hidden;",
+                                    "style-marginTop": ""
+                                  }
+                                ],
+                                "events": {}
+                              }
+                            ]
+                          }
+                        ],
+                        "style-source": "",
+                        "style-customcss": "ui negative message",
+                        "style-float": "",
+                        "style-width": "",
+                        "other-visibleConition": "(data.invalidRowsDetail!= undefined || data.invalidRowsDetail!= null)",
+                        "events": {},
+                        "style-hidden": true
+                      },
+                      {
+                        "key": "btnImportClose",
+                        "data-buildertype": "button",
+                        "content": "Close",
+                        "style-customcss": "",
+                        "primary": false,
+                        "events-onClick": true,
+                        "events-onClick-actions": [
+                          "gridAdd"
+                        ],
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "closeModal"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "other-visibleConition": "(data.sampleAdded != null && data.sampleAdded != undefined)",
+                        "style-source": "float: right;",
+                        "style-hidden": true,
+                        "style-marginBottom": "20px",
+                        "secondary": true
+                      }
+                    ],
+                    "style-source": "float:left",
+                    "events": {
+                      "onClick": {
+                        "active": false,
+                        "actions": [],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "content": "Import",
+                    "primary": false,
+                    "size": "",
+                    "secondary": true,
+                    "compact": false,
+                    "other-customValidation": "",
+                    "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")"
+                  }
+                ],
+                "style-marginRight": ""
+              },
+              {
+                "key": "container_3",
+                "data-buildertype": "container",
+                "style-float": "left",
+                "children": [
+                  {
+                    "key": "btnExportSamples",
+                    "data-buildertype": "button",
+                    "content": "Export",
+                    "primary": false,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "exportSample"
+                        ],
+                        "targets": [
+                          "gridviewSample"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "style-source": "float:left",
+                    "secondary": true,
+                    "other-visibleConition": ""
+                  }
+                ]
+              },
+              {
+                "key": "container_25",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnRefresh",
+                    "data-buildertype": "button",
+                    "content": "Refresh",
+                    "primary": false,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "gridRefresh"
+                        ],
+                        "targets": [
+                          "gridviewSample"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "style-source": "float:left",
+                    "other-visibleConition": "",
+                    "secondary": true
+                  }
+                ],
+                "style-float": "left"
+              },
+              {
+                "key": "inputSearch",
+                "data-buildertype": "input",
+                "label": "",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "style-width": "300px",
+                "size": "",
+                "labelPosition": "",
+                "style-source": "float: left;",
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "setFilter",
+                      "applyFilter"
+                    ],
+                    "targets": [
+                      "gridviewSample"
+                    ],
+                    "parameters": [
+                      {
+                        "name": "column",
+                        "value": "Name, UID"
+                      }
+                    ]
+                  }
+                },
+                "placeholder": "Search by Name or UID"
+              }
+            ],
+            "style-width": "100%",
+            "style-float": "",
+            "style-marginRight": "1em",
+            "style-source": "",
+            "style-marginBottom": "1em",
+            "style-marginTop": "",
+            "events": {},
+            "other-visibleConition": "data.Id?true:false"
+          }
+        ]
+      }
+    ],
+    "style-hidden": false,
+    "events": {},
+    "other-visibleConition": "data.Id!=null"
+  },
+  {
+    "key": "gridviewSample",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "UID",
+        "name": "UID",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "ListSampleActiveYN",
+        "name": "Active",
+        "type": "checkbox",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true
+      },
+      {
+        "key": "ToEmails",
+        "name": "Email",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "CcEmails",
+        "name": "CC Emails",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true
+      }
+    ],
+    "autoHeight": false,
+    "offSet": "",
+    "multiselect": true,
+    "rowKey": "Id",
+    "defaultSort": "UID ASC",
+    "events": {
+      "onRowClick": {
+        "active": false,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onRowDblClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "pagerType": "server",
+    "editFormShowType": "",
+    "minHeight": "",
+    "style-marginTop": "",
+    "editForm": "QNN_LIST_SAMPLE",
+    "style-hidden": false,
+    "rowHeight": "80",
+    "pageSize": "384",
+    "other-visibleConition": "data.Id!=null"
+  },
+  {
+    "key": "container_20",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "staticcontent_2",
+        "data-buildertype": "staticcontent",
+        "content": "<hr />",
+        "isHtml": true,
+        "style-source": "",
+        "style-marginBottom": ""
+      }
+    ],
+    "style-float": "",
+    "style-source": "text-align: center;\nclear: both;",
+    "style-marginBottom": "20px",
+    "other-customValidation": "",
+    "other-visibleConition": "data.Id!=null",
+    "style-marginTop": "20px"
+  },
+  {
+    "key": "container_23",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_3",
+        "data-buildertype": "header",
+        "content": "Deployments using this Sample List",
+        "size": "small",
+        "textAlign": "left"
+      },
+      {
+        "key": "gridDeployments",
+        "data-buildertype": "gridview",
+        "columns": [
+          {
+            "key": "Name",
+            "name": "Deployment",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          },
+          {
+            "key": "SurveyName",
+            "name": "Survey",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          },
+          {
+            "key": "CategoryName",
+            "name": "Category",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          },
+          {
+            "key": "CreatedDate",
+            "name": "Created",
+            "type": "datetime",
+            "resizable": true,
+            "sortable": true,
+            "filterable": false
+          },
+          {
+            "key": "DateStart",
+            "name": "Start",
+            "type": "datetime",
+            "resizable": true,
+            "sortable": true,
+            "filterable": false
+          },
+          {
+            "key": "DateEnd",
+            "name": "End",
+            "type": "datetime",
+            "resizable": true,
+            "sortable": true,
+            "filterable": false
+          }
+        ],
+        "editForm": "QNN_DPLY",
+        "rowKey": "Id",
+        "pageSize": "50",
+        "defaultSort": "Name ASC",
+        "rowHeight": "80",
+        "events": {
+          "onRowDblClick": {
+            "active": true,
+            "actions": [
+              "gridEdit"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        }
+      }
+    ],
+    "other-visibleConition": "(data.Id  && CloverApp.API.checkRole('SurveyAdmin') ) ? true : false"
+  }
+]

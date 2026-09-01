@@ -1,0 +1,81 @@
+[
+  {
+    "key": "headerSurveyStatus",
+    "data-buildertype": "header",
+    "content": "Survey Status Response Dashboard - {dplyHeader}",
+    "size": "huge",
+    "subheader": "",
+    "style-marginTop": "10px"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "deployment",
+        "data-buildertype": "dictionary",
+        "label": "Deployment",
+        "fluid": true,
+        "selection": true,
+        "dataModel": "QNN_DPLY",
+        "columns": "Name ASC",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "changeHeader",
+              "onChangeDeployment"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "search": true,
+        "clearable": false,
+        "onChangeTimeout": "200",
+        "filters": "",
+        "style-height": "",
+        "paging": true
+      },
+      {
+        "key": "statusType",
+        "data-buildertype": "dropdown",
+        "label": "Status",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [],
+        "events": {
+          "onClick": {
+            "active": false,
+            "actions": [],
+            "targets": [],
+            "parameters": []
+          },
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "style-height": "",
+        "multiple": true,
+        "other-visibleConition": "data.onOverallResponse == 1"
+      },
+      {
+        "key": "result",
+        "data-buildertype": "staticcontent",
+        "content": "Text...",
+        "isHtml": true,
+        "fetchData": true,
+        "isPre": true
+      }
+    ],
+    "style-source": "",
+    "style-marginBottom": "30px"
+  }
+]

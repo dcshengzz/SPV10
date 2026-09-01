@@ -1,0 +1,352 @@
+[
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Sample Response Summary",
+        "size": "medium",
+        "subheader": ""
+      },
+      {
+        "key": "formgroup_9",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "DueDate",
+            "data-buildertype": "input",
+            "label": "Due",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "",
+            "readOnly": true,
+            "type": "datetime"
+          },
+          {
+            "key": "UID",
+            "data-buildertype": "input",
+            "label": "Sample UID",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "20px",
+            "readOnly": true
+          },
+          {
+            "key": "Name",
+            "data-buildertype": "input",
+            "label": "Respondent Name",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "20px",
+            "readOnly": true
+          },
+          {
+            "key": "DplyName",
+            "data-buildertype": "input",
+            "label": "Deployment",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "20px",
+            "readOnly": true
+          }
+        ],
+        "style-width": "185px",
+        "orientation": "grouped",
+        "style-source": "float: left;",
+        "style-marginRight": "20px",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "formgroup_2",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "DateStart",
+            "data-buildertype": "input",
+            "label": "Response Started On",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "",
+            "readOnly": true,
+            "type": "datetime"
+          },
+          {
+            "key": "InitialResponder",
+            "data-buildertype": "input",
+            "label": "Initial Responder",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          },
+          {
+            "key": "InitialResponseAs",
+            "data-buildertype": "input",
+            "label": "Initial As",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          },
+          {
+            "key": "InitialResponseBy",
+            "data-buildertype": "input",
+            "label": "Initial By",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          }
+        ],
+        "style-width": "185px",
+        "orientation": "grouped",
+        "style-source": "float: left;\n",
+        "style-marginRight": "20px",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "formgroup_4",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "DateComplete",
+            "data-buildertype": "input",
+            "label": "Response Completed On",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "",
+            "readOnly": true,
+            "type": "datetime"
+          },
+          {
+            "key": "CompletedResponder",
+            "data-buildertype": "input",
+            "label": "Completed Responder",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          },
+          {
+            "key": "CompletedResponseAs",
+            "data-buildertype": "input",
+            "label": "Completed As",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          },
+          {
+            "key": "CompletedResponseBy",
+            "data-buildertype": "input",
+            "label": "Completed By",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          }
+        ],
+        "style-width": "185px",
+        "orientation": "grouped",
+        "style-source": "float: left;\n",
+        "style-marginRight": "20px",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "formgroup_7",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "UpdatedDate",
+            "data-buildertype": "input",
+            "label": "Response Updated On",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "",
+            "readOnly": true,
+            "type": "datetime"
+          },
+          {
+            "key": "LastResponder",
+            "data-buildertype": "input",
+            "label": "Last Responder",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          },
+          {
+            "key": "LastResponseAs",
+            "data-buildertype": "input",
+            "label": "Last As",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          },
+          {
+            "key": "LastResponseBy",
+            "data-buildertype": "input",
+            "label": "Last By",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          }
+        ],
+        "style-width": "185px",
+        "orientation": "grouped",
+        "style-source": "float: left;\n",
+        "style-marginRight": "20px",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "formgroup_6",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "StatusModifyOn",
+            "data-buildertype": "input",
+            "label": "Status Modified On",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "",
+            "readOnly": true,
+            "type": "datetime"
+          },
+          {
+            "key": "StatusModifyByName",
+            "data-buildertype": "input",
+            "label": "Status Modified By",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          },
+          {
+            "key": "StatusTitle",
+            "data-buildertype": "input",
+            "label": "Status",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "20px",
+            "readOnly": true,
+            "placeholder": ""
+          }
+        ],
+        "style-width": "185px",
+        "orientation": "grouped",
+        "style-source": "float: left;",
+        "style-marginRight": "20px",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "formgroup_8",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "RemarksModifyOn",
+            "data-buildertype": "input",
+            "label": "Remarks Modified On",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "style-marginBottom": "",
+            "style-marginRight": "",
+            "readOnly": true,
+            "type": "datetime"
+          },
+          {
+            "key": "RemarksModifyByName",
+            "data-buildertype": "input",
+            "label": "Remarks Modified By",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "style-width": "185px",
+            "readOnly": true,
+            "size": ""
+          },
+          {
+            "key": "Remarks",
+            "data-buildertype": "textarea",
+            "label": "Remarks",
+            "fluid": true,
+            "style-width": "185px",
+            "rows": "4",
+            "readOnly": true
+          }
+        ],
+        "style-width": "185px",
+        "orientation": "grouped",
+        "style-source": "float: left;\n",
+        "style-marginRight": "20px",
+        "style-marginBottom": "20px",
+        "other-visibleConition": ""
+      },
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "style-source": "clear: both;",
+        "style-marginBottom": ""
+      },
+      {
+        "key": "btnCancel",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "onCancel"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "floated": "",
+        "style-marginRight": "20px",
+        "style-source": "",
+        "primary": false
+      }
+    ],
+    "style-customcss": "",
+    "style-width": ""
+  }
+]

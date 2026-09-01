@@ -1,0 +1,210 @@
+[
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "hdrIMDASurveyResp",
+        "data-buildertype": "header",
+        "content": "IMDA Survey Response Report for Deployment",
+        "size": "large",
+        "textAlign": "left",
+        "subheader": "",
+        "style-marginTop": "20px",
+        "style-marginBottom": "20px",
+        "events": {}
+      },
+      {
+        "key": "form_2",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "ddlDeployment",
+            "data-buildertype": "dictionary",
+            "label": "Deployment",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "QNN_DPLY",
+            "columns": "Name ASC",
+            "clearable": false,
+            "paging": false,
+            "pageSize": "",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "onChange"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px",
+            "other-visibleConition": "",
+            "placeholder": "",
+            "other-required": true
+          },
+          {
+            "key": "ddlSurveyType",
+            "data-buildertype": "dropdown",
+            "label": "Survey Type",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [
+              {
+                "key": 1,
+                "value": "MP",
+                "text": "MP"
+              },
+              {
+                "key": 2,
+                "value": "MI",
+                "text": "MI"
+              },
+              {
+                "key": 3,
+                "value": "II",
+                "text": "II"
+              },
+              {
+                "value": "IU",
+                "text": "IU"
+              }
+            ],
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px",
+            "placeholder": "",
+            "other-required": true
+          },
+          {
+            "key": "ddlWeek",
+            "data-buildertype": "dropdown",
+            "label": "Week",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [],
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px",
+            "multiple": true,
+            "placeholder": "",
+            "other-visibleConition": "(data.btnSearch == 1? true:false)",
+            "events": {
+              "onChange": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          }
+        ]
+      },
+      {
+        "key": "formgroup_1",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "container_1",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btnSearch",
+                "data-buildertype": "button",
+                "content": "Generate",
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "onSearch"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "primary": true,
+                "other-customValidation-soft": false,
+                "other-visibleConition": ""
+              }
+            ]
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "children": []
+          },
+          {
+            "key": "container_5",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btnAllinOne",
+                "data-buildertype": "button",
+                "content": "Export",
+                "primary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "btnCSV"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "other-visibleConition": "(data.ddlWeek!= null && data.ddlWeek != 0 ? true : false )",
+                "style-hidden": false,
+                "secondary": true
+              }
+            ]
+          },
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "children": []
+          },
+          {
+            "key": "container_4",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "SeperateexportBtn",
+                "data-buildertype": "button",
+                "content": "Export",
+                "primary": false,
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "onExport"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "other-visibleConition": "(data.ddlWeek!= null && data.ddlWeek != 0 ? true : false )",
+                "style-hidden": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "HTMLTable",
+        "data-buildertype": "staticcontent",
+        "content": "",
+        "isHtml": true,
+        "isPre": true,
+        "fetchData": true,
+        "style-height": "100%",
+        "style-width": "100%",
+        "style-marginTop": "20px",
+        "style-marginBottom": "20px",
+        "style-source": "  padding: 10px;\n  border-radius: 25px;",
+        "style-customcss": "swzTableTemplateA"
+      }
+    ]
+  }
+]

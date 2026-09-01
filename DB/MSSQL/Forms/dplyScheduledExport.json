@@ -1,0 +1,218 @@
+[
+  {
+    "key": "frm_dplyScheduledExport",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Scheduled Export Settings",
+        "size": "medium"
+      },
+      {
+        "key": "Name",
+        "data-buildertype": "input",
+        "label": "Deployment",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "readOnly": true
+      },
+      {
+        "key": "cnt_Content",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "ScheduledExportEnabled",
+            "data-buildertype": "checkbox",
+            "label": "Enable Scheduled Export",
+            "toggle": true,
+            "other-readOnlyConition": ""
+          },
+          {
+            "key": "fg_ExportSettings",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "orientation": "grouped",
+            "children": [
+              {
+                "key": "ScheduledExportFrequency",
+                "data-buildertype": "dropdown",
+                "label": "Frequency",
+                "fluid": true,
+                "selection": true,
+                "data-elements": [
+                  {
+                    "value": "DAILY",
+                    "text": "Daily"
+                  },
+                  {
+                    "value": "WEEKLY",
+                    "text": "Weekly"
+                  },
+                  {
+                    "value": "MONTHLY",
+                    "text": "Monthly"
+                  },
+                  {
+                    "value": "QUARTERLY",
+                    "text": "Quarterly"
+                  },
+                  {
+                    "value": "HALF_YEARLY",
+                    "text": "Half Yearly"
+                  },
+                  {
+                    "value": "ANNUALLY",
+                    "text": "Annually"
+                  },
+                  {
+                    "value": "BIENNIALLY",
+                    "text": "Biennially"
+                  }
+                ],
+                "placeholder": "Select frequency of export",
+                "style-width": "300px",
+                "other-customValidation": "",
+                "style-source": "",
+                "other-required": true
+              },
+              {
+                "key": "ScheduledExportStartDate",
+                "data-buildertype": "input",
+                "label": "Date and time to start exports",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "placeholder": "Select start date and time",
+                "other-customValidation": "!data.ScheduledExportEnabled || (data.ScheduledExportEnabled && value && !isNaN(new Date(value))) ? true : \"Please select a start date\"",
+                "events": {},
+                "other-required": false
+              },
+              {
+                "key": "ScheduledExportEndDate",
+                "data-buildertype": "input",
+                "label": "Do not export on or after",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "date",
+                "placeholder": "Select end date",
+                "other-customValidation": "!value || (value && new Date(value) > new Date(data.ScheduledExportStartDate)) ? true : \"Must be after the start date\"",
+                "events": {}
+              },
+              {
+                "key": "__selectedRecipients",
+                "data-buildertype": "staticcontent",
+                "content": "__selectedRecipients",
+                "style-hidden": true
+              },
+              {
+                "key": "Recipients",
+                "data-buildertype": "dropdown",
+                "label": "Recipients",
+                "fluid": true,
+                "selection": true,
+                "data-elements": [],
+                "multiple": true,
+                "other-customValidation": "!data.ScheduledExportEnabled || (data.ScheduledExportEnabled && value && value.length>0) ? true : \"Select one or more recipients\""
+              },
+              {
+                "key": "sc_recipientNote",
+                "data-buildertype": "staticcontent",
+                "content": "Recipients must be in the same organisation as the deployment and have the DataOwner role. Recipients whose account is locked at the time of export will be skipped."
+              }
+            ],
+            "other-visibleConition": "data.ScheduledExportEnabled"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "style-float": "",
+            "children": [
+              {
+                "key": "btn_Save",
+                "data-buildertype": "button",
+                "content": "Save",
+                "primary": true,
+                "style-marginRight": "20px",
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "validate",
+                      "updateScheduledExport"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              },
+              {
+                "key": "btn_Cancel",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "redirectToForm"
+                    ],
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "name": "formName",
+                        "value": "QNN_DPLY"
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "style-width": "100%",
+            "style-marginTop": "20px",
+            "style-marginBottom": ""
+          },
+          {
+            "key": "fg_NextExport",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "other-visibleConition": "data.ScheduledExportJobId",
+            "children": [
+              {
+                "key": "header_2",
+                "data-buildertype": "header",
+                "content": "Schedule",
+                "size": "small",
+                "textAlign": "left"
+              },
+              {
+                "key": "ScheduledExportNextDate",
+                "data-buildertype": "input",
+                "label": "Next Export Date",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "readOnly": true
+              },
+              {
+                "key": "ScheduledExportJobId",
+                "data-buildertype": "input",
+                "label": "Job Id",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "readOnly": true,
+                "style-width": "200px",
+                "other-visibleConition": "CloverApp.API.checkRole('Admins')"
+              }
+            ],
+            "orientation": "grouped",
+            "style-customcss": "ui info message",
+            "style-marginTop": "20px"
+          }
+        ],
+        "other-visibleConition": "data.Id"
+      }
+    ],
+    "style-width": "800px"
+  }
+]

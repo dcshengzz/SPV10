@@ -1,0 +1,18 @@
+[
+  {
+    "key": "subject",
+    "data-buildertype": "staticcontent",
+    "content": "List \"{ListName}\" Import Result",
+    "isHtml": true
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container"
+  },
+  {
+    "key": "body",
+    "data-buildertype": "staticcontent",
+    "content": "Dear {Name},<br>\n<p>\nList \"{ListName}\" import did not complete successfully.<br>\nPlease approach system administrator for more info.<br>\n</p>\n\n<p>\nImport job ran for about {DurationMinutes} minutes.\n</p>\n\n<p>\nRegards\n</p>\n",
+    "isHtml": true
+  }
+]

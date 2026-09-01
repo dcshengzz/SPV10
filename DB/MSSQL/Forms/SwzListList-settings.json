@@ -1,0 +1,77 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "72d461b2-234b-40d6-b410-b261964ba291",
+  "name": "SwzListList",
+  "lastUpdate": "2025-11-26T11:41:56.2191567+08:00",
+  "isTemplate": false,
+  "triggers": [],
+  "dataMap": [],
+  "dataColl": [
+    {
+      "id": "176196ed-079f-6a36-bc0c-331bfdb4c7d3",
+      "entityId": "d779dd42-ad03-418f-9a00-7906cfb9e01f",
+      "filter": "StructAsyncFilter",
+      "control": "grid",
+      "dataMap": [
+        {
+          "id": "24b1dfc8-98b5-2b3d-cc48-6e6a874659c6",
+          "attributeId": "1f8c8043-fc0a-4bc3-a0d5-3933a136b8cb",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "c9ccc51d-c139-eda6-0d48-9d1a1dc10f48",
+          "attributeId": "33924fbd-7f4d-447e-9346-91fb73661914",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "7d7a2e45-1ca6-5be7-ae45-10db539e2ddb",
+          "attributeId": "fe356bc9-fb35-418f-b289-6d3c3ba5bff9",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "c3d75d44-bc83-484d-66ce-5a80562732b0",
+          "attributeId": "4da79cdf-bda1-4862-99b0-7762005b3fa8",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "1e1e96a0-86b5-bf30-c83e-c74ca19142a9",
+          "attributeId": "1439e7c0-9381-49ac-bb27-06177daba88e",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "4dbc0e6f-294f-a7a1-7b84-3708819382cf",
+          "attributeId": "a7caa665-5fcb-4cd8-b75e-4b6023baf6c7",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "8fd30580-6db4-1048-6736-b3b42f516a3c",
+          "attributeId": "e85aa4f7-4e99-4797-8979-783b4239720f",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "6f21b7f4-e600-61a5-c8b0-3f0057ad0a4e",
+          "attributeId": "b8f72a51-90d9-4416-8267-3ad35be75b43",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "f2a785c5-0e2d-9039-b398-13964d4bc342",
+          "attributeId": "ccbdf688-0179-41e6-9087-aea47869fb08",
+          "isEditable": true,
+          "isLoadable": true
+        }
+      ],
+      "readOnly": false,
+      "totalCountPropertyName": "__grid_totalcount"
+    }
+  ],
+  "securityGroup": "List",
+  "isArchived": false
+}

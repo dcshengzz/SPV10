@@ -1,0 +1,121 @@
+[
+  {
+    "key": "divLoginPage",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_2",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "respLoginHtmlView",
+            "data-buildertype": "swzhtmlview",
+            "hideOutput": "block",
+            "style-source": "padding: 1em;"
+          }
+        ],
+        "style-width": "50%",
+        "events": {},
+        "style-marginLeft": "auto",
+        "style-marginRight": "auto",
+        "style-source": "float:left;\npadding: 8em;\ntop:2em;",
+        "style-marginTop": ""
+      },
+      {
+        "key": "formLogin",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "divLogo",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "image_1",
+                "data-buildertype": "image",
+                "src": "/images/imda.png",
+                "style-height": "",
+                "style-marginLeft": "auto",
+                "style-marginRight": "auto",
+                "events": {},
+                "style-hidden": false
+              }
+            ],
+            "style-width": "",
+            "style-marginLeft": "auto",
+            "style-marginRight": "auto",
+            "style-height": "",
+            "style-marginBottom": "50px",
+            "style-marginTop": "",
+            "style-hidden": false
+          },
+          {
+            "key": "login",
+            "data-buildertype": "input",
+            "label": "Respondent Login",
+            "fluid": true
+          },
+          {
+            "key": "password",
+            "data-buildertype": "input",
+            "label": "Password",
+            "fluid": true,
+            "type": "password"
+          },
+          {
+            "key": "breadcrumb_1",
+            "data-buildertype": "breadcrumb",
+            "items": [
+              {
+                "text": "Forgot Password",
+                "url": ""
+              }
+            ],
+            "events": {
+              "onItemClick": {
+                "active": true,
+                "actions": [
+                  "forgotPassword"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-source": "",
+            "style-hidden": true
+          },
+          {
+            "key": "btnLogin",
+            "data-buildertype": "button",
+            "content": "Login",
+            "fluid": true,
+            "primary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "login"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-marginTop": "10px"
+          }
+        ],
+        "style-width": "50%",
+        "events": {},
+        "style-marginLeft": "auto",
+        "style-marginRight": "auto",
+        "style-source": "float:left;\npadding: 5em;",
+        "style-marginTop": ""
+      }
+    ],
+    "style-width": "100%",
+    "style-marginLeft": "",
+    "style-marginRight": "",
+    "style-source": "",
+    "style-height": "",
+    "events": {},
+    "style-float": ""
+  }
+]

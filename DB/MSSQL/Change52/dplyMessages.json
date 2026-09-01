@@ -1,0 +1,315 @@
+[
+  {
+    "key": "container_5",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_9",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "header_1",
+            "data-buildertype": "header",
+            "content": "{Name}",
+            "size": "huge",
+            "subheader": "Manage message history of this deployment"
+          }
+        ],
+        "style-float": ""
+      },
+      {
+        "key": "container_10",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "swzmodal_2",
+            "data-buildertype": "swzmodal",
+            "style-display": "none",
+            "children": [
+              {
+                "key": "container_11",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "container_3",
+                    "data-buildertype": "container",
+                    "style-source": "clear: both;",
+                    "children": [
+                      {
+                        "key": "breadcrumb_1",
+                        "data-buildertype": "breadcrumb",
+                        "items": [
+                          {
+                            "text": "Download Template",
+                            "url": ""
+                          }
+                        ],
+                        "events": {
+                          "onItemClick": {
+                            "active": true,
+                            "actions": [
+                              "downloadEmailTemplate"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        }
+                      }
+                    ],
+                    "style-marginBottom": "20px"
+                  },
+                  {
+                    "key": "container_14",
+                    "data-buildertype": "container",
+                    "style-source": "clear: both;",
+                    "children": [
+                      {
+                        "key": "dictionaryStatus",
+                        "data-buildertype": "dictionary",
+                        "label": "",
+                        "fluid": true,
+                        "selection": true,
+                        "dataModel": "QNN_STATUS",
+                        "columns": "Title, NumberId ASC",
+                        "events": {
+                          "onChange": {
+                            "active": true,
+                            "actions": [],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "style-marginBottom": "20px",
+                        "clearable": true,
+                        "placeholder": "Select Status"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "container_13",
+                    "data-buildertype": "container",
+                    "style-customcss": "",
+                    "children": [
+                      {
+                        "key": "emailFrom",
+                        "data-buildertype": "input",
+                        "label": "From",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "other-visibleConition": "",
+                        "style-marginBottom": "20px"
+                      },
+                      {
+                        "key": "subject",
+                        "data-buildertype": "input",
+                        "label": "Subject",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "other-visibleConition": "",
+                        "style-marginBottom": "20px"
+                      },
+                      {
+                        "key": "scheduledDate",
+                        "data-buildertype": "input",
+                        "label": "Start From",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "reference": "Start From",
+                        "other-visibleConition": "",
+                        "type": "datetime",
+                        "style-marginBottom": "20px"
+                      }
+                    ],
+                    "style-source": "",
+                    "style-marginTop": "20px"
+                  },
+                  {
+                    "key": "htmlEditor",
+                    "data-buildertype": "swzhtml",
+                    "hideOutput": "block",
+                    "events": {
+                      "onChange": {
+                        "active": false,
+                        "actions": [
+                          "onHtmlChange"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      },
+                      "onClick": {
+                        "active": false,
+                        "actions": [
+                          "showModal"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "other-visibleConition": ""
+                  },
+                  {
+                    "key": "container_15",
+                    "data-buildertype": "container",
+                    "children": [
+                      {
+                        "key": "button_2",
+                        "data-buildertype": "button",
+                        "content": "Submit",
+                        "secondary": true,
+                        "inverted": true,
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "emailToStatus"
+                            ],
+                            "targets": [
+                              "grid"
+                            ],
+                            "parameters": []
+                          }
+                        }
+                      }
+                    ],
+                    "style-marginTop": "20px"
+                  }
+                ],
+                "style-customcss": "ui message"
+              }
+            ],
+            "content": "Create Scheduled Email For Status",
+            "secondary": true,
+            "inverted": false,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-customcss": "",
+            "style-source": "",
+            "size": ""
+          }
+        ],
+        "style-float": "left",
+        "style-marginBottom": "20px",
+        "events": {},
+        "style-marginTop": "20px"
+      }
+    ],
+    "style-source": "clear: both;",
+    "style-marginBottom": ""
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "grid",
+        "data-buildertype": "gridview",
+        "columns": [
+          {
+            "key": "DplyStep",
+            "name": "Step",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "name": "Mail Merge?",
+            "key": "NotifyMerge",
+            "type": "custom",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "NotifyEmail",
+            "name": "Email?",
+            "type": "custom",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "NotifyGenerate",
+            "name": "Generate Profile?",
+            "type": "custom",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "SampleCount",
+            "name": "Number of Samples",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "CreatedDate",
+            "name": "Created On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false,
+            "type": "datetime"
+          },
+          {
+            "key": "UserName",
+            "name": "Created By",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          }
+        ],
+        "rowKey": "Id",
+        "pagerType": "server",
+        "defaultSort": "NumberId DESC",
+        "multiselect": false,
+        "rowHeight": "80",
+        "pageSize": "80",
+        "minHeight": "",
+        "editForm": "",
+        "events": {
+          "onRowClick": {
+            "active": false,
+            "actions": [],
+            "targets": [],
+            "parameters": []
+          }
+        }
+      }
+    ]
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "button_3",
+        "data-buildertype": "button",
+        "content": "Back",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        },
+        "secondary": true
+      }
+    ],
+    "style-marginTop": "20px",
+    "style-marginBottom": "20px"
+  }
+]

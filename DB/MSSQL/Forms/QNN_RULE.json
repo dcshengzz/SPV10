@@ -1,0 +1,97 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "header_1",
+            "data-buildertype": "header",
+            "content": "Data Validation Rules",
+            "size": "large"
+          },
+          {
+            "key": "Name",
+            "data-buildertype": "input",
+            "label": "Name",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-required": true
+          },
+          {
+            "key": "Description",
+            "data-buildertype": "input",
+            "label": "Description",
+            "fluid": true,
+            "onChangeTimeout": 200
+          },
+          {
+            "key": "Validation",
+            "data-buildertype": "input",
+            "label": "Data Validation",
+            "fluid": true,
+            "onChangeTimeout": 200
+          },
+          {
+            "key": "Comments",
+            "data-buildertype": "textarea",
+            "label": "Comments",
+            "fluid": true
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btnSave",
+                "data-buildertype": "button",
+                "content": "Save",
+                "primary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "validate",
+                      "save",
+                      "clearServerCache"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "floated": ""
+              },
+              {
+                "key": "btnExit",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "redirect"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "name": "target",
+                        "value": "/form/SwzRuleList"
+                      }
+                    ]
+                  }
+                },
+                "primary": false,
+                "secondary": true,
+                "floated": ""
+              }
+            ],
+            "style-float": "left"
+          }
+        ]
+      }
+    ]
+  }
+]

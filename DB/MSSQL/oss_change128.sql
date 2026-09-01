@@ -1,0 +1,692 @@
+-- Will UPDATE existing row(s) in dwMetadata for the following:
+-- RespDashboard-code.js
+
+UPDATE [dwMetadata] SET
+[Id]='7479adc7-5164-48a5-b4c6-2eb01eca68df', [StructDivisionId]='f6e34bdf-b769-42dd-a2be-fee67faf9045', 
+[Folder]=N'metadata/forms', [FileName]=N'respdashboard-code.js', [IsDeleted]=0, 
+[CreatedBy]='540e514c-911f-4a03-ac90-c450c28838c5', [CreatedDate]='2019-03-28 21:49:00.000', 
+[DeletedBy]=NULL, [DeletedDate]=NULL, 
+[UpdatedBy]='b9d69ba9-282b-d3d2-8f23-efc2596a082c', [UpdatedDate]='2021-07-25 20:34:55.587', 
+[Data]=N'{
+
+    init: function(args){
+console.log("Args", args);
+
+        //-----------------------
+        const loadingStart = function(loadingMessage) {
+        $(''body'').loadingModal({
+            text: loadingMessage ? loadingMessage : ''Please wait...'',
+            animation: ''foldingCube'',
+            backgroundColor: ''#1262E2''});
+        };
+    
+        const loadingStop = function() {
+            $(''body'').loadingModal(''destroy'');
+        };
+        //---------------------
+        
+        //--------------------------------------------
+        const getJsonRequest = function(url, searchParams) {
+            if (url === undefined || (url === null)) {
+                throw new Error(''url not specified'');
+            }
+            if (!(searchParams === undefined || searchParams === null)) {
+                if(!(searchParams instanceof URLSearchParams)) {
+                    searchParams = new URLSearchParams(searchParams);
+                }
+                url = url + "?" + searchParams.toString();
+            }
+            const promise = fetch(url, {
+                credentials: "same-origin",
+                method: "get"
+            }).then( response => {
+                   return response.ok ? response.json() : Promise.reject("Failed to get data from server: " + response.status);
+                }, reason => {
+                    Promise.reject(reason);
+                } 
+            ).then( responseData => {
+                    return responseData.success ? responseData : Promise.reject(responseData.message);
+                }, reason => {
+                    if(reason.message && reason.message.includes("Unexpected token") && !url.startsWith("/") && !url.startsWith("http")) {
+                        console.warn(url + " appears to have returned a non JSON response. Is url correct? Should it start with a ''/'' ?");
+                    }
+                    return Promise.reject(reason);
+                } 
+            );
+            return promise;
+        };
+        //--------------------------------------------
+        
+        //--------------------------------------------
+        const redirectToSurvey = function(dlsi, formName, respId) {
+            if(respId){
+                    CloverApp.API.redirect(''form'', formName, ''respid/'' + respId + ''/dlsi/''+ dlsi)                         
+                }
+                else{
+                    CloverApp.API.redirect(''form'', formName, ''dlsi/''+ dlsi)                        
+                }
+        };
+        //--------------------------------------------
+
+        const innerArgs = args;            
+        const PENDING = "A3D01086-40FC-4A7A-BF0C-DE17BDD205FA";
+        const IN_PROGRESS = "0D67932C-62EA-4CD3-A254-0CC63E742C93";
+
+        const genFormLinkButtons = function(p, elements, languages, value, index){
+            var linkUrl = ''/form/'' + value + "/dlsi/" + p.row.Id;
+            var element = (p.row.IpAllowed || p.row.IpAllowed==undefined)?
+            CloverApp.API.createElement("span", { onClick: () =>  {
+                checkAccessCode(innerArgs, p, value, ''form'');
+            }, className: "link-style" }, languages[index]):
+            CloverApp.API.createElement("span", {title: "This survey is not available in your region", className: "ui red"}, languages[index]);
+            elements.push(element);
+            element = CloverApp.API.createElement("span", {className: "linkPaddingRight"}, " ");
+            elements.push(element);
+        };
+
+        const checkAccessCode = function(innerArgs, p, formName, control) {
+            const respId = p.row.RespId;
+            const dlsi = p.row.Id;
+            CloverApp.API.setDataField("AccessCodeControl", control);
+            
+            if(control == ''form''){
+                if(p.row.RequireAccessCode) {
+                    loadingStart("Loading");
+                    getJsonRequest("/respondent/accesscode", { dlsi }).then(
+                        result => {
+                            if(result.item.validated) {
+                                    redirectToSurvey(dlsi, formName, respId);
+                            } else {
+                                CloverApp.API.setDataField("AccessCodeRespId", respId);
+                                CloverApp.API.setDataField("AccessCodeDlsi", dlsi);
+                                CloverApp.API.setDataField("AccessCodeFormName", formName);
+                                CloverApp.API.setDataField("AccessCode", "");
+                                innerArgs.component.refs.accessCodeModal.openModal();
+                            }
+                        }, reason => {
+                            alertify.error(response.message);
+                            console.log(response);
+                        }
+                    ).finally(loadingStop); 
+                } else {
+                    redirectToSurvey(dlsi, formName, respId);
+                }
+            } else if(control == ''upload''){
+                CloverApp.API.setDataField("AccessCodeDlsi", dlsi);
+                CloverApp.API.setDataField("UploadQnnId", p.row.QnnId);
+                CloverApp.API.setDataField("UploadDplyId", p.row.DplyId);
+                CloverApp.API.setDataField("UploadListSampleId", p.row.ListSampleId);
+
+                const formNames = p.row.FormNames.split(''||'');
+                const languages = p.row.Languages.split(''||'');
+
+                if(Array.isArray(formNames) && formNames.length>0) {
+                    const options = [];
+                    for(var i=0; i<formNames.length; i++) {
+                        options.push( {
+                            key: i,
+                            value: formNames[i],
+                            text: languages[i],
+                        } );
+                    }
+                    CloverApp.API.changeModelControl(innerArgs, "UploadFormChoice","data-elements", options);
+                    CloverApp.API.setDataField("UploadFormChoice", formNames[0]);
+                } else {
+                    CloverApp.API.changeModelControl(innerArgs, "UploadFormChoice","data-elements", {} );
+                    CloverApp.API.setDataField("UploadFormChoice", null);
+                }
+
+                if(p.row.RequireAccessCode) {
+                    CloverApp.API.setDataField("AccessCode", "");
+                    innerArgs.component.refs.accessCodeModal.openModal();
+                } else {
+                    const qnnId = p.row.QnnId;
+                    const dplyId = p.row.DplyId;
+                    const listSampleId = p.row.ListSampleId;
+                    const accessCode = "";
+                    
+                    CloverApp.API.rewriteControlModel("ExcelFileUpload", model => {
+                        model.customPostUrl = "/respondent/uploadexcelresponse?" + new URLSearchParams( { qnnId, dplyId, listSampleId, accessCode } );
+                        model.onUploadBegin = () => loadingStart("Uploading response...");
+                        model.onUploadEnd = loadingStop;
+                    });
+
+                    innerArgs.component.refs.fileUploadModal.openModal();
+                }
+            }
+        }; //end of checkAccessCode
+        
+        const openDelegateModal = function(innerArgs, p) {
+            CloverApp.API.setDataField("DelegateFromName", "");
+            CloverApp.API.setDataField("DelegateCode", "");
+            CloverApp.API.setDataField("DelegateName", "");
+            CloverApp.API.setDataField("DelegateComments", "");
+            CloverApp.API.setDataField("DelegateEmail", "");
+            CloverApp.API.setDataField("DelegateValidityStart", JSON.parse(JSON.stringify(new Date())) );
+            CloverApp.API.setDataField("DelegateValidityEnd", p.row.DueDate);
+            CloverApp.API.setDataField("DelegateDlsi", p.row.Id);
+            innerArgs.component.refs.delegateModal.openModal();
+        };
+
+        const getPasswordAsync = function (args, id) {
+            const formData = new FormData();
+            formData.append(''id'', id);
+            fetch("/respondent/getpassword", {
+                credentials: ''same-origin'',
+                contentType: ''application/x-www-form-urlencoded; charset=UTF-8'',
+                method: ''post'',
+                body: formData
+            }).then( response => response.json()
+            ).then( response => {
+                if (response.success) {
+                    //console.log("getPasswordAsync args", args);
+                    args.controlRef.refs.passwordModal.openModal();
+                    args.component.state.data.password = response.item;
+                    args.component.refs.password.forceUpdate();
+                    //console.log(''response.item'', response.item);
+                } else {
+                    alertify.error(response.message);
+                }
+            }).catch(error => {
+                alertify.error(error.message);
+            });
+        }; //end of getPasswordAsync 
+        
+        const formColumnFormatter = function (p) {
+            if(p.row.Type=="Online"){
+                const formNames = p.row.FormNames.split(''||'');
+                const languages = p.row.Languages.split(''||'');      
+                let elements = [];
+                formNames.forEach( genFormLinkButtons.bind(null, p, elements, languages) );
+                return CloverApp.API.createElement("div", {}, elements);  
+            }
+            else{
+                return CloverApp.API.createElement("div", {}, p.value); 
+            }
+        }; //end of formColumnFormatter
+
+        const fileColumnFormatter = function(p) {
+            const isExcelEnabled = p.row.IsExcelEnabled;
+            const isOnlineSurvey = p.row.QnnType=="O";
+            const hasOnlineFiles = isOnlineSurvey && (p.row.FileLanguages!==undefined && p.row.FileLanguages!==null && ""!==p.row.FileLanguages.trim());
+            //console.log("In fileColumnFormatter for "+p.row.QnnTitle+" for deployment "+p.row.DplyName+". hasOnlineFiles="+hasOnlineFiles+", isExcelEnabled="+isExcelEnabled+", row:", p.row);
+            if(hasOnlineFiles && isExcelEnabled){
+                const ipAllowed = (p.row.IpAllowed || p.row.IpAllowed===undefined);
+                const fileNames = p.row.FileNames.split(''||'');
+                const fileLanguages = p.row.FileLanguages.split(''||'');
+                const fileTokens = p.row.FileTokens.split(''||'');      
+                let elements = [];
+                for(let i=0; i < fileNames.length; i++) {
+                    let element;
+                    if(ipAllowed) {
+                        const linkUrl = "/respondent/download/file/" + p.row.Id + "/"  + fileTokens[i] + "/" + p.row.RespId;
+                        element = CloverApp.API.createElement("a", { href: linkUrl, target: "_blank"}, fileLanguages[i]);
+                    } else {
+                        element = CloverApp.API.createElement("span", {title: "This survey is not available in your region", className: "ui red"}, fileLanguages[i]);
+                    }         
+                    elements.push(element);
+                    elements.push( CloverApp.API.createElement("span", {className: "linkPaddingRight"}, " ") );
+                }
+                return CloverApp.API.createElement("div", {}, elements);
+            }
+            else{
+                return CloverApp.API.createElement("div", {}, ""); 
+            }  
+        }; //end of fileColumnFormatter
+
+        //Upload button
+        const actionsColumnFormatter  = function (p) {
+            const isExcelEnabled = p.row.IsExcelEnabled;
+            const hasOnlineFiles = p.row.QnnType=="O" && (p.row.FileLanguages!==undefined && p.row.FileLanguages!==null && ""!==p.row.FileLanguages.trim());
+            const ipAllowed = (p.row.IpAllowed || p.row.IpAllowed===undefined);
+            const status = p.row.Status ? p.row.Status.toUpperCase() : "";
+            if(isExcelEnabled && hasOnlineFiles && ipAllowed && (status===PENDING || status===IN_PROGRESS) ) {
+                const formNames = p.row.FormNames.split(''||'');
+                const languages = p.row.Languages.split(''||''); 
+                return CloverApp.API.createElement(
+                    "button", {
+                        onClick: () => checkAccessCode(innerArgs, p, '''', ''upload''),
+                        className: "ui button secondary invert",
+                    }, "Upload Excel");
+            }
+            else{
+                return CloverApp.API.createElement("div", {}, ""); 
+            }
+        }; //end of actionsColumnFormatter
+
+        const delegateColumnFormatter = function (p) {
+            const requireAccessCode = p.row.RequireAccessCode;
+            if(requireAccessCode){
+                return CloverApp.API.createElement(
+                    "button", {
+                        onClick: () => openDelegateModal(innerArgs, p), 
+                        className: "ui button secondary invert",
+                    }, "Delegate");
+            }
+            else{
+                return CloverApp.API.createElement("div", {}, ""); 
+            }
+        }; //end of delegateFormatter
+
+        //Current surveys grid
+        const gridModelRewriter = function (model) {
+            if (Array.isArray(model.columns)) {
+            
+                //index columns by name for convenience
+                const cols = model.columns.reduce((idx, column) => {
+                    if(column.key) { idx[column.key] = column; }
+                    return idx;
+                }, {} ); 
+                
+                cols.Form.sortable = false; 
+                cols.File.sortable = false; 
+                cols.Actions.sortable = false;
+                
+                cols.Form.customFormatter = formColumnFormatter;
+                cols.File.customFormatter = fileColumnFormatter;
+                cols.Actions.customFormatter = actionsColumnFormatter; //upload
+                cols.Delegate.customFormatter = delegateColumnFormatter;                
+            }
+            return model;
+        }; //end of gridModelRewriter
+            
+        //Previous surveys grid    
+        const gridviewModelRewriter = function (model) {
+            if (Array.isArray(model.columns)) {
+                
+                //index columns by name for convenience
+                const cols = model.columns.reduce((idx, column) => {
+                    if(column.key) { idx[column.key] = column; }
+                    return idx;
+                }, {} ); 
+                
+                cols.Form.sortable = false;
+                
+                cols.Form.customFormatter = formColumnFormatter;
+            }
+            return model;
+        }; //end of gridviewModelRewriter
+            
+        //fetch and display respondent portal messages
+        $.get("/swzdata/getmultiple?type=RespDashboard").done(
+            function (data) {
+                if(data.success) {
+                    var htmlData = [];
+                    for (var i=0; i<data.data.length; i++){
+                        htmlData.push(data.data[i].editorState);
+                    }
+                    CloverApp.API.setDataField("respDashboardHtmlView", htmlData);
+                } else {
+                    console.log(data.message);
+                }
+            }
+        ).fail(
+            function (jqxhr, textStatus, error) {
+                console.log(textStatus);
+            }
+        ); 
+        
+        CloverApp.API.rewriteControlModel("grid", gridModelRewriter);
+        CloverApp.API.rewriteControlModel("gridview", gridviewModelRewriter);
+
+        $(''.react-grid-Cell__value'').trigger("click"); //force refreshing grid
+        
+        //args.component.refs.grid.refresh();
+        //args.component.refs.gridview.refresh();
+        
+    }, //end of init
+    
+    closeAccessCodeModal: function(args) {
+        args.component.refs.accessCodeModal.close();
+        args.data.AccessCode = null;
+        return {};
+    },
+    
+    closeDelegateModal: function(args) {
+        args.component.refs.delegateModal.close();
+        CloverApp.API.setDataField("DelegateCode", "");
+        return {};
+    },
+
+    closeFileUploadModal: function(args) {
+        args.component.refs.fileUploadModal.close();
+        args.data.AccessCode = null;
+        return {};
+    },
+
+    promptForExcelFile: function(args) {
+        const file = $("input[name=''ExcelFileUpload'']");
+        file.trigger(''click'');
+        return {};
+    },
+    
+    excelFileUploaded: function(args) {
+        const result = args.sourceControlValue;
+        CloverApp.API.setDataField("ExcelFileUpload", null); 
+        if("OK"===result) {
+            args.component.refs.fileUploadModal.close();
+            
+            const qnnId = args.data.UploadQnnId;
+            const dplyId = args.data.UploadDplyId;
+            const listSampleId = args.data.UploadListSampleId;
+            if( (!qnnId) || (!dplyId) || (!listSampleId)) {
+                console.error("Missing required value for one of qnnId, dplyId, listSampleId", args.data);
+                alertify.error("File processed successfully but an error occured opening the form. Try opening the form using the form link instead.", 15000);
+                return {};
+            }
+            
+            const uploadFormChoice = args.data.UploadFormChoice;
+            const uploadDlsi = args.data.AccessCodeDlsi;
+            args.component.refs.grid.refresh();
+            alertify.success("Survey answers uploaded");
+            if(uploadFormChoice) {
+                CloverApp.API.redirect(''form'', uploadFormChoice, ''dlsi/''+ uploadDlsi);
+            }
+        } else {
+            let errorMessage = result;
+            if("INCORRECT FILE TYPE" === result) {
+                errorMessage = "Invalid file. Please select an Excel file.";
+            } else if ("MISSING RANGES" === result) {
+                errorMessage = "The spreadsheet is missing named ranges for one or more answers. Did you upload the correct file?";
+            } else if ("INCORRECT UEN" === result) {
+                errorMessage = "This file is for another respondent. The UEN recorded in the spreadsheet does not match your UEN.";
+            } else if("RESTRICTED IP" === result) {
+                errorMessage = "Your IP Address or Country is restricted from accessing this survey.";
+            } else if ("INCORRECT ACCESS CODE" === result) {
+                errorMessage = "Access Code is incorrect or has expired";
+            }
+            alertify.error(errorMessage, 10000);
+        }
+        return {};
+    },
+    
+    submitAccessCode: function(args) {
+        //-----------------------
+        const loadingStart = function(loadingMessage) {
+        $(''body'').loadingModal({
+            text: loadingMessage ? loadingMessage : ''Please wait...'',
+            animation: ''foldingCube'',
+            backgroundColor: ''#1262E2''});
+        };
+    
+        const loadingStop = function() {
+            $(''body'').loadingModal(''destroy'');
+        };
+        //---------------------
+        
+        //----------------------------------
+        const postFormRequest = function (url, formData) {
+            if (url === undefined || (url === null)) {
+                throw new Error(''url not specified'');
+            }
+            if ((formData === undefined) || (formData === null)) {
+                formData = new FormData();
+            }
+            const promise = fetch(url, {
+                credentials: "same-origin",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                method: "post",
+                body: formData,
+            }).then( response => {
+               return response.ok ? response.json() : Promise.reject("Failed to post to server: " + response.status);
+            }, reason => {
+                Promise.reject(reason);
+            }).then( responseData => {
+                return responseData.success ? responseData : Promise.reject(responseData.message ? responseData.message : responseData);
+            }, reason => {
+                const message = reason.message ? reason.message : reason;
+                if(message && message.includes("Unexpected token")) {
+                    console.warn(url + " appears to have returned a non JSON response. Is url correct?" 
+                    + ( (!url.startsWith("/") && !url.startsWith("http")) ? " should it start with a / ?" : "") );
+                }
+                return Promise.reject(message);
+            });
+            return promise;
+        };
+        //--------------------------------------------
+        
+        //--------------------------------------------
+        const redirectToSurvey = function(dlsi, formName, respId) {
+            if(respId){
+                    CloverApp.API.redirect(''form'', formName, ''respid/'' + respId + ''/dlsi/''+ dlsi)                         
+                }
+                else{
+                    CloverApp.API.redirect(''form'', formName, ''dlsi/''+ dlsi)                        
+                }
+        };
+        //--------------------------------------------
+        
+        const accessCode = args.data.AccessCode.trim();
+        if(accessCode === undefined || accessCode === null || accessCode == "") {
+            alertify.error("Please enter an Access Code");
+            return {};
+        }
+        
+        const respId = args.data.AccessCodeRespId;
+        const dlsi = args.data.AccessCodeDlsi;
+        const formName = args.data.AccessCodeFormName;
+        const control = args.data.AccessCodeControl;
+        
+        if(control == ''upload''){
+            const qnnId = args.data.UploadQnnId;
+            const dplyId = args.data.UploadDplyId;
+            const listSampleId = args.data.UploadListSampleId;
+            CloverApp.API.rewriteControlModel("ExcelFileUpload", model => {
+                model.customPostUrl = "/respondent/uploadexcelresponse?" + new URLSearchParams( { qnnId, dplyId, listSampleId, accessCode } );
+                model.onUploadBegin = () => loadingStart("Uploading response...");
+                model.onUploadEnd = loadingStop;
+            });
+        }
+
+        const form = new FormData();
+        form.append("dlsi", dlsi);
+        form.append("accessCode", accessCode);
+        loadingStart("Validating Access Code");
+        postFormRequest("/respondent/accesscode", form).then(
+            result => {
+                if(result.item.validated) {
+                    if(control === ''form''){
+                        redirectToSurvey(dlsi, formName, respId);
+                    } else if(control === ''upload''){
+                        args.component.refs.fileUploadModal.openModal();
+                    }
+                } else {
+                    alertify.error("Access Code is incorrect or has expired");
+                }
+            }, reason => {
+                alertify.error(reason);
+                console.log(reason);
+            }
+        ).finally(loadingStop);
+        
+        //return to set the rewriteControlModel, otherwise set be delay
+        return { app: { } };
+    },
+    
+    delegate: function(args) {
+        //-----------------------
+        const loadingStart = function(loadingMessage) {
+        $(''body'').loadingModal({
+            text: loadingMessage ? loadingMessage : ''Please wait...'',
+            animation: ''foldingCube'',
+            backgroundColor: ''#1262E2''});
+        };
+    
+        const loadingStop = function() {
+            $(''body'').loadingModal(''destroy'');
+        };
+        //---------------------
+        
+        //----------------------------------
+        const postFormRequest = function (url, formData) {
+            if (url === undefined || (url === null)) {
+                throw new Error(''url not specified'');
+            }
+            if ((formData === undefined) || (formData === null)) {
+                formData = new FormData();
+            }
+            const promise = fetch(url, {
+                credentials: "same-origin",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                method: "post",
+                body: formData,
+            }).then( response => {
+               return response.ok ? response.json() : Promise.reject("Failed to post to server: " + response.status);
+            }, reason => {
+                Promise.reject(reason);
+            }).then( responseData => {
+                return responseData.success ? responseData : Promise.reject(responseData.message ? responseData.message : responseData);
+            }, reason => {
+                const message = reason.message ? reason.message : reason;
+                if(message && message.includes("Unexpected token")) {
+                    console.warn(url + " appears to have returned a non JSON response. Is url correct?" 
+                    + ( (!url.startsWith("/") && !url.startsWith("http")) ? " should it start with a / ?" : "") );
+                }
+                return Promise.reject(message);
+            });
+            return promise;
+        };
+        //--------------------------------------------
+        
+        const data = args.data;
+        
+        const dlsi = data.DelegateDlsi;
+        const validityStart = data.DelegateValidityStart;
+        const validityEnd = data.DelegateValidityEnd;
+        const name = data.DelegateName;
+        const email = data.DelegateEmail;
+        const comments = data.DelegateComments;
+        const delegateFromName = data.DelegateFromName;
+        const delegateCode = data.DelegateCode.trim();
+        const emailRegExr = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
+        const displayTime = 15000;
+        let validated = true;
+        if(validityStart===undefined || validityStart===null || validityStart==='''') {
+            alertify.error("Validity start date is required", displayTime);
+            validated = false;
+        }
+        if(validityEnd===undefined || validityEnd===null || validityEnd==='''') {
+            alertify.error("Validity end date is required", displayTime);
+            validated = false;
+        }
+        if(validityStart >= validityEnd || validityEnd <= new Date()) {
+            alertify.error("Invalid validity period", displayTime);
+            validated = false;
+        }
+        if(email===undefined || email===null || email==='''') {
+            alertify.error("Email address is required", displayTime);
+            validated = false;
+        }
+        if(!emailRegExr.test(email)){
+            alertify.error("Invalid email address", displayTime);
+            validated = false;
+        }
+        if(delegateCode===undefined || delegateCode===null || delegateCode===''''){
+            alertify.error("Please provide your delegate code to authorise the delegation", displayTime);
+            validated = false;
+        }
+        if(name===undefined || name===null || name==='''') {
+            alertify.error("Delegate''s name is required", displayTime);
+            validated = false;
+        }
+        if(delegateFromName===undefined || delegateFromName===null || delegateFromName==='''') {
+            alertify.error("Your name is required", displayTime);
+            validated = false;
+        }
+        if(!validated) {
+            return {};
+        }
+        
+        const form = new FormData();
+        form.append("dlsi", dlsi);
+        form.append("validityStart", validityStart);
+        form.append("validityEnd", validityEnd);
+        form.append("name",name);
+        form.append("email", email);
+        form.append("delegateFromName", delegateFromName);
+        form.append("delegateCode", delegateCode);
+        form.append("comments",comments);
+        loadingStart("Delegating...");
+        postFormRequest("/respondent/delegate", form).then(
+            result => {
+                alertify.success("Delegation recorded. An access code has been generated and sent to " + email, displayTime);
+                args.component.refs.delegateModal.close();
+            }, reason => {
+                console.log(reason);
+                alertify.error(reason, displayTime);
+            }
+        ).finally(loadingStop);
+        
+        return {};
+    },
+    
+    openDelegateHistoryModal: function(args){
+        CloverApp.API.setDataField(''gridDelegation'', null);
+        
+        const delegateCode = args.data.DelegateCode.trim();
+        
+        const displayTime = 15000;
+        if(delegateCode===undefined || delegateCode===null || delegateCode===''''){
+            alertify.error("Please provide your delegate code to view delegation history", displayTime);
+            return {};
+        }
+        
+        $.post("/respondent/viewdelegatelist",
+        { dlsi : args.data.DelegateDlsi,
+         delegateCode : delegateCode })
+        .done(function (data) {
+            if(data.success){
+                CloverApp.API.setDataField(''gridDelegation'', data.item);
+                args.component.refs.delegateHistoryModal.openModal();
+                args.component.refs.gridDelegation.refresh();
+            } else
+                alertify.error(data.message);
+        }).fail(function (jqxhr, textStatus, error) {
+         console.log(textStatus);
+        });
+    },
+    
+    closeDelegateHistoryModal: function(innerArgs){
+        CloverApp.API.setDataField(''gridDelegation'', null);
+        innerArgs.component.refs.delegateHistoryModal.close();
+    },
+    
+    revokeDelegation: function(args){
+        $.post("/respondent/revokedelegation",
+        { dlsi : args.data.DelegateDlsi,
+         delegateCode : args.data.DelegateCode })
+        .done(function (data) {
+            if(data.success){
+                alertify.success(data.message);
+                // Refresh the grid with new data
+                $.post("/respondent/viewdelegatelist",
+                { dlsi : args.data.DelegateDlsi,
+                 delegateCode : args.data.DelegateCode })
+                .done(function (data) {
+                    if(data.success){
+                        CloverApp.API.setDataField(''gridDelegation'', data.item);
+                        args.component.refs.gridDelegation.refresh();
+                    } else
+                        alertify.error(data.message);
+                }).fail(function (jqxhr, textStatus, error) {
+                 console.log(textStatus);
+                });
+            } else
+                alertify.error(data.message);
+        }).fail(function (jqxhr, textStatus, error) {
+         console.log(textStatus);
+        });
+    },
+
+}
+
+
+
+
+
+
+
+
+' WHERE [Id]='7479adc7-5164-48a5-b4c6-2eb01eca68df';
+

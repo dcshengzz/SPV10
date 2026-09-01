@@ -1,0 +1,29 @@
+[
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "dictionary_1",
+        "data-buildertype": "dictionary",
+        "label": "Dictionary",
+        "fluid": true,
+        "selection": true,
+        "dataModel": "Test",
+        "columns": "Name ASC",
+        "multiple": true,
+        "search": true,
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "test"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        }
+      }
+    ]
+  }
+]

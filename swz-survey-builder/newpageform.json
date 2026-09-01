@@ -1,0 +1,12 @@
+[
+  {
+    "key": "swzPage_1",
+    "data-buildertype": "swzPage",
+    "headerlabel": "Insert Header Name",
+    "back": true,
+    "next": true,
+    "save": true,
+    "exit": true,
+    "onpagedisplay": true
+  }
+]

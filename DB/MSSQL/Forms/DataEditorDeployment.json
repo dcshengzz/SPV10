@@ -1,0 +1,1069 @@
+[
+  {
+    "key": "form_4",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "staticcontent_4",
+        "data-buildertype": "staticcontent",
+        "content": "<div class=\"field\"><label>Edit Data for Deployment</label></div>",
+        "isHtml": true,
+        "style-hidden": false,
+        "style-customcss": ""
+      },
+      {
+        "key": "formgroup_5",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "SelectDeployment",
+            "data-buildertype": "dropdown",
+            "label": "",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [],
+            "loading": false,
+            "events": {
+              "onClick": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              },
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "onSelectDeployment"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-width": "59em",
+            "reference": "Deployment",
+            "style-source": "float: left;"
+          },
+          {
+            "key": "btnManageDeployment",
+            "data-buildertype": "button",
+            "content": "Manage",
+            "secondary": true,
+            "compact": false,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "redirectToForm"
+                ],
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "formName",
+                    "value": "QNN_DPLY"
+                  }
+                ]
+              }
+            },
+            "other-visibleConition": "CloverApp.API.checkRole(\"SurveyAdmin\")",
+            "floated": "left"
+          }
+        ],
+        "style-source": ""
+      }
+    ],
+    "style-source": ""
+  },
+  {
+    "key": "modalDiv",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "mdl_RejectResponse",
+        "data-buildertype": "swzmodal",
+        "secondary": true,
+        "content": "rejectResponseModal",
+        "style-display": "block",
+        "children": [
+          {
+            "key": "header_3",
+            "data-buildertype": "header",
+            "content": "Reject Response",
+            "size": "medium"
+          },
+          {
+            "key": "message_rejectresponse",
+            "data-buildertype": "message",
+            "header": "",
+            "content": "This will reset the status of the selected response to pending but without erasing the existing answers. \nIf the respondent has an email address recorded in the system then they will be sent an email telling them to resubmit. The message to the respondent below will also be included in that email to the respondent and a copy will be CC to your email address (and visible to the respondent in case they wish to contact you for assistance).",
+            "info": true
+          },
+          {
+            "key": "form_3",
+            "data-buildertype": "form",
+            "children": [
+              {
+                "key": "RejectResponseIsSendEmail",
+                "data-buildertype": "checkbox",
+                "label": "Send notification email to respondent",
+                "toggle": true
+              },
+              {
+                "key": "RejectResponseMessage",
+                "data-buildertype": "textarea",
+                "label": "Message to the Respondent",
+                "fluid": true,
+                "placeholder": "Message to the respondent",
+                "reference": "Message",
+                "rows": "3",
+                "style-marginBottom": "20px",
+                "other-readOnlyConition": "",
+                "defaultValue": "1",
+                "other-visibleConition": "Boolean(data.RejectResponseIsSendEmail)"
+              },
+              {
+                "key": "RejectResponseRemarks",
+                "data-buildertype": "textarea",
+                "label": "Remarks",
+                "fluid": true,
+                "placeholder": "Remarks",
+                "reference": "Remarks",
+                "rows": "4",
+                "style-width": "80%"
+              }
+            ],
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px"
+          },
+          {
+            "key": "container_8",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btn_RejectResponse",
+                "data-buildertype": "button",
+                "content": "Reject Response",
+                "primary": true,
+                "secondary": false,
+                "inverted": false,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "rejectResponse"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "style-marginRight": "20px"
+              },
+              {
+                "key": "btn_CancelRejectResponse",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "cancelModal"
+                    ],
+                    "targets": [
+                      "mdl_RejectResponse"
+                    ],
+                    "parameters": []
+                  }
+                },
+                "style-marginRight": ""
+              }
+            ],
+            "style-source": "text-align: right;",
+            "style-width": "100%"
+          }
+        ],
+        "style-source": "padding: 20px;"
+      },
+      {
+        "key": "container_7",
+        "data-buildertype": "container",
+        "style-hidden": true,
+        "children": [
+          {
+            "key": "ExcelFileUpload",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "type": "file",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "excelFileUploaded"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          }
+        ]
+      },
+      {
+        "key": "fileUploadModal",
+        "data-buildertype": "swzmodal",
+        "secondary": true,
+        "content": "fileUploadModal",
+        "style-display": "block",
+        "children": [
+          {
+            "key": "header_2",
+            "data-buildertype": "header",
+            "content": "Upload survey response as an Excel file",
+            "size": "medium"
+          },
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px",
+            "children": [
+              {
+                "key": "container_6",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "staticcontent_2",
+                    "data-buildertype": "staticcontent",
+                    "content": "After upload the survey will open for validation and editing. <br/>\n<br/>\nPlease select the form in which to open the survey:",
+                    "isHtml": true
+                  },
+                  {
+                    "key": "UploadFormChoice",
+                    "data-buildertype": "dropdown",
+                    "label": "Dropdown",
+                    "fluid": true,
+                    "selection": true,
+                    "data-elements": []
+                  }
+                ],
+                "style-marginBottom": "20px"
+              },
+              {
+                "key": "container_5",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "staticcontent_1",
+                    "data-buildertype": "staticcontent",
+                    "content": "Click \"Upload Excel Response\" below to select a file to upload. <br/>\nUpload will commence immediately and if successful the survey will open for you to finalise and submit.\n<br/>\n<br/>",
+                    "isHtml": true
+                  }
+                ]
+              },
+              {
+                "key": "container_4",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "UploadExcelButton",
+                    "data-buildertype": "button",
+                    "content": "Upload Excel Response",
+                    "buttonType": "",
+                    "primary": true,
+                    "style-marginRight": "20px",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "promptForExcelFile"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
+                  },
+                  {
+                    "key": "btn_CancelUpload",
+                    "data-buildertype": "button",
+                    "content": "Cancel",
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "closeFileUploadModal"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
+                  }
+                ],
+                "style-source": "text-align: right;",
+                "style-marginTop": "20px"
+              }
+            ],
+            "style-source": "padding: 20px;"
+          }
+        ]
+      },
+      {
+        "key": "remarksModal",
+        "data-buildertype": "swzmodal",
+        "children": [
+          {
+            "key": "header_4",
+            "data-buildertype": "header",
+            "content": "Update Remarks",
+            "size": "medium"
+          },
+          {
+            "key": "form_2",
+            "data-buildertype": "form",
+            "children": [
+              {
+                "key": "remarks",
+                "data-buildertype": "textarea",
+                "label": "Remarks",
+                "fluid": true,
+                "placeholder": "Remarks",
+                "reference": "remarks"
+              },
+              {
+                "key": "container_9",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "button_1",
+                    "data-buildertype": "button",
+                    "content": "Save Remarks",
+                    "primary": true,
+                    "secondary": false,
+                    "inverted": false,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "validate",
+                          "submitRemarks"
+                        ],
+                        "targets": [
+                          "grid"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "style-marginRight": "20px"
+                  },
+                  {
+                    "key": "btn_CancelRemarksModal",
+                    "data-buildertype": "button",
+                    "content": "Cancel",
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "cancelModal"
+                        ],
+                        "targets": [
+                          "remarksModal"
+                        ],
+                        "parameters": []
+                      }
+                    }
+                  }
+                ],
+                "style-width": "100%",
+                "style-marginTop": "20px",
+                "style-marginBottom": "20px",
+                "style-source": "text-align: right;"
+              }
+            ]
+          }
+        ],
+        "style-display": "block",
+        "secondary": true,
+        "inverted": true,
+        "events": {},
+        "style-source": "padding: 20px;",
+        "style-hidden": false,
+        "isOpen": "",
+        "content": "remarksModal"
+      },
+      {
+        "key": "statusModal",
+        "data-buildertype": "swzmodal",
+        "children": [
+          {
+            "key": "header_6",
+            "data-buildertype": "header",
+            "content": "Update Status",
+            "size": "medium"
+          },
+          {
+            "key": "dropdownStatus",
+            "data-buildertype": "dropdown",
+            "label": "Dropdown",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [],
+            "events": {
+              "onChange": {
+                "active": false,
+                "actions": [
+                  "setStatusAsync",
+                  "gridRefresh"
+                ],
+                "targets": [
+                  "grid"
+                ],
+                "parameters": []
+              }
+            },
+            "placeholder": "Select new status",
+            "style-marginBottom": "20px"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "style-customcss": "",
+            "style-source": "",
+            "children": [
+              {
+                "key": "btnSaveStatus",
+                "data-buildertype": "button",
+                "content": "Save Status",
+                "floated": "",
+                "primary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "setStatusAsync",
+                      "gridRefresh"
+                    ],
+                    "targets": [
+                      "grid"
+                    ],
+                    "parameters": []
+                  }
+                },
+                "style-marginRight": "20px"
+              },
+              {
+                "key": "btnCancelChangeStatus",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "secondary": true,
+                "floated": "",
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "cancelModal"
+                    ],
+                    "targets": [
+                      "statusModal"
+                    ],
+                    "parameters": []
+                  }
+                }
+              }
+            ],
+            "style-float": "right"
+          },
+          {
+            "key": "container_12",
+            "data-buildertype": "container",
+            "style-source": "clear: both;"
+          }
+        ],
+        "style-display": "block",
+        "secondary": true,
+        "inverted": true,
+        "events": {},
+        "style-source": "",
+        "style-hidden": false,
+        "isOpen": "",
+        "content": "statusModal"
+      },
+      {
+        "key": "trkListModal",
+        "data-buildertype": "swzmodal",
+        "children": [
+          {
+            "key": "header_1",
+            "data-buildertype": "header",
+            "content": "Update Track List",
+            "size": "medium",
+            "subheader": "",
+            "events": {}
+          },
+          {
+            "key": "trkListSampleInfo",
+            "data-buildertype": "staticcontent",
+            "content": "\nYou may add or remove this Sample from multiple Track List.\n<div class=\"ui divider\"></div>\n<table style=\"margin-bottom: 20px;\">\n   <tr>\n      <td>UID (Name)</td>\n      <td> : {trkListSample_uid} ({trkListSample_name})</td>\n   </tr>\n   <tr>\n      <td>Email</td>\n      <td> : {trkListSample_email}</td>\n   </tr>\n   <tr>\n      <td>Status</td>\n      <td> : {trkListSample_statusTitle}</td>\n   </tr>\n   <tr>\n      <td>Remarks</td>\n      <td> : {trkListSample_remarks}</td>\n   </tr>\n</table>",
+            "isHtml": true
+          },
+          {
+            "key": "dictionaryTrkList",
+            "data-buildertype": "dictionary",
+            "label": "",
+            "fluid": true,
+            "selection": true,
+            "multiple": true,
+            "search": true,
+            "clearable": true,
+            "dataModel": "QNN_TRK_LIST",
+            "columns": "Name ASC",
+            "events": {
+              "onChange": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-marginBottom": "20px",
+            "placeholder": "Select Track List"
+          },
+          {
+            "key": "container_13",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btnSaveUpdateTrackList",
+                "data-buildertype": "button",
+                "content": "Save",
+                "primary": true,
+                "inverted": false,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "addToTrkList"
+                    ],
+                    "targets": [
+                      "trkListModal"
+                    ],
+                    "parameters": []
+                  }
+                },
+                "style-marginRight": "20px"
+              },
+              {
+                "key": "btnCancelTrackList",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "cancelModal"
+                    ],
+                    "targets": [
+                      "trkListModal"
+                    ],
+                    "parameters": []
+                  }
+                }
+              }
+            ],
+            "style-float": "right"
+          },
+          {
+            "key": "container_14",
+            "data-buildertype": "container",
+            "events": {},
+            "style-source": "clear: both;"
+          }
+        ],
+        "style-display": "block",
+        "secondary": true,
+        "inverted": true,
+        "events": {},
+        "style-source": "",
+        "style-hidden": false,
+        "isOpen": "",
+        "content": "trkListModal"
+      },
+      {
+        "key": "delegateHistoryModal",
+        "data-buildertype": "swzmodal",
+        "content": "delegateHistoryModal",
+        "style-display": "block",
+        "compact": true,
+        "secondary": true,
+        "children": [
+          {
+            "key": "container_10",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "header_5",
+                "data-buildertype": "header",
+                "content": "Delegation History",
+                "size": "medium",
+                "style-source": "float:left;"
+              },
+              {
+                "key": "buttonCloseDelegateListModel",
+                "data-buildertype": "button",
+                "content": "Close",
+                "primary": true,
+                "floated": "right",
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "closeDelegateHistoryModal"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "key": "container_11",
+            "data-buildertype": "container",
+            "style-marginTop": "",
+            "style-marginBottom": "50px",
+            "style-source": "clear:both;"
+          },
+          {
+            "key": "gridDelegate",
+            "data-buildertype": "gridview",
+            "columns": [
+              {
+                "key": "CreatedDate",
+                "name": "Delegation Date",
+                "sortable": true,
+                "filterable": false,
+                "resizable": true,
+                "type": "datetime"
+              },
+              {
+                "key": "FromName",
+                "name": "From",
+                "width": 100,
+                "sortable": true,
+                "filterable": false,
+                "resizable": true
+              },
+              {
+                "key": "Name",
+                "name": "Delegate To",
+                "sortable": true,
+                "filterable": false,
+                "resizable": true
+              },
+              {
+                "key": "ValidityStart",
+                "name": "Validity Start",
+                "sortable": true,
+                "filterable": false,
+                "resizable": true,
+                "type": "datetime"
+              },
+              {
+                "key": "ValidityEnd",
+                "name": "Validity End",
+                "type": "datetime",
+                "resizable": true,
+                "sortable": true,
+                "filterable": false
+              },
+              {
+                "key": "Comments",
+                "name": "Comments",
+                "resizable": true,
+                "sortable": true,
+                "filterable": false,
+                "type": "custom",
+                "width": 100
+              },
+              {
+                "key": "Status",
+                "name": "Status",
+                "width": 80,
+                "sortable": true,
+                "filterable": false,
+                "resizable": false
+              }
+            ],
+            "rowKey": "CreatedDate",
+            "defaultSort": "CreatedDate DESC",
+            "autoHeight": false,
+            "style-marginTop": "50px",
+            "rowHeight": "80",
+            "style-source": "",
+            "style-customcss": ""
+          }
+        ]
+      }
+    ],
+    "style-hidden": true,
+    "events": {}
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "btnExit",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/DataEditorDeploymentList"
+              }
+            ]
+          }
+        },
+        "primary": false,
+        "disabled": false,
+        "compact": false,
+        "toggle": false,
+        "basic": false
+      },
+      {
+        "key": "btnAnonymousStatus",
+        "data-buildertype": "button",
+        "content": "Status",
+        "secondary": true,
+        "other-visibleConition": "Utils.isSelected(data.IsAnonymous)",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "showStatusModal"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "id",
+                "value": "null"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "swzAnonymousDplySampleInfoId",
+        "data-buildertype": "input",
+        "label": "Input",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "style-hidden": true,
+        "disabled": true,
+        "readOnly": true
+      },
+      {
+        "key": "btnRefresh",
+        "data-buildertype": "button",
+        "content": "Refresh",
+        "secondary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "gridRefresh"
+            ],
+            "targets": [
+              "grid"
+            ],
+            "parameters": []
+          }
+        },
+        "primary": true
+      }
+    ],
+    "style-float": "left",
+    "style-marginBottom": "10px",
+    "style-marginRight": "20px"
+  },
+  {
+    "key": "formgroup_1",
+    "data-buildertype": "formgroup",
+    "widths": "equal",
+    "children": [
+      {
+        "key": "CaseSearch",
+        "data-buildertype": "input",
+        "label": "",
+        "fluid": true,
+        "onChangeTimeout": "400",
+        "placeholder": "Find Case (UID)...",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeSearch"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "200px"
+      }
+    ],
+    "style-source": "float: left;",
+    "events": {},
+    "style-marginBottom": "10px",
+    "style-marginRight": "20px",
+    "orientation": "grouped"
+  },
+  {
+    "key": "formgroup_4",
+    "data-buildertype": "formgroup",
+    "widths": "equal",
+    "children": [
+      {
+        "key": "GeneralSearch",
+        "data-buildertype": "input",
+        "label": "",
+        "fluid": true,
+        "onChangeTimeout": "400",
+        "placeholder": "Search...",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeSearch"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "200px"
+      }
+    ],
+    "style-source": "float: left;",
+    "events": {},
+    "style-marginBottom": "10px",
+    "style-marginRight": "20px",
+    "orientation": "grouped"
+  },
+  {
+    "key": "formgroup_2",
+    "data-buildertype": "formgroup",
+    "widths": "equal",
+    "children": [
+      {
+        "key": "dictStatus",
+        "data-buildertype": "dictionary",
+        "label": "",
+        "fluid": false,
+        "selection": true,
+        "dataModel": "QNN_STATUS",
+        "columns": "Title ASC",
+        "multiple": true,
+        "disabled": false,
+        "clearable": true,
+        "search": true,
+        "placeholder": "Filter by Status",
+        "style-width": "300px",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeSearch"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        }
+      }
+    ],
+    "style-source": "float: left;",
+    "events": {},
+    "style-marginBottom": "10px",
+    "style-marginRight": "20px",
+    "other-visibleConition": "!Utils.isSelected(data.IsAnonymous)",
+    "orientation": "grouped"
+  },
+  {
+    "key": "formgroup_3",
+    "data-buildertype": "formgroup",
+    "widths": "equal",
+    "children": [
+      {
+        "key": "dropdownComplete",
+        "data-buildertype": "dropdown",
+        "label": "",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "",
+            "text": ""
+          },
+          {
+            "key": 2,
+            "value": "true",
+            "text": "Complete"
+          },
+          {
+            "key": 3,
+            "value": "false",
+            "text": "Incomplete"
+          }
+        ],
+        "placeholder": "Complete | Incomplete",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeSearch"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "200px"
+      }
+    ],
+    "style-source": "float: left;",
+    "events": {},
+    "style-marginBottom": "10px",
+    "style-marginRight": "20px",
+    "orientation": "grouped"
+  },
+  {
+    "key": "grid",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "UIDName",
+        "name": "UID (Name)",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": "",
+        "type": "custom"
+      },
+      {
+        "key": "FormNames",
+        "name": "Form",
+        "type": "custom",
+        "resizable": true,
+        "sortable": false,
+        "filterable": false,
+        "width": 190
+      },
+      {
+        "key": "FileNames",
+        "name": "Downloads",
+        "type": "custom",
+        "resizable": true,
+        "sortable": false,
+        "filterable": false,
+        "width": ""
+      },
+      {
+        "key": "DateStart",
+        "name": "Started",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": "",
+        "type": "datetime"
+      },
+      {
+        "key": "DateComplete",
+        "name": "Completed",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": "",
+        "type": "datetime"
+      },
+      {
+        "key": "CompletedResponder",
+        "name": "Completed By",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false
+      },
+      {
+        "key": "UpdatedDate",
+        "name": "Updated",
+        "type": "datetime",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false
+      },
+      {
+        "key": "LastResponder",
+        "name": "Updated By",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "InitialResponse",
+        "name": "Origin",
+        "resizable": true,
+        "sortable": false,
+        "filterable": false,
+        "type": "custom",
+        "width": 130
+      },
+      {
+        "type": "custom",
+        "width": "",
+        "resizable": true,
+        "name": "Excel",
+        "key": "ExcelSupport",
+        "sortable": false,
+        "filterable": false
+      },
+      {
+        "type": "custom",
+        "width": 150,
+        "resizable": true,
+        "name": "Actions",
+        "key": "StatusTitle",
+        "sortable": true,
+        "filterable": false
+      }
+    ],
+    "rowKey": "Id",
+    "pageSize": "64",
+    "pagerType": "server",
+    "defaultSort": "UID ASC, DateStart DESC",
+    "style-marginBottom": "10px",
+    "multiselect": false,
+    "events": {},
+    "rowHeight": "128",
+    "minHeight": "500",
+    "editFormShowType": "",
+    "disableSort": false,
+    "autoHeight": false
+  },
+  {
+    "key": "dlsi",
+    "data-buildertype": "input",
+    "label": "Input",
+    "fluid": true,
+    "onChangeTimeout": 200,
+    "style-hidden": true,
+    "events": {}
+  }
+]

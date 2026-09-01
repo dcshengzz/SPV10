@@ -1,0 +1,38 @@
+[
+  {
+    "key": "div",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "staticcontent_1",
+        "data-buildertype": "staticcontent",
+        "content": "<b>SurveyPlus</b>",
+        "isHtml": true,
+        "style-source": "paddingTop: 20px;",
+        "style-marginTop": "",
+        "style-width": "",
+        "events": {}
+      },
+      {
+        "key": "staticcontent_2",
+        "data-buildertype": "staticcontent",
+        "content": "<b>Please contact <a href=\"mailto:sales@softworkz.net\">sales@softworkz.net</a>.</b>\nOfficial site - <a href=\"http://softworkz.net\">http://softworkz.net</a>",
+        "isHtml": true,
+        "style-source": "paddingTop: 20px;",
+        "style-marginTop": "",
+        "style-width": "",
+        "events": {},
+        "other-visibleConition": "data != undefined",
+        "style-hidden": true
+      }
+    ],
+    "style-customcss": "clover-application-footer",
+    "style-marginLeft": "",
+    "style-marginRight": "",
+    "style-width": "",
+    "style-float": "",
+    "style-source": "clear:both;\ntextAlign:center;",
+    "style-marginTop": "",
+    "style-marginBottom": ""
+  }
+]

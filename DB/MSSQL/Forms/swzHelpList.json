@@ -1,0 +1,218 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Online Help Content",
+        "size": "huge",
+        "style-marginBottom": "",
+        "style-marginTop": "10px"
+      }
+    ],
+    "events": {},
+    "style-marginBottom": "1em",
+    "style-width": "100%"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "buttonAdd",
+        "data-buildertype": "button",
+        "content": "Create",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "gridCreate"
+            ],
+            "targets": [
+              "gridHelp"
+            ],
+            "parameters": []
+          }
+        },
+        "style-marginBottom": "0.25em",
+        "style-marginRight": "0.25em"
+      },
+      {
+        "key": "buttonDelete",
+        "data-buildertype": "button",
+        "content": "Delete",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "confirm",
+              "gridDelete",
+              "gridRefresh"
+            ],
+            "targets": [
+              "gridHelp"
+            ],
+            "parameters": [
+              {
+                "name": "confirmTitle",
+                "value": "deletionConfirmTitle"
+              },
+              {
+                "name": "confirmText",
+                "value": "deletionConfirmText"
+              }
+            ]
+          }
+        },
+        "style-marginBottom": "0.25em",
+        "style-marginRight": "0.25em"
+      }
+    ],
+    "style-float": "right",
+    "events": {},
+    "style-marginBottom": "",
+    "style-marginRight": "20px"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "FilterSearch",
+        "data-buildertype": "input",
+        "label": "",
+        "fluid": false,
+        "onChangeTimeout": 200,
+        "events": {
+          "onClick": {
+            "active": false,
+            "actions": [
+              "updateFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          },
+          "onChange": {
+            "active": true,
+            "actions": [
+              "updateFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "placeholder": "Search...",
+        "style-marginBottom": "0.25em",
+        "style-width": "300px",
+        "style-source": "",
+        "style-marginRight": "0.25em"
+      },
+      {
+        "key": "FilterType",
+        "data-buildertype": "dropdown",
+        "label": "",
+        "fluid": false,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "ALL",
+            "text": "Show All"
+          },
+          {
+            "key": 2,
+            "value": "admin",
+            "text": "Show Survey Admin"
+          },
+          {
+            "key": 3,
+            "value": "resp",
+            "text": "Show Respondent Portal"
+          }
+        ],
+        "defaultValue": "ALL",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "updateFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "200px",
+        "style-marginBottom": "0.25em",
+        "style-marginRight": "0.25em"
+      }
+    ]
+  },
+  {
+    "key": "container_4",
+    "data-buildertype": "container",
+    "style-source": "clear:both",
+    "style-marginBottom": "50px"
+  },
+  {
+    "key": "gridHelp",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Topic",
+        "name": "Topic",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true
+      },
+      {
+        "key": "Heading",
+        "name": "Heading",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true
+      },
+      {
+        "key": "Type",
+        "name": "Type",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 100
+      },
+      {
+        "key": "Status",
+        "resizable": false,
+        "type": "checkbox",
+        "name": "Status",
+        "sortable": true,
+        "filterable": false,
+        "width": 50
+      }
+    ],
+    "editForm": "QNN_HELP",
+    "multiselect": true,
+    "rowKey": "Id",
+    "autoHeight": false,
+    "offSet": "-285px",
+    "defaultSort": "Heading ASC",
+    "events": {
+      "onRowClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "style-marginTop": "1em",
+    "pagerType": "server",
+    "rowHeight": "80",
+    "pageSize": "50",
+    "minHeight": "500"
+  }
+]

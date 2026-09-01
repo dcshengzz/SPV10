@@ -1,0 +1,194 @@
+[
+  {
+    "key": "headerDataEditorList",
+    "data-buildertype": "header",
+    "content": "Overall Response Dashboard - {dplyHeader}",
+    "size": "huge",
+    "subheader": "",
+    "style-marginTop": "10px"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "deployment",
+        "data-buildertype": "dictionary",
+        "label": "Deployment",
+        "fluid": true,
+        "selection": true,
+        "dataModel": "QNN_DPLY",
+        "columns": "Name ASC",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "changeHeader",
+              "onChangeDeployment",
+              "changeQnType"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "search": true,
+        "clearable": false,
+        "onChangeTimeout": "200",
+        "filters": "",
+        "style-height": "",
+        "paging": true
+      },
+      {
+        "key": "qnType",
+        "data-buildertype": "dropdown",
+        "label": "",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "II",
+            "text": "II"
+          },
+          {
+            "key": 2,
+            "value": "IU",
+            "text": "IU"
+          },
+          {
+            "key": 3,
+            "value": "MI",
+            "text": "MI"
+          },
+          {
+            "text": "MP",
+            "value": "MP"
+          }
+        ],
+        "events": {
+          "onClick": {
+            "active": false,
+            "actions": [],
+            "targets": [],
+            "parameters": []
+          },
+          "onChange": {
+            "active": true,
+            "actions": [
+              "changeQnType"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "style-height": "",
+        "style-hidden": true
+      },
+      {
+        "key": "companyType",
+        "data-buildertype": "dropdown",
+        "label": "Company Type",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "TA",
+            "text": "TA"
+          },
+          {
+            "key": 2,
+            "value": "TS",
+            "text": "TS"
+          },
+          {
+            "key": 3,
+            "value": "MTS",
+            "text": "MTS"
+          },
+          {
+            "text": "STS",
+            "value": "STS"
+          }
+        ],
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "multiple": true,
+        "style-width": "50%",
+        "style-height": "",
+        "reference": "",
+        "other-visibleConition": "data.onOverallResponse == 1"
+      },
+      {
+        "key": "industryType",
+        "data-buildertype": "dropdown",
+        "label": "Industry Type",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "value": "I",
+            "text": "I"
+          },
+          {
+            "value": "NI",
+            "text": "NI"
+          }
+        ],
+        "multiple": true,
+        "style-width": "50%",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "other-visibleConition": "data.onOverallResponse == 1"
+      },
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "PieChart",
+            "data-buildertype": "piechart",
+            "chartType": "pie",
+            "datasetLabel": "",
+            "responsive": true,
+            "legendPosition": "bottom",
+            "style-width": "500px",
+            "style-source": "margin: auto;",
+            "events": {}
+          }
+        ],
+        "style-width": "50%",
+        "style-marginTop": "1em",
+        "style-marginBottom": "1em"
+      },
+      {
+        "key": "result",
+        "data-buildertype": "staticcontent",
+        "content": "Text...",
+        "isHtml": true,
+        "fetchData": true,
+        "isPre": true
+      }
+    ],
+    "style-source": "",
+    "style-marginBottom": "30px"
+  }
+]

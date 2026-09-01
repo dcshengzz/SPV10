@@ -1,0 +1,66 @@
+[
+  {
+    "key": "loginPageLayout",
+    "data-buildertype": "container",
+    "style-customcss": "clover-application-login",
+    "style-width": "100%",
+    "style-source": "",
+    "children": [
+      {
+        "key": "logoPanel",
+        "data-buildertype": "container",
+        "style-customcss": "clover-resp-login-container",
+        "style-source": "",
+        "children": [
+          {
+            "key": "logoDesktop",
+            "data-buildertype": "staticcontent",
+            "content": "<img src=\"/Logo.png\" alt=\"Logo\" class=\"resp-login-logo resp-login-logo-desktop\" /><img src=\"/Logo_mobile.png\" alt=\"Logo\" class=\"resp-login-logo resp-login-logo-mobile\" />",
+            "isHtml": true
+          }
+        ]
+      },
+      {
+        "key": "formPanel",
+        "data-buildertype": "container",
+        "style-customcss": "clover-resp-login-containerb",
+        "style-source": "",
+        "children": [
+          {
+            "key": "formContent",
+            "data-buildertype": "container",
+            "style-customcss": "clover-resp-login-form",
+            "style-source": "",
+            "children": [
+              {
+                "key": "respLoginHtmlView",
+                "data-buildertype": "swzhtmlview",
+                "hideOutput": "block",
+                "style-source": ""
+              },
+              {
+                "key": "staticcontent_heading",
+                "data-buildertype": "staticcontent",
+                "content": "<div class=\"resp-login-heading\">Log In to Continue</div>",
+                "isHtml": true
+              },
+              {
+                "key": "staticcontent_1",
+                "data-buildertype": "staticcontent",
+                "content": "<div style=\"margin-bottom:8px;\"><a id=\"corppassLogin\" href=\"/resp/StartIAmEntityLogin\" class=\"resp-login-singpass-btn\">Log in with <span class=\"singpass-text\">Singpass</span></a></div><div class=\"resp-login-corppass-label\">as Corppass user</div><div class=\"resp-login-register\">Don't have an account? <a href=\"https://www.corppass.gov.sg/\">Register</a></div>",
+                "isHtml": true
+              },
+              {
+                "key": "browserNote",
+                "data-buildertype": "staticcontent",
+                "content": "<div class=\"resp-login-browser-note\">Please use Microsoft Edge or Google Chrome to access MISP. Best viewed on a desktop or tablet.</div>",
+                "isHtml": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": {}
+  }
+]

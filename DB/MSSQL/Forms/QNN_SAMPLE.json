@@ -1,0 +1,435 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "{entityState} Sample",
+        "size": "huge",
+        "subheader": ""
+      },
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "fg_CoreProperties",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "orientation": "grouped",
+                "style-source": "border: 1px solid black;\npadding: 20px;",
+                "children": [
+                  {
+                    "key": "header_CoreProperties",
+                    "data-buildertype": "header",
+                    "content": "Core Sample Properties",
+                    "size": "small",
+                    "textAlign": "left",
+                    "subheader": "(The core sample properties are global for the sample across all organisations and lists in the system. Sample identity is based on UID.)"
+                  },
+                  {
+                    "key": "Name",
+                    "data-buildertype": "input",
+                    "label": "Name",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "other-required": true,
+                    "events": {},
+                    "style-width": "400px"
+                  },
+                  {
+                    "key": "UID",
+                    "data-buildertype": "input",
+                    "label": "UID (Identifies Samples, globally unique across all organisations in the application)",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "events": {},
+                    "other-readOnlyConition": "data.Id",
+                    "other-required": true,
+                    "style-width": "250px"
+                  },
+                  {
+                    "key": "Pwd",
+                    "data-buildertype": "input",
+                    "label": "Password",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "events": {},
+                    "other-visibleConition": "CloverApp.API.checkRole('Admins')==true || !data.Id",
+                    "reference": "Password",
+                    "type": "password",
+                    "other-customValidation": "(/^[a-zA-Z0-9]{12,100}$/.test(value)  || (CloverApp.API.checkRole('Admins')==false && data.Id))?true:\"must contain alphanumeric characters only; password must be between 12 and 100 characters!\"",
+                    "style-width": "400px"
+                  },
+                  {
+                    "key": "btnResetPassword",
+                    "data-buildertype": "button",
+                    "content": "Send Password Reset Link",
+                    "primary": false,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "resetPassword"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "secondary": true,
+                    "other-visibleConition": "data.Id",
+                    "compact": true
+                  },
+                  {
+                    "key": "NumRetry",
+                    "data-buildertype": "input",
+                    "label": "NumRetry",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "defaultValue": "0",
+                    "other-required": true,
+                    "reference": "NumRetry",
+                    "type": "number",
+                    "other-visibleConition": "data.Id",
+                    "events": {},
+                    "style-width": "100px"
+                  },
+                  {
+                    "key": "LastLoginDate",
+                    "data-buildertype": "input",
+                    "label": "Last Login Date",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "defaultValue": "",
+                    "other-required": false,
+                    "reference": "Last Login Date",
+                    "type": "datetime",
+                    "other-visibleConition": "data.Id",
+                    "events": {},
+                    "readOnly": true
+                  },
+                  {
+                    "key": "ActiveYN",
+                    "data-buildertype": "checkbox",
+                    "label": "Active",
+                    "toggle": true,
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "resetNumRetry"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
+                  },
+                  {
+                    "key": "PwdResetYN",
+                    "data-buildertype": "checkbox",
+                    "label": "Change Password at First Login",
+                    "toggle": true
+                  }
+                ],
+                "events": {},
+                "style-width": "500px"
+              }
+            ],
+            "style-float": "left",
+            "style-marginBottom": "20px",
+            "style-marginRight": "20px"
+          },
+          {
+            "key": "container_4",
+            "data-buildertype": "container",
+            "style-float": "",
+            "children": [
+              {
+                "key": "formgroup_MappedOrganisations",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "MappedOrganisations",
+                    "data-buildertype": "collectioneditor",
+                    "idField": "Id",
+                    "parentIdField": "ParentId",
+                    "columns": [
+                      {
+                        "key": "StructDivisionName2",
+                        "name": "Mapped Organisations",
+                        "control": "span"
+                      }
+                    ],
+                    "readOnly": true,
+                    "disableDelete": true,
+                    "disableAdd": true,
+                    "other-visibleConition": "",
+                    "style-width": "",
+                    "header": false,
+                    "style-source": ""
+                  }
+                ],
+                "orientation": "grouped",
+                "style-source": "padding: 20px;\nborder: 1px solid black;",
+                "style-width": "100%"
+              }
+            ],
+            "style-marginBottom": "20px",
+            "other-visibleConition": "data.Id!=null",
+            "style-source": "display:flex",
+            "style-width": "250px"
+          },
+          {
+            "key": "container_7",
+            "data-buildertype": "container",
+            "style-float": "",
+            "children": [
+              {
+                "key": "formgroup_2",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "header_3",
+                    "data-buildertype": "header",
+                    "content": "Remarks",
+                    "size": "small",
+                    "textAlign": "left",
+                    "subheader": "(Remarks are specific to an organisation but shared across sample lists)"
+                  },
+                  {
+                    "key": "OrganisationRemarks",
+                    "data-buildertype": "collectioneditor",
+                    "idField": "Id",
+                    "parentIdField": "ParentId",
+                    "columns": [
+                      {
+                        "key": "StructDivisionName3",
+                        "name": "Organisation",
+                        "control": "span",
+                        "width": "150px"
+                      },
+                      {
+                        "key": "Remarks",
+                        "name": "Remarks",
+                        "control": "textarea",
+                        "width": "100%"
+                      }
+                    ],
+                    "readOnly": false,
+                    "disableDelete": true,
+                    "disableAdd": true,
+                    "other-visibleConition": "",
+                    "style-width": "",
+                    "header": false,
+                    "other-customValidation": "qnn_sampleUserActions.validateOrganisationRemarks(value)",
+                    "events": {}
+                  }
+                ],
+                "orientation": "grouped",
+                "style-source": "padding: 20px;\nborder: 1px solid black;",
+                "style-width": "100%"
+              }
+            ],
+            "style-marginBottom": "20px",
+            "other-visibleConition": "data.Id!=null",
+            "style-source": "display:flex"
+          },
+          {
+            "key": "fg_AddressBook",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "orientation": "grouped",
+            "style-source": "clear:both;\nborder: 1px solid black;\npadding: 20px;",
+            "children": [
+              {
+                "key": "header_AddressBook",
+                "data-buildertype": "header",
+                "content": "Address Book",
+                "size": "small",
+                "textAlign": "left",
+                "subheader": "(Properties that are specific to an organisation but shared across sample lists. Multiple email addresses may be separated by commas)"
+              },
+              {
+                "key": "AddressBook",
+                "data-buildertype": "collectioneditor",
+                "idField": "Id",
+                "parentIdField": "ParentId",
+                "columns": [
+                  {
+                    "key": "StructDivisionName",
+                    "name": "Organisation",
+                    "control": "span"
+                  },
+                  {
+                    "key": "ToEmails",
+                    "name": "To Emails",
+                    "control": "textarea",
+                    "width": ""
+                  },
+                  {
+                    "key": "CcEmails",
+                    "name": "CC Emails",
+                    "control": "textarea",
+                    "width": ""
+                  },
+                  {
+                    "key": "AddressLine1",
+                    "name": "Address Line 1",
+                    "control": "textarea"
+                  },
+                  {
+                    "name": "Address Line 2",
+                    "key": "AddressLine2",
+                    "control": "textarea"
+                  },
+                  {
+                    "key": "AddressLine3",
+                    "name": "Address Line 3",
+                    "control": "textarea"
+                  }
+                ],
+                "header": true,
+                "disableAdd": true,
+                "disableDelete": true,
+                "other-customValidation": "qnn_sampleUserActions.validateAddressBook(value)",
+                "layoutOption": "vertical"
+              }
+            ],
+            "other-visibleConition": "data.Id != null",
+            "style-marginTop": "20px"
+          },
+          {
+            "key": "container_5",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_2",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnSave",
+                    "data-buildertype": "button",
+                    "content": "Save",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "validate",
+                          "customSave"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "primary": true,
+                    "style-marginRight": "20px"
+                  },
+                  {
+                    "key": "btnExit",
+                    "data-buildertype": "button",
+                    "content": "Cancel",
+                    "events": {
+                      "onClick": {
+                        "actions": [
+                          "redirect"
+                        ],
+                        "active": true,
+                        "targets": [],
+                        "parameters": [
+                          {
+                            "name": "target",
+                            "value": "/form/swzsamplelist"
+                          }
+                        ]
+                      }
+                    },
+                    "primary": false,
+                    "secondary": true
+                  }
+                ],
+                "style-float": "left",
+                "style-marginBottom": "20px"
+              }
+            ],
+            "style-source": "clear:both;",
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px",
+            "style-width": "100%"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "divModal",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "errorModal",
+        "data-buildertype": "swzmodal",
+        "content": "errorModal",
+        "style-display": "block",
+        "children": [
+          {
+            "key": "formgroup_1",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "orientation": "grouped",
+            "children": [
+              {
+                "key": "header_2",
+                "data-buildertype": "header",
+                "content": "System Message",
+                "size": "medium",
+                "style-source": "font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;\npadding-bottom: 1.5rem;\ncolor: rgba(0,0,0,.85);\nborder-bottom: 1px solid rgba(34,36,38,.15);"
+              },
+              {
+                "key": "staticcontent_1",
+                "data-buildertype": "staticcontent",
+                "content": "{ErrorText}",
+                "style-customcss": "content",
+                "style-source": "word-wrap: normal;\nleft-margin: auto; right-margin: auto;"
+              },
+              {
+                "key": "container_6",
+                "data-buildertype": "container",
+                "style-width": "100%",
+                "style-source": "clear: both;\npadding: 20px;",
+                "children": [
+                  {
+                    "key": "btn_cancelErrorModal",
+                    "data-buildertype": "button",
+                    "content": "OK",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "cancelModal"
+                        ],
+                        "targets": [
+                          "errorModal"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "primary": true,
+                    "floated": "right"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "style-hidden": true
+  }
+]

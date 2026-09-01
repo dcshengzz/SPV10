@@ -1,0 +1,114 @@
+[
+  {
+    "key": "loginPageLayout",
+    "data-buildertype": "container",
+    "style-customcss": "clover-application-login",
+    "style-width": "100%",
+    "style-source": "",
+    "children": [
+      {
+        "key": "logoPanel",
+        "data-buildertype": "container",
+        "style-customcss": "clover-resp-login-container",
+        "style-source": "",
+        "children": [
+          {
+            "key": "logoDesktop",
+            "data-buildertype": "staticcontent",
+            "content": "<img src=\"/Logo.png\" alt=\"Logo\" class=\"resp-login-logo resp-login-logo-desktop\" /><img src=\"/Logo_mobile.png\" alt=\"Logo\" class=\"resp-login-logo resp-login-logo-mobile\" />",
+            "isHtml": true
+          }
+        ]
+      },
+      {
+        "key": "formPanel",
+        "data-buildertype": "container",
+        "style-customcss": "clover-resp-login-containerb",
+        "style-source": "",
+        "children": [
+          {
+            "key": "formContent",
+            "data-buildertype": "container",
+            "style-customcss": "clover-resp-login-form resp-login-form-section",
+            "style-source": "",
+            "children": [
+              {
+                "key": "respLoginHtmlView",
+                "data-buildertype": "swzhtmlview",
+                "hideOutput": "block",
+                "style-source": ""
+              },
+              {
+                "key": "staticcontent_heading",
+                "data-buildertype": "staticcontent",
+                "content": "<div class=\"resp-login-heading\">Log In to Continue</div>",
+                "isHtml": true
+              },
+              {
+                "key": "login",
+                "data-buildertype": "input",
+                "label": "Respondent Login",
+                "fluid": true
+              },
+              {
+                "key": "password",
+                "data-buildertype": "input",
+                "label": "Password",
+                "fluid": true,
+                "type": "password"
+              },
+              {
+                "key": "breadcrumb_1",
+                "data-buildertype": "breadcrumb",
+                "items": [
+                  {
+                    "text": "Forgot Password",
+                    "url": ""
+                  }
+                ],
+                "events": {
+                  "onItemClick": {
+                    "active": true,
+                    "actions": [
+                      "forgotPassword"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "style-source": "",
+                "style-hidden": true,
+                "other-visibleConition": "data.Id"
+              },
+              {
+                "key": "btnLogin",
+                "data-buildertype": "button",
+                "content": "Login",
+                "fluid": true,
+                "primary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "login"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "style-marginTop": "10px"
+              },
+              {
+                "key": "browserNote",
+                "data-buildertype": "staticcontent",
+                "content": "<div class=\"resp-login-browser-note\">Please use Microsoft Edge or Google Chrome to access this portal. Best viewed on a desktop or tablet.</div>",
+                "isHtml": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "events": {}
+  }
+]

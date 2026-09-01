@@ -1,0 +1,56 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "f6e34bdf-b769-42dd-a2be-fee67faf9045",
+  "name": "Organizations",
+  "lastUpdate": "2024-05-24T11:33:09.7991943+08:00",
+  "isTemplate": false,
+  "triggers": [
+    {
+      "triggers": [
+        "AfterSelect"
+      ],
+      "codeAction": "NullifyOrganizationParentAsyncTrigger",
+      "parameter": "{ParentId: \"@null\"}"
+    },
+    {
+      "triggers": [
+        "AfterSelect"
+      ],
+      "codeAction": "InsertAnonymousSampleStructDivisionAsync"
+    }
+  ],
+  "dataMap": [],
+  "dataColl": [
+    {
+      "id": "795fa882-2c29-4a4f-1b1f-fdbc9b3e77fe",
+      "entityId": "5c4f1d9c-fb7b-480e-8841-32633dfa8ad7",
+      "filter": "ParentAsyncFilter",
+      "parameter": "",
+      "control": "collectioneditor_1",
+      "dataMap": [
+        {
+          "id": "00f387a3-77b7-72ce-ddfa-5799a92c5c16",
+          "attributeId": "07e9391f-c1b3-4ae8-a228-6ea9228ac5be",
+          "control": "",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "4720db20-15a8-8cdf-d399-423b6dcac52b",
+          "attributeId": "ea2f6e04-bc63-49a6-96c4-5b82420cf5a0",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "20aa074f-54eb-70c8-0bad-3899c0482a48",
+          "attributeId": "e2f0469b-086d-4084-be71-2068e006a906",
+          "isEditable": true,
+          "isLoadable": true
+        }
+      ],
+      "readOnly": false,
+      "totalCountPropertyName": "__collectioneditor_1_totalcount"
+    }
+  ],
+  "securityGroup": "Organization"
+}

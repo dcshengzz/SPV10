@@ -1,0 +1,276 @@
+[
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_2",
+        "data-buildertype": "header",
+        "content": "Track Lists",
+        "size": "large"
+      }
+    ],
+    "style-marginBottom": "20px"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Create",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "gridCreate"
+            ],
+            "targets": [
+              "gridview_1"
+            ],
+            "parameters": []
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")",
+        "floated": "left"
+      },
+      {
+        "key": "container_11",
+        "data-buildertype": "container",
+        "style-float": "left",
+        "children": [
+          {
+            "key": "deleteModal",
+            "data-buildertype": "swzmodal",
+            "secondary": true,
+            "children": [
+              {
+                "key": "header_1",
+                "data-buildertype": "header",
+                "content": "Delete Track List",
+                "size": "medium",
+                "textAlign": "left",
+                "subheader": ""
+              },
+              {
+                "key": "deleteGridView",
+                "data-buildertype": "gridview",
+                "columns": [
+                  {
+                    "key": "Name",
+                    "name": "Track List Name",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": true
+                  }
+                ],
+                "events": {}
+              },
+              {
+                "key": "container_12",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "DeleteConfirm",
+                    "data-buildertype": "button",
+                    "content": "Ok",
+                    "primary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "gridDelete",
+                          "closeDeleteModal"
+                        ],
+                        "targets": [
+                          "gridview_1"
+                        ],
+                        "parameters": []
+                      }
+                    }
+                  },
+                  {
+                    "key": "CancelDelete",
+                    "data-buildertype": "button",
+                    "content": "Cancel",
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "closeDeleteModal"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
+                  }
+                ],
+                "style-float": "right",
+                "style-source": "text-align: right;",
+                "style-marginTop": "20px",
+                "style-marginBottom": "20px"
+              }
+            ],
+            "style-display": "none",
+            "content": "Delete",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "openDeleteModal"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": []
+              }
+            },
+            "isOpen": "",
+            "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")"
+          }
+        ]
+      }
+    ],
+    "style-marginBottom": "",
+    "style-float": "right",
+    "style-marginRight": "20px"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_4",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "input_1",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "events": {
+              "onClick": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              },
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "setFilter",
+                  "applyFilter"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": [
+                  {
+                    "name": "column",
+                    "value": "Name, StructDivisionId_Name"
+                  }
+                ]
+              }
+            },
+            "placeholder": "Filter by Name",
+            "style-marginBottom": ""
+          }
+        ],
+        "style-width": "300px",
+        "style-float": "left"
+      },
+      {
+        "key": "container_5",
+        "data-buildertype": "container",
+        "style-float": "left",
+        "style-width": "300px",
+        "children": [
+          {
+            "key": "dictionary_1",
+            "data-buildertype": "dictionary",
+            "label": "",
+            "fluid": true,
+            "selection": true,
+            "placeholder": "Filter by Organisation",
+            "dataModel": "vSP_StructDivision",
+            "columns": "Name ASC",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "setFilter",
+                  "applyFilter"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": [
+                  {
+                    "name": "column",
+                    "value": "StructDivisionId_Name"
+                  }
+                ]
+              }
+            },
+            "style-marginBottom": "",
+            "paging": true,
+            "pageSize": "20",
+            "clearable": true
+          }
+        ],
+        "style-marginLeft": "10px"
+      }
+    ],
+    "style-marginBottom": "20px"
+  },
+  {
+    "key": "container_6",
+    "data-buildertype": "container",
+    "style-source": "clear:both;",
+    "style-marginBottom": "50px"
+  },
+  {
+    "key": "gridview_1",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": false,
+        "filterable": false,
+        "resizable": true
+      },
+      {
+        "key": "UpdatedDate",
+        "name": "Date Modified",
+        "sortable": false,
+        "filterable": false,
+        "resizable": true,
+        "type": "datetime"
+      }
+    ],
+    "rowKey": "Id",
+    "rowHeight": "50",
+    "minHeight": "250",
+    "pageSize": "10",
+    "defaultSort": "Name ASC",
+    "pagerType": "server",
+    "multiselect": true,
+    "disableSort": true,
+    "editForm": "QNN_TRK_LIST",
+    "events": {
+      "onRowClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  }
+]

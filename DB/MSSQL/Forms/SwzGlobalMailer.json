@@ -1,0 +1,333 @@
+[
+  {
+    "key": "container_5",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_9",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "header_1",
+            "data-buildertype": "header",
+            "content": "\nGlobal Mailer",
+            "size": "huge",
+            "subheader": "Send email to all all sample of active deployment with selected status"
+          }
+        ],
+        "style-float": ""
+      },
+      {
+        "key": "container_10",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "swzmodal_2",
+            "data-buildertype": "swzmodal",
+            "style-display": "none",
+            "children": [
+              {
+                "key": "container_11",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "container_14",
+                    "data-buildertype": "container",
+                    "style-source": "clear: both;",
+                    "children": [
+                      {
+                        "key": "organization",
+                        "data-buildertype": "dictionary",
+                        "label": "",
+                        "fluid": true,
+                        "selection": true,
+                        "placeholder": "Organisation",
+                        "dataModel": "vStructDivisionParentsAndThisName",
+                        "columns": "Name, Id ASC",
+                        "filters": "[{ column : \"ParentId\" , value : \"{UserStructId}\" , term : \"=\" }]",
+                        "paging": true,
+                        "search": true,
+                        "style-marginBottom": "10px"
+                      },
+                      {
+                        "key": "target",
+                        "data-buildertype": "radiogroup",
+                        "label": "To",
+                        "data-elements": [
+                          {
+                            "key": 1,
+                            "value": "intranetUsers",
+                            "text": "Backoffice Users (Intranet)"
+                          },
+                          {
+                            "key": 2,
+                            "value": "activeSamples",
+                            "text": "Active Samples (Internet Respondents)"
+                          }
+                        ],
+                        "style-marginTop": ""
+                      },
+                      {
+                        "key": "dictionaryStatus",
+                        "data-buildertype": "dictionary",
+                        "label": "",
+                        "fluid": true,
+                        "selection": true,
+                        "dataModel": "QNN_STATUS",
+                        "columns": "Title, NumberId ASC",
+                        "events": {
+                          "onChange": {
+                            "active": true,
+                            "actions": [],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "style-marginBottom": "20px",
+                        "clearable": true,
+                        "placeholder": "Select Status",
+                        "multiple": true,
+                        "other-visibleConition": "data.target == \"activeSamples\" ? true : false"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "container_13",
+                    "data-buildertype": "container",
+                    "style-customcss": "",
+                    "children": [
+                      {
+                        "key": "emailFrom",
+                        "data-buildertype": "input",
+                        "label": "From",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "other-visibleConition": "",
+                        "style-marginBottom": "20px",
+                        "events": {}
+                      },
+                      {
+                        "key": "subject",
+                        "data-buildertype": "input",
+                        "label": "Subject",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "other-visibleConition": "",
+                        "style-marginBottom": "20px"
+                      },
+                      {
+                        "key": "scheduledDate",
+                        "data-buildertype": "input",
+                        "label": "Start From",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "reference": "Start From",
+                        "other-visibleConition": "",
+                        "type": "datetime",
+                        "style-marginBottom": "20px"
+                      }
+                    ],
+                    "style-source": "",
+                    "style-marginTop": "20px",
+                    "style-marginBottom": "20px"
+                  },
+                  {
+                    "key": "htmlEditor",
+                    "data-buildertype": "swzhtml",
+                    "hideOutput": "block",
+                    "events": {
+                      "onChange": {
+                        "active": false,
+                        "actions": [
+                          "onHtmlChange"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      },
+                      "onClick": {
+                        "active": false,
+                        "actions": [
+                          "showModal"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "other-visibleConition": ""
+                  },
+                  {
+                    "key": "container_15",
+                    "data-buildertype": "container",
+                    "children": [
+                      {
+                        "key": "button_SubmitEmail",
+                        "data-buildertype": "button",
+                        "content": "Submit",
+                        "secondary": false,
+                        "inverted": false,
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "createEmail"
+                            ],
+                            "targets": [
+                              "grid"
+                            ],
+                            "parameters": []
+                          }
+                        },
+                        "primary": true
+                      },
+                      {
+                        "key": "btnCancel",
+                        "data-buildertype": "button",
+                        "content": "Cancel",
+                        "secondary": true,
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "closeModal"
+                            ],
+                            "targets": [
+                              "swzmodal_2"
+                            ],
+                            "parameters": []
+                          }
+                        },
+                        "style-marginLeft": "20px"
+                      }
+                    ],
+                    "style-marginTop": "20px"
+                  }
+                ],
+                "style-customcss": "ui message"
+              }
+            ],
+            "content": "Create Scheduled Email",
+            "secondary": true,
+            "inverted": false,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-customcss": "",
+            "style-source": "",
+            "size": ""
+          }
+        ],
+        "style-float": "right",
+        "style-marginBottom": "",
+        "events": {},
+        "style-marginTop": "20px",
+        "style-marginRight": "20px"
+      }
+    ],
+    "style-source": "",
+    "style-marginBottom": "",
+    "events": {}
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-marginBottom": "50px",
+    "style-source": "clear:both;"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "grid",
+        "data-buildertype": "gridview",
+        "columns": [
+          {
+            "key": "CreatedDate",
+            "name": "Created On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime"
+          },
+          {
+            "key": "ScheduledDate",
+            "name": "Scheduled",
+            "type": "datetime",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          },
+          {
+            "key": "EmailSubj",
+            "name": "Subject",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          },
+          {
+            "key": "SampleCount",
+            "name": "Samples",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          },
+          {
+            "key": "EmailsSent",
+            "name": "Sent",
+            "resizable": true,
+            "sortable": true,
+            "filterable": false
+          },
+          {
+            "key": "JobIsCanceled",
+            "name": "Cancelled",
+            "type": "checkbox",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          },
+          {
+            "key": "IsTargetUsers",
+            "name": "Intranet",
+            "type": "checkbox",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          },
+          {
+            "key": "UserName",
+            "name": "Created By",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true
+          }
+        ],
+        "rowKey": "Id",
+        "pagerType": "server",
+        "defaultSort": "NumberId DESC",
+        "multiselect": false,
+        "rowHeight": "",
+        "pageSize": "128",
+        "minHeight": "",
+        "editForm": "SwzGlobalMailerMessage",
+        "events": {
+          "onRowClick": {
+            "active": true,
+            "actions": [
+              "gridEdit"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "autoHeight": false
+      }
+    ],
+    "style-marginTop": ""
+  }
+]

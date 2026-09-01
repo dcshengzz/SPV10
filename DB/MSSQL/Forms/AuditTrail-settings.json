@@ -1,0 +1,122 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "f6e34bdf-b769-42dd-a2be-fee67faf9045",
+  "name": "AuditTrail",
+  "lastUpdate": "2026-08-31T00:54:59.6379926+08:00",
+  "entityId": "f6daa3a5-a8d0-4985-a2c7-a4154f51ec7a",
+  "isTemplate": false,
+  "triggers": [
+    {
+      "triggers": [
+        "AfterSelect"
+      ],
+      "codeAction": "IsTopLevelStructDivisionAsync"
+    }
+  ],
+  "dataMap": [
+    {
+      "id": "03e781bc-a403-70b6-78e6-20c83f385196",
+      "attributeId": "80c7b92e-a05f-4a88-b698-5f91cef20047",
+      "isEditable": true,
+      "isLoadable": true
+    }
+  ],
+  "dataColl": [
+    {
+      "id": "8c386b02-6069-fc74-0a3c-970cbcc4f246",
+      "entityId": "f98b4c1b-3e93-4232-b12e-6a7cebb3df98",
+      "filter": "AuditStructAsyncFilter",
+      "control": "gridAuditLog",
+      "dataMap": [
+        {
+          "id": "503b70fa-7b1f-6bd4-c60a-a423b1502c51",
+          "attributeId": "1d65c7a9-2a2f-4fbf-b7ee-56bdc576974c",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "cbaf1e64-6feb-7307-7784-3a5067e57885",
+          "attributeId": "61210290-d5b2-4e2f-a573-c3661b0aca97",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "1868cf4b-b07c-5147-25b0-719b9e4228f8",
+          "attributeId": "ddfced91-385c-49b2-9cbb-334300c5b8a0",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "789dc627-8e07-a8ac-5b41-2402fbcc47c7",
+          "attributeId": "f91f9e96-9b13-43b6-8b00-70ae27cd21bf",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "5341ffbf-440a-07b0-f79b-f2aefa9f934a",
+          "attributeId": "890e696e-22d2-4623-9297-88baa1303bbf",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "3e475146-3a13-7c3b-5fc1-bdce17eda726",
+          "attributeId": "ba0172a8-df2f-48f8-bc23-8b4404d4ef88",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "4117ea98-f23f-436b-0681-79a6ecf9bf62",
+          "attributeId": "3c5b3688-eb6a-464d-be34-a6d509e9b5b6",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "79c1c6f7-eed3-152a-fe16-f1023bc86a5d",
+          "attributeId": "a2e16e68-e89c-452b-bfed-dc781746ad49",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "13934595-dd23-1230-c1f7-802bfd990042",
+          "attributeId": "504c5d8a-483f-4861-b429-5fe5000493b2",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "d8a1360c-f7cc-2656-a056-e253fc40010a",
+          "attributeId": "73c7217a-1280-489f-ae14-925a4e721d71",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "679d66d4-60b0-1009-23d7-b193f8d704b2",
+          "attributeId": "8e2e9149-4bb6-4131-971a-f1bcacdab51e",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "6c83297f-cfb5-85d0-0617-f73e327d7e3f",
+          "attributeId": "f3f87ee3-c232-4803-826c-2ef00c850d4e",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "bcb08262-0a17-2fba-1577-2253d8bd48b2",
+          "attributeId": "426b57c7-4e2e-4250-96e7-23b2ce5e80be",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "b75e31cd-2aa6-be41-97f9-44a68adb6597",
+          "attributeId": "d3f8813c-422d-45a7-b9f8-ce455bb4ddba",
+          "isEditable": true,
+          "isLoadable": true
+        }
+      ],
+      "readOnly": true,
+      "totalCountPropertyName": "__gridAuditLog_totalcount"
+    }
+  ],
+  "securityGroup": "Audit",
+  "isArchived": false
+}

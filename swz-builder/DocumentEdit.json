@@ -1,0 +1,206 @@
+[
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-width": "",
+    "style-height": "5px"
+  },
+  {
+    "key": "workflow",
+    "data-buildertype": "workflowbar",
+    "events": {
+      "onCommandClick": {
+        "active": true,
+        "actions": [
+          "validate",
+          "save",
+          "workflowExecuteCommand",
+          "refresh"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onSetStateClick": {
+        "actions": [
+          "validate",
+          "save",
+          "workflowSetState",
+          "refresh"
+        ],
+        "active": true,
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "style-source": "float:left"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-source": "clear:both"
+  },
+  {
+    "key": "FormFields",
+    "data-buildertype": "customblock",
+    "sourceType": "placeholder"
+  },
+  {
+    "key": "headerFiles",
+    "data-buildertype": "header",
+    "content": "Files",
+    "size": "medium"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "formgroup_1",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "files",
+            "data-buildertype": "collectioneditor",
+            "idField": "Id",
+            "parentIdField": "ParentId",
+            "columns": [
+              {
+                "key": "Name",
+                "name": "Name",
+                "control": ""
+              },
+              {
+                "key": "Token",
+                "name": "Token",
+                "control": "file"
+              }
+            ],
+            "events": {},
+            "disableAdd": true
+          },
+          {
+            "key": "formDropzone",
+            "data-buildertype": "dropzonecontrol",
+            "showFiletypeIcon": true,
+            "autoProcessQueue": true,
+            "addRemoveLinks": true,
+            "multile": true,
+            "iconFiletypes": "*.pdf, *.docx",
+            "events": {
+              "success": {
+                "active": true,
+                "actions": [
+                  "createElement"
+                ],
+                "targets": [
+                  "files"
+                ],
+                "parameters": []
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "headerHistory",
+    "data-buildertype": "header",
+    "content": "Document's Transition History",
+    "size": "medium"
+  },
+  {
+    "key": "gridHistory",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "from",
+        "name": "From",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": ""
+      },
+      {
+        "key": "to",
+        "name": "To",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": null
+      },
+      {
+        "key": "command",
+        "name": "Command",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": null
+      },
+      {
+        "key": "executor",
+        "name": "Executor",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": null
+      },
+      {
+        "name": "Availiable for",
+        "key": "availiablefor",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false,
+        "width": null
+      }
+    ],
+    "rowKey": "id",
+    "disableSort": true,
+    "autoHeight": true,
+    "resizecolumns": true,
+    "events": {},
+    "minHeight": "150px",
+    "offSet": "620px",
+    "defaultSort": "Order ASC"
+  },
+  {
+    "key": "save2",
+    "data-buildertype": "button",
+    "content": "Save",
+    "primary": true,
+    "events-onClick": true,
+    "events-onClick-actions": [
+      "save"
+    ],
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "validate",
+          "save"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  },
+  {
+    "key": "saveexit2",
+    "data-buildertype": "button",
+    "content": "Save & Exit",
+    "secondary": true,
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "validate",
+          "save",
+          "exit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  }
+]

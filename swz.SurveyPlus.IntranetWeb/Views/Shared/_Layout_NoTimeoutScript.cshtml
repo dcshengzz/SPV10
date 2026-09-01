@@ -1,0 +1,38 @@
+﻿@using swz.SurveyPlus.IntranetApplication
+@{
+    string cspNonce = (string)Context.Items["CSP_NONCE"];
+    SurveyPlusOptions surveyplusOptions = (SurveyPlusOptions)(ViewData["SurveyPlusOptions"] ?? null);
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Layout_NoTimeoutScript -->
+<head>
+    <title>@(surveyplusOptions.ShortApplicationName)</title>
+	<link rel="Shortcut Icon" href="@String.Format("/{0}/favicon.ico", surveyplusOptions.BrandingImagePath)" type="image/x-icon">
+    <meta name="" content="width=1024">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+</head>
+<body>
+    <script src="@Url.Content("~/scripts/dayjs.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/alertify.js")" type="text/javascript"></script>
+    <script nonce="@(cspNonce)">window.paceOptions = { restartOnPushState: false };</script>
+    <script src="@Url.Content("~/scripts/pace.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/jquery.loadingModal.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/Chart.min.js")" type="text/javascript"></script>
+
+    <link href="@Url.Content("~/css/base/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/pace-theme-minimal.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/semantic.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/swz-formbuilder.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/clover-style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/jquery.loadingModal.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+
+    <script nonce="@(cspNonce)">
+        $(document).ajaxStart(function () { Pace.restart(); });
+    </script>
+
+    @RenderBody()
+</body>
+</html>

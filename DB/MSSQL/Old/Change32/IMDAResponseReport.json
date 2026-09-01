@@ -1,0 +1,98 @@
+[
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "hdrIMDASurveyResp",
+        "data-buildertype": "header",
+        "content": "IMDA Survey Response Report for Deployment",
+        "size": "large",
+        "textAlign": "left",
+        "subheader": "",
+        "style-marginTop": "20px",
+        "style-marginBottom": "20px",
+        "events": {}
+      },
+      {
+        "key": "form_2",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "ddlDeployment",
+            "data-buildertype": "dictionary",
+            "label": "Deployment",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "QNN_DPLY",
+            "columns": "Name ASC",
+            "clearable": false,
+            "paging": false,
+            "pageSize": "",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "getCounts"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px",
+            "other-visibleConition": ""
+          },
+          {
+            "key": "ddlSurveyType",
+            "data-buildertype": "dropdown",
+            "label": "Survey Type",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [
+              {
+                "key": 1,
+                "value": "MP",
+                "text": "MP"
+              },
+              {
+                "key": 2,
+                "value": "MI",
+                "text": "MI"
+              },
+              {
+                "key": 3,
+                "value": "II",
+                "text": "II"
+              },
+              {
+                "value": "IU",
+                "text": "IU"
+              }
+            ],
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px"
+          }
+        ]
+      },
+      {
+        "key": "btnExport",
+        "data-buildertype": "button",
+        "content": "Export",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "onExport"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "primary": true,
+        "other-customValidation-soft": false,
+        "other-visibleConition": ""
+      }
+    ]
+  }
+]

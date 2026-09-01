@@ -1,0 +1,39 @@
+﻿CREATE TABLE [dbo].[QNN_TRK_LIST_SAMPLE] (
+    [Id]          UNIQUEIDENTIFIER DEFAULT (newsequentialid()) NOT NULL,
+    [NumberId]    INT              IDENTITY (1, 1) NOT NULL,
+    [TrkListId]   UNIQUEIDENTIFIER NOT NULL,
+    [UID]         NVARCHAR (320)   NOT NULL,
+    [Name]        NVARCHAR (128)   NOT NULL,
+    [Email]       NVARCHAR (MAX)   NULL,
+    [Remarks]     NVARCHAR (3000)  NULL,
+    [Status]      UNIQUEIDENTIFIER NULL,
+    [CreatedBy]   UNIQUEIDENTIFIER NULL,
+    [CreatedDate] DATETIME         NULL,
+    [UpdatedBy]   UNIQUEIDENTIFIER NULL,
+    [UpdatedDate] DATETIME         NULL,
+    [IsDeleted]   BIT              DEFAULT ((0)) NOT NULL,
+    [DeletedBy]   UNIQUEIDENTIFIER NULL,
+    [DeletedDate] DATETIME         NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_QNN_TRK_LIST_SAMPLE_QNN_STATUS] FOREIGN KEY ([Status]) REFERENCES [dbo].[QNN_STATUS] ([Id]) ON DELETE SET NULL,
+    CONSTRAINT [FK_QNN_TRK_LIST_SAMPLE_QNN_TRK_LIST] FOREIGN KEY ([TrkListId]) REFERENCES [dbo].[QNN_TRK_LIST] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [Unique_TrkListId_UID] UNIQUE NONCLUSTERED ([TrkListId] ASC, [UID] ASC)
+);
+
+
+
+
+GO
+CREATE NONCLUSTERED INDEX [IDX_Status]
+    ON [dbo].[QNN_TRK_LIST_SAMPLE]([Status] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IDX_TrkListId]
+    ON [dbo].[QNN_TRK_LIST_SAMPLE]([TrkListId] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IDX_UID]
+    ON [dbo].[QNN_TRK_LIST_SAMPLE]([UID] ASC);
+

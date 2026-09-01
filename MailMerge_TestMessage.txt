@@ -1,0 +1,19 @@
+--- test message for {UID} ---
+DplySampleInfoId="{DplySampleInfoId}" (Id from vSP_ListSampleInfo / QNN_DPLY_SAMPLE_INFO)
+DplyName="{DplyName}" (QNN_DPLY.Name)
+DplyQnn="{DplyQnn}" (QNN_QNN.Title)
+DplyList="{DplyList}" (QNN_LIST.Name)
+DplyCategory="{DplyCategory}" (QNN_CATEGORY.Name)
+Name="{Name}" (QNN_SAMPLE.Name)
+Email="{Email}" (QNN_SAMPLE.Email)
+UID="{UID}" (QNN_SAMPLE.UID)
+UIDPeer="{UIDPeer}" (QNN_SAMPLE.UID from SamplePeerId, empty if no peer)
+ActiveYN="{ActiveYN}" (QNN_LIST_SAMPLE.ActiveYN)
+Password="{Password}" (QNN_SAMPLE.Pwd)
+Date="{Date}" (current datetime)
+DueDate="{DueDate}" (vSP_ListSampleInfo.DueDate)
+PAGEBREAK="{PAGEBREAK}"
+SurveyUrl="{SurveyUrl}" (html anchor tags linking to the forms for each language)
+DelegationCode="{DelegationCode}" (QNN_DPLY_SAMPLE_INFO.DelegationCode, only included if RequireAccessCode is set)
+SurveyName="{SurveyName}" (QNN_DPLY.SurveyName)
+--- end ---

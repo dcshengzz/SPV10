@@ -1,0 +1,38 @@
+[
+  {
+    "key": "swzPage_1",
+    "data-buildertype": "swzPage",
+    "children": [
+      {
+        "key": "swzQuestion_3",
+        "data-buildertype": "block",
+        "children": [
+          {
+            "key": "staticcontent_3",
+            "data-buildertype": "staticcontent",
+            "content": "<strong>Introduction</strong></br>\nHello, my name is {interviewer name} from {interviewer company}, an independent market research agency. We are currently conducting a survey to understand your thoughts and concerns as seniors living in Singapore and would appreciate your participation in the survey. Please reset assured that all your views will be kept strictly confidential. The information collected will be analysed on an aggregate level and will not be individually identifiable.",
+            "isHtml": true
+          }
+        ]
+      },
+      {
+        "key": "swzDivider_4",
+        "data-buildertype": "swzDivider"
+      }
+    ],
+    "save": true,
+    "saveExit": true,
+    "back": true,
+    "next": true,
+    "footerLabel": "Copyright © 2019. All Rights Reserved.",
+    "headerLabel": "Merdeka Generation Package Survey 2019",
+    "onimage": true,
+    "imagesrc": "https://www.mci.gov.sg/~/media/mci logo hoizontal.png?h=173&w=767&la=en",
+    "headerlabel": "Merdeka Generation Package Survey 2019",
+    "footerlabel": "Copyright © 2019. All Rights Reserved.",
+    "imagewidth": "300px",
+		"lastsaved": false,
+    "onpagedisplay": true,
+    "onscrolltoview": false
+  }
+]

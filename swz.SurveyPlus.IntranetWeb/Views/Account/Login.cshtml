@@ -1,0 +1,167 @@
+﻿@using swz.SurveyPlus.IntranetApplication
+@{
+    Layout = "_Layout_NoTimeoutScript";
+    string cspNonce = (string)Context.Items["CSP_NONCE"];
+    bool IsWindowsAuthentication = (bool)(ViewData["IsWindowsAuthentication"] ?? false);
+    bool IsSaml2Authentication = (bool)(ViewData["IsSaml2Authentication"] ?? false);
+    bool IsPasswordAuthentication = (bool)(ViewData["IsPasswordAuthentication"] ?? false);
+    bool NoAuthenticationOptions = (bool)(ViewData["NoAuthenticationOptions"] ?? false);
+    string LoginWithWindowsAuthenticationLabel = (string)(ViewData["LoginWithWindowsAuthenticationLabel"] ?? "Login with Windows Authentication");
+    string LoginWithSaml2AuthenticationLabel = (string)(ViewData["LoginWithSaml2AuthenticationLabel"] ?? "Login with Identity Provider");
+	SurveyPlusOptions surveyplusOptions = (SurveyPlusOptions)(ViewData["SurveyPlusOptions"] ?? null);
+}
+
+<style>
+    .clover-app-sample-footer {
+        position: absolute;
+        top: calc(100vh - 80px);
+        bottom: 0;
+        left: 20%;
+        right: 20%;
+        height: 80px;
+        margin: auto;
+        color: #6D6D6D;
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    .clover-app-sample-footer a {
+        color: #F24D00;
+    }
+</style>
+
+@if (IsWindowsAuthentication || IsSaml2Authentication)
+{
+    <style>
+        .windows-login-div {
+            margin-top: 14px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 350px;
+        }
+    </style>
+}
+
+<div id="IEWarning" style="visibility:hidden; display:none; background-color:lightpink; color:red; padding: 5px 10px;">
+    <p>
+        Warning: Internet Explorer is end-of-life and not supported by this site. Please use an up-to-date browser such as
+        <a href="https://www.microsoft.com/en-us/edge" target="_blank">Microsoft Edge</a> or
+        <a href="https://www.google.com/chrome" target="_blank">Google Chrome</a>.
+    </p>
+</div>
+
+<script nonce="@(cspNonce)">
+    if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
+    {
+        let warnDiv = document.getElementById("IEWarning");
+        if (warnDiv != undefined && warnDiv != null) {
+            warnDiv.style.display = "block";
+            warnDiv.style.visibility = "visible";
+        }
+    }
+</script>
+
+@* Due to login with windows authentication interface is here, so button cannot trigger eventHandler on the jsx *@
+@if (IsWindowsAuthentication)
+{
+    <script nonce="@(cspNonce)">
+        function onWindowsLogin() {
+            $.ajax({
+                url: "/account/windowslogin",
+                async: true,
+                type: "post",
+                success: function (response) {
+                    if (response.success) {
+                        window.location = '/';
+                    }
+                    else {
+                        alertify.error(response.message);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (403 === jqXHR.status) {
+                        const msg = "403 Forbidden - " + jqXHR.responseText;
+                        console.error(msg);
+                        alertify.error(msg);
+                    } else if (!401 === jqXHR.status) {
+                        console.error(textStatus, errorThrown);
+                        const msg = "Error on the server! Please, check server's configuration and the connection to DB. More information in the application log or Event Viewer.";
+                        alert(msg);
+                    } else if (401 == jqXHR.status) {
+                        console.log("401");
+                    }
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded",
+            () => document.getElementById("loginWithWindowsAuthentication").addEventListener("click", onWindowsLogin));
+    </script>
+}
+@if (IsSaml2Authentication)
+{
+    <script nonce="@(cspNonce)">
+        function onSaml2Login() {
+            let destination = "/saml2/sendrequest";
+            const urlParams = new URLSearchParams(window.location.search);
+            const returnUrl = urlParams.get('ReturnUrl');
+            if (returnUrl) {
+                destination += "?ReturnUrl=" + encodeURIComponent(returnUrl);
+            }
+            window.location = destination;
+        }
+
+        document.addEventListener("DOMContentLoaded",
+            () => document.getElementById("loginWithSaml2Authentication").addEventListener("click", onSaml2Login));
+    </script>
+}
+
+<div class="clover-wrapper">
+    <div class="clover-login-wrapper">
+        <div class="clover-login">
+            <div class="windows-login-div">
+                <img src="@String.Format("/{0}/logo.png", surveyplusOptions.BrandingImagePath)" class="ui image" style="margin-left: auto; margin-right: auto; margin-bottom: 1em; height: 80px;" alt="SurveyPlus" />
+            </div>
+            @Html.Hidden("txtIsWindowsAuthentication", IsWindowsAuthentication)
+            @if (NoAuthenticationOptions)
+            {
+                <div>There are no authentication methods enabled in the application configuration</div>
+            }
+            @if (IsPasswordAuthentication)
+            {
+                <div id="content"></div>
+            }
+            @*This login with windows authentication interface is here due to unable to trigger visible condition.
+              To trigger those condition perhaps required app.js but i believe it needs authorization to access app.js.*@
+            @if (IsWindowsAuthentication)
+            {
+                <div class="windows-login-div">
+                    @if (IsPasswordAuthentication)
+                    {
+                        <div name="header_1" data-buildertype="header" class="ui small center aligned header">
+                            OR
+                        </div>
+                    }                
+                    <button id="loginWithWindowsAuthentication" data-buildertype="button" class="ui fluid secondary button" role="button" type="button">
+                        @(LoginWithWindowsAuthenticationLabel)
+                    </button>
+                </div>
+            }
+            @if (IsSaml2Authentication)
+            {
+                <div class="windows-login-div">
+                    @if (IsPasswordAuthentication)
+                    {
+                        <div name="header_1" data-buildertype="header" class="ui small center aligned header">
+                            OR
+                        </div>
+                    }
+                    <button id="loginWithSaml2Authentication" data-buildertype="button" class="ui fluid secondary button" role="button" type="button">
+                        @(LoginWithSaml2AuthenticationLabel)
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script src="@Url.Content("~/js/login.js")"></script>

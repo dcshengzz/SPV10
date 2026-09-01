@@ -1,0 +1,145 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "style-width": "100%",
+    "style-marginBottom": "1em",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Respondent Content Management",
+        "size": "huge",
+        "textAlign": "left",
+        "events": {}
+      }
+    ],
+    "style-source": ""
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-float": "right",
+    "style-marginRight": "20px",
+    "children": [
+      {
+        "key": "btnCreate",
+        "data-buildertype": "button",
+        "content": "Create",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "gridCreate"
+            ],
+            "targets": [
+              "grid_respadmin"
+            ],
+            "parameters": []
+          }
+        }
+      },
+      {
+        "key": "btnDelete",
+        "data-buildertype": "button",
+        "content": "Delete",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "gridDelete"
+            ],
+            "targets": [
+              "grid_respadmin"
+            ],
+            "parameters": []
+          }
+        },
+        "secondary": true
+      }
+    ],
+    "style-marginBottom": ""
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "style-marginTop": "",
+    "style-marginBottom": "50px",
+    "style-source": "clear:both;"
+  },
+  {
+    "key": "grid_respadmin",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "Type",
+        "name": "Type",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "StartDate",
+        "name": "Start Date",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime",
+        "width": ""
+      },
+      {
+        "key": "EndDate",
+        "name": "End Date",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime",
+        "width": ""
+      },
+      {
+        "key": "Status",
+        "name": "Status",
+        "type": "checkbox",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      }
+    ],
+    "rowKey": "Id",
+    "defaultSort": "NumberId ASC",
+    "pagerType": "server",
+    "editForm": "QNN_RESP_ADMIN",
+    "autoHeight": false,
+    "offSet": "285px",
+    "events": {
+      "onRowClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onRowDblClick": {
+        "parameters": [],
+        "active": false,
+        "actions": [],
+        "targets": []
+      }
+    },
+    "editFormShowType": "",
+    "multiselect": true,
+    "style-marginTop": "10px",
+    "minHeight": "500",
+    "rowHeight": "80"
+  }
+]

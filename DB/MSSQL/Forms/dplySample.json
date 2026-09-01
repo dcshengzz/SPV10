@@ -1,0 +1,237 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "{Name}",
+    "size": "huge",
+    "subheader": "Data Editor Assignment (by Sample)"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "primary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        },
+        "secondary": true
+      },
+      {
+        "key": "btnAssignmentOfDataOwners",
+        "data-buildertype": "button",
+        "content": "Assignment by Data Editor",
+        "primary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "dplysampleowner"
+              }
+            ]
+          }
+        },
+        "secondary": true
+      }
+    ]
+  },
+  {
+    "key": "container_10",
+    "data-buildertype": "container",
+    "style-float": "",
+    "children": [
+      {
+        "key": "header_6",
+        "data-buildertype": "header",
+        "content": "Filter by Sample",
+        "size": "medium"
+      },
+      {
+        "key": "container_11",
+        "data-buildertype": "container",
+        "style-width": "100%",
+        "children": [
+          {
+            "key": "DplySample",
+            "data-buildertype": "dictionary",
+            "label": "Sample",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "vSP_ListSampleInfo",
+            "columns": "UIDName ASC",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "onChangeDplySample"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-customcss": "",
+            "clearable": true,
+            "multiple": true,
+            "search": true,
+            "style-marginBottom": "",
+            "style-width": "400px",
+            "filters": "[{column: \"DplyId\" ,value: \"{Id}\" ,term : \"=\"}]",
+            "paging": false,
+            "onChangeTimeout": "0"
+          }
+        ],
+        "style-float": "",
+        "style-marginBottom": "40px",
+        "style-marginTop": ""
+      },
+      {
+        "key": "container_13",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "SampleTabs",
+            "data-buildertype": "tab",
+            "items": [],
+            "children": [],
+            "events": {
+              "onItemClick": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "pointing": true,
+            "secondary": true,
+            "compact": false,
+            "isDisplayCount": false,
+            "fluid": false,
+            "vertical": false,
+            "tabular": false
+          }
+        ],
+        "style-width": "100%",
+        "style-marginTop": "",
+        "style-customcss": ""
+      },
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "mdlDataEditor",
+            "data-buildertype": "swzmodal",
+            "style-display": "none",
+            "children": [
+              {
+                "key": "header_2",
+                "data-buildertype": "header",
+                "content": "{Tabs_UID}",
+                "size": "medium"
+              },
+              {
+                "key": "header_3",
+                "data-buildertype": "header",
+                "content": "Data Editor",
+                "size": "tiny",
+                "style-source": "float:left;",
+                "textAlign": "left",
+                "style-marginTop": "10px"
+              },
+              {
+                "key": "container_4",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "dictDataEditor",
+                    "data-buildertype": "dropdown",
+                    "label": "",
+                    "fluid": true,
+                    "selection": true,
+                    "data-elements": [],
+                    "search": true,
+                    "multiple": true,
+                    "style-width": "400px",
+                    "events": {},
+                    "style-marginLeft": ""
+                  }
+                ],
+                "style-float": "left",
+                "events": {},
+                "style-marginLeft": "10px"
+              },
+              {
+                "key": "container_3",
+                "data-buildertype": "container",
+                "style-marginTop": "10px",
+                "style-marginBottom": "10px",
+                "style-source": "clear:both;"
+              },
+              {
+                "key": "btnAssignDataOwner",
+                "data-buildertype": "button",
+                "content": "Assign Data Owner",
+                "primary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "addDataEditor"
+                    ],
+                    "targets": [
+                      "SampleTabs"
+                    ],
+                    "parameters": []
+                  }
+                }
+              },
+              {
+                "key": "btnModalClose",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "primary": false,
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "closeAddDataOwnerModal"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              }
+            ],
+            "content": "DataEditorModal"
+          }
+        ],
+        "style-hidden": true
+      }
+    ],
+    "style-width": "100%",
+    "style-marginBottom": "20px",
+    "style-marginTop": "20px"
+  }
+]

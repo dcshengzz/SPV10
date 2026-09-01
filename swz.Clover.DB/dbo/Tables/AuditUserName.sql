@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[AuditUserName] (
+    [UserId] UNIQUEIDENTIFIER NOT NULL,
+    [Name]   NVARCHAR (256)   NOT NULL,
+    CONSTRAINT [PK_AuditUserName] PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
+

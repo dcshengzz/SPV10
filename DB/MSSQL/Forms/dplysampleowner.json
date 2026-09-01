@@ -1,0 +1,649 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "{Name}",
+    "size": "huge",
+    "subheader": "Data Editor Assignment (by Data Editor)"
+  },
+  {
+    "key": "container_4",
+    "data-buildertype": "container",
+    "style-float": "",
+    "children": [
+      {
+        "key": "button_3",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        },
+        "secondary": true
+      },
+      {
+        "key": "btnAssignmentBySample",
+        "data-buildertype": "button",
+        "content": "Assignment by Sample",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "dplySample"
+              }
+            ]
+          }
+        },
+        "floated": "",
+        "style-marginLeft": "",
+        "other-visibleConition": "",
+        "primary": false,
+        "inverted": false,
+        "style-customcss": ""
+      }
+    ],
+    "style-marginBottom": "20px",
+    "style-marginTop": "",
+    "style-width": "100%"
+  },
+  {
+    "key": "container_9",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_7",
+        "data-buildertype": "container",
+        "style-float": "",
+        "children": [
+          {
+            "key": "header_4",
+            "data-buildertype": "header",
+            "content": "Bulk Assignments and Unassignments",
+            "size": "medium"
+          },
+          {
+            "key": "container_14",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "mdlBulkUploadAssignments",
+                "data-buildertype": "swzmodal",
+                "style-display": "none",
+                "children": [
+                  {
+                    "key": "header_3",
+                    "data-buildertype": "header",
+                    "content": "Upload Assignment CSV",
+                    "size": "medium"
+                  },
+                  {
+                    "key": "message_1",
+                    "data-buildertype": "message",
+                    "header": "",
+                    "content": "CSV file must contains UID and UserName in header.\nUID is the sample UID and UserName is the name of the data editor.",
+                    "info": true,
+                    "compact": false,
+                    "success": false
+                  },
+                  {
+                    "key": "form_1",
+                    "data-buildertype": "form",
+                    "children": [
+                      {
+                        "key": "container_15",
+                        "data-buildertype": "container",
+                        "style-width": "",
+                        "children": [
+                          {
+                            "key": "assignmentUploadFile",
+                            "data-buildertype": "input",
+                            "label": "",
+                            "fluid": true,
+                            "onChangeTimeout": 200,
+                            "type": "file"
+                          }
+                        ],
+                        "style-float": "",
+                        "style-marginBottom": "",
+                        "style-marginRight": ""
+                      }
+                    ]
+                  },
+                  {
+                    "key": "container_16",
+                    "data-buildertype": "container",
+                    "children": [
+                      {
+                        "key": "btnUploadAssignment",
+                        "data-buildertype": "button",
+                        "content": "Upload Assignment",
+                        "secondary": false,
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "UploadAssignmentCSV"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "floated": "",
+                        "primary": true
+                      },
+                      {
+                        "key": "uploadAssignmentClose",
+                        "data-buildertype": "button",
+                        "content": "Cancel",
+                        "secondary": true,
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "closeAssignmentUploadModal"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "floated": ""
+                      }
+                    ],
+                    "style-marginTop": "20px",
+                    "style-float": "right",
+                    "style-marginBottom": "20px"
+                  }
+                ],
+                "primary": false,
+                "style-hidden": false,
+                "disabled": false,
+                "style-source": "",
+                "content": "Upload Assignments",
+                "events": {
+                  "onClick": {
+                    "active": false,
+                    "actions": [],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "style-marginBottom": "",
+                "secondary": true
+              }
+            ],
+            "style-hidden": false,
+            "style-float": "left",
+            "style-marginBottom": ""
+          },
+          {
+            "key": "btnBulkDownloadAssignments",
+            "data-buildertype": "button",
+            "content": "Download All Assignments",
+            "secondary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "getSampleOwnerCSV"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "floated": "",
+            "style-marginLeft": "",
+            "other-visibleConition": "",
+            "primary": false
+          },
+          {
+            "key": "deleteAllBtn",
+            "data-buildertype": "button",
+            "content": "Delete ALL Assignments",
+            "secondary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "confirm",
+                  "deleteAllAssignment"
+                ],
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "confirmTitle",
+                    "value": "deleteAllSampleAssignmentTitle"
+                  },
+                  {
+                    "name": "confirmText",
+                    "value": "deleteAllSampleAssignmentText"
+                  }
+                ]
+              }
+            },
+            "floated": "",
+            "style-marginLeft": "",
+            "other-visibleConition": ""
+          }
+        ],
+        "style-marginBottom": "20px",
+        "style-marginTop": "",
+        "style-width": "100%"
+      },
+      {
+        "key": "staticcontent_1",
+        "data-buildertype": "staticcontent",
+        "content": "<hr>",
+        "isHtml": true
+      },
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "style-float": "left",
+        "children": [
+          {
+            "key": "header_5",
+            "data-buildertype": "header",
+            "content": "Selective Assignments and Unassignments",
+            "size": "medium"
+          },
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "style-width": "",
+            "children": [
+              {
+                "key": "header_6",
+                "data-buildertype": "header",
+                "content": "Data Editor",
+                "size": "tiny",
+                "textAlign": "left",
+                "style-source": "float:left;",
+                "style-marginTop": "10px"
+              },
+              {
+                "key": "container_17",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "DataEditor",
+                    "data-buildertype": "dropdown",
+                    "label": "Data Editor",
+                    "fluid": true,
+                    "selection": true,
+                    "data-elements": [],
+                    "search": true,
+                    "multiple": true,
+                    "events": {
+                      "onClick": {
+                        "active": false,
+                        "actions": [],
+                        "targets": [],
+                        "parameters": []
+                      },
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "onChangeDataEditor"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "style-source": "",
+                    "style-width": "400px"
+                  }
+                ],
+                "style-float": "left",
+                "style-marginLeft": "10px"
+              }
+            ],
+            "style-float": "left",
+            "style-marginBottom": "20px",
+            "style-marginRight": "20px"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "style-float": "",
+            "children": [
+              {
+                "key": "btnDownloadAssignments",
+                "data-buildertype": "button",
+                "content": "Download Data Editor Assignments",
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "getSelectedSampleOwnerCSV"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "floated": "left",
+                "primary": false
+              },
+              {
+                "key": "btnAssignAllSamples",
+                "data-buildertype": "button",
+                "content": "Assign All Samples",
+                "secondary": false,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "AssignAllSamples"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "floated": "",
+                "style-marginLeft": "",
+                "other-visibleConition": "",
+                "primary": true
+              }
+            ],
+            "style-marginBottom": "20px",
+            "style-marginTop": "",
+            "style-width": "",
+            "other-visibleConition": "!(data.DataEditor == null || data.DataEditor == '') ? true : false",
+            "style-marginLeft": ""
+          },
+          {
+            "key": "container_5",
+            "data-buildertype": "container",
+            "style-source": "clear:both;",
+            "children": []
+          },
+          {
+            "key": "container_8",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_6",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "container_11",
+                    "data-buildertype": "container",
+                    "children": [
+                      {
+                        "key": "modalTsfSampleOwner",
+                        "data-buildertype": "swzmodal",
+                        "style-display": "block",
+                        "children": [
+                          {
+                            "key": "header_2",
+                            "data-buildertype": "header",
+                            "content": "Transfer Assignment to Data Owner",
+                            "size": "medium"
+                          },
+                          {
+                            "key": "container_10",
+                            "data-buildertype": "container",
+                            "style-width": "",
+                            "children": [
+                              {
+                                "key": "header_7",
+                                "data-buildertype": "header",
+                                "content": "Data Editor",
+                                "size": "tiny",
+                                "textAlign": "left",
+                                "style-source": "float:left;",
+                                "style-marginTop": "10px"
+                              },
+                              {
+                                "key": "container_18",
+                                "data-buildertype": "container",
+                                "children": [
+                                  {
+                                    "key": "dictTsfDataEditor",
+                                    "data-buildertype": "dropdown",
+                                    "label": "",
+                                    "fluid": true,
+                                    "selection": true,
+                                    "data-elements": [],
+                                    "search": true,
+                                    "multiple": true,
+                                    "style-width": "400px"
+                                  }
+                                ],
+                                "style-marginLeft": "10px",
+                                "style-float": "left"
+                              }
+                            ],
+                            "style-float": "",
+                            "style-marginBottom": "",
+                            "style-marginRight": ""
+                          },
+                          {
+                            "key": "container_19",
+                            "data-buildertype": "container",
+                            "style-source": "clear:both;"
+                          },
+                          {
+                            "key": "container_12",
+                            "data-buildertype": "container",
+                            "children": [
+                              {
+                                "key": "button_1",
+                                "data-buildertype": "button",
+                                "content": "Save",
+                                "secondary": false,
+                                "events": {
+                                  "onClick": {
+                                    "active": true,
+                                    "actions": [
+                                      "tsfDplySampleOwner"
+                                    ],
+                                    "targets": [
+                                      "dataEditorGv"
+                                    ],
+                                    "parameters": []
+                                  }
+                                },
+                                "floated": "",
+                                "primary": true
+                              },
+                              {
+                                "key": "btnTsfModalClose",
+                                "data-buildertype": "button",
+                                "content": "Cancel",
+                                "secondary": true,
+                                "events": {
+                                  "onClick": {
+                                    "active": true,
+                                    "actions": [
+                                      "closeTsfDataOwnerModal"
+                                    ],
+                                    "targets": [],
+                                    "parameters": []
+                                  }
+                                },
+                                "floated": ""
+                              }
+                            ],
+                            "style-marginTop": "20px"
+                          }
+                        ],
+                        "primary": false,
+                        "style-hidden": true,
+                        "disabled": false,
+                        "style-source": "",
+                        "content": "Transfer Selected Assignments",
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "openTsfModal"
+                            ],
+                            "targets": [
+                              "dataEditorGv"
+                            ],
+                            "parameters": []
+                          }
+                        },
+                        "secondary": true
+                      }
+                    ],
+                    "style-hidden": false,
+                    "style-float": "left",
+                    "style-marginBottom": ""
+                  },
+                  {
+                    "key": "deleteBtn",
+                    "data-buildertype": "button",
+                    "content": "Delete Selected Assignments",
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "confirm",
+                          "deleteDplySampleOwner"
+                        ],
+                        "targets": [
+                          "dataEditorGv"
+                        ],
+                        "parameters": [
+                          {
+                            "name": "confirmTitle",
+                            "value": "deleteSampleAssignmentTitle"
+                          },
+                          {
+                            "name": "confirmText",
+                            "value": "deleteSampleAssignmentText"
+                          }
+                        ]
+                      }
+                    },
+                    "floated": "left"
+                  }
+                ],
+                "style-marginTop": "",
+                "style-marginBottom": ""
+              },
+              {
+                "key": "container_13",
+                "data-buildertype": "container",
+                "events": {},
+                "style-source": "clear:both"
+              },
+              {
+                "key": "dataEditorGv",
+                "data-buildertype": "gridview",
+                "columns": [
+                  {
+                    "key": "username",
+                    "name": "User",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": false
+                  },
+                  {
+                    "key": "uid",
+                    "name": "UID",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": false
+                  },
+                  {
+                    "key": "name",
+                    "name": "Name",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": false
+                  },
+                  {
+                    "key": "statusTitle",
+                    "name": "Status",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": false
+                  },
+                  {
+                    "key": "segment",
+                    "name": "Segment",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": false
+                  },
+                  {
+                    "key": "respDateStart",
+                    "name": "Response Start",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": false,
+                    "type": "datetime"
+                  },
+                  {
+                    "key": "respDateEnd",
+                    "name": "Response Complete",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": false,
+                    "type": "datetime"
+                  },
+                  {
+                    "key": "dueDate",
+                    "name": "Due Date",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": false,
+                    "type": "datetime"
+                  }
+                ],
+                "defaultSort": "Username ASC, UID ASC",
+                "rowKey": "PK",
+                "multiselect": true,
+                "events": {
+                  "onSelectionChanged": {
+                    "active": false,
+                    "actions": [
+                      "onChangeSegment"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "minHeight": "300px",
+                "pagerType": "",
+                "pageSize": "500",
+                "rowHeight": "80",
+                "style-marginTop": "10px",
+                "other-visibleConition": ""
+              }
+            ],
+            "style-width": "",
+            "style-marginTop": "20px",
+            "other-visibleConition": "!(data.DataEditor == null || data.DataEditor == '') ? true : false",
+            "style-customcss": "ui message"
+          }
+        ],
+        "style-width": "100%",
+        "style-marginBottom": "20px",
+        "style-marginTop": "20px"
+      }
+    ]
+  }
+]

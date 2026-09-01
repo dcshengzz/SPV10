@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Version>2.0.0</Version>
+    <Authors>swz, LLC</Authors>
+    <Company>swz, LLC</Company>
+    <PackageLicenseUrl>http://softworkz.net/agreements/eula/</PackageLicenseUrl>
+    <PackageProjectUrl>http://softworkz.net/</PackageProjectUrl>
+    <PackageIconUrl>http://softworkz.net/img/fav/favicon-194x194.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/swz/Clover</RepositoryUrl>
+    <Description>The sample for Clover</Description>
+    <Copyright>swz Clover 2018</Copyright>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1998</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;1998</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="HtmlToPdf.cs" />
+    <Compile Remove="SimpleHtmlToPdf.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.11" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\swz.Clover.Core\swz.Clover.Core.csproj" />
+    <ProjectReference Include="..\swz.Clover.CorpPass\swz.Clover.SPCP.csproj" />
+    <ProjectReference Include="..\swz.Clover.MSSQL\swz.Clover.MSSQL.csproj" />
+    <ProjectReference Include="..\swz.Clover.Security\swz.Clover.Security.csproj" />
+    <ProjectReference Include="..\swz.SurveyPlus.ApiSupport\swz.SurveyPlus.ApiSupport.csproj" />
+    <ProjectReference Include="..\swz.SurveyPlus.Application\swz.SurveyPlus.Application.csproj" />
+  </ItemGroup>
+</Project>

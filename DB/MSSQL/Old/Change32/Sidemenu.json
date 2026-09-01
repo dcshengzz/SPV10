@@ -1,0 +1,191 @@
+[
+  {
+    "key": "sidemenu",
+    "data-buildertype": "menu",
+    "items": [
+      {
+        "target": "",
+        "title": "",
+        "visibleCondition": "CloverApp.API.checkRole(''SurveyAdmin'')==true",
+        "children": [
+          {
+            "title": "Questionnaire",
+            "target": "",
+            "distype": "dropdownheader"
+          },
+          {
+            "title": "Form Designer",
+            "target": "/surveydesigner",
+            "visibleCondition": "CloverApp.API.checkRole(''SurveyDesigner'')==true",
+            "icon": ""
+          },
+          {
+            "target": "/form/SwzQnnList",
+            "title": "Form Properties",
+            "visibleCondition": "CloverApp.API.checkRole(''SurveyAdmin'')==true",
+            "icon": ""
+          }
+        ],
+        "icon": "file alternate outline",
+        "distype": "dropdown"
+      },
+      {
+        "target": "",
+        "title": "",
+        "visibleCondition": "CloverApp.API.checkRole(''SurveyAdmin'')==true",
+        "children": [
+          {
+            "title": "<b>List</b>",
+            "distype": "dropdownheader"
+          },
+          {
+            "target": "/form/SwzListList",
+            "title": "Sample List",
+            "visibleCondition": "CloverApp.API.checkRole(''SurveyAdmin'')==true",
+            "icon": ""
+          },
+          {
+            "target": "/form/SwzTrkLists",
+            "title": "Track List",
+            "visibleCondition": "CloverApp.API.checkRole(''SurveyAdmin'')==true",
+            "icon": ""
+          }
+        ],
+        "distype": "dropdown",
+        "icon": "list alternate outline"
+      },
+      {
+        "target": "",
+        "title": "",
+        "children": [
+          {
+            "title": "Deployment",
+            "target": "/form/SwzDplyList"
+          }
+        ],
+        "visibleCondition": "CloverApp.API.checkRole(''SurveyAdmin'')==true",
+        "icon": "send",
+        "distype": "dropdown"
+      },
+      {
+        "title": "",
+        "target": "",
+        "visibleCondition": "CloverApp.API.checkRole(''DataEditor'')==true",
+        "icon": "edit",
+        "children": [
+          {
+            "target": "/form/DataEditorDeploymentList",
+            "title": "Data Editor"
+          }
+        ],
+        "distype": "dropdown"
+      },
+      {
+        "distype": "dropdown",
+        "icon": "database",
+        "visibleCondition": "CloverApp.API.checkRole(''DataEditor'')==true",
+        "children": [
+          {
+            "distype": "dropdownheader",
+            "title": "<b>Dashboard and Reports</b>"
+          },
+          {
+            "target": "/form/ChoiceCount",
+            "title": "Frequency Count Report",
+            "visibleCondition": "CloverApp.API.checkRole(''DataEditor'')==true"
+          },
+          {
+            "target": "/form/ResponseReport",
+            "title": "Response Report",
+            "visibleCondition": "CloverApp.API.checkRole(''DataEditor'')==true"
+          },
+          {
+            "target": "/form/DashboardOverall",
+            "title": "Overall Response Dashboard",
+            "visibleCondition": "CloverApp.API.checkRole(''DataEditor'')==true"
+          },
+          {
+            "target": "/form/DashboardSectorSegment",
+            "title": "Sector/Segment Response Dashboard",
+            "visibleCondition": "CloverApp.API.checkRole(''DataEditor'')==true"
+          },
+          {
+            "target": "/form/DashboardStatus",
+            "title": "Status Response Dashboard",
+            "visibleCondition": "CloverApp.API.checkRole(''DataEditor'')==true",
+            "children": []
+          },
+          {
+            "target": "/form/DashboardWeekly",
+            "title": "Weekly Response Dashboard",
+            "visibleCondition": "CloverApp.API.checkRole(''DataEditor'')==true"
+          }
+        ]
+      },
+      {
+        "target": "",
+        "children": [
+          {
+            "title": "<b>System</b>",
+            "distype": "dropdownheader"
+          },
+          {
+            "title": "Category",
+            "target": "/form/SwzCategoryList",
+            "visibleCondition": "CloverApp.API.checkRole(''SurveyAdmin'')==true",
+            "icon": ""
+          },
+          {
+            "target": "/useradmin",
+            "title": "Security",
+            "visibleCondition": "CloverApp.API.checkRole(''SurveyAdmin'')==true",
+            "icon": ""
+          },
+          {
+            "title": "Respondent Content Management",
+            "target": "/form/SwzRespAdminList",
+            "children": [],
+            "visibleCondition": "CloverApp.API.checkRole(''Admins'')==true",
+            "icon": ""
+          },
+          {
+            "target": "/form/organizations",
+            "title": "Organizations",
+            "visibleCondition": "CloverApp.API.checkRole(''Admins'')==true",
+            "icon": ""
+          },
+          {
+            "target": "/form/audittrail",
+            "title": "Audit Trail",
+            "visibleCondition": "CloverApp.API.checkRole(''Admins'')==true",
+            "icon": "",
+            "children": []
+          }
+        ],
+        "distype": "dropdown",
+        "title": "",
+        "icon": "bars"
+      }
+    ],
+    "vertical": true,
+    "events": {
+      "onItemClick": {
+        "active": true,
+        "actions": [
+          "redirect"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "link": true,
+    "fluid": false,
+    "tabular": false,
+    "secondary": false,
+    "pointing": false,
+    "other-visibleConition": "",
+    "icon": false,
+    "compact": false,
+    "style-width": ""
+  }
+]

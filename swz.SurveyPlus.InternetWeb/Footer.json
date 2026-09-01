@@ -1,0 +1,16 @@
+[
+  {
+    "key": "div",
+    "data-buildertype": "container",
+    "children": [],
+    "style-customcss": "clover-application-footer",
+    "style-marginLeft": "",
+    "style-marginRight": "",
+    "style-width": "",
+    "style-float": "",
+    "style-source": "clear:both;\ntextAlign:center;",
+    "style-marginTop": "",
+    "style-marginBottom": "",
+    "style-hidden": true
+  }
+]

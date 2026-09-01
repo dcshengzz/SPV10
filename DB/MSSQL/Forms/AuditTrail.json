@@ -1,0 +1,805 @@
+[
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Audit Trail",
+        "size": "medium",
+        "subheader": ""
+      },
+      {
+        "key": "container_Filters",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "container_5",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_7",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "button_2",
+                    "data-buildertype": "button",
+                    "content": "Start 1st Last Month",
+                    "circular": true,
+                    "compact": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "quickFilter"
+                        ],
+                        "targets": [],
+                        "parameters": [
+                          {
+                            "name": "name",
+                            "value": "start1stLastMonth"
+                          }
+                        ]
+                      }
+                    },
+                    "size": "mini"
+                  },
+                  {
+                    "key": "button_1",
+                    "data-buildertype": "button",
+                    "content": "Start 1st This Month",
+                    "circular": true,
+                    "compact": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "quickFilter"
+                        ],
+                        "targets": [],
+                        "parameters": [
+                          {
+                            "name": "name",
+                            "value": "start1stThisMonth"
+                          }
+                        ]
+                      }
+                    },
+                    "size": "mini"
+                  },
+                  {
+                    "key": "button_4",
+                    "data-buildertype": "button",
+                    "content": "End 1st This Month",
+                    "circular": true,
+                    "compact": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "quickFilter"
+                        ],
+                        "targets": [],
+                        "parameters": [
+                          {
+                            "name": "name",
+                            "value": "end1stThisMonth"
+                          }
+                        ]
+                      }
+                    },
+                    "size": "mini"
+                  },
+                  {
+                    "key": "button_3",
+                    "data-buildertype": "button",
+                    "content": "End Tomorrow",
+                    "circular": true,
+                    "compact": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "quickFilter"
+                        ],
+                        "targets": [],
+                        "parameters": [
+                          {
+                            "name": "name",
+                            "value": "endTomorrow"
+                          }
+                        ]
+                      }
+                    },
+                    "size": "mini"
+                  },
+                  {
+                    "key": "button_5",
+                    "data-buildertype": "button",
+                    "content": "All Last Month",
+                    "circular": true,
+                    "compact": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "quickFilter"
+                        ],
+                        "targets": [],
+                        "parameters": [
+                          {
+                            "name": "name",
+                            "value": "allLastMonth"
+                          }
+                        ]
+                      }
+                    },
+                    "size": "mini"
+                  },
+                  {
+                    "key": "button_6",
+                    "data-buildertype": "button",
+                    "content": "All This Month",
+                    "circular": true,
+                    "compact": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "quickFilter"
+                        ],
+                        "targets": [],
+                        "parameters": [
+                          {
+                            "name": "name",
+                            "value": "allThisMonth"
+                          }
+                        ]
+                      }
+                    },
+                    "size": "mini"
+                  },
+                  {
+                    "key": "button_7",
+                    "data-buildertype": "button",
+                    "content": "All Today",
+                    "circular": true,
+                    "compact": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "quickFilter"
+                        ],
+                        "targets": [],
+                        "parameters": [
+                          {
+                            "name": "name",
+                            "value": "allToday"
+                          }
+                        ]
+                      }
+                    },
+                    "size": "mini"
+                  }
+                ],
+                "style-source": "padding-bottom: 8px;"
+              },
+              {
+                "key": "formgroup_2",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "FilterStart",
+                    "data-buildertype": "input",
+                    "label": "Start >= (Required)",
+                    "fluid": true,
+                    "onChangeTimeout": "0",
+                    "type": "datetime",
+                    "placeholder": "",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "readOnly": false,
+                    "disabled": false,
+                    "style-width": "400px",
+                    "other-required": true
+                  },
+                  {
+                    "key": "FilterEnd",
+                    "data-buildertype": "input",
+                    "label": "End < (Required)",
+                    "fluid": true,
+                    "onChangeTimeout": "0",
+                    "type": "datetime",
+                    "placeholder": "",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "other-required": true
+                  }
+                ]
+              },
+              {
+                "key": "formgroup_1",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "FilterTableName",
+                    "data-buildertype": "input",
+                    "label": "Table Name",
+                    "fluid": true,
+                    "onChangeTimeout": "250",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "placeholder": "Search by Table/Entity Name..."
+                  },
+                  {
+                    "key": "FilterEventType",
+                    "data-buildertype": "dropdown",
+                    "label": "Event Type",
+                    "fluid": true,
+                    "selection": true,
+                    "data-elements": [
+                      {},
+                      {
+                        "value": "Assign All Samples",
+                        "text": "Assign All Samples"
+                      },
+                      {
+                        "value": "Audit Archive",
+                        "text": "Audit Archive"
+                      },
+                      {
+                        "value": "Audit Purge",
+                        "text": "Audit Purge"
+                      },
+                      {
+                        "value": "Delete",
+                        "text": "Delete"
+                      },
+                      {
+                        "value": "Insert",
+                        "text": "Insert"
+                      },
+                      {
+                        "value": "InvalidAPIKey",
+                        "text": "InvalidAPIKey"
+                      },
+                      {
+                        "value": "Login",
+                        "text": "Login"
+                      },
+                      {
+                        "value": "LoginFailed",
+                        "text": "LoginFailed"
+                      },
+                      {
+                        "value": "LogOff",
+                        "text": "LogOff"
+                      },
+                      {
+                        "value": "Purge Responses",
+                        "text": "Purge Responses"
+                      },
+                      {
+                        "value": "Response Import",
+                        "text": "Response Import"
+                      },
+                      {
+                        "value": "SampleOwner Clear",
+                        "text": "SampleOwner Clear"
+                      },
+                      {
+                        "value": "Update",
+                        "text": "Update"
+                      }
+                    ],
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "onChangeTimeout": ""
+                  }
+                ]
+              },
+              {
+                "key": "formgroup_4",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "FilterRecordId",
+                    "data-buildertype": "input",
+                    "label": "Record ID",
+                    "fluid": true,
+                    "onChangeTimeout": "250",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "placeholder": "Search by Record ID..."
+                  },
+                  {
+                    "key": "FilterEventBatch",
+                    "data-buildertype": "input",
+                    "label": "Event Batch",
+                    "fluid": true,
+                    "onChangeTimeout": "250",
+                    "placeholder": "Search by Event Batch...",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "reference": ""
+                  }
+                ]
+              },
+              {
+                "key": "formgroup_3",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "FilterSampleName",
+                    "data-buildertype": "input",
+                    "label": "Sample Name",
+                    "fluid": true,
+                    "onChangeTimeout": "250",
+                    "placeholder": "Search by Sample Name...",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "reference": ""
+                  },
+                  {
+                    "key": "FilterSampleUid",
+                    "data-buildertype": "input",
+                    "label": "Sample UID",
+                    "fluid": true,
+                    "onChangeTimeout": "250",
+                    "placeholder": "Search by Sample UID...",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "key": "formgroup_5",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "FilterUserName",
+                    "data-buildertype": "input",
+                    "label": "User Name",
+                    "fluid": true,
+                    "onChangeTimeout": "250",
+                    "placeholder": "Search by User Name...",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "reference": ""
+                  },
+                  {
+                    "key": "FilterOrganisation",
+                    "data-buildertype": "dictionary",
+                    "label": "Organisation",
+                    "fluid": true,
+                    "selection": true,
+                    "dataModel": "vStructDivisionParentsAndThisName",
+                    "placeholder": "Select Organisation",
+                    "paging": false,
+                    "search": false,
+                    "columns": "Name, Id ASC",
+                    "filters": "[{ column : \"ParentId\" , value : \"{UserStructId}\" , term : \"=\" }]",
+                    "style-marginBottom": "",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "filterEdited"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "clearable": true
+                  }
+                ]
+              }
+            ],
+            "other-visibleConition": "!data.HideFilters"
+          },
+          {
+            "key": "container_1",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "HideFilters",
+                "data-buildertype": "checkbox",
+                "label": "Hide Filters",
+                "toggle": true,
+                "defaultValue": "",
+                "style-source": "float: left;"
+              },
+              {
+                "key": "container_6",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnRefresh",
+                    "data-buildertype": "button",
+                    "content": "Refresh",
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "gridRefresh"
+                        ],
+                        "targets": [
+                          "gridAuditLog"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "floated": "",
+                    "style-marginRight": "",
+                    "other-customValidation": "",
+                    "other-visibleConition": "data.FilterApplied"
+                  },
+                  {
+                    "key": "btnApplyFilters",
+                    "data-buildertype": "button",
+                    "content": "Apply Filters",
+                    "primary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "validateFilters",
+                          "applyFilters"
+                        ],
+                        "targets": [
+                          "gridAuditLog"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "floated": "",
+                    "style-marginLeft": "20px",
+                    "other-visibleConition": "data.FilterEdited==true"
+                  }
+                ],
+                "style-float": "right"
+              }
+            ],
+            "style-float": "",
+            "style-width": "100%"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "children": [],
+            "style-source": "clear:both;"
+          }
+        ],
+        "style-customcss": "ui message",
+        "style-width": "",
+        "style-source": "max-width: 1024px;\npadding-left: 50px;\npadding-right: 50px;"
+      }
+    ],
+    "style-customcss": "",
+    "style-width": ""
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [],
+    "style-float": "",
+    "style-marginTop": "20px",
+    "style-width": "100%",
+    "events": {}
+  },
+  {
+    "key": "rowcount_spacer",
+    "data-buildertype": "staticcontent",
+    "content": "&nbsp;",
+    "isHtml": true,
+    "style-source": "padding-top: 20px;"
+  },
+  {
+    "key": "gridAuditLog",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "EventDate",
+        "name": "Event Date",
+        "type": "custom",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 200
+      },
+      {
+        "key": "UserName",
+        "name": "User Name",
+        "sortable": false,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "SampleName",
+        "name": "Sample Name",
+        "sortable": false,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "TableName",
+        "name": "Table Name",
+        "sortable": false,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "EventType",
+        "name": "Event Type",
+        "sortable": false,
+        "filterable": false,
+        "resizable": true,
+        "type": "",
+        "width": ""
+      },
+      {
+        "key": "EventBatch",
+        "name": "Event Batch",
+        "type": "",
+        "sortable": false,
+        "filterable": false,
+        "resizable": true
+      }
+    ],
+    "events": {
+      "onRowClick": {
+        "active": false,
+        "actions": [],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "rowKey": "Id",
+    "pageSize": "128",
+    "defaultSort": "EventDate DESC",
+    "pagerType": "server",
+    "editForm": "",
+    "style-marginTop": "",
+    "style-source": "padding: 10px;\npadding-top: 0px;\nmargin-top: 0px;\nmargin-right: 32px;\nclear: both;",
+    "other-visibleConition": "data.FilterApplied"
+  },
+  {
+    "key": "purgeModal",
+    "data-buildertype": "swzmodal",
+    "secondary": true,
+    "content": "Purge Data",
+    "children": [
+      {
+        "key": "headerPurge",
+        "data-buildertype": "header",
+        "content": "Purge Audit Log",
+        "size": "medium",
+        "style-marginBottom": ""
+      },
+      {
+        "key": "cnt_adminsGlobalPurge",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "form_2",
+            "data-buildertype": "form",
+            "children": [
+              {
+                "key": "dataCreatedBefore",
+                "data-buildertype": "input",
+                "label": "Events Logged Before",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "date",
+                "events": {},
+                "other-customValidation": "",
+                "other-visibleConition": "",
+                "style-marginBottom": "",
+                "style-marginTop": "20px",
+                "reference": "Events Logged Before"
+              },
+              {
+                "key": "checkboxArchive",
+                "data-buildertype": "checkbox",
+                "label": "Require Archive",
+                "toggle": true,
+                "reference": "",
+                "style-marginBottom": "",
+                "events": {},
+                "onChangeTimeout": "200",
+                "style-hidden": true,
+                "defaultValue": "1",
+                "readOnly": true
+              },
+              {
+                "key": "dateArchive",
+                "data-buildertype": "input",
+                "label": "Perform Archive At",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "events": {},
+                "other-customValidation": "",
+                "other-visibleConition": "",
+                "style-marginBottom": "",
+                "style-marginTop": "40px",
+                "reference": "Perform Archive At",
+                "other-required": false
+              },
+              {
+                "key": "container_4",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnAdminsGlobalPurge",
+                    "data-buildertype": "button",
+                    "content": "Purge",
+                    "floated": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "validatePurgeModal",
+                          "confirm",
+                          "purgeData"
+                        ],
+                        "targets": [
+                          "gridAuditLog"
+                        ],
+                        "parameters": [
+                          {
+                            "name": "confirmTitle",
+                            "value": "purgeAuditTrailTitle"
+                          },
+                          {
+                            "name": "confirmText",
+                            "value": "purgeAuditTrailText"
+                          }
+                        ]
+                      }
+                    },
+                    "secondary": false,
+                    "other-visibleConition": "checkRole('AuditAdmin')",
+                    "primary": true,
+                    "style-source": ""
+                  },
+                  {
+                    "key": "btnCancel",
+                    "data-buildertype": "button",
+                    "content": "Cancel",
+                    "floated": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "closePurgeModal"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "secondary": true,
+                    "other-visibleConition": "checkRole('AuditAdmin')",
+                    "style-source": ""
+                  }
+                ],
+                "style-float": "right",
+                "style-marginBottom": "10px",
+                "events": {},
+                "style-marginTop": "20px"
+              }
+            ],
+            "events": {},
+            "style-marginBottom": "",
+            "style-hidden": false
+          }
+        ],
+        "style-source": "",
+        "style-customcss": "ui message",
+        "style-marginTop": "30px",
+        "style-float": "",
+        "style-width": "100%",
+        "other-visibleConition": "",
+        "events": {}
+      }
+    ],
+    "style-display": "none",
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "disableDimmerClick"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "size": "",
+    "isOpen": "",
+    "isDimmerClick": "false",
+    "other-visibleConition": "data._isTopLevelStructDivision && checkRole(\"Admins\")"
+  }
+]

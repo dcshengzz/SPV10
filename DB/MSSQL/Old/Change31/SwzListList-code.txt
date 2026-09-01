@@ -1,0 +1,136 @@
+{
+    viewArgs: function (args){
+        console.log("View", args);
+    },
+    
+    submitFile(args){
+        var token = args.data.listFile;
+        var listName = args.data.listName;
+
+        var errors = {};
+        if (listName == null || listName == undefined){
+            errors.listName = 'Please enter list name';
+         
+         if (token == null || token == undefined)
+            errors.token = 'Please select csv file';
+                
+            if(errors.listName || errors.token){
+              throw {
+                  level: 1,
+                  message: 'Check errors on the form!',
+                  formerrors: {main: errors}
+              };
+            }
+            return {};
+        };
+
+        /*if (token == null || token == undefined){
+            alertify.error("Select a csv file please");
+            return {};
+        };*/
+
+        var url = '/list/importlistsamples?token=' + token + '&listName=' + listName;
+        Pace.start();
+        $('body').loadingModal({
+            text: 'Importing...',
+            animation: 'wave',
+            backgroundColor: '#1262E2'});
+            var d1 = new Date();
+        return ()=>{
+        return fetch(url,
+            {
+                credentials: 'same-origin',
+                method: 'get'
+            })
+            .then(response => response.json())
+            .then(response => {
+                Pace.stop();
+                $('body').loadingModal('destroy');
+              
+                if (response.success) {
+                    var _securitySiteIdRewriter = function (model) {
+                        model.filters = '[{"column":"IsDeleted", "value": "0", "term":"="}]';
+                        model.disabled = false;
+                    };
+
+                    //CloverApp.API.setDataField("listFile", null);
+                    //CloverApp.API.setDataField("listName", null);
+                    CloverApp.API.setDataField("sampleAdded", response.statistics.sampleAdded);
+                    CloverApp.API.setDataField("sampleUpdated", response.statistics.sampleUpdated);
+                    args.component.refs.grid.refresh();
+                    //CloverApp.API.setDataField("listSampleAddedCount", response.statistics.listSampleAdded);
+                    //CloverApp.API.setDataField("SampleCount", response.statistics.listSampleAdded);
+                    //CloverApp.API.setDataField("listSampleUpdatedCount", response.statistics.listSampleUpdated); 
+                    
+                    if(response.items!=null && response.items!=undefined){
+                        //CloverApp.API.setDataField("gvImportSummary", JSON.parse(response.items));  
+                        return Promise.resolve(
+                        {
+                            stateDelta: {
+                                app: {
+                                    form: {
+                                        models: {
+                                            hideControls: []
+                                        }
+                                    }
+                                },
+    
+                                
+                            }
+                        });  
+                    }
+                    else{
+                         return Promise.resolve(
+                        {
+                            stateDelta: {
+                                app: {
+                                    form: {
+                                        models: {
+                                            hideControls: []
+                                        }
+                                    }
+                                },
+    
+                                
+                            }
+                        });                        
+                    }
+   
+                } else {
+                    alertify.error(response.message);
+
+                }
+            })
+            .catch(error => {
+                Pace.stop();
+                $('body').loadingModal('destroy');
+                alertify.error(error.message);;
+            });
+        };
+    }, 
+    closeModal: function (args){
+
+        args.component.refs.importModal.close();
+        return {
+            app: {
+              form: {
+                  data: {
+                      modified: {
+                          inputImportListSample:null,
+                          inputPassword:null,
+                          //sampleAddedCount:null,
+                          //sampleUpdatedCount:null,
+                          listSampleAddedCount:null,
+                          listSampleUpdatedCount:null,
+                          gridviewImportSummary:null
+                          
+                      }
+                  },
+                  models:{
+                      hideControls: ['headerListSampleAdded','headerListSampleUpdated', 'gvImportSummary']
+                  }
+              }
+            }
+        }       
+    }
+}

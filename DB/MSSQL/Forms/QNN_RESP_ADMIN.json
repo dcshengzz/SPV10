@@ -1,0 +1,204 @@
+[
+  {
+    "key": "header_2",
+    "data-buildertype": "header",
+    "content": "Respondent Content Management",
+    "size": "large"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "Name",
+            "data-buildertype": "input",
+            "label": "Title",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-required": true,
+            "events": {},
+            "other-customValidation": "",
+            "reference": "Title"
+          },
+          {
+            "key": "Type",
+            "data-buildertype": "dropdown",
+            "label": "Type",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [
+              {
+                "key": 2,
+                "value": "RespLogin",
+                "text": "Respondent Login"
+              },
+              {
+                "key": 3,
+                "value": "RespDashboard",
+                "text": "Respondent Dashboard"
+              }
+            ],
+            "style-width": "300px",
+            "events": {},
+            "defaultValue": "",
+            "placeholder": "",
+            "other-required": true
+          },
+          {
+            "key": "formgroup_1",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "children": [
+              {
+                "key": "StartDate",
+                "data-buildertype": "input",
+                "label": "Start Date",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "other-required": true,
+                "other-customValidation": "",
+                "other-visibleConition": "",
+                "labelPosition": "left",
+                "reference": "Start Date"
+              },
+              {
+                "key": "EndDate",
+                "data-buildertype": "input",
+                "label": "End Date",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "other-required": true,
+                "reference": "End Date"
+              }
+            ]
+          },
+          {
+            "key": "Status",
+            "data-buildertype": "checkbox",
+            "label": "Status",
+            "toggle": true,
+            "events": {}
+          },
+          {
+            "key": "respHtmlEditor",
+            "data-buildertype": "swzhtml",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "onHtmlChange"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "other-visibleConition": "",
+            "other-customValidation": "",
+            "defaultValue": "",
+            "hideOutput": "none"
+          },
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "style-float": "left",
+            "children": [
+              {
+                "key": "btnSave",
+                "data-buildertype": "button",
+                "content": "Save",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "validate",
+                      "customValidateInput",
+                      "save"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "primary": true
+              },
+              {
+                "key": "button_2",
+                "data-buildertype": "button",
+                "content": "Save Editor",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "submitHtmlData"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": [
+                      {}
+                    ]
+                  }
+                },
+                "primary": true,
+                "disabled": false,
+                "fluid": false,
+                "circular": true,
+                "inverted": true,
+                "compact": false,
+                "secondary": true,
+                "style-hidden": true
+              },
+              {
+                "key": "button_1",
+                "data-buildertype": "button",
+                "content": "Fetch Editor State",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "fetchEditorState"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": [
+                      {}
+                    ]
+                  }
+                },
+                "primary": false,
+                "disabled": false,
+                "secondary": true,
+                "style-hidden": true
+              },
+              {
+                "key": "btnExit",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "redirect"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "name": "target",
+                        "value": "/form/SwzRespAdminList"
+                      }
+                    ]
+                  }
+                },
+                "secondary": true
+              }
+            ],
+            "style-marginBottom": "20px",
+            "style-marginTop": "20px"
+          }
+        ]
+      }
+    ]
+  }
+]

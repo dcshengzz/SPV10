@@ -1,0 +1,61 @@
+{
+  "title": "Request 1",
+  "firstname": "Ivan",
+  "type": 2,
+  "comment": "Hello, World!\n\nПривет, Мир!f",
+  "gridview": [
+      {
+          "id": 1,
+          "title": "Test 1", 
+          "count": 130
+      },
+      {
+          "id": 2,
+          "title": "Test 2", 
+          "count": 90
+      }, {
+          "id": 3,
+          "title": "Test 3", 
+          "count": 1
+      }
+  ],
+  "collectioneditor": [
+    {
+        "id": "1",
+        "children": []
+    },
+    {
+        "id": "2",
+        "children": [
+            {
+                "id": "2.1",
+                "children": [
+                    {
+                        "id": "2.1.1"
+                    },
+                    {
+                        "id": "2.1.2"
+                    }
+                ]
+            },
+            {
+                "id": "2.2"
+            }
+        ]
+    },
+    {
+        "id": "3"
+    },
+    {
+        "id": "4"
+    }
+],
+    "report": {
+        "labels":["01/18","02/18","03/18","04/18","05/18","06/18","07/18"],
+        "datasets":[
+            {"label":"Employees","borderColor":"#1362E2","backgroundColor":"#1362E2","fill":false,"data":[1,2,4,6,3,9,10],"yAxisID":"y-axis-1"},
+            {"label":"Salary","borderColor":"#FB617D","backgroundColor":"#FB617D","fill":false,"data":[1000.0000,2200.0000,1500.0000,13300.0000,13300.0000,13300.0000,13300.0000],"yAxisID":"y-axis-2"},
+            {"label":"Tax","borderColor":"#FEB64D","backgroundColor":"#FEB64D","fill":false,"data":[720.0000,720.0000,720.0000,720.0000,720.0000,720.0000,720.0000],"yAxisID":"y-axis-2"}
+            ]
+        }
+}

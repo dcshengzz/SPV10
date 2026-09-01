@@ -1,0 +1,472 @@
+.clover-formbuilder{
+    display: flex;
+    align-items: stretch;
+    min-height: 400px;
+    min-width: 500px;
+}
+
+.clover-formbuilder-preview{
+    margin: 15px;
+}
+
+.clover-formbuilder-content{
+    width: calc(100% - 200px);
+    float: left;
+    /*background-color: #F9F9F9;*/
+    min-height: 400px;
+    overflow-y: auto;
+}
+
+.clover-formbuilder-empty{
+    min-height: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: small;
+    text-align: center;
+    width: 100%;
+    background: #EEF4FD;
+    opacity: 0.5;
+    color: #9B9B9B;
+    border: 1px dashed #E1E9F6;
+}
+
+.clover-formbuilder-zone{
+    min-height: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-style: bold;
+    font-size: 8px;
+    line-height: 10px;
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.02);
+    color: rgba(46, 46, 46, 0.4);
+    border: 1px dashed #E1E9F6;
+    clear: both;
+}
+
+.clover-formbuilder-zone-active{
+    opacity: 0.5;
+    background: #E1E9F6;
+    border: 1px dashed #1262E2;
+}
+
+.clover-formbuilder-zone-select{
+    opacity: 1;
+    background: #E1E9F6;
+    border: 1px solid #1262E2;
+}
+
+.clover-formbuilder-toolbox{
+    float: right;
+    background-color: #1262E2;
+    color: white;
+    width: 200px;
+}
+
+.clover-formbuilder-toolbox > h4{
+    margin: 5px;
+    padding: 10px;
+}
+
+.clover-formbuilder-toolbox > ul{
+    -webkit-padding-start: 0px;
+    padding-left: 0px;
+}
+
+.clover-formbuilder-toolbox-control
+{
+    cursor: move;
+    list-style: none;
+    margin: 15px;
+    padding: 6px;
+    border: 1px dashed #FFFFFF;
+    border-radius: 2px;
+    font-family: 'Lato', 'sans-serif';
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.clover-formbuilder-toolbox-control-icon {
+    height: 14px;
+    margin-right: 6px;
+    float: left;
+    margin-top: 3px;
+}
+
+.clover-formbuilder-toolbox > ul > li:hover
+{
+    background: #1B62D4;
+}
+
+.clover-formbuilder-toolbox > ul > li span{
+    float: right;
+    padding-right: 20px;
+}
+
+.clover-formbuilder-toolbox > ul > li.clover-formbuilder-toolbox-subheader {
+    list-style: none;
+    padding: 6px;
+    font-weight:bold;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    text-align: left;
+    font-family: 'Lato', 'sans-serif';
+    margin: 10px;
+    color: rgba(255, 255, 255, 1);
+}
+
+/* .clover-formbuilder-item {
+    
+} */
+
+.clover-formbuilder-item-active {
+    background-color: #E5F9D8;
+    border: 1px dashed #ddd;   
+    opacity: 0.5;
+}
+
+.clover-formbuilder-item-select {
+    background-color: #CBF4B2;
+    border: 1px dashed #ddd;
+    opacity: 1;
+}
+
+.clover-formbuilder-dropzoneactive .clover-formbuilder-item-container{
+    border-style: ridge;
+    border-width: 2px;
+    border-color: rgba(249, 204, 157, 0.5);
+    padding: 5px;
+}
+
+.clover-formbuilder-dropzoneactive .ui.form .fields.clover-formbuilder-item-container[data-buildertype='formgroup']{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/*ITEM-HEADER*/
+
+.clover-formbuilder-item-toolbar-header {
+    opacity: 0.2;
+    z-index: 100;
+    white-space: nowrap;
+    height: 0px;
+    padding-bottom: 5px;
+    padding-top: 3px;
+}
+
+.clover-formbuilder-item-toolbar-header.clover-formbuilder-item-toolbar-controlbargroup{
+    height: 25px;
+}
+
+
+.clover-formbuilder-item-toolbar-header.clover-formbuilder-item-toolbar-right{
+    width: 0;
+}
+
+.clover-formbuilder-item-toolbar-header-buttons {
+    float: right;
+ }
+
+.clover-formbuilder-item-toolbar-header-title{
+    display: inline;
+}
+
+.clover-formbuilder-item-toolbar-header:hover {
+    opacity: 1;
+}
+
+.clover-formbuilder-item-selected{
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: rgba(242, 77, 0, 0.5)
+}
+
+select .clover-formbuilder-item-toolbar-header:hover, 
+input .clover-formbuilder-item-toolbar-header:hover {
+    cursor: move;
+    opacity: 1;
+}
+
+.clover-form-item > label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+.clover-form-item > input, select, combox {
+    display: block;
+    width: 100%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.toolbar-header {
+          /*opacity: 0;*/
+          z-index: 100;
+          position: relative;
+}
+.toolbar-header > .label {
+            position: absolute;
+            left: 20px;
+}
+.toolbar-header > .toolbar-header-buttons {
+            position: absolute;
+            right: 20px;
+}
+        
+.toolbar-header:hover {
+          box-shadow: inset 0 0 5px #ddd;
+          background: #fff;
+          opacity: 1;
+}
+
+ .toolbar-header .toolbar-header-buttons {
+        right: -15px;
+ }
+ .toolbar-header .toolbar-header-buttons > .btn {
+          margin-right: 5px;
+          border-radius: 50%;
+          padding: 7px 0px 0 3px;
+          width: 35px;
+          height: 35px;
+ }
+
+[data-buildertype='formgroup'] > .clover-formbuilder-zone:first-child {
+    margin-left: 0.5em;
+}
+
+[data-buildertype='formgroup'] > .clover-formbuilder-zone:last-child {
+    margin-right: 0.5em;
+}
+
+[data-buildertype='formgroup'] > .clover-formbuilder-zone {
+    background-color: #E9E9E9;
+}
+
+[data-buildertype='formgroup'] > .clover-formbuilder-zone-select {
+    background-color: #E9E9E9;
+}
+
+[data-buildertype='formgroup'] > .clover-formbuilder-zone-active {
+    background-color: #E9E9E9;
+}
+
+[data-buildertype='form'] > .clover-formbuilder-zone, 
+[data-buildertype='grid'] > .clover-formbuilder-zone,
+[data-buildertype='container'] > .clover-formbuilder-zone{
+    background-color: #F4F4F4;
+}
+
+[data-buildertype='form'] > .clover-formbuilder-zone-select, 
+[data-buildertype='grid'] > .clover-formbuilder-zone-select,
+[data-buildertype='container'] > .clover-formbuilder-zone-select {
+    background-color: #F4F4F4;
+}
+
+[data-buildertype='form'] > .clover-formbuilder-zone-active,
+[data-buildertype='grid'] > .clover-formbuilder-zone-active,
+[data-buildertype='container'] > .clover-formbuilder-zone-active {
+    background-color: #F4F4F4;
+}
+
+.clover-formbuilder-header{
+    height: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.clover-formbuilder-header-logo{
+    height: 46px;
+}
+
+.button.ui.buttontype1{
+    background: #F24D00;
+    border: 1px solid #F24D00;
+    border-radius: 2px;
+    font-weight: normal ;
+    color: #FFFFFF;
+}
+
+ .button.ui.buttontype1:hover{
+    background: #CA4000;
+}
+
+.button.ui.buttontype1:active{
+    background: #B63A00;
+}
+
+.button.ui.buttontype2{
+    background: #FFFFFF;
+    border: 1px solid #F24D00;
+    border-radius: 2px;
+    font-weight: normal ;
+    color: #F24D00;
+}
+
+ .button.ui.buttontype2:hover{
+    background: #FF4A06;
+    color: #FFFFFF;
+}
+
+.button.ui.buttontype2:active{
+    background: #DB3E04;
+    color: #FFFFFF;
+} 
+
+.clover-formbuilder-header-left{
+    width: 200px;
+    float: left;
+    margin-top: 12px;
+}
+
+.clover-formbuilder-header-center{
+    float: left;
+    margin-top: 18px;
+}
+
+.clover-formbuilder-header-right{
+    float:right;
+    margin-top: 18px;
+}
+
+.clover-formbuilder-selector{
+    margin-right: 20px;
+    float:left;
+}
+
+.clover-formbuilder-selector > div.checkbox{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 8px;
+}
+
+.clover-formbuilder-selector > div.ui.toggle.checkbox > label:before{
+    background: #F24D00;
+}
+
+.clover-formbuilder-selector-preview{
+    color: #F24D00;
+}
+
+.testcustomcss{
+    background-color: red;
+}
+
+.clover-formbuilder-selector > div.ui.toggle.checkbox > input:checked~label{
+    color: #F24D00!important;
+}
+
+.clover-formbuilder-item-toolbar-header-buttons > img {
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.clover-formbuilder-item-toolbar-header-buttons > img.move {
+    cursor: move;
+}
+
+.ui.icon.message{
+    background-color: white;
+}
+
+.ui.icon.message > img.ui.image{
+    margin-right: 15px;
+}
+
+
+
+.ui.modal>.actions{
+    background-color: white;
+    border: none;
+}
+
+.clover-formbuilder-toolbox-subheader img{
+    height: 25px;
+    width: 25px;
+    padding-right: 5px;
+    margin-bottom: -7px;
+}
+
+a.clover-btn{
+    color: #F24D00;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.clover-form-mappging-left{
+    width: 50%;
+    float: left;
+}
+
+.clover-form-mappging-right{
+    width: 50%;
+    float: right;
+}
+
+.clover-form-mappging textarea{
+    width: 100%;
+}
+
+.clover-form-mappging{
+    margin: 10px 10px 0px 10px;
+}
+
+.clover-formbuilder-preview .ui.grid{
+    margin: 0;
+}
+
+.clover-formbuilder-dropzoneactive .clover-formbuilder-item-container {
+    background-color: rgba(0,0,0,0.02);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(18, 98, 226,0.5);
+    padding: 16px; 
+    margin-top: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .clover-formbuilder-dropzoneactive .clover-formbuilder-zone {
+    padding: 8px;
+    border-style: dashed ;
+    border-width: 1px;
+    border-color: rgba(0,0,0,0.1) ;
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .clover-formbuilder-dropzoneactive .clover-formbuilder-zone:first-child {
+    margin-top: 0;
+  }
+  .clover-formbuilder-dropzoneactive .field {
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  .clover-formbuilder-dropzoneactive .fields:not(.grouped) > * {
+    margin: 0;
+  }
+  .clover-formbuilder-dropzoneactive .fields:not(.grouped) > .field {
+    margin: 0 16px;
+  }
+
+  .clover-formbuilder-dropzoneactive .fields:not(.grouped) > .clover-formbuilder-zone {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  .clover-formbuilder-dropzoneactive:not(.grouped) .header {
+    margin-top: 16px;
+    margin-bottom: 0;
+  }

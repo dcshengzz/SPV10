@@ -1,0 +1,18 @@
+[
+  {
+    "key": "subject",
+    "data-buildertype": "staticcontent",
+    "content": "Recurrent Survey Deployment Created",
+    "isHtml": true
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container"
+  },
+  {
+    "key": "body",
+    "data-buildertype": "staticcontent",
+    "content": "<p>\n<b>Created recurrent deployment of {Name}</b><br/>\n---<br/>\n<b>Outcome:</b> {Outcome} <br/>\n<b>Start Date:</b> {DateStart} <br/>\n</p>\n<p>\nPlease check the details of the new deployment and make arrangements to notify the survey participants.\n</p>\n<p>\nIf the recurrent deployment was created in advance of the start date then you will need to make it visible to participants. \n</p>\n\n",
+    "isHtml": true
+  }
+]

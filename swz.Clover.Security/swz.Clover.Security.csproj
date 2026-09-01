@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>swzClover.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageId>Clover-Security</PackageId>
+    <Version>2.4.0</Version>
+    <Authors>swz, LLC</Authors>
+    <Company>swz, LLC</Company>
+    <Product>Clover</Product>
+    <Description>The SecurityProvider for Clover.
+Clover is a .NET Core BPM system made with simplicity and flexibility in mind. Clover allows you to model, automate and execute mission-critical business processes.</Description>
+    <PackageLicenseUrl>http://softworkz.net/agreements/eula/</PackageLicenseUrl>
+    <PackageProjectUrl>http://softworkz.net/</PackageProjectUrl>
+    <PackageIconUrl>http://softworkz.net/img/fav/favicon-194x194.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/swz/Clover</RepositoryUrl>
+    <PackageTags>clover, bpm, formbuilder, workflow, swz, security</PackageTags>
+    <Copyright>swz Clover 2018</Copyright>
+    <AssemblyVersion>2.4.0.0</AssemblyVersion>
+    <FileVersion>2.4.0.0</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\DLL\netcoreapp2.0\swz.Clover.Security.xml</DocumentationFile>
+    <OutputPath>..\DLL\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>..\DLL\netcoreapp2.0\swz.Clover.Security.xml</DocumentationFile>
+    <OutputPath>..\DLL\</OutputPath>
+  </PropertyGroup>
+    <PropertyGroup>
+        <NoWarn>1701;1702;1705;1591;1998;NU5125;NU5048</NoWarn>
+        <DelaySign>false</DelaySign>
+    </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.8.0" />
+    <!--<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />-->
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\swz.Clover.Core\swz.Clover.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  
+</Project>

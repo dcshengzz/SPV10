@@ -1,0 +1,217 @@
+{
+    init: function(args) {
+/*        var companyTypeRewrite = function (model) {
+            model['data-elements'] = [{key: 1, value: "Test", text: "Tester"}];
+        };
+        CloverApp.API.rewriteControlModel("companyType", companyTypeRewrite);*/
+    },
+    
+    onChangeDeployment: function (args){
+    
+    CloverApp.API.setDataField("statusType", []);
+                        
+                      
+       if(args.data.deployment == undefined || args.data.deployment == "")
+            return;
+        
+        var _getStatusTypes = function(array){
+            var options = [];
+            if(array !== undefined && array.length > 0){
+                for(var j = 0; j < array.length; j++){
+                    var obj = {
+                        key: j,
+                        value: array[j],
+                        text: array[j]
+                    }
+                    options.push(obj);
+                }
+            }
+            return options;
+        }
+        
+        // Implement function to remove element from array
+        var _removeElement = function(array, element) {
+            var _index = array.indexOf(element);
+            if (_index == -1) return;
+            array.splice(_index, 1);
+        };
+        // Implement function to add elemenbt 
+        var _addUniqueElement = function(array, element) {
+            var _index = array.indexOf(element);
+            if (_index > -1) return;
+            array.push(element);
+        };
+        
+        var _loadingStart = function() {
+            $('body').loadingModal({
+                text: 'Loading...',
+                animation: 'foldingCube',
+                backgroundColor: '#1262E2'
+            });
+        };
+        
+        var _loadingStop = function() {
+            $('body').loadingModal('destroy');
+        };
+        
+        var deployment = args.data.deployment;
+        var dplyId = args.data.Id;
+        var statusType = args.data.statusType == undefined ? [] : args.data.statusType ;
+    
+        return () => {
+            _loadingStart();
+            var formData = new FormData();
+            formData.append('dplyId', deployment);     
+            var url = '/report/dashboard/statusresponse';
+            
+            return fetch(url,
+                {
+                    credentials: 'same-origin',
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    method: 'post',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(response => {
+                    _loadingStop();
+                    if (response.success) {
+                        var items = response.items;
+                        var totalStatus = response.totalStatus;
+            
+                        var html = '';
+                        var onStatusFilter = (statusType !== undefined && statusType.length > 0);
+                        var statusOptions = [];
+                        
+                        if(items !== undefined && items.length > 0){
+                            for(var i = 0; i < items.length; i++){
+                                
+                                statusOptions.push(items[i]["Status"]); 
+                                    
+                                    var responseRate = items[i]["ResponseNumber"] / totalStatus * 100;
+                                        responseRate = responseRate.toFixed(2);
+                                        
+                                    var text = items[i]["ResponseNumber"] + '/' + totalStatus;
+                                        text = text.toString() + "&nbsp" + '(' + responseRate + '%)';
+                                        
+                                    html = html + `<div class="swz-block-item"><div class="swz-block-item1-number"><div class="swz-block-item1-header">` +
+                                    items[i]["Status"] +  ":" + "&nbsp" +
+                                    `</div><div class="ui input">
+                                        <input type="text" readOnly value=` + text  + `>
+                                    </div>` +
+                                        
+                                        `</div></div>`;
+                                        
+                                }
+                            
+                        }
+                        
+                        /*html = html + `<div class="swz-block-item"><div class="swz-block-item1-number">` +
+                                    "Total Number of Companies" + "&nbsp" + ":" + "&nbsp" + 
+                                    `</div><div class="swz-block-item1-percent">` + totalStatus + 
+                                    `</div></div>`;
+                         */           
+                        var htmlOverall = '<div class="field"><label>Result</label></div><div class="swz-block">' + html + '</div>'
+               
+                        CloverApp.API.setDataField("result", htmlOverall);
+                        CloverApp.API.setDataField("response", response);
+                        var _hideControls = args.state.app.form.models.hideControls;
+                        _removeElement(_hideControls, "statusType");
+                        
+                        CloverApp.API.setDataField("onOverallResponse", true);
+                        
+                        var statusTypeRewrite = function (model) {
+                            model['data-elements'] = _getStatusTypes(statusOptions);
+                        };
+                        CloverApp.API.rewriteControlModel("statusType", statusTypeRewrite);
+                        
+                        return Promise.resolve(
+                           
+                            {
+                                stateDelta: {
+                                    app: {
+                                        form: {
+                                            models:{
+                                                hideControls: _hideControls
+                                            }
+                                        }
+                                    }
+                                }
+                        });
+                    } else {
+                        alertify.error(response.message);
+                    }
+    
+                })
+                .catch(error => {
+                    alertify.error(error.message);;
+                });
+        }
+        
+    },
+  
+    onChangeFilter: function(args){
+       
+        var response = args.data.response;
+        var deployment = args.data.deployment;
+        var statusType = args.data.statusType;
+        
+        if(response == undefined || response == "")
+            return;
+        
+        var totalStatus = response.totalStatus;
+        var html = '';
+        var items = response.items;
+        var onStatusFilter = (statusType !== undefined && statusType.length > 0);
+
+        if(items !== undefined && items.length > 0){
+            for(var i = 0; i < items.length; i++){
+                
+                if(!((onStatusFilter && statusType.includes(items[i]["Status"])) || onStatusFilter == false))
+                    continue;
+                    
+                    var responseRate = items[i]["ResponseNumber"] / totalStatus * 100;
+                        responseRate = responseRate.toFixed(2);
+                        
+                          var text = items[i]["ResponseNumber"] + '/' + totalStatus;
+                                        text = text.toString() + "&nbsp" + '(' + responseRate + '%)';
+                                        
+                                    html = html + `<div class="swz-block-item"><div class="swz-block-item1-number"><div class="swz-block-item1-header">` +
+                                    items[i]["Status"] +  ":" + "&nbsp" +
+                                    `</div><div class="ui input">
+                                        <input type="text" readOnly value=` + text  + `>
+                                    </div>` +
+                                        
+                                        `</div></div>`;
+                }
+            
+        }
+        
+        /*html = html + `<div class="swz-block-item"><div class="swz-block-item1-number">` +
+                    "Total Number of Companies" + "&nbsp" + ":" + "&nbsp" + 
+                    `</div><div class="swz-block-item1-percent">` + totalStatus + 
+                    `</div></div>`;
+          */          
+          
+        var htmlOverall = '<div class="field"><label>Result</label></div><div class="swz-block">' + html + '</div>'
+
+        CloverApp.API.setDataField("result", htmlOverall);
+        CloverApp.API.setDataField("onOverallResponse", true);
+                     
+        
+    },
+    
+    changeHeader: function(args){
+              
+            var dicValue = args.sourceControlValue;
+            var options = args.sourceControlRef.state.options;
+            
+            if(options !== undefined && options.length > 0){
+                for(var i = 0; i < options.length; i++){
+                    if(options[i].key == dicValue){
+                        CloverApp.API.setDataField("dplyHeader", options[i]["text"]);
+                        break;
+                    }
+                }
+            }
+    }
+}

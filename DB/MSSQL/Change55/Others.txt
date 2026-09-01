@@ -1,0 +1,4 @@
+Deleted QNN_CATEGORY_ROLE, SWZTEst
+
+Changed to IU2016
+Change AppSettings to SIMS

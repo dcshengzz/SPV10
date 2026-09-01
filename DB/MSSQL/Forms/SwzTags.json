@@ -1,0 +1,143 @@
+[
+  {
+    "key": "main",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Tags",
+        "size": "large"
+      },
+      {
+        "key": "staticcontent_3",
+        "data-buildertype": "staticcontent",
+        "content": "Search Multiple Tags In Form/List/Deployment",
+        "events": {},
+        "style-source": "color:#97A3B4;\nfont-size:12px;\nfont-weight:400;\nline-height:16px;",
+        "style-marginTop": "10px",
+        "style-marginBottom": "4px",
+        "isHtml": true
+      },
+      {
+        "key": "TagsInSearch",
+        "data-buildertype": "dropdown",
+        "label": "",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [],
+        "placeholder": "Search Form/List/Deployment Tags...",
+        "multiple": true,
+        "search": true,
+        "allowAddItems": true,
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "searchTags"
+            ],
+            "targets": [],
+            "parameters": []
+          },
+          "onClick": {
+            "active": false,
+            "actions": [],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "readOnly": false
+      },
+      {
+        "key": "divTagsSearch",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "formgroup_1",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "children": [
+              {
+                "key": "staticcontent_2",
+                "data-buildertype": "staticcontent",
+                "content": "Search Active Tags",
+                "events": {},
+                "style-source": "color:#97A3B4;\nfont-size:12px;\nfont-weight:400;\nline-height:16px;",
+                "style-marginTop": "10px",
+                "style-marginBottom": "4px",
+                "isHtml": true
+              },
+              {
+                "key": "TagsToSearch",
+                "data-buildertype": "input",
+                "label": "",
+                "fluid": false,
+                "onChangeTimeout": 200,
+                "placeholder": "Search Active Tags...",
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "searchTagsInDB"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              }
+            ],
+            "orientation": "grouped"
+          },
+          {
+            "key": "staticcontent_1",
+            "data-buildertype": "staticcontent",
+            "content": "<hr>",
+            "isHtml": true,
+            "style-marginTop": "10px",
+            "style-marginBottom": "10px"
+          }
+        ],
+        "style-source": "clear:both;\nborder:1px solid rgba(34,36,38,.15);\nborder-radius: 5px;\npadding:9.5px 14px;",
+        "style-marginTop": "20px",
+        "style-marginBottom": "20px"
+      },
+      {
+        "key": "gvTags",
+        "data-buildertype": "gridview",
+        "columns": [
+          {
+            "key": "name",
+            "name": "Name",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false,
+            "type": "custom",
+            "width": 350
+          },
+          {
+            "key": "sourceTable",
+            "name": "Table",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false,
+            "width": 120
+          },
+          {
+            "key": "tags",
+            "name": "Tags",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false,
+            "type": "custom",
+            "width": ""
+          }
+        ],
+        "editFormShowType": "",
+        "events": {},
+        "autoHeight": false,
+        "rowHeight": "60",
+        "style-marginTop": "50px"
+      }
+    ]
+  }
+]

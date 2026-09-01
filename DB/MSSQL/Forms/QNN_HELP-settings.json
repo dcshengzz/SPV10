@@ -1,0 +1,108 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "f6e34bdf-b769-42dd-a2be-fee67faf9045",
+  "name": "QNN_HELP",
+  "lastUpdate": "2026-01-22T02:56:36.355169+08:00",
+  "entityId": "bb075204-7deb-44cc-9251-b1d158e816d3",
+  "isTemplate": false,
+  "triggers": [
+    {
+      "triggers": [
+        "BeforeInsert",
+        "AfterNew"
+      ],
+      "codeAction": "SetFields",
+      "parameter": "{CreatedBy: \"@CurrentUserId\", CreatedDate: \"@DateTimeNow\",  UpdatedBy: \"@CurrentUserId\", UpdatedDate: \"@DateTimeNow\"}"
+    },
+    {
+      "triggers": [
+        "BeforeUpdate"
+      ],
+      "codeAction": "SetFields",
+      "parameter": "{UpdatedBy: \"@CurrentUserId\", UpdatedDate: \"@DateTimeNow\"}"
+    },
+    {
+      "triggers": [
+        "BeforeInsert",
+        "BeforeUpdate"
+      ],
+      "codeAction": "ValidateQnnHelpTrigger"
+    }
+  ],
+  "dataMap": [
+    {
+      "id": "db188500-410c-b948-85ba-95072a3176f6",
+      "attributeId": "a6368ee0-d4a5-4530-b1e4-bbcb4042d178",
+      "control": "HelpContent",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "5a50392f-e54d-0e2f-73b1-6bdc4ad8f608",
+      "attributeId": "6c306562-8aad-4af6-ae9b-d82b09b73f01",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "8551abf1-fa37-ca9a-1180-18dd8498b685",
+      "attributeId": "07b14e69-f5aa-470d-b8d3-24c94fd722fd",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "bc1f01c5-751f-9cae-34f6-4cd6827badc6",
+      "attributeId": "90a76b37-0d22-4e40-8524-f4f990a161d5",
+      "control": "Heading",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "9e78c85f-8330-54f6-141d-1dafdfff716f",
+      "attributeId": "fbbc33ef-0afc-41f0-9b89-7f15de2865d2",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "98b6ba10-12d1-0a43-ca6e-9a8575519ede",
+      "attributeId": "9f9bcc38-0aef-489c-b86f-f33ef689e9f8",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "90935ca2-0db8-1f6d-444c-310b7b83380d",
+      "attributeId": "67f07b78-31a9-4d5d-bab8-ae1e6bd0ad49",
+      "control": "Status",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "ee59f60a-0487-dadc-5d95-123bcaf8eb79",
+      "attributeId": "d22e5a5a-0542-4dbe-9dc7-00a6c914e515",
+      "control": "Topic",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "246dcd52-bdc7-3150-4bd3-bbd2c436dd0a",
+      "attributeId": "94da5047-34a7-42a0-97ca-09e704f33af0",
+      "control": "Type",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "0b47d650-15e8-4233-a9fc-3191f50e2df2",
+      "attributeId": "785f4da2-afa1-4ec5-8c14-05cbef3c8601",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "c8205e0c-7502-98f8-3555-38fe4a5ce0a6",
+      "attributeId": "00f4c6f4-cb93-4e0a-acc2-2388284927bf",
+      "isEditable": true,
+      "isLoadable": true
+    }
+  ],
+  "dataColl": [],
+  "securityGroup": "Content",
+  "isArchived": false
+}

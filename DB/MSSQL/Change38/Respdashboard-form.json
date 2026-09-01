@@ -1,0 +1,280 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Respondent Home",
+    "size": "huge",
+    "style-customcss": "",
+    "style-source": "color: rgb(19, 98, 226);"
+  },
+  {
+    "key": "respDashboardHtmlView",
+    "data-buildertype": "swzhtmlview",
+    "hideOutput": "block",
+    "events": {}
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_2",
+        "data-buildertype": "header",
+        "content": "Current Surveys",
+        "size": "medium",
+        "style-source": "color: rgb(19, 98, 226);",
+        "style-customcss": "",
+        "events": {}
+      },
+      {
+        "key": "grid",
+        "data-buildertype": "gridview",
+        "columns": [
+          {
+            "key": "QnnTitle",
+            "name": "Survey Name",
+            "type": "",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "Form",
+            "name": "Form",
+            "type": "custom",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "Type",
+            "name": "Type",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "PeerName",
+            "name": "Peer",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "DplyDateStart",
+            "name": "Launched On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime",
+            "width": ""
+          },
+          {
+            "key": "DueDate",
+            "name": "Due On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime",
+            "width": ""
+          },
+          {
+            "key": "RespDateStart",
+            "name": "Responded On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime",
+            "width": ""
+          },
+          {
+            "key": "RespDateEnd",
+            "name": "Submitted On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime",
+            "width": ""
+          },
+          {
+            "key": "Password",
+            "name": "Password",
+            "type": "custom",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          }
+        ],
+        "rowKey": "Id",
+        "pagerType": "server",
+        "pageSize": "80",
+        "defaultSort": "DplyCreatedDate",
+        "autoHeight": false,
+        "offSet": "295px",
+        "minHeight": "200px",
+        "style-width": "",
+        "style-customcss": "",
+        "rowHeight": "80"
+      }
+    ],
+    "style-width": "100%",
+    "style-source": "margin: auto;\npadding: 10px;\nmargin-bottom: 1em;",
+    "style-customcss": "hrm-block",
+    "style-marginBottom": ""
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-customcss": "hrm-block",
+    "children": [
+      {
+        "key": "header_3",
+        "data-buildertype": "header",
+        "content": "Previous Surveys",
+        "size": "medium",
+        "style-source": "color: rgb(19, 98, 226);",
+        "style-customcss": "",
+        "events": {}
+      },
+      {
+        "key": "gridview",
+        "data-buildertype": "gridview",
+        "columns": [
+          {
+            "key": "QnnTitle",
+            "name": "Survey Name",
+            "type": "",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "Form",
+            "name": "Form",
+            "type": "custom",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "Type",
+            "name": "Type",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "PeerName",
+            "name": "Peer",
+            "sortable": true,
+            "filterable": false,
+            "resizable": false
+          },
+          {
+            "key": "DplyDateStart",
+            "name": "Launched On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime",
+            "width": ""
+          },
+          {
+            "key": "DueDate",
+            "name": "Due On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime",
+            "width": ""
+          },
+          {
+            "key": "RespDateStart",
+            "name": "Responded On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime",
+            "width": ""
+          },
+          {
+            "key": "RespDateEnd",
+            "name": "Submitted On",
+            "sortable": true,
+            "filterable": false,
+            "resizable": true,
+            "type": "datetime",
+            "width": ""
+          },
+          {
+            "key": "Password",
+            "name": "Password",
+            "type": "custom",
+            "resizable": true,
+            "sortable": true,
+            "filterable": false
+          }
+        ],
+        "rowKey": "Id",
+        "pagerType": "server",
+        "pageSize": "80",
+        "defaultSort": "DplyCreatedDate",
+        "autoHeight": false,
+        "offSet": "295px",
+        "minHeight": "200px",
+        "style-width": "",
+        "events": {},
+        "style-customcss": "",
+        "rowHeight": "80"
+      }
+    ],
+    "style-width": "100%",
+    "style-source": "padding: 10px"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "style-float": "",
+    "style-hidden": true,
+    "children": [
+      {
+        "key": "passwordModal",
+        "data-buildertype": "swzmodal",
+        "style-display": "block",
+        "children": [
+          {
+            "key": "password",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true,
+            "disabled": false,
+            "error": true,
+            "style-marginBottom": "20px"
+          },
+          {
+            "key": "btnClose",
+            "data-buildertype": "button",
+            "content": "OK",
+            "secondary": true,
+            "inverted": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "closeModal"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "size": "mini"
+          }
+        ],
+        "size": "medium",
+        "style-width": ""
+      }
+    ]
+  }
+]

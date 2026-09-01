@@ -1,0 +1,149 @@
+{
+        downloadEmailTemplate: function(args){
+                 var text = '';
+                text += 'ANNUAL SURVEY ON {DplyName} 2020 \n'
+                text += 'Purpose of the Survey:\n'
+                text +='The purpose of the Survey is to obtain data of the profile for the period from 1 June to 31 May.\n'
+                text +='Statistics compiled from the collected data will be used to assist in policy-making efforts.\n'
+                text +='Submission of the Questionnaire:\n'
+                text +='We would be grateful if you could return the completed questionnaire by the due date stated above. \n'
+                text +=' \n'
+                text +='The following are your login information:\n'
+                text +='Company name: {Name}\n'
+                text +='Username: {UID}\n'
+                text +='Password: {Password}\n'
+                text +=' \n'
+                
+                text +='Other tokens:\n'
+                text +='UID: {UID}\n'
+                text +='Password: {Password}\n'
+                text +='Questionnaire Name: {DplyQnn}\n'
+                text +='List Name: {DplyList}\n'
+                text +='Deployment Name: {DplyName}\n'
+                text +='Category Name: {DplyCategory}\n'
+                text +='UIDPeer: {UIDPeer}\n'
+                text +='Account Active Status: {ActiveYN}\n'
+                
+                 var hiddenElement = document.createElement('a');
+                    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(text);
+                    hiddenElement.target = '_blank';
+                    hiddenElement.download = 'EmailTemplate.txt';
+                    hiddenElement.click();
+    },
+    init: function(args) {        
+        var innerArgs = args;
+        var gridModelRewriter = function (model) {
+            if (Array.isArray(model.columns)) {
+                model.columns[1].customFormatter = function (p) {
+                    //console.log("p: ", p);
+                    if(p.row.NotifyMerge){
+                        var url = "/deployment/downloadMailMerge/" + p.row.MergeOutputToken;
+                        if(p.row.MergeDone)
+                            return CloverApp.API.createElement("a", {onClick: (e)=>{e.stopPropagation()}, href: url, className: "ui button mini secondary invert"}, "Download");
+                        return CloverApp.API.createElement("button", {className: "ui button mini disabled" }, "Generating");
+                    }
+                    else{
+                        return CloverApp.API.createElement("div", {className: "" }, "No");                        
+                    }
+                  
+                };
+                model.columns[2].customFormatter = function (p) {
+
+                    if(p.row.NotifyEmail){
+                        return CloverApp.API.createElement("span", {onClick: (e)=> {e.stopPropagation();CloverApp.API.redirectToForm("dplyMessage", p.row.Id)}, className: 'link-style'}, 'Yes');
+                    }
+                    else{
+                        return CloverApp.API.createElement("div", {className: "" }, "No");                        
+                    }
+                  
+                };
+                
+                  model.columns[3].customFormatter = function (p) {
+                    //console.log("p: ", p);
+                    if(p.row.NotifyGenerate){
+                        var url = "/deployment/downloadProfile/" + p.row.GenerateProfileOutputToken;
+                        if(p.row.GenerateProfileDone)
+                            return CloverApp.API.createElement("a", {onClick: (e)=>{e.stopPropagation()}, href: url, className: "ui button mini secondary invert"}, "Download");
+                        return CloverApp.API.createElement("button", {className: "ui button mini disabled" }, "Generating");
+                    }
+                    else{
+                        return CloverApp.API.createElement("div", {className: "" }, "No");                        
+                    }
+                  
+                };              
+            }
+            return model;
+        };    
+
+        
+        CloverApp.API.rewriteControlModel("grid", gridModelRewriter);   
+    },    
+  
+    goBack: function(args) {
+        args.state.router.history.goBack();
+    },
+ 
+    emailToStatus: function(args){
+        console.log("resend args", args);
+        Pace.start();
+        $('body').loadingModal({
+            text: 'Processing...',
+            animation: 'wave',
+            backgroundColor: '#1262E2'});
+        
+        var dplyId = args.data.Id;
+        var emailFrom = args.data.emailFrom;
+        var scheduledDate = args.data.scheduledDate;        
+        var msgContent = args.component.refs.htmlEditor.state.htmlData;        
+        var subject = args.data.subject;
+        var status = args.data.dictionaryStatus;
+        
+        if(!emailFrom || !scheduledDate || !msgContent ||!subject ||!status){
+            $('body').loadingModal('destroy');
+            alertify.error("Please input all the fields");
+            return {};            
+        }
+
+        var listId = args.data.ListId;
+        var formData = new FormData();
+        formData.append('msgContent', msgContent);
+        formData.append('dplyId', dplyId);
+        formData.append('subject', subject);
+        formData.append('emailFrom', emailFrom);
+        formData.append('scheduledDate', scheduledDate);  
+        formData.append('status', status);          
+           
+        var url = '/deployment/emailtostatus';
+
+        fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                Pace.stop();
+                $('body').loadingModal('destroy');
+                if (response.success) {
+                    args.component.refs.swzmodal_2.close();
+                    alertify.success(response.message);
+                    args.controlRef.refresh();
+
+                } else {
+                    alertify.error(response.message);
+                }
+
+            })
+            .catch(error => {
+                alertify.error(error.message);;
+            })
+            .finally(()=>{
+                Pace.stop();
+                $('body').loadingModal('destroy');                
+            });   
+        
+    },   
+
+}

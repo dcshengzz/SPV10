@@ -1,0 +1,262 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Short Links",
+        "size": "huge",
+        "style-marginBottom": "",
+        "style-marginTop": "10px"
+      }
+    ],
+    "events": {},
+    "style-marginBottom": "1em",
+    "style-width": "100%"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "buttonAdd",
+        "data-buildertype": "button",
+        "content": "Create",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "gridCreate"
+            ],
+            "targets": [
+              "gridShortLink"
+            ],
+            "parameters": []
+          }
+        },
+        "style-marginBottom": "0.25em",
+        "style-marginRight": "0.25em"
+      },
+      {
+        "key": "buttonDelete",
+        "data-buildertype": "button",
+        "content": "Delete",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "confirm",
+              "gridDelete",
+              "gridRefresh"
+            ],
+            "targets": [
+              "gridShortLink"
+            ],
+            "parameters": []
+          }
+        },
+        "style-marginBottom": "0.25em",
+        "style-marginRight": "0.25em"
+      }
+    ],
+    "style-float": "right",
+    "events": {},
+    "style-marginBottom": "",
+    "style-width": "",
+    "style-source": "",
+    "style-marginRight": "20px"
+  },
+  {
+    "key": "container_filters",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "style-source": "",
+    "style-marginBottom": "",
+    "children": [
+      {
+        "key": "FilterSearch",
+        "data-buildertype": "input",
+        "label": "",
+        "fluid": false,
+        "onChangeTimeout": "300",
+        "placeholder": "Search...",
+        "style-marginBottom": "0.25em",
+        "style-marginLeft": "",
+        "style-marginRight": "0.25em",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "updateFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "300px"
+      },
+      {
+        "key": "FilterLinkType",
+        "data-buildertype": "dropdown",
+        "label": "",
+        "fluid": false,
+        "selection": true,
+        "data-elements": [
+          {
+            "value": "ALL",
+            "text": "All Types"
+          },
+          {
+            "value": "Anonymous",
+            "text": "Anonymous Survey"
+          },
+          {
+            "value": "Url",
+            "text": " Links to URL"
+          }
+        ],
+        "style-width": "200px",
+        "style-marginBottom": "0.25em",
+        "style-marginRight": "0.25em",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "updateFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "defaultValue": "ALL",
+        "placeholder": "Show All Types"
+      },
+      {
+        "key": "FilterStatus",
+        "data-buildertype": "dropdown",
+        "label": "",
+        "fluid": false,
+        "selection": true,
+        "data-elements": [
+          {
+            "value": "ALL",
+            "text": "All Status"
+          },
+          {
+            "value": "1",
+            "text": "Active Only"
+          },
+          {
+            "value": "0",
+            "text": "Inactive Only"
+          }
+        ],
+        "placeholder": "All Status",
+        "defaultValue": "ALL",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "updateFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "200px",
+        "style-marginBottom": "0.25em",
+        "style-marginLeft": "",
+        "style-marginRight": "0.25em"
+      }
+    ],
+    "style-marginRight": ""
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-source": "clear:both;",
+    "style-marginBottom": "50px"
+  },
+  {
+    "key": "gridShortLink",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": 150
+      },
+      {
+        "key": "DisplayDescription",
+        "name": "Description",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "LinkType",
+        "name": "Type",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": 100
+      },
+      {
+        "key": "DisplayTarget",
+        "name": "Target",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 250
+      },
+      {
+        "key": "IsEnhancedSecurity",
+        "name": "Security",
+        "type": "checkbox",
+        "width": 80,
+        "sortable": true,
+        "filterable": false,
+        "resizable": true
+      },
+      {
+        "key": "Status",
+        "name": "Active",
+        "type": "checkbox",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 80
+      }
+    ],
+    "editForm": "ShortLink",
+    "multiselect": true,
+    "rowKey": "Id",
+    "autoHeight": false,
+    "offSet": "-285px",
+    "defaultSort": "Name ASC",
+    "events": {
+      "onRowClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "style-marginTop": "",
+    "pagerType": "server",
+    "rowHeight": "80",
+    "pageSize": "64",
+    "minHeight": "500",
+    "style-source": "clear: both;"
+  }
+]

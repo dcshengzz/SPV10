@@ -1,0 +1,70 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "f6e34bdf-b769-42dd-a2be-fee67faf9045",
+  "name": "ShortLinkList",
+  "lastUpdate": "2024-05-24T11:42:13.8506769+08:00",
+  "isTemplate": false,
+  "triggers": [],
+  "dataMap": [],
+  "dataColl": [
+    {
+      "id": "3098aa5a-4fd6-1084-3c30-b6bffa386357",
+      "entityId": "9f2384b3-c50c-4a14-aada-cd75ff27c780",
+      "filter": "StructAsyncFilter",
+      "control": "gridShortLink",
+      "dataMap": [
+        {
+          "id": "ec7cdc48-d0db-3e5c-40f4-f104df959c72",
+          "attributeId": "a386cf67-dc72-454c-acc3-4a53da9a63b1",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "5dced2c0-cf6a-8e25-f9b5-95bc8d931d10",
+          "attributeId": "d279a7ce-1748-4a52-8f44-cd5ea6d9ca1c",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "b4ad7579-c2c4-c794-7bea-8ef69cb8d993",
+          "attributeId": "ef36465f-85c4-4e7d-a24d-b161b1a076c8",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "8abd19a6-a662-8b45-9128-9c21b6fcf8e2",
+          "attributeId": "eb6f0fdf-f014-4615-ab5a-aa2ba9b3e0e2",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "63805863-9c31-7c72-dc80-f95141ad7c07",
+          "attributeId": "5cff4fe9-0f43-41a6-a22e-994c44bf933e",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "4952be40-1d0c-cce7-99b7-55d1eab96d40",
+          "attributeId": "cd5fc2da-fcf2-4e67-9b85-7294633c788f",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "1f2f0e8d-9a97-04e6-71c6-9b34e6fdb10a",
+          "attributeId": "904478aa-2ab1-4480-afd3-742ba9840c06",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "1ce7f25b-8621-f96f-f253-0c5db33f45e8",
+          "attributeId": "259e06f8-652b-4ef7-aace-cd5fd115e6de",
+          "isEditable": true,
+          "isLoadable": true
+        }
+      ],
+      "readOnly": false,
+      "totalCountPropertyName": "__gridShortLink_totalcount"
+    }
+  ],
+  "securityGroup": "ShortLink"
+}

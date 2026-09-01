@@ -1,0 +1,119 @@
+@using swz.SurveyPlus.InternetApplication;
+@using System.Web;
+@{
+    string cspNonce = (string)Context.Items["CSP_NONCE"];
+    Layout = "_Layout_NoTimeoutScript";
+    bool IsSPCPLogin = (bool)ViewData["IsSPCPLogin"];
+    bool IsSingpassSupported = (bool)ViewData["IsSingpassSupported"];
+    bool IsCorppassSupported = (bool)ViewData["IsCorppassSupported"];
+    WogaaSettings wogaaSettings = (WogaaSettings)ViewData["WogaaSettings"];
+    string errorMessage = (string)ViewData["ErrorMessage"];
+    CommonPageSettingsOptions commonPageSettings = (CommonPageSettingsOptions)(ViewData["CommonPageSettings"] ?? null);
+}
+
+<head>
+    <style>
+            @@media only screen and (min-width: 621px) {
+                #parent {
+                    min-height: 100%;
+                    background-color: #F9F9F9;
+                    background-image: url( @String.Format("/{0}/background.png", commonPageSettings.BrandingImagePath) );
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                #child {
+                    width: 880px;
+                    max-width: 90%;
+                    z-index: 1000;
+                    margin: 2em 0;
+                }
+
+                #content {
+                    border-radius: 12px;
+                    width: 100%;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+                }
+
+                .clover-application-login {
+                    gap: 0;
+                }
+            }
+
+            @@media only screen and (max-width: 620px) {
+                #parent {
+                    min-height: 100vh;
+                    background-color: #F9F9F9;
+                    background-image: url( @String.Format("/{0}/background.png", commonPageSettings.BrandingImagePath) );
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 24px 16px;
+                }
+
+                #child {
+                    width: 100%;
+                }
+
+                #content {
+                    overflow: hidden;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+                }
+
+                .clover-application-login {
+                    gap: 0;
+                }
+            }
+    </style>
+    <script src="@Url.Content("~/js/resplogin.js?ver=178")"></script>
+    <script nonce="@(cspNonce)">
+        const onPageLoaded = function () {
+        renderRespLogin(
+        @(IsSPCPLogin ? "true" : "false"),
+        @(IsSingpassSupported ? "true" : "false"),
+        @(IsCorppassSupported ? "true" : "false"),
+        @(wogaaSettings.Enable ? Html.Raw('"' + wogaaSettings.Url + '"') : Html.Raw("null")),
+        '@(commonPageSettings.BrandingImagePath)');
+
+        @if (!String.IsNullOrEmpty(errorMessage))
+        {
+            @:console.error('@HttpUtility.JavaScriptStringEncode(errorMessage)');
+            @:alertify.error('@HttpUtility.JavaScriptStringEncode(errorMessage)', 20000);
+        }
+        };
+        document.addEventListener('DOMContentLoaded', onPageLoaded);
+    </script>
+</head>
+
+<div id="IEWarning" style="visibility:hidden; display:none; background-color:lightpink; color:red; padding: 5px 10px;">
+    <p>
+        Warning: Internet Explorer is end-of-life and not supported by this site. Please use an up-to-date browser such as
+        <a href="https://www.microsoft.com/en-us/edge" target="_blank">Microsoft Edge</a> or
+        <a href="https://www.google.com/chrome" target="_blank">Google Chrome</a>.
+    </p>
+</div>
+<script nonce="@(cspNonce)">
+    if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) //IF IE > 10
+    {
+    let warnDiv = document.getElementById("IEWarning");
+    if (warnDiv != undefined && warnDiv != null) {
+    warnDiv.style.display = "block";
+    warnDiv.style.visibility = "visible";
+    }
+    }
+</script>
+<div id="parent">
+    <div id="child">
+        <div id="content"></div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+INSERT INTO QNN_SAMPLE (Id, ActiveYN, UID, Name, PwdResetYN, pwd, PwdResetToken, CreatedDate, UpdatedDate, NumRetry)
+	VALUES 
+	('87BEA0A3-DB44-4B66-9F16-D2036722C5C5', --Id
+	1, --ActiveYN
+	'swzanonymous', --UID
+	'ANONYMOUS SAMPLE', --Name
+	0, --PwdResetYN
+	'yy7/mvemTBmeVi12YAItzEBBVjbWPhfOaH5hESO9pNo=', --Pwd
+	'g+/BBfwEZCPpP1q+9CIsow3Vp4LBA0qX4bY2bDnZVFvWXuqphQ13D11D+JD0awg8NWXV8Sw0+Cef+huAWyFH+eV2SWR+W3sqOYb+Vnn/h1aiHE6btoDnS9/dRRKWCFU/EDWg6Giy39JUZEPDHeV5pg==', --PwdResetToken
+	CURRENT_TIMESTAMP, --CreatedDate
+	CURRENT_TIMESTAMP, --UpdatedDate
+	0 --NumRetry
+	);
+
+INSERT INTO QNN_SAMPLE_STRUCTDIVISION (Id, SampleId, StructDivisionID)
+	VALUES ( 
+	'0db2f559-295a-46d0-ab8e-48d7aaefc2a1',
+	'87BEA0A3-DB44-4B66-9F16-D2036722C5C5',
+	'F6E34BDF-B769-42DD-A2BE-FEE67FAF9045');

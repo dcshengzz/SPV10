@@ -1,0 +1,14 @@
+﻿@* IntranetWeb Index Page *@
+@{
+    Layout = "_Layout";
+}
+@* Common SurveyPlus JavaScript framework functions. 
+    Update version param when file changes to assist cache invalidations. 
+    Don't forget to update internet side too in InternetWeb's 'Shared\Index.cshtml *@
+<script src="@Url.Content("~/js/surveyplus-utils.js?ver=20260713")" type="text/javascript"></script>
+@* -- *@
+<script src="@Url.Content("~/ui/localization.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/ui/form/businessobjects.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/js/GlobalUserActions.js?ver=20260713")" type="text/javascript"></script>
+<div id="content"></div>
+<script src="@Url.Content("~/js/app.js?ver=20260713")"></script>

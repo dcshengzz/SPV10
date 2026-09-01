@@ -1,0 +1,355 @@
+[
+  {
+    "key": "container_5",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "ImportReportModal",
+        "data-buildertype": "swzmodal",
+        "content": "ImportReportModal",
+        "style-display": "block",
+        "children": [
+          {
+            "key": "header_5",
+            "data-buildertype": "header",
+            "content": "Dataset Import Complete",
+            "size": "large",
+            "textAlign": "left"
+          },
+          {
+            "key": "staticcontent_3",
+            "data-buildertype": "staticcontent",
+            "content": "<table class=\"swzTable\" border=\"0\">\n<tr style=\"background-color: #F5F5F5;\"><td>Datasets imported</td><td style=\"color: green; padding-left: 32px; padding-right: 32px; width: 250px; text-align: right;\">{ImportReportImportCount}</td></tr>\n<tr><td>Rows ignored</td><td style=\"color: black; padding-left: 32px; text-align: right;  padding-right: 32px;\">{ImportReportIgnoredCount}</td></tr>\n<tr><td>Rows with duplicated UID</td><td style=\"color: black; padding-left: 32px; text-align: right; padding-right: 32px;\">{ImportReportDuplicateCount}</td></tr>\n<tr><td>Invalid rows</td><td style=\"color: red; padding-left: 32px; text-align: right; padding-right: 32px;\">{ImportReportInvalidCount}</td></tr>\n</table>",
+            "isHtml": true,
+            "style-font-size": "20px"
+          },
+          {
+            "key": "container_6",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "button_4",
+                "data-buildertype": "button",
+                "content": "Close",
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "cancelModal"
+                    ],
+                    "targets": [
+                      "ImportReportModal"
+                    ],
+                    "parameters": []
+                  }
+                }
+              }
+            ],
+            "style-source": "text-align: right;",
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px"
+          }
+        ]
+      }
+    ],
+    "style-hidden": true
+  },
+  {
+    "key": "frm_Validation",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Data-to-Data Validation Properties",
+        "size": "medium"
+      },
+      {
+        "key": "Name",
+        "data-buildertype": "input",
+        "label": "Deployment",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "readOnly": true
+      },
+      {
+        "key": "IsDataToData",
+        "data-buildertype": "checkbox",
+        "label": "Enable Data-to-Data Validation",
+        "toggle": true
+      },
+      {
+        "key": "fg_DataToData",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "other-visibleConition": "data.IsDataToData",
+        "children": [
+          {
+            "key": "fg_Datasets",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "orientation": "grouped",
+            "children": [
+              {
+                "key": "header_3",
+                "data-buildertype": "header",
+                "content": "Validation to uploaded datasets",
+                "size": "small"
+              },
+              {
+                "key": "hide_the_file_input",
+                "data-buildertype": "container",
+                "style-hidden": true,
+                "children": [
+                  {
+                    "key": "UploadDataset",
+                    "data-buildertype": "input",
+                    "label": "",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "type": "file",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "onImport"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      },
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "test"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "style-hidden": true,
+                    "customPostUrl": "",
+                    "other-visibleConition": ""
+                  }
+                ]
+              },
+              {
+                "key": "container_2",
+                "data-buildertype": "container",
+                "style-width": "100%",
+                "children": [
+                  {
+                    "key": "button_3",
+                    "data-buildertype": "button",
+                    "content": "Upload CSV",
+                    "primary": false,
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "onClickUpload"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "floated": "left",
+                    "style-marginRight": "20px"
+                  },
+                  {
+                    "key": "mdl_ClearDatasets",
+                    "data-buildertype": "swzmodal",
+                    "secondary": true,
+                    "style-display": "none",
+                    "style-source": "padding: 40px;",
+                    "content": "Clear Datasets",
+                    "style-marginRight": "20px",
+                    "children": [
+                      {
+                        "key": "container_4",
+                        "data-buildertype": "container",
+                        "children": [
+                          {
+                            "key": "header_4",
+                            "data-buildertype": "header",
+                            "content": "Clear Datasets?",
+                            "size": "medium",
+                            "subheader": "This will delete the uploaded validation datasets for this deployment.",
+                            "textAlign": "left"
+                          },
+                          {
+                            "key": "container_3",
+                            "data-buildertype": "container",
+                            "style-width": "100%",
+                            "children": [
+                              {
+                                "key": "btn_Clear",
+                                "data-buildertype": "button",
+                                "content": "Clear",
+                                "secondary": false,
+                                "floated": "",
+                                "primary": true,
+                                "style-marginRight": "20px",
+                                "events": {
+                                  "onClick": {
+                                    "active": true,
+                                    "actions": [
+                                      "clearDatasets"
+                                    ],
+                                    "targets": [
+                                      "mdl_ClearDatasets"
+                                    ],
+                                    "parameters": []
+                                  }
+                                }
+                              },
+                              {
+                                "key": "btn_Cancel",
+                                "data-buildertype": "button",
+                                "content": "Cancel",
+                                "floated": "",
+                                "secondary": true,
+                                "events": {
+                                  "onClick": {
+                                    "active": true,
+                                    "actions": [
+                                      "cancelModal"
+                                    ],
+                                    "targets": [
+                                      "mdl_ClearDatasets"
+                                    ],
+                                    "parameters": []
+                                  }
+                                },
+                                "style-marginRight": "20px"
+                              }
+                            ],
+                            "style-marginTop": "20px",
+                            "style-marginBottom": "20px",
+                            "style-source": "text-align: right;"
+                          }
+                        ],
+                        "style-marginBottom": ""
+                      }
+                    ],
+                    "style-width": "600px"
+                  }
+                ],
+                "style-marginBottom": "10px",
+                "style-marginTop": "20px"
+              },
+              {
+                "key": "staticcontent_2",
+                "data-buildertype": "staticcontent",
+                "content": "Uploading a CSV will remove existing uploaded data-to-data validation datasets and replace them with new datasets using the data from the CSV. The CSV must have a header row to provide value names and contain a UID column. The UID of samples for which a dataset has been uploaded for this deployment are listed below.",
+                "style-width": "750px"
+              },
+              {
+                "key": "gv_Datasets",
+                "data-buildertype": "gridview",
+                "columns": [
+                  {
+                    "key": "SampleId_UID",
+                    "name": "UID",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": true
+                  }
+                ],
+                "rowKey": "Id",
+                "defaultSort": "SampleId_UID ASC",
+                "pagerType": "server",
+                "pageSize": "20",
+                "style-marginTop": "20px"
+              }
+            ],
+            "style-width": "800px"
+          },
+          {
+            "key": "fg_ValidationDeployment",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "orientation": "grouped",
+            "children": [
+              {
+                "key": "header_2",
+                "data-buildertype": "header",
+                "content": "Validation to previous responses",
+                "size": "small"
+              },
+              {
+                "key": "ValidationDplyId",
+                "data-buildertype": "dictionary",
+                "label": "Validate Against Deployment ",
+                "fluid": true,
+                "selection": true,
+                "dataModel": "QNN_DPLY",
+                "columns": "Name ASC",
+                "clearable": true
+              },
+              {
+                "key": "staticcontent_1",
+                "data-buildertype": "staticcontent",
+                "content": "The response by the sample to the specified deployment is used for data-to-data validation when no uploaded dataset is provided for that sample."
+              }
+            ],
+            "style-marginTop": "20px",
+            "style-width": "800px"
+          }
+        ],
+        "orientation": "grouped",
+        "style-source": "padding-bottom: 20px;",
+        "style-marginTop": "20px"
+      }
+    ]
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "children": [
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Save",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "validate",
+              "save",
+              "init"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "primary": true
+      },
+      {
+        "key": "button_2",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "style-marginTop": "20px",
+    "style-marginBottom": "20px"
+  }
+]

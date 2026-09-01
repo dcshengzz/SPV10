@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;</TargetFrameworks>
+    <RootNamespace>swz.Workflow.Core</RootNamespace>
+    <AssemblyName>swz.Workflow.Core</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <Version>3.3.2</Version>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Product>swz.Workflow.Core</Product>
+	<PackageId>swz.Workflow.Core</PackageId>
+	<AssemblyVersion>3.3.0.0</AssemblyVersion>
+    <FileVersion>3.3.0.0</FileVersion>
+    <AssemblyOriginatorKeyFile>swzClover.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+
+  <!--<PropertyGroup Condition="'$(TargetFramework)' != 'netcoreapp1.1' And '$(TargetFramework)' != 'netstandard1.6'">-->
+    <!--<DefineConstants>NETCORE2</DefineConstants>-->
+  <!--</PropertyGroup>-->
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETCOREAPP</DefineConstants>
+      <DefineConstants Condition="'$(TargetFramework)' != 'netcoreapp1.1' And '$(TargetFramework)' != 'netstandard1.6'">TRACE;DEBUG;NETCOREAPP;NETCORE2</DefineConstants>
+    <OutputPath>..\DLL\NETCORE\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\DLL\NETCORE\</OutputPath>
+    <DefineConstants>TRACE;NETCOREAPP;RELEASE</DefineConstants>
+      <DefineConstants Condition="'$(TargetFramework)' != 'netcoreapp1.1' And '$(TargetFramework)' != 'netstandard1.6'">TRACE;NETCOREAPP;RELEASE;NETCORE2</DefineConstants>
+    <DocumentationFile>..\DLL\NETCORE\swz.Workflow.Core.xml</DocumentationFile>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <NoWarn>1701;1702;1998;1591;1573;1574;1587;1572;0419</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <NoWarn>1701;1702;1998;1591;1573;1574;1587;1572;0419</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.9.0" />
+    <!--<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />-->
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="10.0.11" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <!--<PackageReference Include="System.Collections.Specialized" Version="4.3.0" />-->
+    <!--<PackageReference Include="System.Runtime.Loader" Version="4.3.0" />-->
+    <!--<PackageReference Include="System.Security.Cryptography.Csp" Version="4.3.0" />-->
+    <!--<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />-->
+    <PackageReference Include="System.Threading.ThreadPool" Condition="'$(TargetFramework)' == 'netstandard1.6'" Version="4.3.0" />
+    <!--<PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />-->
+  </ItemGroup>
+
+ 
+
+</Project>

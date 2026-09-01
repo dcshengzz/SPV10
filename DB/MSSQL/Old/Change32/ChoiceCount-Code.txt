@@ -1,0 +1,72 @@
+{
+    
+    getCounts: function(args){
+        
+        //console.log(args);
+        if(!args.data.dplyId){ 
+            CloverApp.API.setDataField("dplychoiceqnns", null);
+            return;
+        }
+        //console.log("args.data.dplyId", args.data.dplyId);
+        CloverApp.API.setDataField("dplychoiceqnns", args.data.dplyId);
+        
+    },
+    
+    
+    onExport: function(args){
+        
+        console.log(args);
+        var formData = new FormData();
+        formData.append('dplyId', args.data.dplyId);       
+        var url = '/report/answerchoicecount';
+
+        fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                if (response.success) {
+                   console.log(response);
+                    alertify.success("Export successfully");
+                    var csv = 'No.,Question_Title,Answer_No,Text,Count,Percentage\n';
+                    var items = response.items;
+                    var qn_count = 1;
+                    var qn_name = items[0]["Name"];
+                    items.forEach(function(row) {
+                        if (qn_name != row["Name"]) {
+                                qn_count ++;
+                                qn_name = row["Name"];
+                            };
+                        var answer_text = '"' + row["Text"].trim() + '"';
+                        csv += `${qn_count},${row["Name"]},${row["AnsVal"]},${answer_text.trim()},${row["AnsCount"]},${row["Percentage"]}`;
+                        csv += "\n";
+                    });
+                 
+                    console.log(csv);
+                    
+                    var hiddenElement = document.createElement('a');
+                    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+                    hiddenElement.target = '_blank';
+                    hiddenElement.download = 'ChoiceCount.csv';
+                    hiddenElement.click();
+
+                } else {
+                    alertify.error(response.message);
+                }
+
+            })
+            .catch(error => {
+                alertify.error(error.message);;
+            });
+            
+            
+            
+       
+    },
+
+    
+}

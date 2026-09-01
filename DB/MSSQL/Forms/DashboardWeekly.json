@@ -1,0 +1,188 @@
+[
+  {
+    "key": "headerDataEditorList",
+    "data-buildertype": "header",
+    "content": "Weekly Response Dashboard - {dplyHeader}",
+    "size": "huge",
+    "subheader": "",
+    "style-marginTop": "10px"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "deployment",
+        "data-buildertype": "dictionary",
+        "label": "Deployment",
+        "fluid": true,
+        "selection": true,
+        "dataModel": "QNN_DPLY",
+        "columns": "Name ASC",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "changeHeader",
+              "onChangeDeployment",
+              "changeQnType"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "search": true,
+        "clearable": false,
+        "onChangeTimeout": "200",
+        "filters": "",
+        "style-height": "",
+        "paging": true
+      },
+      {
+        "key": "qnType",
+        "data-buildertype": "dropdown",
+        "label": "",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "II",
+            "text": "II"
+          },
+          {
+            "key": 2,
+            "value": "IU",
+            "text": "IU"
+          },
+          {
+            "key": 3,
+            "value": "MI",
+            "text": "MI"
+          },
+          {
+            "text": "MP",
+            "value": "MP"
+          }
+        ],
+        "events": {
+          "onClick": {
+            "active": false,
+            "actions": [],
+            "targets": [],
+            "parameters": []
+          },
+          "onChange": {
+            "active": true,
+            "actions": [
+              "changeQnType"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "style-height": "",
+        "style-hidden": true
+      },
+      {
+        "key": "companyType",
+        "data-buildertype": "dropdown",
+        "label": "Company Type",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "TA",
+            "text": "TA"
+          },
+          {
+            "key": 2,
+            "value": "TS",
+            "text": "TS"
+          },
+          {
+            "key": 3,
+            "value": "MTS",
+            "text": "MTS"
+          },
+          {
+            "text": "STS",
+            "value": "STS"
+          }
+        ],
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "multiple": true,
+        "style-width": "50%",
+        "style-height": "",
+        "reference": "",
+        "other-visibleConition": "data.onOverallResponse == 1"
+      },
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "style-width": "50%",
+        "style-height": "20px",
+        "style-marginTop": "15px",
+        "style-marginBottom": "15px",
+        "children": [
+          {
+            "key": "searchBtn",
+            "data-buildertype": "button",
+            "content": "Apply",
+            "floated": "right",
+            "primary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "changeQnType",
+                  "onClickSearch"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "other-visibleConition": "data.onOverallResponse == 1 && data.showSearchBtn == 1"
+          }
+        ]
+      },
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "LineChart",
+            "data-buildertype": "linechart",
+            "chartType": "line",
+            "datasetLabel": "",
+            "legendPosition": "",
+            "responsive": true,
+            "events": {},
+            "style-width": "700px",
+            "style-source": "margin: auto;",
+            "style-height": "",
+            "title": "Number Of Weeks X Overall Response Rate (%)"
+          }
+        ],
+        "style-width": "50%",
+        "style-marginTop": "1em",
+        "other-visibleConition": "",
+        "style-marginBottom": "1em"
+      }
+    ],
+    "style-source": "",
+    "style-marginBottom": "30px"
+  }
+]

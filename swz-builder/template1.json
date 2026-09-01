@@ -1,0 +1,36 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Top",
+    "size": "medium"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "MainPlaceholder",
+        "data-buildertype": "customblock",
+        "sourceType": "placeholder"
+      }
+    ]
+  },
+  {
+    "key": "header_2",
+    "data-buildertype": "header",
+    "content": "Middle",
+    "size": "medium"
+  },
+  {
+    "key": "SecondPlaceholder",
+    "data-buildertype": "customblock",
+    "sourceType": "placeholder"
+  },
+  {
+    "key": "header_3",
+    "data-buildertype": "header",
+    "content": "End of the template",
+    "size": "medium"
+  }
+]

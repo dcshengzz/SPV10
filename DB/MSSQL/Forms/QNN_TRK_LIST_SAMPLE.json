@@ -1,0 +1,116 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Track List Sample",
+        "size": "large"
+      },
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "TrkListId",
+            "data-buildertype": "dictionary",
+            "label": "Track List",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "QNN_TRK_LIST",
+            "columns": "Name ASC",
+            "paging": true,
+            "pageSize": "20",
+            "other-readOnlyConition": "true",
+            "events": {}
+          },
+          {
+            "key": "UID",
+            "data-buildertype": "input",
+            "label": "UID",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-required": true
+          },
+          {
+            "key": "Name",
+            "data-buildertype": "input",
+            "label": "Name",
+            "fluid": true,
+            "onChangeTimeout": 200
+          },
+          {
+            "key": "Email",
+            "data-buildertype": "input",
+            "label": "Email",
+            "fluid": true,
+            "onChangeTimeout": 200
+          },
+          {
+            "key": "Remarks",
+            "data-buildertype": "textarea",
+            "label": "Remarks",
+            "fluid": true,
+            "reference": "Remarks"
+          },
+          {
+            "key": "Status",
+            "data-buildertype": "dictionary",
+            "label": "Status",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "QNN_STATUS",
+            "columns": "Title ASC"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btnSave",
+                "data-buildertype": "button",
+                "content": "Save",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "validate",
+                      "save"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "primary": true
+              },
+              {
+                "key": "btnExit",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "redirect"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "name": "target",
+                        "value": "/form/SwzTrkLists"
+                      }
+                    ]
+                  }
+                },
+                "secondary": true,
+                "inverted": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

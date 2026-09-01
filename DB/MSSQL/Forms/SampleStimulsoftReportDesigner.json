@@ -1,0 +1,14 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Stimulsoft Report Designer",
+    "size": "medium"
+  },
+  {
+    "key": "staticcontent_1",
+    "data-buildertype": "staticcontent",
+    "content": "<div id='stireportdesigner'></div>",
+    "isHtml": true
+  }
+]

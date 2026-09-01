@@ -1,0 +1,104 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "Name",
+            "data-buildertype": "input",
+            "label": "Name",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-required": true
+          },
+          {
+            "key": "Description",
+            "data-buildertype": "input",
+            "label": "Description",
+            "fluid": true,
+            "onChangeTimeout": 200
+          },
+          {
+            "key": "dropdownType",
+            "data-buildertype": "dropdown",
+            "label": "Type",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [
+              {
+                "key": 1,
+                "value": "L",
+                "text": "List"
+              },
+              {
+                "key": 2,
+                "value": "Q",
+                "text": "Questionnaire"
+              },
+              {
+                "key": 3,
+                "value": "D",
+                "text": "Deployment"
+              }
+            ],
+            "search": true,
+            "placeholder": "Select type..."
+          },
+          {
+            "key": "dictRoles",
+            "data-buildertype": "dictionary",
+            "label": "Roles",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "dwSecurityRole",
+            "columns": "Name ASC",
+            "placeholder": "Select one or more roles...",
+            "multiple": true,
+            "events": {},
+            "filters": "[{\"column\": \"Code\", \"value\":\"Admins\", \"term\":\"!=\"}, {\"column\": \"Code\", \"value\":\"User\", \"term\":\"!=\"}]",
+            "paging": false,
+            "search": false
+          },
+          {
+            "key": "btnSave",
+            "data-buildertype": "button",
+            "content": "Save",
+            "primary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "validate",
+                  "btnSaveOnClick"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          },
+          {
+            "key": "btnExit",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "events": {
+              "onClick": {
+                "actions": [
+                  "goback"
+                ],
+                "active": true,
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "primary": false,
+            "secondary": true
+          }
+        ]
+      }
+    ]
+  }
+]

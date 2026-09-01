@@ -1,0 +1,520 @@
+{
+    downloadEmailTemplate: function(args){
+             var text = '';
+            text += 'ANNUAL SURVEY ON {DplyName} 2020 \n'
+            text += 'Purpose of the Survey:\n'
+            text +='The purpose of the Survey is to obtain data of the profile for the period from 1 June to 31 May.\n'
+            text +='Statistics compiled from the collected data will be used to assist in policy-making efforts.\n'
+            text +='Submission of the Questionnaire:\n'
+            text +='We would be grateful if you could return the completed questionnaire by the due date stated above. \n'
+            text +=' \n'
+            text +='The following are your login information:\n'
+            text +='Company name: {Name}\n'
+            text +='Username: {UID}\n'
+            text +='Password: {Password}\n'
+            text +=' \n'
+            
+            text +='Other tokens:\n'
+            text +='UID: {UID}\n'
+            text +='Password: {Password}\n'
+            text +='Questionnaire Name: {DplyQnn}\n'
+            text +='List Name: {DplyList}\n'
+            text +='Deployment Name: {DplyName}\n'
+            text +='Category Name: {DplyCategory}\n'
+            text +='UIDPeer: {UIDPeer}\n'
+            text +='Account Active Status: {ActiveYN}\n'
+            
+             var hiddenElement = document.createElement('a');
+                hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(text);
+                hiddenElement.target = '_blank';
+                hiddenElement.download = 'EmailTemplate.txt';
+                hiddenElement.click();
+    },
+    downloadInvalidColumns(args){
+//        CloverApp.API.setDataField("invalidQnnColumns",['A11', 'B22', 'C33']);
+        
+        var downloadFile = function(type) {
+            var invalidItems = args.data[type]
+            if(invalidItems !== undefined && invalidItems.length > 0){
+                var rows = [];
+                rows.push(invalidItems);
+                let csvContent = "data:text/csv;charset=utf-8,";
+            
+                rows.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+                });
+        
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", type + ".csv");
+                document.body.appendChild(link); // Required for FF
+        
+                link.click(); 
+
+            }else{
+                alert('No information found')
+            }                 
+        } 
+        downloadFile('invalidQnnColumns');
+
+    },
+    downloadInvalidDates(args){
+
+          var downloadFile = function(type) {
+            var invalidItems = args.data[type]
+            if(invalidItems !== undefined && invalidItems.length > 0){
+                var rows = [];
+                rows.push(invalidItems);
+                let csvContent = "data:text/csv;charset=utf-8,";
+            
+                rows.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+                });
+        
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", type + ".csv");
+                document.body.appendChild(link); // Required for FF
+        
+                link.click(); 
+
+            }else{
+                alert('No information found')
+            }                 
+        } 
+        downloadFile('invalidDates_Updated');
+        
+    },
+    downloadInvalidUIDs(args){
+
+          var downloadFile = function(type) {
+            var invalidItems = args.data[type]
+            if(invalidItems !== undefined && invalidItems.length > 0){
+                var rows = [];
+                rows.push(invalidItems);
+                let csvContent = "data:text/csv;charset=utf-8,";
+            
+                rows.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+                });
+        
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", type + ".csv");
+                document.body.appendChild(link); // Required for FF
+        
+                link.click(); 
+
+            }else{
+                alert('No information found')
+            }                 
+        } 
+        downloadFile('invalidUIDs');
+        
+    },
+    viewArgs(args){
+      console.log("View Args", args);  
+    },
+    submitFile(args){
+        var token = args.data.listFile;
+        var dplyId = args.data.Id;
+        var qnnId = args.data.dictQuestionnaire;
+        var listId = args.data.dictList;
+
+        var errors = {};
+        if (qnnId == null || qnnId == undefined)
+         alertify.error("Questionnaire not selected");
+        if (listId == null || listId == undefined)    
+         alertify.error("List not selected'");
+        if (dplyId == null || dplyId == undefined)    
+         alertify.error("There is no existing deployment");
+         
+         if (token == null || token == undefined){
+             errors.token = 'Please select csv file';
+                
+            if(errors.token){
+              throw {
+                  level: 1,
+                  message: 'Check errors on the form!',
+                  formerrors: {main: errors}
+              };
+            }
+            return {};
+        }
+        
+        var url = '/deployment/importresponse?token=' + token + '&qnnId=' + qnnId + '&listId=' + listId + '&dplyId=' + dplyId;
+        Pace.start();
+        $('body').loadingModal({
+            text: 'Importing...',
+            animation: 'wave',
+            backgroundColor: '#1262E2'});
+            var d1 = new Date();
+        return ()=>{
+        return fetch(url,
+            {
+                credentials: 'same-origin',
+                method: 'get'
+            })
+            .then(response => response.json())
+            .then(response => {
+                Pace.stop();
+                $('body').loadingModal('destroy');
+              
+                if (response.success) {
+                     var _securitySiteIdRewriter = function (model) {
+                        model.filters = '[{"column":"IsDeleted", "value": "0", "term":"="}]';
+                        model.disabled = false;
+                    };
+                    
+                    alertify.success('The changes have been applied!');
+                    console.log("Response is", response);
+                    
+                    CloverApp.API.setDataField("totalRows", response.statistics.totalRows);
+                    CloverApp.API.setDataField("totalSampleResponseAdded", response.statistics.totalSampleResponseAdded);
+                    CloverApp.API.setDataField("totalSampleNoResponse", response.statistics.totalSampleNoResponse);
+                    CloverApp.API.setDataField("totalSampleResponseAnsAdded", response.statistics.totalSampleResponseAnsAdded);                    
+                    CloverApp.API.setDataField("totalInvalidQnnColumns", response.totalInvalidQnnColumns);
+                    CloverApp.API.setDataField("totalInvalidUIDs", response.totalInvalidUIDs);
+                    CloverApp.API.setDataField("totalInvalidDates_Updated", response.totalInvalidDates_Updated);
+                    CloverApp.API.setDataField("totalInvalidScore_Updated", response.totalInvalidScore_Updated);
+                   
+                    if(response.statistics.totalSampleResponseAdded !== null && response.statistics.totalSampleResponseAdded != undefined){
+                            CloverApp.API.setDataField("invalidQnnColumns", response.invalidQnnColumns);
+                            CloverApp.API.setDataField("invalidUIDs", response.invalidUIDs);
+                            CloverApp.API.setDataField("invalidDates_Updated", response.invalidDates_Updated);
+                        return Promise.resolve(
+                        {
+                            stateDelta: {
+                                app: {
+                                    form: {
+                                        models: {
+                                            hideControls: []
+                                        }
+                                    }
+                                },
+    
+                                
+                            }
+                        });  
+                    }
+                } else {
+                    alertify.error("Invalid");
+                    console.log(response.message);
+                }
+            })
+            .catch(error => {
+                Pace.stop();
+                $('body').loadingModal('destroy');
+                //alertify.error(error.message);;
+                console.log(error.message);
+            });
+        };
+    }, 
+    closeModal: function (args){
+        console.log("Close modal", args);
+        args.component.refs.importModal.close();
+        if(args.component.refs.moreModal !== undefined)
+            args.component.refs.moreModal.close();
+        return {
+            app: {
+              form: {
+                  data: {
+                      modified: {
+                          inputImportListSample:null,
+                            /*totalRows: null,
+                            totalSampleResponseAdded: null,
+                            totalSampleResponseAnsAdded: null,
+                            totalInvalidQnnColumns: null,
+                            totalInvalidUIDs: null,
+                            totalInvalidDates_Updated: null,
+                            totalInvalidScore_Updated: null,
+                            invalidQnnColumns: null,
+                            invalidUIDs: null,
+                            invalidDates_Updated: null*/
+                      }
+                  },
+                  models:{
+                       hideControls: []
+                }
+              }
+            }
+        }       
+    },
+    
+     closeMoreModal: function (args){
+        console.log("Close open modal", args);
+            args.component.refs.moreModal.close();
+        return {
+            app: {
+              form: {
+                  data: {
+                      modified: {
+                          inputImportListSample:null,
+                            /*totalRows: null,
+                            totalSampleResponseAdded: null,
+                            totalSampleResponseAnsAdded: null,
+                            totalInvalidQnnColumns: null,
+                            totalInvalidUIDs: null,
+                            totalInvalidDates_Updated: null,
+                            totalInvalidScore_Updated: null,
+                            invalidQnnColumns: null,
+                            invalidUIDs: null,
+                            invalidDates_Updated: null*/
+                      }
+                  },
+                  models:{
+                       hideControls: []//[totalSampleResponseAdded, totalSampleResponseAnsAdded, totalInvalidQnnColumns, totalInvalidUIDs, totalInvalidDates_Updated, totalInvalidScore_Updated, invalidQnnColumns, invalidUIDs, invalidDates_Updated]
+                  }
+              }
+            }
+        }       
+    },
+    init: function(args) {
+        
+         // Implement function to remove element from array
+        var _removeElement = function(array, element) {
+            var _index = array.indexOf(element);
+            if (_index == -1) return;
+            array.splice(_index, 1);
+        };
+        // Implement function to add elemenbt 
+        var _addUniqueElement = function(array, element) {
+            var _index = array.indexOf(element);
+            if (_index > -1) return;
+            array.push(element);
+        };
+
+        CloverApp.API.setDataField("cbMailMerge", false);
+        CloverApp.API.setDataField("cbEmail", false);
+        CloverApp.API.setDataField("subject", "");
+        CloverApp.API.setDataField("msgContent", "");
+       
+
+  var _loadingStart = function() {
+            $('body').loadingModal({
+                text: 'Loading...',
+                animation: 'foldingCube',
+                backgroundColor: '#1262E2'
+            });
+        };
+          var _loadingStop = function() {
+            $('body').loadingModal('destroy');
+        };
+ 
+ 
+      var dplyId = args.data.Id;
+
+        if (args.data.Id == null) 
+        return;
+    
+    
+    // Only get category details
+    // iff args.data.Id is not null
+    
+    var url = '/snapData/get?id=' + dplyId;
+        // _loadingStart();
+        var d1 = new Date();
+        return ()=>{
+        return fetch(url,
+            {
+                credentials: 'same-origin',
+                method: 'get'
+            })
+            .then(response => response.json())
+            .then(response => {
+                Pace.stop();
+          
+              console.log("Response is", response);
+                if (response.success) {
+                    
+                     var _hideControls = args.state.app.form.models.hideControls;
+                     var items = response.items;
+                    if (items != null)
+                    {
+                   
+                    var obj = typeof items != 'object' ? JSON.parse(items) : items;
+                    var valChkScheduler = obj[0].Id;
+                    var EmailRecipients = obj[0].EmailRecipients;
+                    var valEmailSuccess ;
+                    var valEmailFailure ;
+                     
+                  if(obj[0].EmailSuccess == true)
+                    {
+                        valEmailSuccess = '1';
+                    }
+                  else
+                       valEmailSuccess = '0';
+                        
+                  if(obj[0].EmailFailure == true)
+                  {
+                        valEmailFailure = '1';
+                  }
+                   else
+                   {
+                      valEmailFailure = '0';
+                    }
+                    
+                   // var recipients = [];
+                    
+                     var recipients = [];
+                    if(EmailRecipients == "No Recipient")
+                    {
+                        recipients = [];
+                    }
+                    else
+                    {
+                         var breakRecepient = EmailRecipients.split(',');
+                         for (let r = 0 ; r < breakRecepient.length ; r++ )
+                         {
+                        recipients.push(breakRecepient[r]);
+                    }
+                    
+                    }
+               
+                   /*// alert(items.length);
+                    if(items !== undefined && items.length > 0){
+                        _removeElement(_hideControls, dailySsForm);
+                    }
+                   // recipients.push(EmailRecipients);*/
+                   
+                   
+                   
+                   
+                    CloverApp.API.setDataField("chkScheduler", 1);
+                    CloverApp.API.setDataField("ddlEmailReceipients",recipients);
+                    CloverApp.API.setDataField("chkEmailSuccess", valEmailSuccess);
+                    CloverApp.API.setDataField("chkEmailFail", valEmailFailure);
+                    
+                    _removeElement(_hideControls, 'dailySsForm');  
+                    return Promise.resolve(
+                        {
+                            stateDelta: {
+                                app: {
+                                    form: {
+                                        models: {
+                                            hideControls: _hideControls
+                                        }
+                                    }
+                                },
+                            }
+                        });  
+                        
+                    }
+                    else
+                    {
+                    CloverApp.API.setDataField("chkScheduler", 0);
+                    CloverApp.API.setDataField("ddlEmailReceipients", []);
+                    CloverApp.API.setDataField("chkEmailSuccess", false);
+                    CloverApp.API.setDataField("chkEmailFail", false);
+                    
+                    }
+                   
+                    //  _loadingStop();
+                   
+                }
+        
+            })
+   
+            .catch(function(ex) {
+                alertify.error("Could not Data due to " + ex);
+            });
+  };
+       
+    },
+    
+     onClickSave: function (args){
+  
+    var _loadingStart = function() {
+            $('body').loadingModal({
+                text: 'Loading...',
+                animation: 'foldingCube',
+                backgroundColor: '#1262E2'
+            });
+        };
+          var _loadingStop = function() {
+            $('body').loadingModal('destroy');
+        };
+   
+  
+  
+      var data = args.data.chkScheduler;
+      var dplyId = args.data.Id;
+      
+      var emailSuccess = args.data.chkEmailSuccess;
+      var emailFail = args.data.chkEmailFail;
+      var userId = args.data.ddlEmailReceipients;
+      console.log(args.data);
+      console.log(userId);         
+   
+            
+        var formData = new FormData();
+        formData.append('CheckBox', data);
+        formData.append('dplyId',dplyId);
+        formData.append('emailSuccess',emailSuccess);
+        formData.append('emailFail',emailFail);
+        formData.append('userId',userId);
+        
+      
+        var url = '/report/getJobData';
+          _loadingStart();
+            fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                
+                _loadingStop();
+                if (response.success) {
+              
+                  //  alertify.success("");
+              console.log(data);
+              
+               } else {
+                   // alertify.success(" ");
+                }
+
+            })
+           .catch(error => {
+               alertify.error(error.message);;
+            });
+
+ 
+},
+    
+    parseHtml: function(args) {
+
+        return {
+              app: {
+                  form: {
+                      data: {
+                          modified: {
+                             msgContent: args.component.refs.htmlEditor.state.htmlData                            
+                            }
+                        }
+                    }
+                }
+        };  
+    },
+    dropdownQuestionnaireOnChange: function(args) {
+    },
+    radioCompletionActionOnChange: function(args) {
+    },
+    radioCompletionNavBackOnChange: function(args) {
+    },
+    radioCompletionNavCancelOnChange: function(args) {
+    },
+    btnSaveOnClick: function(args) {
+        // Insert [QNN_DPLY_SAMPLE_INFO]
+    },
+
+}

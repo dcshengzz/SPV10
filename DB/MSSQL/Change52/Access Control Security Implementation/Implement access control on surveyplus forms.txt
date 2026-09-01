@@ -1,0 +1,48 @@
+1)Add permissions (Edit/View)
+Questionnaire
+List
+Reports
+Content
+Audit
+Category
+Organization
+
+2)
+SurveyAdmin - Allow all roles except Imputation
+
+3)Add Security for the following forms
+SwzQnnList	Questionnaire
+QNN_QNN	Questionnaire
+	
+SwzListList	List
+QNN_LIST_SAMPLE	List
+SwzTrkLists	List
+QNN_TRK_LIST_SAMPLE	List
+swzsamplelist	List
+QNN_SAMPLE	List
+	
+SwzDplyList	Deployment
+QNN_DPLY	Deployment
+dplyListSample	Deployment
+dplyMessage	Deployment
+dplyMessages	Deployment
+dplySampleOwner	Deployment
+dplyImputation	Deployment
+	
+ChoiceCount	Reports
+ResponseReport	Reports
+DashboardOverall	Reports
+DashboardSectorSegmentResponse	Reports
+DashboardStatus	Reports
+DashboardWeekly	Reports
+	
+SwzRespAdminList	Content
+QNN_RESP_ADMIN	Content
+	
+audittrail	Audit
+AuditLog	Audit
+	
+SwzCategoryList	Category
+QNN_CATEGORY	Category
+	
+organizations	Organization

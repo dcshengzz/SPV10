@@ -1,0 +1,100 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "f6e34bdf-b769-42dd-a2be-fee67faf9045",
+  "name": "SwzRuleList",
+  "lastUpdate": "2024-05-24T10:14:05.9705613+08:00",
+  "isTemplate": false,
+  "triggers": [],
+  "dataMap": [],
+  "dataColl": [
+    {
+      "id": "3b0c0712-15ac-a9eb-fdab-8bd186e2ce4a",
+      "entityId": "ea08b91d-a603-41a2-8396-8430ccb3f1bb",
+      "filter": "StructAsyncFilter",
+      "control": "gridRule",
+      "dataMap": [
+        {
+          "id": "c0a3a683-2fb5-ffce-386f-25fe6c0a1951",
+          "attributeId": "250acf7c-d9fb-4738-88f9-8069b98a1ff5",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "57dad831-aceb-644a-4c89-c3b746ad4906",
+          "attributeId": "2e95decc-de0f-47f7-9e2e-46ea22985ac0",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "52fe4b2c-f7db-8960-3e62-6d9305df8a8d",
+          "attributeId": "3da67c4c-93fe-4ecc-b9a7-046dddad5de5",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "8f309f39-e1de-1c07-1cb7-ddd91a096632",
+          "attributeId": "9a055a7f-4eb9-4441-8df5-b74c489e6e1a",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "a4e7aa62-624e-9f74-3118-9d50610cb85b",
+          "attributeId": "430e1edc-de90-4af3-9f02-effe8089800a",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "8b286a35-537f-b824-7587-e4a2a104a88b",
+          "attributeId": "9fff33de-bcb2-4348-a7bf-559894ac6aec",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "367a1330-5f83-c552-2441-7f6a9e32cf4f",
+          "attributeId": "4760359f-8a71-44ec-baf0-bef43ff238bf",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "06d1e3e5-23d1-7d35-ee93-174c82bfa123",
+          "attributeId": "b12c7eb3-c550-4c9c-8999-4a663ee9f29d",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "69e71bb5-db6f-f9d1-80b7-51b442910b9b",
+          "attributeId": "92044df4-e4bc-45f2-b023-9d50e722297e",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "60b8e0bb-cfcb-53e4-58ed-bf7a2a2f502c",
+          "attributeId": "640e1fee-733e-41cb-9687-2bd9bd6bcb57",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "01a0cff1-fb75-f47f-4113-40bea61ecd79",
+          "attributeId": "89594fdd-5dde-42af-b69d-5d3722883bef",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "13e44ad7-6be5-e612-4f94-a8947049020f",
+          "attributeId": "9192b784-b6ef-4d5e-b9bb-ebccadeed2dc",
+          "isEditable": true,
+          "isLoadable": true
+        },
+        {
+          "id": "d44703b7-f08e-273f-3609-c848c38bcfe4",
+          "attributeId": "765eaf26-34e9-4154-a57b-ad54564a506f",
+          "isEditable": true,
+          "isLoadable": true
+        }
+      ],
+      "readOnly": false,
+      "totalCountPropertyName": "__gridRule_totalcount"
+    }
+  ],
+  "securityGroup": "Designer"
+}

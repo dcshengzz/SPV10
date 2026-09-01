@@ -1,0 +1,146 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "f6e34bdf-b769-42dd-a2be-fee67faf9045",
+  "name": "ShortLink",
+  "lastUpdate": "2026-01-22T02:19:51.697026+08:00",
+  "entityId": "bb232797-c37c-4e39-8261-5cde3636eb04",
+  "isTemplate": false,
+  "triggers": [
+    {
+      "triggers": [
+        "BeforeInsert"
+      ],
+      "codeAction": "SetFields",
+      "parameter": "{\"CreatedDate\": \"@DateNow\", \"CreatedBy\":\"@CurrentUserId\", \"StructDivisionId\": \"@StructDivisionId\",\"AccessCode\":\"@AccessCode\"}"
+    },
+    {
+      "triggers": [
+        "AfterNew"
+      ],
+      "codeAction": "SetFields",
+      "parameter": "{\"LinkType\":\"Anonymous\"}"
+    },
+    {
+      "triggers": [
+        "BeforeUpdate"
+      ],
+      "codeAction": "SetFields",
+      "parameter": "{\"UpdatedDate\": \"@DateNow\", \"UpdatedBy\": \"@CurrentUserId\"}"
+    },
+    {
+      "triggers": [
+        "BeforeInsert",
+        "BeforeUpdate"
+      ],
+      "codeAction": "ValidateShortlinkTrigger"
+    }
+  ],
+  "dataMap": [
+    {
+      "id": "d0b3bcd2-ff12-1b2b-ea2e-ea7d99bdcc6d",
+      "attributeId": "acd0d9a1-ace1-4bfd-8f80-2c2c493ed548",
+      "isEditable": true,
+      "isLoadable": false
+    },
+    {
+      "id": "8e84e88f-1a20-137d-87c2-b5a409d505c3",
+      "attributeId": "b7052bb3-8310-47ed-b645-f079b5f73e05",
+      "control": "Description",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "2994ef14-1de2-6877-ddc5-fa3ed979c6e8",
+      "attributeId": "1bae5af1-eb43-4d4a-b4cf-87304bddba00",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "dda2e306-9e99-f6a9-1104-bf2d93ea3dea",
+      "attributeId": "728217c3-dfb3-45cd-bdca-8951417281e2",
+      "control": "LinkType",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "29c50add-085c-f84a-3b27-43cba88550c1",
+      "attributeId": "fe48fb6e-51ec-43d8-8205-d3d099441e9d",
+      "control": "Name",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "42c08c7f-f2a5-2f69-2961-84a9e2e32a62",
+      "attributeId": "da7a87db-a45a-4a02-a73a-43c4ec9f5ac2",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "3c69c82d-efb4-1df7-40aa-a4f00bf1cacd",
+      "attributeId": "116cbed7-4d0f-44d2-9ff0-875a648175ac",
+      "control": "Status",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "d1381457-f41f-2242-917f-ce16c09cd9e4",
+      "attributeId": "878d0beb-de01-440b-a81b-5a284e8ebdc9",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "2c29ccea-9c8a-b19b-fd4e-8cb0786b0a3a",
+      "attributeId": "f224c78c-3bdc-47ca-84d1-51795d978d48",
+      "control": "Url",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "362379f0-495e-ce57-9e15-e3220ba126b0",
+      "attributeId": "09beb932-46b3-4485-b133-f0ec735935d6",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "23cb473f-136a-233c-cac2-f7980b035df0",
+      "attributeId": "d5041cf8-91b4-47b2-bf5e-0cd64ff11a22",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "42f58073-ec63-7337-d689-7cd6d800e49f",
+      "attributeId": "8a0c403a-2f71-4dbf-b0ee-4b760a149ecb",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "f402f01d-69b5-b5e3-1e69-b77df6aa3db4",
+      "attributeId": "dcd04769-b679-449b-bde1-6170a9b7d14e",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "95894704-0e7e-6559-334f-325e24b74d06",
+      "attributeId": "94fda3ab-15e5-4fda-bec1-339a2d72f128",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "012693e0-df8b-2707-7fec-436a4fca04b6",
+      "attributeId": "acff1425-443d-45dc-a491-cf18e6b646b8",
+      "control": "IsEnhancedSecurity",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "43446e03-136b-4883-1c2d-209879fdc2b1",
+      "attributeId": "281b9c4f-cde3-422d-9cb3-b2364fef8b51",
+      "control": "FormName",
+      "isEditable": true,
+      "isLoadable": true
+    }
+  ],
+  "dataColl": [],
+  "securityGroup": "ShortLink",
+  "isArchived": false
+}

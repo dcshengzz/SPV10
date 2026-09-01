@@ -1,0 +1,145 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "{entityState} Sample",
+        "size": "huge",
+        "subheader": ""
+      },
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "Name",
+            "data-buildertype": "input",
+            "label": "Name",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-required": true,
+            "events": {}
+          },
+          {
+            "key": "UID",
+            "data-buildertype": "input",
+            "label": "UID",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "events": {},
+            "other-readOnlyConition": "data.Id",
+            "other-required": true
+          },
+          {
+            "key": "Email",
+            "data-buildertype": "input",
+            "label": "Email",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "events": {},
+            "other-customValidation": "!value || (/^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/).test(value)?true:\"is not valid!\"",
+            "reference": "Email Address",
+            "other-required-soft": false
+          },
+          {
+            "key": "Pwd",
+            "data-buildertype": "input",
+            "label": "Password",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "events": {},
+            "other-visibleConition": "CloverApp.API.checkRole('Admins')==true || !data.Id",
+            "reference": "Password",
+            "type": "password",
+            "other-customValidation": "(/^[a-zA-Z0-9]{12,100}$/.test(value)  || (CloverApp.API.checkRole('Admins')==false && data.Id))?true:\"must contain alphanumeric characters only; password must be between 12 and 100 characters!\""
+          },
+          {
+            "key": "NumRetry",
+            "data-buildertype": "input",
+            "label": "NumRetry",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "defaultValue": "0",
+            "other-required": true,
+            "reference": "NumRetry",
+            "type": "number",
+            "other-visibleConition": "data.Id",
+            "events": {}
+          },
+          {
+            "key": "ActiveYN",
+            "data-buildertype": "checkbox",
+            "label": "Active"
+          },
+          {
+            "key": "PwdResetYN",
+            "data-buildertype": "checkbox",
+            "label": "Change Password at First Login"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "btnSave",
+                "data-buildertype": "button",
+                "content": "Save",
+                "primary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "validate",
+                      "save"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              },
+              {
+                "key": "btnResetPassword",
+                "data-buildertype": "button",
+                "content": "Reset Password",
+                "primary": false,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "resetPassword"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "secondary": true,
+                "other-visibleConition": "data.Id"
+              },
+              {
+                "key": "btnExit",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "goBack"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "primary": false,
+                "secondary": true
+              }
+            ],
+            "style-float": "left"
+          }
+        ]
+      }
+    ]
+  }
+]

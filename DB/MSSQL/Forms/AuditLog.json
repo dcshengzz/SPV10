@@ -1,0 +1,201 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Audit Log Item Details",
+    "size": "medium"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "buttonCancel",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "cancel"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "secondary": true,
+            "toggle": true,
+            "floated": "right",
+            "style-hidden": false,
+            "other-visibleConition": ""
+          },
+          {
+            "key": "Id",
+            "data-buildertype": "input",
+            "label": "Id",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "Division",
+            "data-buildertype": "input",
+            "label": "Organisation",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "UserName",
+            "data-buildertype": "input",
+            "label": "User Name",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-visibleConition": "(data.UserId!=undefined && data.UserId!=null  && data.UserId!=\"00000000-0000-0000-0000-000000000000\")",
+            "readOnly": true
+          },
+          {
+            "key": "UID",
+            "data-buildertype": "input",
+            "label": "Sample UID",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-visibleConition": "(data.SampleId!=undefined && data.SampleId!=null  && data.SampleId!=\"00000000-0000-0000-0000-000000000000\")",
+            "readOnly": true
+          },
+          {
+            "key": "SampleName",
+            "data-buildertype": "input",
+            "label": "Sample Name",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-visibleConition": "(data.SampleId!=undefined && data.SampleId!=null  && data.SampleId!=\"00000000-0000-0000-0000-000000000000\")",
+            "readOnly": true
+          },
+          {
+            "key": "EventType",
+            "data-buildertype": "input",
+            "label": "EventType",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "TableName",
+            "data-buildertype": "input",
+            "label": "TableName",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "RecordId",
+            "data-buildertype": "input",
+            "label": "RecordId",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "EventBatch",
+            "data-buildertype": "input",
+            "label": "EventBatch",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "ColumnName",
+            "data-buildertype": "input",
+            "label": "ColumnName",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "FormattedEventDate",
+            "data-buildertype": "input",
+            "label": "EventDate",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "type": "text",
+            "readOnly": true,
+            "style-width": "200px"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "style-customcss": "field",
+            "children": [
+              {
+                "key": "container_3",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "staticcontent_2",
+                    "data-buildertype": "staticcontent",
+                    "content": "OriginalValue",
+                    "events": {},
+                    "style-customcss": "custom-label"
+                  }
+                ],
+                "style-customcss": "custom-label"
+              },
+              {
+                "key": "container_4",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "staticcontent_1",
+                    "data-buildertype": "staticcontent",
+                    "content": "{OriginalValue}",
+                    "fetchData": false,
+                    "events": {},
+                    "style-customcss": "custom-label",
+                    "isHtml": false,
+                    "isPre": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "container_5",
+            "data-buildertype": "container",
+            "style-customcss": "field",
+            "children": [
+              {
+                "key": "container_6",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "staticcontent_3",
+                    "data-buildertype": "staticcontent",
+                    "content": "New Value",
+                    "events": {},
+                    "style-customcss": "custom-label"
+                  }
+                ],
+                "style-customcss": "custom-label"
+              },
+              {
+                "key": "staticcontent_5",
+                "data-buildertype": "staticcontent",
+                "content": "{NewValue}",
+                "isHtml": false,
+                "isPre": true
+              }
+            ]
+          }
+        ],
+        "placeholders": {
+          "customblock_1": []
+        }
+      }
+    ]
+  }
+]

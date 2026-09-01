@@ -1,0 +1,18 @@
+[
+  {
+    "key": "subject",
+    "data-buildertype": "staticcontent",
+    "content": "Survey Delegation Code",
+    "isHtml": true
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container"
+  },
+  {
+    "key": "body",
+    "data-buildertype": "staticcontent",
+    "content": "<p><b>{QnnTitle}</b></p>\n\n<p>\nThe survey delegation code is: {DelegationCode}<br/>\n</p>\n",
+    "isHtml": true
+  }
+]

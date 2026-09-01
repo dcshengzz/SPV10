@@ -1,0 +1,676 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Form Properties",
+    "size": "huge",
+    "subheader": "(Questionnaire)"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "Warning_Type_P",
+            "data-buildertype": "message",
+            "header": "WARNING: Unsupported Form Properties Type",
+            "content": "This Form Properties uses the deprecated 'P' type for Offline PDF Surveys. \nSupport for this feature has been removed. ",
+            "warning": false,
+            "error": false,
+            "other-visibleConition": "(data.Type==='P')",
+            "size": ""
+          },
+          {
+            "key": "Title",
+            "data-buildertype": "input",
+            "label": "Title",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-required": true,
+            "other-customValidation": ""
+          },
+          {
+            "key": "Description",
+            "data-buildertype": "textarea",
+            "label": "Description",
+            "fluid": true
+          },
+          {
+            "key": "staticcontent_4",
+            "data-buildertype": "staticcontent",
+            "content": "Tags",
+            "style-source": "color:#97A3B4;\nfont-size:12px;\nfont-weight:400;\nline-height:16px;",
+            "isHtml": true
+          },
+          {
+            "key": "divActiveTags",
+            "data-buildertype": "container",
+            "style-source": "clear:both;\nborder:1px solid rgba(34,36,38,.15);\nborder-radius: 5px;\npadding:9.5px 14px;",
+            "children": [
+              {
+                "key": "mdlTag",
+                "data-buildertype": "swzmodal",
+                "content": "Add/Remove Tags",
+                "compact": true,
+                "secondary": true,
+                "size": "tiny",
+                "style-display": "none",
+                "children": [
+                  {
+                    "key": "header_6",
+                    "data-buildertype": "header",
+                    "content": "Add/Remove Tags",
+                    "size": "medium"
+                  },
+                  {
+                    "key": "message_1",
+                    "data-buildertype": "message",
+                    "header": "",
+                    "content": "Add a custom tag by typing in the Tags",
+                    "info": true,
+                    "compact": false
+                  },
+                  {
+                    "key": "staticcontent_6",
+                    "data-buildertype": "staticcontent",
+                    "content": "Tags",
+                    "style-source": "color:#97A3B4;\nfont-size:12px;\nfont-weight:400;\nline-height:16px;",
+                    "isHtml": true
+                  },
+                  {
+                    "key": "ddTags",
+                    "data-buildertype": "dropdown",
+                    "label": "",
+                    "fluid": true,
+                    "selection": true,
+                    "data-elements": [],
+                    "placeholder": "Type and add tag here",
+                    "search": true,
+                    "multiple": true,
+                    "allowAddItems": true,
+                    "style-marginBottom": "20px"
+                  },
+                  {
+                    "key": "divTagsSearchResult",
+                    "data-buildertype": "container",
+                    "style-source": "clear:both;\nborder:1px solid rgba(34,36,38,.15);\nborder-radius: 5px;\npadding:9.5px 14px;\nmin-height:45px;",
+                    "style-marginBottom": "10px",
+                    "events": {},
+                    "children": [
+                      {
+                        "key": "formgroup_2",
+                        "data-buildertype": "formgroup",
+                        "widths": "equal",
+                        "children": [
+                          {
+                            "key": "staticcontent_8",
+                            "data-buildertype": "staticcontent",
+                            "content": "Search For Tags",
+                            "style-source": "color:#97A3B4;\nfont-size:12px;\nfont-weight:400;\nline-height:16px;",
+                            "isHtml": true
+                          },
+                          {
+                            "key": "TagsSearch",
+                            "data-buildertype": "input",
+                            "label": "",
+                            "fluid": false,
+                            "onChangeTimeout": 200,
+                            "placeholder": "Search Tags...",
+                            "events": {
+                              "onChange": {
+                                "active": true,
+                                "actions": [
+                                  "searchTagsInDB"
+                                ],
+                                "targets": [],
+                                "parameters": []
+                              }
+                            }
+                          }
+                        ],
+                        "orientation": "grouped"
+                      },
+                      {
+                        "key": "staticcontent_7",
+                        "data-buildertype": "staticcontent",
+                        "content": "<hr>",
+                        "isHtml": true,
+                        "style-marginTop": "10px",
+                        "style-marginBottom": "10px"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "container_4",
+                    "data-buildertype": "container",
+                    "style-float": "left",
+                    "style-marginTop": "30px",
+                    "style-marginBottom": "20px",
+                    "children": [
+                      {
+                        "key": "btnTagsSave",
+                        "data-buildertype": "button",
+                        "content": "Save",
+                        "primary": true,
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "saveActiveTags"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        }
+                      },
+                      {
+                        "key": "button_2",
+                        "data-buildertype": "button",
+                        "content": "Cancel",
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "closeTagsModal"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "secondary": true
+                      }
+                    ]
+                  }
+                ],
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "openTagsModal"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              },
+              {
+                "key": "staticcontent_5",
+                "data-buildertype": "staticcontent",
+                "content": "<hr>",
+                "isHtml": true,
+                "style-marginTop": "10px",
+                "style-marginBottom": "10px"
+              }
+            ],
+            "style-marginTop": "4px",
+            "style-marginBottom": "20px"
+          },
+          {
+            "key": "Status",
+            "data-buildertype": "checkbox",
+            "label": "Active"
+          },
+          {
+            "key": "IsArchived",
+            "data-buildertype": "checkbox",
+            "label": "Archived"
+          },
+          {
+            "key": "congtainer_qnn_qnn_form",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "header_3",
+                "data-buildertype": "header",
+                "content": "Online Forms:",
+                "size": "tiny"
+              },
+              {
+                "key": "collectioneditor_2",
+                "data-buildertype": "collectioneditor",
+                "idField": "Id",
+                "parentIdField": "ParentId",
+                "columns": [
+                  {
+                    "key": "Name",
+                    "name": "Form Name",
+                    "control": "custom"
+                  },
+                  {
+                    "key": "Language",
+                    "name": "Language",
+                    "control": ""
+                  },
+                  {
+                    "key": "Remarks",
+                    "name": "Remarks"
+                  }
+                ],
+                "header": true,
+                "other-visibleConition": "",
+                "placeholders": {
+                  "Name": [
+                    {
+                      "key": "Name",
+                      "data-buildertype": "dictionary",
+                      "label": "",
+                      "fluid": true,
+                      "selection": true,
+                      "columns": "Name",
+                      "dataModel": "vSP_SurveyForm",
+                      "paging": true,
+                      "search": true,
+                      "style-customcss": "dictionary-no-label",
+                      "filters": "[{\"column\":\"IsArchived\", \"value\":\"false\", \"term\":\"=\"}]",
+                      "events": {}
+                    }
+                  ],
+                  "NoLanguageMsg": [
+                    {
+                      "key": "NoLanguageMsg",
+                      "data-buildertype": "message",
+                      "header": "",
+                      "content": "No link will be generated as there is no language specified",
+                      "negative": false,
+                      "warning": false,
+                      "error": false,
+                      "size": "mini",
+                      "events": {},
+                      "other-visibleConition": "data.Language ==null"
+                    }
+                  ]
+                },
+                "events": {}
+              },
+              {
+                "key": "Warning_nolanguage_form",
+                "data-buildertype": "message",
+                "header": "WARNING: Language is not specified",
+                "content": "No link will be generated for those not language specified in online form.",
+                "other-visibleConition": "!data.collectioneditor_2.every(function(e) { return e.Language != \"\" }) || !data.collectioneditor_2.every(function(e) { return e.Language != null })",
+                "events": {},
+                "negative": true,
+                "compact": true,
+                "floating": false
+              }
+            ],
+            "style-source": "border: 1px solid rgba(34,36,38,.15);\npadding: 10px;",
+            "other-visibleConition": "(data.Type=='O')"
+          },
+          {
+            "key": "Excel_Files_After_Save_Message",
+            "data-buildertype": "container",
+            "style-marginBottom": "",
+            "style-marginTop": "20px",
+            "other-visibleConition": "(data.Type=='O' && (data.Id===undefined || data.Id===null || data.Id=='')   )",
+            "children": [
+              {
+                "key": "staticcontent_1",
+                "data-buildertype": "staticcontent",
+                "content": "(Excel survey files may be added after saving)"
+              }
+            ]
+          },
+          {
+            "key": "container_qnn_qnn_file",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "header_4",
+                "data-buildertype": "header",
+                "content": "Downloadable Excel Files:",
+                "size": "tiny",
+                "subheader": "(Used in Excel-enabled Online Surveys)"
+              },
+              {
+                "key": "collectioneditor_3",
+                "data-buildertype": "collectioneditor",
+                "idField": "Id",
+                "parentIdField": "ParentId",
+                "columns": [
+                  {
+                    "key": "Name",
+                    "name": "Excel File Name"
+                  },
+                  {
+                    "key": "Token",
+                    "name": "File",
+                    "control": "file2"
+                  },
+                  {
+                    "key": "Language",
+                    "name": "Language"
+                  },
+                  {
+                    "key": "Remarks",
+                    "name": "Remarks"
+                  }
+                ],
+                "disableAdd": true,
+                "events": {
+                  "onChange": {
+                    "active": false,
+                    "actions": [],
+                    "targets": [],
+                    "parameters": []
+                  },
+                  "onAdd": {
+                    "active": false,
+                    "actions": [],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "other-required": false,
+                "other-visibleConition": ""
+              },
+              {
+                "key": "Warning_nolanguage_file",
+                "data-buildertype": "message",
+                "header": "WARNING: Language is not specified",
+                "content": "No link will be generated for those not language specified in excel file.",
+                "other-visibleConition": "!data.collectioneditor_3.every(function(e) { return e.Language != \"\" }) || !data.collectioneditor_3.every(function(e) { return e.Language != null })",
+                "info": false,
+                "warning": false,
+                "positive": false,
+                "floating": false,
+                "error": false,
+                "compact": true,
+                "negative": true,
+                "success": false,
+                "events": {},
+                "other-customValidation-soft": false,
+                "other-required": true
+              },
+              {
+                "key": "dropzonecontrol_2",
+                "data-buildertype": "dropzonecontrol",
+                "showFiletypeIcon": true,
+                "autoProcessQueue": true,
+                "addRemoveLinks": true,
+                "multile": true,
+                "events": {
+                  "success": {
+                    "active": true,
+                    "actions": [
+                      "createElement",
+                      "showLangWarning"
+                    ],
+                    "targets": [
+                      "collectioneditor_3"
+                    ],
+                    "parameters": []
+                  }
+                },
+                "iconFiletypes": "*.xslx",
+                "customPostUrl": ""
+              }
+            ],
+            "other-visibleConition": "(data.Type=='O' && data.Id)",
+            "style-marginTop": "20px",
+            "style-source": "border: 1px solid rgba(34,36,38,.15);\npadding: 10px;"
+          },
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "style-float": "left",
+            "events": {},
+            "style-marginRight": "20px",
+            "children": [
+              {
+                "key": "btnSave",
+                "data-buildertype": "button",
+                "content": "Save",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "validate",
+                      "customSave"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "value": "/form/SwzQnnList",
+                        "name": "target"
+                      }
+                    ]
+                  }
+                },
+                "inverted": false,
+                "secondary": false,
+                "primary": true,
+                "other-visibleConition": "(data.Type !== 'P')",
+                "style-marginRight": "20px"
+              },
+              {
+                "key": "btnConvertToOnlineForm",
+                "data-buildertype": "button",
+                "content": "Convert to Online Form",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "convertToOnlineForm"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "inverted": false,
+                "secondary": true,
+                "primary": false,
+                "other-visibleConition": "(data.Type === 'P')",
+                "style-marginRight": "20px"
+              },
+              {
+                "key": "btnExit",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "events": {
+                  "onClick": {
+                    "actions": [
+                      "redirect"
+                    ],
+                    "active": true,
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "name": "target",
+                        "value": "/form/SwzQnnList"
+                      }
+                    ]
+                  }
+                },
+                "secondary": true,
+                "inverted": false
+              }
+            ],
+            "style-marginTop": "20px",
+            "style-marginBottom": "20px"
+          }
+        ],
+        "style-marginBottom": ""
+      },
+      {
+        "key": "cntVisuallyDivideFormAndList",
+        "data-buildertype": "container",
+        "style-source": "clear: both;\ntext-align: center;",
+        "style-marginBottom": "20px",
+        "children": [
+          {
+            "key": "staticcontent_3",
+            "data-buildertype": "staticcontent",
+            "content": "<hr />",
+            "isHtml": true
+          }
+        ]
+      },
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "header_5",
+            "data-buildertype": "header",
+            "content": "Deployments using this Form Properties",
+            "size": "small"
+          },
+          {
+            "key": "gridDeployments",
+            "data-buildertype": "gridview",
+            "columns": [
+              {
+                "sortable": true,
+                "filterable": false,
+                "resizable": true,
+                "key": "Name",
+                "name": "Deployment"
+              },
+              {
+                "sortable": true,
+                "filterable": false,
+                "resizable": true,
+                "key": "SurveyName",
+                "name": "Survey"
+              },
+              {
+                "key": "CategoryName",
+                "name": "Category",
+                "resizable": true,
+                "sortable": true,
+                "filterable": false
+              },
+              {
+                "key": "CreatedDate",
+                "name": "Created",
+                "resizable": true,
+                "type": "datetime",
+                "sortable": true,
+                "filterable": false
+              },
+              {
+                "key": "DateStart",
+                "name": "Start",
+                "type": "datetime",
+                "resizable": true,
+                "sortable": true,
+                "filterable": false
+              },
+              {
+                "key": "DateEnd",
+                "name": "End",
+                "type": "datetime",
+                "resizable": true,
+                "sortable": true,
+                "filterable": false
+              }
+            ],
+            "rowKey": "Id",
+            "pageSize": "50",
+            "defaultSort": "Name ASC",
+            "rowHeight": "80",
+            "editFormShowType": "",
+            "editForm": "QNN_DPLY",
+            "events": {
+              "onRowClick": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              },
+              "onRowDblClick": {
+                "active": true,
+                "actions": [
+                  "gridEdit"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          }
+        ],
+        "style-source": "padding: 10px;\nclear: both;",
+        "style-marginTop": "20px",
+        "other-visibleConition": "(data.Id  && CloverApp.API.checkRole('SurveyAdmin') ) ? true : false",
+        "style-customcss": "",
+        "events": {}
+      }
+    ],
+    "style-marginBottom": "",
+    "events": {}
+  },
+  {
+    "key": "divModal",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "errorModal",
+        "data-buildertype": "swzmodal",
+        "content": "errorModal",
+        "size": "",
+        "style-display": "block",
+        "children": [
+          {
+            "key": "formgroup_1",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "orientation": "grouped",
+            "children": [
+              {
+                "key": "header_2",
+                "data-buildertype": "header",
+                "content": "System Message",
+                "size": "medium",
+                "style-source": "font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;\npadding-bottom: 1.5rem;\ncolor: rgba(0,0,0,.85);\nborder-bottom: 1px solid rgba(34,36,38,.15);"
+              },
+              {
+                "key": "staticcontent_2",
+                "data-buildertype": "staticcontent",
+                "content": "{ErrorText}",
+                "isHtml": false,
+                "style-source": "word-wrap: normal;\nleft-margin: auto; right-margin: auto;",
+                "style-width": "80%",
+                "style-customcss": "content"
+              },
+              {
+                "key": "container_6",
+                "data-buildertype": "container",
+                "style-source": "clear: both;\npadding: 20px;",
+                "style-width": "100%",
+                "children": [
+                  {
+                    "key": "btn_cancelErrorModal",
+                    "data-buildertype": "button",
+                    "content": "OK",
+                    "secondary": false,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "cancelModal"
+                        ],
+                        "targets": [
+                          "errorModal"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "primary": true,
+                    "floated": "right"
+                  }
+                ]
+              }
+            ],
+            "style-source": "padding: 20px;"
+          }
+        ]
+      }
+    ],
+    "style-hidden": true
+  }
+]

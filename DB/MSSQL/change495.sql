@@ -1,0 +1,898 @@
+-- Will UPDATE existing row(s) in dwMetadata for the following:
+-- QNN_DPLY_PRE_POPULATE.json
+-- QNN_DPLY_PRE_POPULATE-settings.json
+-- QNN_DPLY_PRE_POPULATE-code.js
+
+UPDATE [dwMetadata] SET
+[Id]='54181d8d-523f-4075-ac8e-575e817af26b', [StructDivisionId]='f6e34bdf-b769-42dd-a2be-fee67faf9045', 
+[Folder]=N'metadata/forms', [FileName]=N'QNN_DPLY_PRE_POPULATE.json', [IsDeleted]=0, 
+[CreatedBy]='b9d69ba9-282b-d3d2-8f23-efc2596a082c', [CreatedDate]='2021-07-31 13:50:14.213', 
+[DeletedBy]=NULL, [DeletedDate]=NULL, 
+[UpdatedBy]='b9d69ba9-282b-d3d2-8f23-efc2596a082c', [UpdatedDate]='2022-05-19 11:09:31.883', 
+[Data]=N'[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Data Pre-Populate",
+    "size": "huge",
+    "subheader": " {Name}"
+  },
+  {
+    "key": "container_8",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_12",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "PrepopulateInfo",
+            "data-buildertype": "message",
+            "header": "Pre-populate Answers",
+            "content": "Pre-populate will initialise response data in this deployment as specified below. It only pre-sets answers where the sample has yet to start responding. For these cases any existing pre-populated data will be cleared and replaced with the data specified below.\nYou can optionally schedule the pre-population to occur in the future by selecting a date and time to run the job, otherwise it will be run immediately. ",
+            "info": true
+          },
+          {
+            "key": "PrePopulateInfo",
+            "data-buildertype": "staticcontent",
+            "content": "",
+            "isHtml": true
+          }
+        ],
+        "style-marginTop": "10px",
+        "style-marginBottom": "10px"
+      },
+      {
+        "key": "formgroup_2",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "orientation": "grouped",
+        "children": [
+          {
+            "key": "DataSource",
+            "data-buildertype": "radiogroup",
+            "label": "Pre-Populate Data From",
+            "data-elements": [
+              {
+                "key": 1,
+                "value": 1,
+                "text": "Online Deployment"
+              },
+              {
+                "key": 2,
+                "value": 2,
+                "text": "Upload CSV"
+              }
+            ],
+            "reference": "Import Data From",
+            "defaultValue": ""
+          },
+          {
+            "key": "ScheduledTime",
+            "data-buildertype": "input",
+            "label": "Schedule pre-population at",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "type": "datetime",
+            "events": {
+              "onClick": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              },
+              "onChange": {
+                "active": true,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "container_7",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "style-float": "",
+        "children": [
+          {
+            "key": "Deployment",
+            "data-buildertype": "dictionary",
+            "label": "Source Deployment",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "vSP_DeploymentOnline",
+            "columns": "Name ASC",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "removeAllFields",
+                  "getDeploymentFields"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-customcss": "",
+            "clearable": true,
+            "multiple": false,
+            "filters": "[{\"column\":\"Id\", \"value\":\"{Id}\", \"term\":\"!=\"}]"
+          }
+        ],
+        "style-width": "",
+        "style-marginBottom": "10px",
+        "events": {}
+      },
+      {
+        "key": "container_13",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "header_2",
+            "data-buildertype": "header",
+            "content": "Pre-Populate Fields",
+            "size": "medium"
+          },
+          {
+            "key": "form_2",
+            "data-buildertype": "form",
+            "children": [
+              {
+                "key": "formgroup_1",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "orientation": "grouped",
+                "children": [
+                  {
+                    "key": "container_3",
+                    "data-buildertype": "container",
+                    "style-float": "",
+                    "children": [
+                      {
+                        "key": "DeploymentQnnFields",
+                        "data-buildertype": "collectioneditor",
+                        "idField": "Id",
+                        "parentIdField": "ParentId",
+                        "columns": [
+                          {
+                            "key": "Name",
+                            "name": "Field Name",
+                            "control": "span",
+                            "width": ""
+                          },
+                          {
+                            "key": "Type",
+                            "name": "Type",
+                            "control": "span"
+                          },
+                          {
+                            "key": "PrePopulate",
+                            "name": "PrePopulate",
+                            "control": "checkbox"
+                          }
+                        ],
+                        "disableAdd": true,
+                        "disableDelete": true,
+                        "other-visibleConition": "data.Deployment",
+                        "header": false,
+                        "headerTitle": "Pre-Populate Fields"
+                      }
+                    ],
+                    "style-width": "",
+                    "style-marginBottom": "",
+                    "events": {},
+                    "other-visibleConition": "",
+                    "style-customcss": "",
+                    "style-source": "overflow-y: scroll;\nmax-height: 300px;\noverflow-x: hidden;",
+                    "style-marginTop": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "container_6",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "addAllFields",
+                "data-buildertype": "breadcrumb",
+                "items": [
+                  {
+                    "text": "Add All",
+                    "url": "/",
+                    "active": false
+                  }
+                ],
+                "events": {
+                  "onItemClick": {
+                    "active": true,
+                    "actions": [
+                      "addAllFields"
+                    ],
+                    "targets": [
+                      "DeploymentQnnFields"
+                    ],
+                    "parameters": []
+                  }
+                },
+                "style-marginRight": "10px"
+              },
+              {
+                "key": "breadcrumb_1",
+                "data-buildertype": "breadcrumb",
+                "items": [
+                  {
+                    "text": "Remove All",
+                    "url": "/",
+                    "active": false
+                  }
+                ],
+                "events": {
+                  "onItemClick": {
+                    "active": true,
+                    "actions": [
+                      "removeAllFields"
+                    ],
+                    "targets": [
+                      "DeploymentQnnFields"
+                    ],
+                    "parameters": []
+                  }
+                }
+              }
+            ],
+            "style-float": ""
+          }
+        ],
+        "style-source": "",
+        "style-customcss": "ui info message",
+        "style-float": "",
+        "style-width": "",
+        "other-visibleConition": "data.Deployment"
+      }
+    ],
+    "other-visibleConition": "data.DataSource == 1",
+    "style-width": "80%",
+    "style-marginTop": "20px"
+  },
+  {
+    "key": "container_9",
+    "data-buildertype": "container",
+    "other-visibleConition": "data.DataSource == 2",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "container_11",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "CsvInfo",
+                "data-buildertype": "staticcontent",
+                "content": "The CSV must have a header row to provide alias/field names and contain a UID column. If using a previously exported response CSV do be aware that pre-population pays no special attention to the Status column. Any rows to to be excluded should be removed from the CSV prior to upload."
+              }
+            ],
+            "style-marginTop": "10px",
+            "style-marginBottom": "10px"
+          },
+          {
+            "key": "CsvFileUploaded",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "type": "file",
+            "events": {
+              "onChange": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-hidden": false,
+            "style-source": ""
+          }
+        ],
+        "style-width": "50%",
+        "style-marginBottom": "20px",
+        "style-marginTop": "20px"
+      }
+    ]
+  },
+  {
+    "key": "container_10",
+    "data-buildertype": "container",
+    "style-source": "clear: both;",
+    "style-marginBottom": "10px"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "children": [
+      {
+        "key": "btn_OnlinePrePopulate",
+        "data-buildertype": "button",
+        "content": "Schedule Pre-Populate (From Dply)",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "prePopulate"
+            ],
+            "targets": [
+              "DeploymentQnnFields"
+            ],
+            "parameters": []
+          }
+        },
+        "other-customValidation": "",
+        "other-visibleConition": "data.DataSource == 1"
+      },
+      {
+        "key": "btn_CSVPrePopulate",
+        "data-buildertype": "button",
+        "content": "Schedule Pre-Populate (From CSV)",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "prePopulateCSV"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "primary": true,
+        "style-hidden": false,
+        "secondary": false,
+        "other-visibleConition": "data.DataSource == 2"
+      },
+      {
+        "key": "button_2",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "primary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        },
+        "secondary": true,
+        "inverted": false
+      }
+    ],
+    "style-marginBottom": "20px",
+    "events": {},
+    "other-visibleConition": ""
+  }
+]' WHERE [Id]='54181d8d-523f-4075-ac8e-575e817af26b';
+
+UPDATE [dwMetadata] SET
+[Id]='3ec905bd-86b6-457c-a0e8-073beb43fb6f', [StructDivisionId]='f6e34bdf-b769-42dd-a2be-fee67faf9045', 
+[Folder]=N'metadata/forms', [FileName]=N'QNN_DPLY_PRE_POPULATE-settings.json', [IsDeleted]=0, 
+[CreatedBy]='b9d69ba9-282b-d3d2-8f23-efc2596a082c', [CreatedDate]='2021-07-31 13:50:14.283', 
+[DeletedBy]=NULL, [DeletedDate]=NULL, 
+[UpdatedBy]='b9d69ba9-282b-d3d2-8f23-efc2596a082c', [UpdatedDate]='2022-04-20 13:10:24.350', 
+[Data]=N'{
+  "isSurvey": false,
+  "structDivisionId": "f6e34bdf-b769-42dd-a2be-fee67faf9045",
+  "name": "QNN_DPLY_PRE_POPULATE",
+  "lastUpdate": "2024-07-10T15:24:09.2137517+08:00",
+  "entityId": "95d26a40-bf59-4aef-b578-12b2535f7789",
+  "isTemplate": false,
+  "triggers": [],
+  "dataMap": [
+    {
+      "id": "c786f28a-7c1d-18a1-4e82-b9f14e49d539",
+      "attributeId": "15ce36dc-1fe5-43e2-bf80-2fa1a874e5d9",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "0967f63c-7b85-ccb8-9303-3e9b7cf2fe33",
+      "attributeId": "a5f6d25c-ed79-44b1-9483-9c7b97b3cda2",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "5023f9da-3f2e-dda2-0f73-5a6311cce0c7",
+      "attributeId": "0b439a8e-8ee5-4c3a-ae08-fa38d90d8aee",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "83bce928-58fa-df11-8c38-8023ae24ffd3",
+      "attributeId": "b3f0d547-7fc9-4f00-89e8-3b52f41929f5",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "deca8cf6-dcd5-16dd-b0c0-394a30bc5bb4",
+      "attributeId": "2bd6090e-c303-478d-b362-89c9191d052a",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "1b987af7-cddd-db61-fcd8-22c3f4c53430",
+      "attributeId": "494c42e8-0492-4176-ac75-c689a8f5bbc1",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "374a9edc-ec27-f0f3-e318-ae95b1d65d56",
+      "attributeId": "4d7e5b0e-6dc9-4f0d-831a-dfb3ebdd2ec2",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "6368b51c-2ae4-cb3a-5ef7-1b413c202b5c",
+      "attributeId": "f12f1d43-75f2-42a5-926b-06aedc741df0",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "26703d56-1156-31f0-171d-e8d87610d564",
+      "attributeId": "a7b4eb64-b959-4195-aa6a-45ee3824d693",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "3b4f621f-b303-8322-460f-b72a0b58edec",
+      "attributeId": "c9bb3d9e-52f4-476f-805f-156488685dc2",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "8579bacc-ad88-1655-66bf-fc4c0bc0e799",
+      "attributeId": "db1a037f-f2b1-402f-8a2c-69efb7d43c1f",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "a20baeb1-4027-5887-98ef-be1c2688cb8b",
+      "attributeId": "4b7eee04-18b0-4153-9c9e-bb32f2fb42e5",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "c032b3d1-5303-f950-b1e0-23b6f059fa21",
+      "attributeId": "429a264c-e4bc-4db0-bec0-03467deed005",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "8713a7b4-640f-8759-797b-8a6bfed64ca5",
+      "attributeId": "44907ef9-0d57-4a97-9be2-d58120934253",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "7c124c4a-951e-b2cb-a968-d8c5273788e1",
+      "attributeId": "56e2dbe8-24fe-4a41-bf0f-820df81ac755",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "dfd118fb-c4ae-28e5-0842-3651bbcc6547",
+      "attributeId": "783f55a8-aa37-4c72-bf51-fd523e85585a",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "05468910-5730-4606-ca8a-2e51c41a049b",
+      "attributeId": "17b1b7b7-a1f9-4a5f-bcf5-606cf45a8cac",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "e4805992-33ac-ccb9-86e7-8dc8676e91d8",
+      "attributeId": "455e5598-3db3-484c-84a6-148758489688",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "0d2eaa09-3b24-f802-60f0-866ee281d2bb",
+      "attributeId": "c3ed9b5a-56f8-45dd-846f-af4bfbc3f83c",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "08388972-fcf2-f431-14ee-2760c49ac885",
+      "attributeId": "9b064d69-3d5c-43c6-bfa4-55f931a6328c",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "32f0783b-3ac4-05ef-afcb-513c0cf8a96a",
+      "attributeId": "f69d9378-db54-4893-8e04-fd8ac05a750c",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "22f01e4c-f4f5-b0a8-9ace-fff152c8861f",
+      "attributeId": "639da28f-dca1-4941-863f-131a30734e71",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "d2f395ae-8032-fb82-68ff-21491768e624",
+      "attributeId": "cef5e883-b266-4f28-8018-cce3605bd68b",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "8c9d150c-a4f8-bb87-e6d9-a1bc85955e43",
+      "attributeId": "f3a042c7-e093-4d79-a90c-84030f45c4a4",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "d4cba037-57a7-977b-5611-779850d41495",
+      "attributeId": "0bfc96e9-2108-47a5-9ef5-c98b27673188",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "16fdf4f0-9710-d9c5-dfd9-919d2566a221",
+      "attributeId": "f1fac614-5d61-45a3-bb62-35a9219a8609",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "9460cdee-c086-e3af-0ccd-b73915f33012",
+      "attributeId": "0c05d708-e49a-4ed3-a5a0-70a3a7f52bea",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "5bf9eaaa-01b8-944f-0718-aa190ae0afa8",
+      "attributeId": "a3e3f5c2-1c65-4438-b372-c814f2edce5c",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "42882ed3-0f8e-6d54-2a52-3499a8ed8dc7",
+      "attributeId": "30375b7a-d4f1-48b1-ae4a-bfdb4a5bdf11",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "14a0cd73-68bc-b02e-36eb-c474113482f2",
+      "attributeId": "a32dd165-85de-40f5-879a-d6a7aad5b56d",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "4a3934ed-0ab2-ddfe-94b6-5dcefe8dfc01",
+      "attributeId": "2fcd5d29-8dab-4bc9-8432-d476be6935a7",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "b217f1e9-4d95-46af-6850-93438bbaa77b",
+      "attributeId": "36fbf2b4-fdcb-41b7-8f51-6804ff4f6c5a",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "bda4a316-cb9c-9c63-031a-d5f5c962de8c",
+      "attributeId": "cfe07a04-7fd2-42ab-b5a3-ea8fac6edfb9",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "40074d33-2215-8f83-a2c6-103e301b60d2",
+      "attributeId": "471ebb93-a2aa-48fa-9f9f-7af05632750a",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "0f7f7c29-6856-d67d-7a28-52c37db4898a",
+      "attributeId": "1f9e2803-a0d1-44bd-91a6-79fc4170f63b",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "a8f1c8a9-ccb9-8119-3302-300fef905b8e",
+      "attributeId": "ef8220b1-ac43-47ee-9035-4f7050e1bf1d",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "53a8bb29-ee35-bbbe-5e21-53706eb76527",
+      "attributeId": "389ae941-1466-42de-af26-9f3936a456ad",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "29d92318-26b2-a87c-2a62-36fc4e014814",
+      "attributeId": "04cbdcfd-c188-496f-8e63-b0643d1f99c0",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "cb1eb284-f895-ba94-87d0-22c7a6553d6a",
+      "attributeId": "44d55954-c577-4260-8272-2c97e213c22a",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "624201ff-d565-fd15-2cb0-b007910456ac",
+      "attributeId": "5095a227-7c26-4d25-a38d-89c7705bafbc",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "fad4c089-b443-251a-f24e-708131b711ea",
+      "attributeId": "8ca2e0c2-a78e-4628-911d-c7b763e99510",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "2eba97d8-5a12-25d7-e37a-a52fea864488",
+      "attributeId": "a340221f-730d-46dd-a258-3bd194e584c7",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "5a106511-5ee8-8d68-456d-122801b83c44",
+      "attributeId": "257703e3-fba0-4c41-ac90-4b4c35c8727e",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "3e8ca787-2034-33c4-5966-190cfc0d1d78",
+      "attributeId": "d04c168f-120b-4c27-93db-5aa212bc302b",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "8dbefaa4-9886-95c2-ed6b-fcda217425d8",
+      "attributeId": "ebe8dfa3-ca3e-4727-800b-1dab267da292",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "56b98d6c-ecf2-cf2c-dba7-29a2ea1a4cf3",
+      "attributeId": "9c004ca5-ab2d-49f9-a674-853a7bfd05cd",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "722646b8-e0fa-5664-a7d1-9e3fa23bd1e9",
+      "attributeId": "4fc894fc-7191-46b4-a60b-eda4c81d4cd5",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "739c6a49-f04a-f95b-2e67-863ae59a2db2",
+      "attributeId": "5bed353c-44ab-464f-bf21-648f4e487a30",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "4c505d0d-4bd1-3673-b360-3af13fe1c638",
+      "attributeId": "992b4f36-55a1-45ac-b937-026d657af01c",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "4fb7b109-f7b4-1e28-0944-1371fb8059de",
+      "attributeId": "d9bf0a77-04ba-4fb3-9f6c-34135e8fac25",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "85ea249a-e020-aa37-6bf2-b1e891cd656e",
+      "attributeId": "c0e2eee0-7f5f-42ea-878b-8930f0af94e0",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "30a8203b-b474-503c-676c-545cf45771e9",
+      "attributeId": "d48ad824-a141-47fa-91dc-b5d6f040e879",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "4209fb5b-8423-27f6-b5c1-d303126fcc18",
+      "attributeId": "c1c6b94f-5e02-4c2a-8646-4fa79706828e",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "c3cd8263-34d2-221a-6255-fc2c0ca0367f",
+      "attributeId": "cd126359-fee9-4f36-9161-aefe0344e821",
+      "isEditable": true,
+      "isLoadable": true
+    }
+  ],
+  "dataColl": [],
+  "securityGroup": "PrePopulate"
+}' WHERE [Id]='3ec905bd-86b6-457c-a0e8-073beb43fb6f';
+
+UPDATE [dwMetadata] SET
+[Id]='d31cbc75-a3e9-46fc-9176-7ada5ecd7c09', [StructDivisionId]='f6e34bdf-b769-42dd-a2be-fee67faf9045', 
+[Folder]=N'metadata/forms', [FileName]=N'QNN_DPLY_PRE_POPULATE-code.js', [IsDeleted]=0, 
+[CreatedBy]='b9d69ba9-282b-d3d2-8f23-efc2596a082c', [CreatedDate]='2021-07-31 13:51:04.643', 
+[DeletedBy]=NULL, [DeletedDate]=NULL, 
+[UpdatedBy]='b9d69ba9-282b-d3d2-8f23-efc2596a082c', [UpdatedDate]='2024-07-15 00:40:41.037', 
+[Data]=N'{
+    init: function(args){
+         ;
+    },
+    
+    
+    getDeploymentFields: function(args){
+        const sourceDplyId = args.controlRef.props.value;
+        if(!sourceDplyId || sourceDplyId.length==0){
+            alertify.error("Please select at least one deployment");
+            return;
+        }
+        
+        const targetDplyId = args.data.Id;
+        
+        const url = "/deployment/" + encodeURIComponent(targetDplyId) + "/prepopulationfieldlist?" + new URLSearchParams({sourceDplyId});
+        Utils.loadingStart();
+        Utils.getRequest(url).then(
+            response => {
+                CloverApp.API.setDataField("DeploymentQnnFields", response.item);
+            }, reason => {
+                console.log("failed to get deployment fields", reason);
+                alertify.error(reason);
+            }
+        ).finally(Utils.loadingStop);
+    },
+    
+    addAllFields: function(args){
+        const allFields = args.data.DeploymentQnnFields;
+        if(allFields != null) {
+            for(let x = 0 ; x < allFields.length ; x++){
+                allFields[x].PrePopulate = true;
+            }
+            CloverApp.API.setDataField("DeploymentQnnFields", allFields);
+        }
+    },
+    
+    removeAllFields: function(args){
+        const allFields = args.data.DeploymentQnnFields;
+        if(allFields != null) {
+            for(let x = 0 ; x < allFields.length ; x++){
+                allFields[x].PrePopulate = false;
+            }
+            CloverApp.API.setDataField("DeploymentQnnFields", allFields);
+        }
+    }, 
+    
+    _validateScheduledTime: function(args) {
+        const scheduledTime = new Date(args.data.ScheduledTime);
+        const hasScheduledTime = !isNaN(scheduledTime) && (scheduledTime.getTime()!==new Date(0).getTime());
+        if(hasScheduledTime) {
+            const now = new Date();
+            if(scheduledTime < now) {
+                alertify.error("Pre-population may not be scheduled in the past");
+                return false;
+            }
+            const nowPlus24 = new Date(new Date().getTime() + (24 * 60 * 60 * 1000));
+            if(scheduledTime > nowPlus24) {
+                alertify.error("Pre-population may not be scheduled more than 24 hours from now");
+                return false;
+            }
+        }
+        return true;
+    },
+    
+    //pre-pop from online deployment
+    prePopulate: function(args){
+        if(!qnn_dply_pre_populateUserActions._validateScheduledTime(args))
+            return {};
+        
+        const targetDplyId = args.data.Id;
+        const sourceDplyId = args.data.Deployment;
+        const scheduledTime = new Date(args.data.ScheduledTime);
+        const hasScheduledTime = !isNaN(scheduledTime) && (scheduledTime.getTime()!==new Date(0).getTime());
+        
+        if(sourceDplyId==null || ""===sourceDplyId) {
+            alertify.error("Please select a source deployment");
+            return {};
+        }
+        
+        const allFields = args.data.DeploymentQnnFields;
+        if(!allFields || allFields.length==0){
+            alertify.error("Invalid source deployment, there are no common Alias");
+            return {};
+        }
+        
+        const fieldIds = [];
+        for(let x = 0 ; x < allFields.length ; x++){
+            if(allFields[x].PrePopulate == true){
+                fieldIds.push(allFields[x].Id);
+            }
+        }
+        
+        if(!fieldIds || fieldIds.length==0){
+            alertify.error("Please select at least one field");
+            return {};
+        }
+        
+        const formData = new FormData();
+        formData.append("sourceDplyId", sourceDplyId); 
+        if(hasScheduledTime) {
+            formData.append("scheduledTime", scheduledTime.toISOString() );
+        }
+        formData.append("fieldIds", fieldIds);
+        
+        const url = "/deployment/" + encodeURIComponent(targetDplyId) + "/prepopulate";
+        Utils.loadingStart(); 
+        Utils.postFormRequest(url, formData).then(
+            response => {
+                alertify.success( Utils.encodeHTML(response.message), 20000 );
+                setTimeout(() => CloverApp.API.redirect("form", "QNN_DPLY", targetDplyId), 250);
+            }, reason => {
+                Utils.loadingStop();
+                alertify.error( Utils.encodeHTML(reason), 30000 );
+            }
+        );
+    },
+    
+    prePopulateCSV: function(args){
+        if(!qnn_dply_pre_populateUserActions._validateScheduledTime(args))
+            return {};
+           
+        const targetDplyId = args.data.Id;
+        const scheduledTime = new Date(args.data.ScheduledTime);
+        const hasScheduledTime = !isNaN(scheduledTime) && (scheduledTime.getTime()!==new Date(0).getTime());
+        const token = args.data.CsvFileUploaded;
+        
+        if(token==null || "FAIL"===token){
+            alertify.error("Please upload a CSV file");
+            return {};
+        }
+        
+        const formData = new FormData();
+        formData.append("token", token); 
+        if(hasScheduledTime) {
+            formData.append(''scheduledTime'', scheduledTime.toISOString() );
+        }
+        const url = "/deployment/" + encodeURIComponent(targetDplyId) + "/prepopulatecsv";
+        Utils.loadingStart("Checking CSV and scheduling job..."); 
+        Utils.postFormRequest(url, formData).then(
+            response => {
+                alertify.success( Utils.encodeHTML(response.message), 20000 );
+                setTimeout(() => CloverApp.API.redirect("form", "QNN_DPLY", targetDplyId), 250);
+            }, reason => {
+                Utils.loadingStop();
+                alertify.error( Utils.encodeHTML(reason), 30000 );
+                CloverApp.API.setDataField("CsvFileUploaded", null);
+            }
+        );
+    },
+    
+    
+ 
+}' WHERE [Id]='d31cbc75-a3e9-46fc-9176-7ada5ecd7c09';
+

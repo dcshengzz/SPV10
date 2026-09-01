@@ -1,0 +1,1 @@
+xcopy %SURVEYPLUS_PROJECT_ROOT%\swz-app\build\swz-app.js %SURVEYPLUS_PROJECT_ROOT%\swz.SurveyPlus.IntranetWeb\wwwroot\scripts /Y &

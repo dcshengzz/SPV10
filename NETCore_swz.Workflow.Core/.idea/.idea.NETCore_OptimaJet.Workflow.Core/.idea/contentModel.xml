@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\betin\.Rider2018.2\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\betin\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\betin\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_NETCore_swz.Workflow.1857448078.00" t="ExcludeRecursive" />
+    <e p="D:\Sandbox\PUBLISH_WFE\DLL\NETCORE" t="ExcludeRecursive">
+      <e p="netcoreapp1.1" t="ExcludeRecursive" />
+      <e p="netcoreapp2.0" t="ExcludeRecursive" />
+      <e p="netstandard1.6" t="ExcludeRecursive" />
+      <e p="netstandard2.0" t="ExcludeRecursive" />
+    </e>
+    <e p="D:\Sandbox\PUBLISH_WFE\NETCore_swz.Workflow.Core" t="IncludeRecursive">
+      <e p="AppDomain.cs" t="Include" />
+      <e p="BPMN" t="Include">
+        <e p="Bounds.cs" t="Include" />
+        <e p="BPMNDiagram.cs" t="Include" />
+        <e p="BPMNEdge.cs" t="Include" />
+        <e p="BPMNLabel.cs" t="Include" />
+        <e p="BPMNPlane.cs" t="Include" />
+        <e p="BPMNShape.cs" t="Include" />
+        <e p="Collaboration.cs" t="Include" />
+        <e p="Definition.cs" t="Include" />
+        <e p="Event.cs" t="Include" />
+        <e p="Flow.cs" t="Include" />
+        <e p="Gateway.cs" t="Include" />
+        <e p="Process.cs" t="Include" />
+        <e p="Task.cs" t="Include" />
+        <e p="Waypoint.cs" t="Include" />
+      </e>
+      <e p="Builder" t="Include">
+        <e p="IWorkflowBuilder.cs" t="Include" />
+        <e p="WorkflowBuilder.cs" t="Include" />
+      </e>
+      <e p="Bus" t="Include">
+        <e p="ActivityExecutor.cs" t="Include" />
+        <e p="ExecutionRequestParameters.cs" t="Include" />
+        <e p="ExecutionResponseEventArgs.cs" t="Include" />
+        <e p="ExecutionResponseParameters.cs" t="Include" />
+        <e p="IWorkflowBus.cs" t="Include" />
+        <e p="NullBus.cs" t="Include" />
+      </e>
+      <e p="Cache" t="Include">
+        <e p="DefaultParcedProcessCache.cs" t="Include" />
+        <e p="IParsedProcessCache.cs" t="Include" />
+      </e>
+      <e p="CodeActions" t="Include">
+        <e p="CodeActionsCompiller.cs" t="Include" />
+        <e p="CodeActionsInvoker.cs" t="Include" />
+        <e p="CodeActionUtils.cs" t="Include" />
+        <e p="IExternalCompiler.cs" t="Include" />
+      </e>
+      <e p="DefiningParametersSerializer.cs" t="Include" />
+      <e p="Designer" t="Include">
+        <e p="Designer.cs" t="Include" />
+        <e p="ParsedType.cs" t="Include" />
+        <e p="StringTypeConverter.cs" t="Include" />
+      </e>
+      <e p="Extensions.cs" t="Include" />
+      <e p="Fault" t="Include">
+        <e p="ActivityNotFoundException.cs" t="Include" />
+        <e p="CommandNotValidException.cs" t="Include" />
+        <e p="CommandNotValidForStateException.cs" t="Include" />
+        <e p="ImpossibleToSetStatusException.cs" t="Include" />
+        <e p="InitialActivityNotFoundException.cs" t="Include" />
+        <e p="InvalidCommandException.cs" t="Include" />
+        <e p="InvalidJsonParameterValueException.cs" t="Include" />
+        <e p="InvalidParameterValueException.cs" t="Include" />
+        <e p="ProcessAlreadyExistsException.cs" t="Include" />
+        <e p="ProcessNotFoundException.cs" t="Include" />
+        <e p="SchemeAlredyExistsException.cs" t="Include" />
+        <e p="SchemeNotFoundException.cs" t="Include" />
+        <e p="SchemeNotValidException.cs" t="Include" />
+        <e p="StatusNotDefinedException.cs" t="Include" />
+        <e p="TimerManagerException.cs" t="Include" />
+        <e p="TransitionNotFoundException.cs" t="Include" />
+        <e p="WrongParameterTypeException.cs" t="Include" />
+        <e p="WrongSubprocessMarkupException.cs" t="Include" />
+      </e>
+      <e p="Generator" t="Include">
+        <e p="IWorkflowGenerator.cs" t="Include" />
+        <e p="TTXmlWorkflowGenerator.cs" t="Include" />
+      </e>
+      <e p="HashHelper.cs" t="Include" />
+      <e p="License" t="Include">
+        <e p="LicenseException.cs" t="Include" />
+        <e p="LicenseKey.cs" t="Include" />
+        <e p="LicenseUtils.cs" t="Include" />
+      </e>
+      <e p="Model" t="Include">
+        <e p="ActionDefinitionReference.cs" t="Include" />
+        <e p="ActivityDefinition.cs" t="Include" />
+        <e p="ActorDefinition.cs" t="Include" />
+        <e p="BaseDefinition.cs" t="Include" />
+        <e p="CodeActionDefinition.cs" t="Include" />
+        <e p="CommandDefinition.cs" t="Include" />
+        <e p="ConditionDefinition.cs" t="Include" />
+        <e p="DefaultDefinitions.cs" t="Include" />
+        <e p="DesignerSettings.cs" t="Include" />
+        <e p="LocalizeDefinition.cs" t="Include" />
+        <e p="ParameterDefinition.cs" t="Include" />
+        <e p="ParameterDefinitionWithValue.cs" t="Include" />
+        <e p="ParameterPurpose.cs" t="Include" />
+        <e p="ParametersCollection.cs" t="Include" />
+        <e p="ProcessDefinition.cs" t="Include" />
+        <e p="ProcessInstance.cs" t="Include" />
+        <e p="RestrictionDefinition.cs" t="Include" />
+        <e p="SchemeDefinition.cs" t="Include" />
+        <e p="TimerDefinition.cs" t="Include" />
+        <e p="TimerType.cs" t="Include" />
+        <e p="TransitionClassifier.cs" t="Include" />
+        <e p="TransitionDefinition.cs" t="Include" />
+        <e p="TransitionForkType.cs" t="Include" />
+        <e p="UnknownParameterType.cs" t="Include" />
+      </e>
+      <e p="NETCore_swz.Workflow.Core.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp1.1" t="Include">
+            <e p="NETCore_swz.Workflow.Core.AssemblyInfo.cs" t="Include" />
+          </e>
+          <e p="netcoreapp2.0" t="Include">
+            <e p="NETCore_swz.Workflow.Core.AssemblyInfo.cs" t="Include" />
+          </e>
+          <e p="netstandard1.6" t="Include">
+            <e p="NETCore_swz.Workflow.Core.AssemblyInfo.cs" t="Include" />
+          </e>
+          <e p="netstandard2.0" t="Include">
+            <e p="NETCore_swz.Workflow.Core.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Parser" t="Include">
+        <e p="IWorkflowParser.cs" t="Include" />
+        <e p="WorkflowParser.cs" t="Include" />
+        <e p="XmlWorkflowParser.cs" t="Include" />
+      </e>
+      <e p="Persistence" t="Include">
+        <e p="ErrorLevel.cs" t="Include" />
+        <e p="IPersistenceProvider.cs" t="Include" />
+        <e p="IRuntimePersistence.cs" t="Include" />
+        <e p="ISchemePersistenceProvider.cs" t="Include" />
+        <e p="ProcessStatus.cs" t="Include" />
+      </e>
+      <e p="RSACryptoServiceProviderExtensions.cs" t="Include" />
+      <e p="Runtime" t="Include">
+        <e p="ActivityChangedEventArgs.cs" t="Include" />
+        <e p="AggregatingActionProvider.cs" t="Include" />
+        <e p="AggregatingRuleProvider.cs" t="Include" />
+        <e p="BeforeActivityExecutionEventArgs.cs" t="Include" />
+        <e p="BulkCreateInstancePrams.cs" t="Include" />
+        <e p="CommandExeutionResult.cs" t="Include" />
+        <e p="CreateInstanceParams.cs" t="Include" />
+        <e p="EmptyWorkflowActionProvider.cs" t="Include" />
+        <e p="EmptyWorkflowRuleProvider.cs" t="Include" />
+        <e p="ExecutionSearchOrder.cs" t="Include" />
+        <e p="IDesignerAutocompleteProvider.cs" t="Include" />
+        <e p="ITimerManager.cs" t="Include" />
+        <e p="IWorkflowActionProvider.cs" t="Include" />
+        <e p="IWorkflowRuleProvider.cs" t="Include" />
+        <e p="NeedDeterminingParametersEventArgs.cs" t="Include" />
+        <e p="NeedTimerValueEventArgs.cs" t="Include" />
+        <e p="ParametersSerializer.cs" t="Include" />
+        <e p="ProcessHistoryItem.cs" t="Include" />
+        <e p="ProcessStatusChangedEventArgs.cs" t="Include" />
+        <e p="SchemaWasChangedEventArgs.cs" t="Include" />
+        <e p="StartingTransitionNotFoundEventArgs.cs" t="Include" />
+        <e p="TimerManager.cs" t="Include" />
+        <e p="WorkflowCommand.cs" t="Include" />
+        <e p="WorkflowErrorEventArgs.cs" t="Include" />
+        <e p="WorkflowRuntime.cs" t="Include" />
+        <e p="WorkflowRuntimeBulkApi.cs" t="Include" />
+        <e p="WorkflowRuntimeConfigurationExtension.cs" t="Include" />
+        <e p="WorkflowState.cs" t="Include" />
+        <e p="WorkflowSync.cs" t="Include" />
+      </e>
+      <e p="Subprocess" t="Include">
+        <e p="ProcessTree.cs" t="Include" />
+        <e p="SubprocessInfo.cs" t="Include" />
+        <e p="SubprocessUtils.cs" t="Include" />
+        <e p="TreeSearchFilter.cs" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>

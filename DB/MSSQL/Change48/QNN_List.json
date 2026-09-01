@@ -1,0 +1,867 @@
+[
+  {
+    "key": "container_6",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "bcList",
+        "data-buildertype": "breadcrumb",
+        "items": [
+          {
+            "divider": "right angle",
+            "text": "List",
+            "url": "/form/SwzListList"
+          },
+          {
+            "text": "Manage List",
+            "active": true
+          }
+        ],
+        "events": {
+          "onItemClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ]
+          }
+        }
+      }
+    ],
+    "style-float": "left",
+    "style-width": "100%"
+  },
+  {
+    "key": "container_9",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "headerPage",
+        "data-buildertype": "container",
+        "style-float": "left",
+        "style-marginTop": "",
+        "style-marginBottom": "",
+        "style-marginLeft": "",
+        "children": [
+          {
+            "key": "form_5",
+            "data-buildertype": "form",
+            "children": [
+              {
+                "key": "formgroup_1",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "headerName",
+                    "data-buildertype": "header",
+                    "content": "Manage {nameInput}",
+                    "size": "large",
+                    "subheader": "",
+                    "style-marginTop": "5px",
+                    "style-marginLeft": "",
+                    "style-source": "",
+                    "style-width": "300px",
+                    "events": {},
+                    "style-customcss": ""
+                  },
+                  {
+                    "key": "header_1",
+                    "data-buildertype": "header",
+                    "content": "",
+                    "size": "large",
+                    "subheader": "",
+                    "style-marginTop": "5px",
+                    "style-marginLeft": "",
+                    "style-source": "",
+                    "style-width": "300px",
+                    "events": {},
+                    "style-customcss": ""
+                  }
+                ]
+              }
+            ],
+            "style-marginLeft": "7px",
+            "style-customcss": ""
+          }
+        ],
+        "style-source": "",
+        "style-marginRight": "20px"
+      }
+    ],
+    "style-source": "",
+    "style-marginTop": "10px",
+    "style-marginBottom": "",
+    "style-marginLeft": "",
+    "style-float": "left",
+    "style-width": "",
+    "style-customcss": ""
+  },
+  {
+    "key": "container_10",
+    "data-buildertype": "container",
+    "style-source": "",
+    "style-height": "",
+    "children": []
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "container_12",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_8",
+                "data-buildertype": "container",
+                "style-float": "left",
+                "style-width": "100%",
+                "children": [
+                  {
+                    "key": "form_3",
+                    "data-buildertype": "form",
+                    "children": [
+                      {
+                        "key": "headerProperties",
+                        "data-buildertype": "header",
+                        "content": "Properties",
+                        "size": "medium"
+                      },
+                      {
+                        "key": "formgroup_5",
+                        "data-buildertype": "formgroup",
+                        "widths": "equal",
+                        "children": [
+                          {
+                            "key": "nameInput",
+                            "data-buildertype": "input",
+                            "label": "List Name",
+                            "fluid": true,
+                            "onChangeTimeout": 200,
+                            "type": "text",
+                            "readOnly": false,
+                            "events": {},
+                            "labelPosition": "",
+                            "style-width": "",
+                            "other-required": true
+                          }
+                        ]
+                      },
+                      {
+                        "key": "formgroup_7",
+                        "data-buildertype": "formgroup",
+                        "widths": "equal",
+                        "children": [
+                          {
+                            "key": "headerDescription",
+                            "data-buildertype": "textarea",
+                            "label": "List Description",
+                            "fluid": true,
+                            "other-required": false,
+                            "events": {}
+                          }
+                        ]
+                      },
+                      {
+                        "key": "formgroup_4",
+                        "data-buildertype": "formgroup",
+                        "widths": "equal",
+                        "children": [
+                          {
+                            "key": "dictionaryCategory",
+                            "data-buildertype": "dictionary",
+                            "label": "Category Name",
+                            "fluid": true,
+                            "selection": true,
+                            "dataModel": "QNN_CATEGORY",
+                            "columns": "Name ASC",
+                            "events": {},
+                            "filters": "[{\"column\":\"Type\", \"value\":\"L\", \"term\":\"=\"}]"
+                          },
+                          {
+                            "key": "TrkListIds",
+                            "data-buildertype": "dictionary",
+                            "label": "Track List",
+                            "fluid": true,
+                            "selection": true,
+                            "dataModel": "QNN_TRK_LIST",
+                            "columns": "Name ASC",
+                            "events": {},
+                            "multiple": true,
+                            "clearable": true,
+                            "style-hidden": false
+                          }
+                        ]
+                      },
+                      {
+                        "key": "formgroup_2",
+                        "data-buildertype": "formgroup",
+                        "widths": "equal",
+                        "children": [
+                          {
+                            "key": "toggleStatus",
+                            "data-buildertype": "checkbox",
+                            "label": "Status",
+                            "toggle": true,
+                            "events": {},
+                            "style-width": "300px"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "style-customcss": ""
+              }
+            ],
+            "style-width": "100%",
+            "style-float": "left"
+          },
+          {
+            "key": "container_13",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_2",
+                "data-buildertype": "container",
+                "style-float": "left",
+                "children": [
+                  {
+                    "key": "container_7",
+                    "data-buildertype": "container",
+                    "style-float": "",
+                    "style-width": "100%",
+                    "children": [
+                      {
+                        "key": "form_4",
+                        "data-buildertype": "form",
+                        "children": [
+                          {
+                            "key": "headerUser",
+                            "data-buildertype": "header",
+                            "content": "Records User Control",
+                            "size": "medium"
+                          },
+                          {
+                            "key": "formgroup_8",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "children": [
+                              {
+                                "key": "toggleEditName",
+                                "data-buildertype": "checkbox",
+                                "label": "Edit Name",
+                                "toggle": true
+                              }
+                            ]
+                          },
+                          {
+                            "key": "formgroup_3",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "children": [
+                              {
+                                "key": "toggleEditEmail",
+                                "data-buildertype": "checkbox",
+                                "label": "Edit Email",
+                                "toggle": true
+                              }
+                            ]
+                          },
+                          {
+                            "key": "formgroup_9",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "children": [
+                              {
+                                "key": "togglePassword",
+                                "data-buildertype": "checkbox",
+                                "label": "Edit Password",
+                                "toggle": true
+                              }
+                            ]
+                          }
+                        ],
+                        "style-source": "float:left"
+                      }
+                    ],
+                    "other-visibleConition": ""
+                  },
+                  {
+                    "key": "container_11",
+                    "data-buildertype": "container",
+                    "children": [],
+                    "style-float": "",
+                    "style-source": "clear:both",
+                    "style-customcss": "",
+                    "style-width": ""
+                  }
+                ],
+                "style-source": "",
+                "style-width": "100%",
+                "style-marginTop": "10px",
+                "style-hidden": true
+              }
+            ],
+            "style-width": "100%"
+          }
+        ]
+      },
+      {
+        "key": "container_4",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "header_2",
+            "data-buildertype": "header",
+            "content": "List Sample Properties",
+            "size": "medium"
+          },
+          {
+            "key": "collectioneditor_1",
+            "data-buildertype": "collectioneditor",
+            "idField": "Id",
+            "parentIdField": "ParentId",
+            "columns": [
+              {
+                "key": "Alias",
+                "name": "Alias",
+                "width": "",
+                "control": "input"
+              },
+              {
+                "key": "ReqdYN",
+                "name": "Reqd",
+                "control": "checkbox",
+                "width": "5%"
+              },
+              {
+                "key": "UsrEditYN",
+                "name": "UsrEdit",
+                "control": "checkbox",
+                "width": "5%"
+              },
+              {
+                "key": "TxtRow",
+                "name": "TxtRow",
+                "control": "number",
+                "width": "10%"
+              },
+              {
+                "key": "TxtRegExp",
+                "name": "TxtRegExp",
+                "width": "25%",
+                "control": "input"
+              },
+              {
+                "key": "TxtRegExpErr",
+                "name": "TxtRegExpErr",
+                "width": "20%",
+                "control": "input"
+              }
+            ],
+            "header": false,
+            "headerTitle": "List Sample Properties",
+            "hierarchical": false,
+            "placeholders": {
+              "Type": [
+                {
+                  "key": "Type",
+                  "data-buildertype": "input",
+                  "label": "",
+                  "fluid": true,
+                  "onChangeTimeout": 200,
+                  "readOnly": true,
+                  "defaultValue": "1",
+                  "style-hidden": false
+                }
+              ]
+            },
+            "events": {},
+            "style-width": "100%",
+            "style-customcss": "hmr-block",
+            "style-marginBottom": "20px"
+          }
+        ],
+        "style-customcss": "",
+        "style-width": "100%",
+        "style-source": "padding-top: 10px;\npadding-bottom: 10px;",
+        "style-hidden": false,
+        "other-visibleConition": "",
+        "style-float": "left"
+      },
+      {
+        "key": "container_5",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "btnSave",
+            "data-buildertype": "button",
+            "content": "Save",
+            "events": {
+              "onClick": {
+                "actions": [
+                  "processTrkList",
+                  "validate",
+                  "save",
+                  "goRecords"
+                ],
+                "active": true,
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "target",
+                    "value": "/form/SwzListList"
+                  }
+                ]
+              }
+            },
+            "primary": false,
+            "secondary": true
+          },
+          {
+            "key": "btnCancel",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "events": {
+              "onClick": {
+                "actions": [
+                  "exit",
+                  "redirect"
+                ],
+                "active": true,
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "target",
+                    "value": "/form/swzlistlist"
+                  }
+                ]
+              }
+            },
+            "secondary": true
+          }
+        ],
+        "style-float": "right",
+        "style-marginBottom": "1em"
+      }
+    ],
+    "style-width": ""
+  },
+  {
+    "key": "container_16",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "style-width": "100%",
+    "children": [
+      {
+        "key": "form_6",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "container_15",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "headerRecords",
+                "data-buildertype": "header",
+                "content": "Records ",
+                "size": "medium"
+              },
+              {
+                "key": "container_17",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnCreate2",
+                    "data-buildertype": "button",
+                    "content": "Create",
+                    "primary": true,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "newListSample"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "style-source": "float:left",
+                    "other-visibleConition": ""
+                  }
+                ],
+                "style-float": "left"
+              },
+              {
+                "key": "container_19",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btnDelete",
+                    "data-buildertype": "button",
+                    "content": "Delete",
+                    "primary": false,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "confirm",
+                          "deleteListSample",
+                          "gridRefresh"
+                        ],
+                        "targets": [
+                          "gridviewSample"
+                        ],
+                        "parameters": [
+                          {
+                            "name": "confirmTitle",
+                            "value": "deleteListSampleConfirmTitle"
+                          },
+                          {
+                            "name": "confirmText",
+                            "value": "deleteListSampleConfirmText"
+                          }
+                        ]
+                      }
+                    },
+                    "style-source": "float:left",
+                    "secondary": true,
+                    "other-visibleConition": ""
+                  }
+                ],
+                "style-float": "left"
+              },
+              {
+                "key": "container_3",
+                "data-buildertype": "container",
+                "style-float": "left",
+                "children": [
+                  {
+                    "key": "modalImportSample",
+                    "data-buildertype": "swzmodal",
+                    "style-display": "none",
+                    "children": [
+                      {
+                        "key": "form_7",
+                        "data-buildertype": "form",
+                        "children": [
+                          {
+                            "key": "formgroup_6",
+                            "data-buildertype": "formgroup",
+                            "widths": "equal",
+                            "children": [
+                              {
+                                "key": "header_5",
+                                "data-buildertype": "header",
+                                "content": "Import Sample",
+                                "size": "small",
+                                "subheader": "CSV Format.. "
+                              }
+                            ]
+                          },
+                          {
+                            "key": "inputPassword",
+                            "data-buildertype": "input",
+                            "label": "Password",
+                            "fluid": true,
+                            "onChangeTimeout": 200,
+                            "type": "password"
+                          },
+                          {
+                            "key": "container_21",
+                            "data-buildertype": "container",
+                            "children": [
+                              {
+                                "key": "inputImportListSample",
+                                "data-buildertype": "input",
+                                "label": "",
+                                "fluid": true,
+                                "onChangeTimeout": 200,
+                                "type": "file",
+                                "events": {
+                                  "onChange": {
+                                    "active": true,
+                                    "actions": [
+                                      "hideMessages"
+                                    ],
+                                    "targets": [],
+                                    "parameters": []
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "key": "headerSampleAdded",
+                            "data-buildertype": "header",
+                            "content": "Sample Added: {sampleAddedCount}",
+                            "size": "small",
+                            "events": {},
+                            "style-hidden": true,
+                            "other-visibleConition": "data.sampleAddedCount!=null"
+                          },
+                          {
+                            "key": "headerSampleUpdated",
+                            "data-buildertype": "header",
+                            "content": "Sample Updated: {sampleUpdatedCount}",
+                            "size": "small",
+                            "events": {},
+                            "style-hidden": true,
+                            "other-visibleConition": "data.sampleUpdatedCount!= null"
+                          },
+                          {
+                            "key": "headerListSampleAdded",
+                            "data-buildertype": "header",
+                            "content": "List Sample Added: {listSampleAddedCount}",
+                            "size": "small",
+                            "events": {},
+                            "style-hidden": false,
+                            "other-visibleConition": "data.listSampleAddedCount!=null"
+                          },
+                          {
+                            "key": "headerListSampleUpdated",
+                            "data-buildertype": "header",
+                            "content": "List Sample Updated: {listSampleUpdatedCount}",
+                            "size": "small",
+                            "events": {},
+                            "style-hidden": false,
+                            "other-visibleConition": "data.listSampleUpdatedCount!= null"
+                          },
+                          {
+                            "key": "gridviewImportSummary",
+                            "data-buildertype": "gridview",
+                            "columns": [
+                              {
+                                "key": "RowNo",
+                                "name": "RowNo",
+                                "sortable": true,
+                                "filterable": false,
+                                "resizable": false
+                              },
+                              {
+                                "key": "UID",
+                                "name": "UID",
+                                "sortable": true,
+                                "filterable": false,
+                                "resizable": false
+                              },
+                              {
+                                "key": "ErrField",
+                                "name": "ErrField",
+                                "sortable": true,
+                                "filterable": false,
+                                "resizable": false
+                              },
+                              {
+                                "key": "ErrMsg",
+                                "name": "ErrMsg",
+                                "sortable": true,
+                                "filterable": false,
+                                "resizable": false
+                              }
+                            ],
+                            "style-hidden": false,
+                            "events": {},
+                            "other-visibleConition": "data.gridviewImportSummary!= null && data.gridviewImportSummary!=undefined",
+                            "rowKey": "RowNo",
+                            "minHeight": "150"
+                          },
+                          {
+                            "key": "container_14",
+                            "data-buildertype": "container",
+                            "children": [
+                              {
+                                "key": "button_7",
+                                "data-buildertype": "button",
+                                "content": "Submit",
+                                "primary": true,
+                                "events": {
+                                  "onClick": {
+                                    "active": true,
+                                    "actions": [
+                                      "submitFile"
+                                    ],
+                                    "targets": [
+                                      "gridviewSample"
+                                    ],
+                                    "parameters": []
+                                  }
+                                }
+                              },
+                              {
+                                "key": "button_8",
+                                "data-buildertype": "button",
+                                "content": "Cancel",
+                                "secondary": true,
+                                "events": {
+                                  "onClick": {
+                                    "active": true,
+                                    "actions": [
+                                      "closeModal"
+                                    ],
+                                    "targets": [],
+                                    "parameters": []
+                                  }
+                                }
+                              }
+                            ],
+                            "style-float": "right",
+                            "style-source": "padding: 1em\n"
+                          }
+                        ]
+                      }
+                    ],
+                    "style-source": "float:left",
+                    "events": {
+                      "onClick": {
+                        "active": false,
+                        "actions": [],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "content": "Import",
+                    "primary": false,
+                    "size": "",
+                    "secondary": true,
+                    "compact": false,
+                    "other-customValidation": "",
+                    "other-visibleConition": ""
+                  }
+                ]
+              },
+              {
+                "key": "container_20",
+                "data-buildertype": "container",
+                "style-float": "left",
+                "children": [
+                  {
+                    "key": "button_1",
+                    "data-buildertype": "button",
+                    "content": "Export",
+                    "primary": false,
+                    "size": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "exportSample"
+                        ],
+                        "targets": [
+                          "gridviewSample"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "style-source": "float:left",
+                    "secondary": true,
+                    "other-visibleConition": ""
+                  }
+                ]
+              },
+              {
+                "key": "container_18",
+                "data-buildertype": "container",
+                "children": [],
+                "style-float": "left"
+              }
+            ],
+            "style-width": "",
+            "style-float": "left",
+            "style-marginRight": "1em",
+            "style-source": "",
+            "style-marginBottom": "1em",
+            "style-marginTop": "",
+            "events": {},
+            "other-visibleConition": "data.Id?true:false"
+          }
+        ]
+      }
+    ],
+    "style-hidden": false,
+    "events": {},
+    "other-visibleConition": "data.Id!=null"
+  },
+  {
+    "key": "gridviewSample",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "UID",
+        "name": "UID",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "width": ""
+      },
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "width": ""
+      },
+      {
+        "key": "Email",
+        "name": "Email",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "width": ""
+      },
+      {
+        "key": "PeerUID",
+        "name": "Peer UID",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "width": ""
+      },
+      {
+        "key": "PeerName",
+        "name": "Peer Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "width": ""
+      }
+    ],
+    "autoHeight": false,
+    "offSet": "",
+    "multiselect": true,
+    "rowKey": "Id",
+    "defaultSort": "UID ASC",
+    "events": {
+      "onRowClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onRowDblClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "pagerType": "server",
+    "editFormShowType": "",
+    "minHeight": "",
+    "style-marginTop": "",
+    "editForm": "QNN_LIST_SAMPLE",
+    "style-hidden": false
+  }
+]

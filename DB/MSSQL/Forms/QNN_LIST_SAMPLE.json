@@ -1,0 +1,118 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "header_1",
+            "data-buildertype": "header",
+            "content": "Manage Sample",
+            "size": "large",
+            "events": {}
+          },
+          {
+            "key": "DictionaryListName",
+            "data-buildertype": "dictionary",
+            "label": "List Title",
+            "fluid": true,
+            "selection": true,
+            "columns": "Name ASC",
+            "dataModel": "QNN_LIST",
+            "events": {},
+            "other-required": true,
+            "other-readOnlyConition": "true",
+            "paging": true,
+            "pageSize": "20",
+            "filters": ""
+          },
+          {
+            "key": "dictionarySample",
+            "data-buildertype": "dictionary",
+            "label": "Sample",
+            "fluid": true,
+            "selection": true,
+            "columns": "UID ASC",
+            "dataModel": "vSP_QnnSampleActive",
+            "events": {},
+            "other-required": false,
+            "other-readOnlyConition": "data.Id!=null",
+            "search": true,
+            "paging": true,
+            "pageSize": "20",
+            "other-customValidation": "value!='00000000-0000-0000-0000-000000000000' ?true:'Sample is requried'",
+            "filters": ""
+          },
+          {
+            "key": "ActiveYN",
+            "data-buildertype": "checkbox",
+            "label": "Active Status",
+            "toggle": true
+          },
+          {
+            "key": "customBlockSampleProps",
+            "data-buildertype": "customblock",
+            "sourceType": "source",
+            "source": "[]",
+            "style-marginBottom": "1em"
+          }
+        ]
+      },
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "btnSave",
+            "data-buildertype": "button",
+            "content": "Save",
+            "events": {
+              "onClick": {
+                "actions": [
+                  "saveProp"
+                ],
+                "active": true,
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "primary": true
+          },
+          {
+            "key": "btnExit",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "events": {
+              "onClick": {
+                "actions": [
+                  "goBack"
+                ],
+                "active": true,
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "target",
+                    "value": "/form/SwzListList"
+                  }
+                ]
+              }
+            },
+            "primary": false,
+            "secondary": true
+          }
+        ],
+        "style-float": "left",
+        "events": {},
+        "style-source": "",
+        "style-marginBottom": "1em"
+      }
+    ],
+    "style-width": "700px",
+    "style-source": "clear: both;\nmaxWidth: 1050;\n",
+    "style-marginTop": "10px",
+    "style-customcss": ""
+  }
+]

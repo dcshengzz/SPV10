@@ -1,0 +1,347 @@
+[
+  {
+    "key": "container_5",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_6",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "pageHeader",
+            "data-buildertype": "header",
+            "content": "Lists",
+            "size": "huge",
+            "textAlign": "left",
+            "style-marginTop": "",
+            "style-source": "padding-top:20px;",
+            "style-marginLeft": "",
+            "style-width": "250px",
+            "events": {}
+          }
+        ],
+        "style-marginBottom": "10px"
+      },
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "style-float": "left",
+        "children": [
+          {
+            "key": "button_3",
+            "data-buildertype": "button",
+            "content": "Export",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "gridExport"
+                ],
+                "targets": [
+                  "gridviewwithactions_1"
+                ],
+                "parameters": []
+              }
+            },
+            "style-hidden": true,
+            "secondary": true
+          },
+          {
+            "key": "btnCreate",
+            "data-buildertype": "button",
+            "content": "Create",
+            "style-customcss": "",
+            "primary": true,
+            "events-onClick": true,
+            "events-onClick-actions": [
+              "gridAdd"
+            ],
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "gridCreate"
+                ],
+                "targets": [
+                  "grid"
+                ],
+                "parameters": []
+              }
+            },
+            "other-visibleConition": "",
+            "style-source": "float:left"
+          },
+          {
+            "key": "button_1",
+            "data-buildertype": "button",
+            "content": "Delete",
+            "style-customcss": "",
+            "primary": false,
+            "events-onClick": true,
+            "events-onClick-actions": [
+              "gridAdd"
+            ],
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "confirm",
+                  "gridDelete"
+                ],
+                "targets": [
+                  "grid"
+                ],
+                "parameters": []
+              }
+            },
+            "other-visibleConition": "",
+            "style-source": "float:left",
+            "inverted": false,
+            "secondary": true,
+            "compact": false
+          },
+          {
+            "key": "container_4",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "importModal",
+                "data-buildertype": "swzmodal",
+                "style-source": "",
+                "secondary": true,
+                "content": "Import",
+                "style-display": "none",
+                "children": [
+                  {
+                    "key": "form_1",
+                    "data-buildertype": "form",
+                    "children": [
+                      {
+                        "key": "header_1",
+                        "data-buildertype": "header",
+                        "content": "Import List",
+                        "size": "medium",
+                        "events": {},
+                        "other-visibleConition": ""
+                      },
+                      {
+                        "key": "listName",
+                        "data-buildertype": "input",
+                        "label": "List Name",
+                        "fluid": true,
+                        "onChangeTimeout": 200
+                      },
+                      {
+                        "key": "listFile",
+                        "data-buildertype": "input",
+                        "label": "",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "type": "file",
+                        "style-marginTop": "10px"
+                      },
+                      {
+                        "key": "sampleAdded",
+                        "data-buildertype": "header",
+                        "content": "Samples added: {sampleAdded}",
+                        "size": "small",
+                        "events": {},
+                        "other-visibleConition": "(data.sampleAdded!= null && data.sampleAdded!= undefined)"
+                      },
+                      {
+                        "key": "sampleUpdated",
+                        "data-buildertype": "header",
+                        "content": "Samples updated: {sampleUpdated}",
+                        "size": "small",
+                        "events": {},
+                        "other-visibleConition": "(data.sampleUpdated!= null && data.sampleUpdated!= undefined)"
+                      },
+                      {
+                        "key": "container_7",
+                        "data-buildertype": "container",
+                        "style-float": "right",
+                        "children": [
+                          {
+                            "key": "btnImportCancel",
+                            "data-buildertype": "button",
+                            "content": "Cancel",
+                            "style-customcss": "",
+                            "primary": false,
+                            "events-onClick": true,
+                            "events-onClick-actions": [
+                              "gridAdd"
+                            ],
+                            "events": {
+                              "onClick": {
+                                "active": true,
+                                "actions": [
+                                  "closeModal"
+                                ],
+                                "targets": [],
+                                "parameters": []
+                              }
+                            },
+                            "other-visibleConition": "",
+                            "style-source": "float: right;",
+                            "inverted": false,
+                            "secondary": true
+                          },
+                          {
+                            "key": "btnImportSave",
+                            "data-buildertype": "button",
+                            "content": "Save",
+                            "style-customcss": "",
+                            "primary": true,
+                            "events-onClick": true,
+                            "events-onClick-actions": [
+                              "gridAdd"
+                            ],
+                            "events": {
+                              "onClick": {
+                                "active": true,
+                                "actions": [
+                                  "submitFile"
+                                ],
+                                "targets": [],
+                                "parameters": []
+                              }
+                            },
+                            "other-visibleConition": "",
+                            "style-source": "float: right;"
+                          }
+                        ],
+                        "style-marginRight": "",
+                        "style-width": "100%",
+                        "style-marginBottom": "10px"
+                      }
+                    ]
+                  }
+                ],
+                "size": "",
+                "other-visibleConition": "CloverApp.API.checkRole('Admins')"
+              }
+            ],
+            "style-float": "left"
+          },
+          {
+            "key": "container_3",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_1",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "inputSearch",
+                    "data-buildertype": "input",
+                    "label": "",
+                    "fluid": true,
+                    "onChangeTimeout": "",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "setFilter",
+                          "applyFilter"
+                        ],
+                        "targets": [
+                          "grid"
+                        ],
+                        "parameters": [
+                          {
+                            "name": "column",
+                            "value": "*"
+                          }
+                        ]
+                      }
+                    },
+                    "placeholder": "Search..."
+                  }
+                ],
+                "style-float": "left",
+                "style-width": "300px"
+              }
+            ],
+            "style-float": "left"
+          }
+        ],
+        "style-marginRight": "20px",
+        "style-width": "100%"
+      }
+    ],
+    "style-float": "left",
+    "style-width": "100%",
+    "style-marginBottom": "1em"
+  },
+  {
+    "key": "grid",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "Category",
+        "name": "Category",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "SampleCount",
+        "name": "No. Of Records",
+        "type": "number",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "UpdatedDate",
+        "name": "Date Modified",
+        "type": "datetime",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "Status",
+        "name": "Status",
+        "type": "checkbox",
+        "sortable": false,
+        "filterable": false,
+        "resizable": false
+      }
+    ],
+    "rowKey": "Id",
+    "pageSize": "50",
+    "defaultSort": "NumberId DESC",
+    "pagerType": "server",
+    "multiselect": true,
+    "disableSort": true,
+    "editForm": "QNN_LIST",
+    "events": {
+      "onRowDblClick": {
+        "active": false,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onRowClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "rowHeight": "80",
+    "minHeight": "500"
+  }
+]

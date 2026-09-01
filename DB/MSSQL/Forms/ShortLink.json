@@ -1,0 +1,227 @@
+[
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Short Link",
+        "size": "huge"
+      },
+      {
+        "key": "Name",
+        "data-buildertype": "input",
+        "label": "Name",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "other-required": true,
+        "other-customValidation": "(value!=null && value.length>0 && value.length<=300) ? true : \"must be <=300 characters in length!\"",
+        "style-width": ""
+      },
+      {
+        "key": "Description",
+        "data-buildertype": "textarea",
+        "label": "Description",
+        "fluid": true,
+        "rows": "3",
+        "style-width": "",
+        "reference": "Description",
+        "other-customValidation": "((value==null) || (value.length <= 2048)) ? true : \"must be <=2048 characters in length!\""
+      },
+      {
+        "key": "formgroup_1",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "children": [
+          {
+            "key": "Status",
+            "data-buildertype": "checkbox",
+            "label": "Active",
+            "defaultValue": "1"
+          },
+          {
+            "key": "IsEnhancedSecurity",
+            "data-buildertype": "checkbox",
+            "label": "Enhanced Security",
+            "toggle": true,
+            "defaultValue": "1"
+          }
+        ]
+      },
+      {
+        "key": "container_action",
+        "data-buildertype": "container",
+        "style-source": "border: 1px solid black;\npadding: 20px;",
+        "children": [
+          {
+            "key": "header_2",
+            "data-buildertype": "header",
+            "content": "Link Action",
+            "size": "small"
+          },
+          {
+            "key": "LinkType",
+            "data-buildertype": "radiogroup",
+            "label": "",
+            "data-elements": [
+              {
+                "key": 1,
+                "value": "Anonymous",
+                "text": "Link to Anonymous Survey"
+              },
+              {
+                "key": 2,
+                "value": "Url",
+                "text": "Link to URL"
+              }
+            ],
+            "direction": "g",
+            "defaultValue": "",
+            "events": {
+              "onChange": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "other-required": true,
+            "reference": "Type"
+          },
+          {
+            "key": "formgroup_deploymentDetails",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "children": [
+              {
+                "key": "DplyId",
+                "data-buildertype": "dictionary",
+                "label": "Deployment",
+                "fluid": true,
+                "selection": true,
+                "other-visibleConition": "",
+                "columns": "Name ASC",
+                "dataModel": "QNN_DPLY",
+                "filters": "[ { \"column\" : \"IsAnonymous\" , \"value\" : \"1\" , \"term\" : \"=\" } ]",
+                "search": true,
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "updateFormChoices"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "other-customValidation": "((\"Anonymous\" != data.LinkType) || (\"Anonymous\"==data.LinkType && value != null && value != \"\")) ? true : \"is required!\"",
+                "reference": "Deployment",
+                "placeholder": "Select an Anonymous Survey"
+              },
+              {
+                "key": "FormName",
+                "data-buildertype": "dropdown",
+                "label": "Form",
+                "fluid": true,
+                "selection": true,
+                "data-elements": [],
+                "other-customValidation": "((\"Anonymous\" != data.LinkType) || (\"Anonymous\"==data.LinkType && value != null && value != \"\")) ? true : \"is required!\"",
+                "other-required": false,
+                "reference": "Form",
+                "placeholder": "Select the Form / Language"
+              }
+            ],
+            "other-visibleConition": "(\"Anonymous\"==data.LinkType)"
+          },
+          {
+            "key": "formgroup_urlDetails",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "children": [
+              {
+                "key": "Url",
+                "data-buildertype": "input",
+                "label": "URL",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "other-visibleConition": "",
+                "other-customValidation": "(\"Url\" != data.LinkType) || ( (\"Url\" == data.LinkType) && (value != null) && (value.trim().length>0 && value.length <= 1024)) ? true : \"is required and must be <=1024 characters in length!\"",
+                "placeholder": "https://www.example.com/"
+              }
+            ],
+            "other-visibleConition": "(\"Url\"==data.LinkType)"
+          }
+        ],
+        "style-marginBottom": "20px",
+        "style-marginTop": "20px"
+      },
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "btnSave",
+            "data-buildertype": "button",
+            "content": "Save",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "cleanup",
+                  "validate",
+                  "save",
+                  "init"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "primary": true
+          },
+          {
+            "key": "btnCancel",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "secondary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "redirect"
+                ],
+                "targets": [],
+                "parameters": [
+                  {
+                    "name": "target",
+                    "value": "/form/ShortLinkList"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "style-float": "left",
+        "style-marginBottom": "20px"
+      }
+    ]
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "shortLinkQrCode",
+        "data-buildertype": "staticcontent",
+        "content": "",
+        "isHtml": true,
+        "isPre": true,
+        "fetchData": true
+      }
+    ],
+    "style-source": "clear: both;",
+    "style-marginTop": "20px",
+    "style-marginBottom": "20px",
+    "style-float": ""
+  }
+]

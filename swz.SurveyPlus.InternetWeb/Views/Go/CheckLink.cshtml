@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "_Layout";
+}
+<head>
+
+    <link href="~/css/sgds.css?ver=1785" rel="stylesheet" />
+    <style>
+        #parent {
+            position: relative;
+            height: calc(100vh - 80px);
+            background: #F9F9F9;
+        }
+
+        #child {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20%;
+            right: 20%;
+            height: 50%;
+            margin: auto;
+            z-index: 1000;
+        }
+
+        #content {
+            background: #FFFFFF;
+            box-shadow: 0 4px 24px 0 rgba(45,45,45,0.20);
+            border-radius: 2px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            text-align: center;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+
+<div id="parent">
+    <div id="child">
+        <div id="content">
+            <h1>Incorrect Address</h1>
+            <p>
+                Sorry, the link <b style="color: darkblue; font-size: larger;">@Context.Request.Host@Context.Request.Path</b> is not correct.
+            </p>
+            <p>
+                Please check the web page address you were given and try again.
+            </p>
+        </div>
+    </div>
+</div>
+
+

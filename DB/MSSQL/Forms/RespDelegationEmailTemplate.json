@@ -1,0 +1,18 @@
+[
+  {
+    "key": "subject",
+    "data-buildertype": "staticcontent",
+    "content": "Survey Access Code",
+    "isHtml": true
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container"
+  },
+  {
+    "key": "body",
+    "data-buildertype": "staticcontent",
+    "content": "<p>Hi {Name},</p>\n<p><b>{QnnTitle}</b></p>\n<p>\n{Comments}\n</p>\n<p>\nThe survey access code is: {AccessCode}<br/>\nThis survey access code is valid from {ValidityStart} until {ValidityEnd}<br/>\n</p>\n<p>Delegate by {FromName}</p>",
+    "isHtml": true
+  }
+]

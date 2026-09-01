@@ -1,0 +1,30 @@
+﻿CREATE TABLE [dbo].[QNN_SAMPLE_ADDRESS] (
+    [Id]               UNIQUEIDENTIFIER NOT NULL,
+    [NumberId]         INT              IDENTITY (1, 1) NOT NULL,
+    [SampleId]         UNIQUEIDENTIFIER NOT NULL,
+    [StructDivisionId] UNIQUEIDENTIFIER NULL,
+    [CreatedBy]        UNIQUEIDENTIFIER NULL,
+    [CreatedDate]      DATETIME         CONSTRAINT [DF_QNN_SAMPLE_ADDRESS_CreatedDate] DEFAULT (getdate()) NOT NULL,
+    [UpdatedDate]      DATETIME         NULL,
+    [UpdatedBy]        UNIQUEIDENTIFIER NULL,
+    [ToEmails]         NVARCHAR (MAX)   CONSTRAINT [DF_QNN_SAMPLE_ADDRESS_ToEmails] DEFAULT ('') NOT NULL,
+    [CcEmails]         NVARCHAR (MAX)   CONSTRAINT [DF_QNN_SAMPLE_ADDRESS_CcEmails] DEFAULT ('') NOT NULL,
+    [AddressLine1]     NVARCHAR (64)    CONSTRAINT [DF_QNN_SAMPLE_ADDRESS_AddressLine1] DEFAULT ('') NOT NULL,
+    [AddressLine2]     NVARCHAR (64)    CONSTRAINT [DF_QNN_SAMPLE_ADDRESS_AddressLine2] DEFAULT ('') NOT NULL,
+    [AddressLine3]     NVARCHAR (64)    CONSTRAINT [DF_QNN_SAMPLE_ADDRESS_AdddressLine3] DEFAULT ('') NOT NULL,
+    CONSTRAINT [PK_QNN_SAMPLE_ADDRESS] PRIMARY KEY CLUSTERED ([Id] ASC) WITH (FILLFACTOR = 80),
+    CONSTRAINT [FK_QNN_SAMPLE_ADDRESS_QNN_SAMPLE] FOREIGN KEY ([SampleId]) REFERENCES [dbo].[QNN_SAMPLE] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_QNN_SAMPLE_ADDRESS_StructDivision] FOREIGN KEY ([StructDivisionId]) REFERENCES [dbo].[StructDivision] ([Id]) ON DELETE SET NULL,
+    CONSTRAINT [UQ_QNN_SAMPLE_ADDRESS_SampleId_StructDivisionId] UNIQUE NONCLUSTERED ([SampleId] ASC, [StructDivisionId] ASC) WITH (FILLFACTOR = 80)
+);
+
+
+
+
+
+
+GO
+CREATE NONCLUSTERED INDEX [IDX_SampleId_includes]
+    ON [dbo].[QNN_SAMPLE_ADDRESS]([SampleId] ASC)
+    INCLUDE([StructDivisionId], [ToEmails], [CcEmails], [AddressLine1], [AddressLine2], [AddressLine3]) WITH (FILLFACTOR = 80);
+

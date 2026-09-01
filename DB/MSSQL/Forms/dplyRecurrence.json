@@ -1,0 +1,1036 @@
+[
+  {
+    "key": "frm_Recurrence",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Recurring Deployment Settings",
+        "size": "medium"
+      },
+      {
+        "key": "Name",
+        "data-buildertype": "input",
+        "label": "Deployment",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "readOnly": true
+      },
+      {
+        "key": "DateStart",
+        "data-buildertype": "input",
+        "label": "Original Deployment Start",
+        "fluid": true,
+        "onChangeTimeout": 200,
+        "type": "datetime",
+        "readOnly": true
+      },
+      {
+        "key": "formgroup_2",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "orientation": "grouped",
+        "children": [
+          {
+            "key": "message_1",
+            "data-buildertype": "message",
+            "header": "Recurrent Child Deployment",
+            "content": "This deployment was created as a recurrence of a parent deployment and may not have its own recurrent settings. Please edit settings on the parent.",
+            "other-visibleConition": "",
+            "warning": false,
+            "info": true
+          },
+          {
+            "key": "container_1",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "buttonCancel2",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "redirectToForm"
+                    ],
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "name": "formName",
+                        "value": "QNN_DPLY"
+                      }
+                    ]
+                  }
+                },
+                "style-marginRight": "20px"
+              },
+              {
+                "key": "buttonOpenParent",
+                "data-buildertype": "button",
+                "content": "Open Parent Deployment",
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "navigateParentDeployment"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "secondary": true
+              }
+            ],
+            "style-width": "100%",
+            "style-marginTop": "20px"
+          }
+        ],
+        "other-visibleConition": "!(data.RecurrenceOfDplyId===undefined || data.RecurrenceOfDplyId===null)"
+      },
+      {
+        "key": "cnt_Content",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "RecurrenceEnabled",
+            "data-buildertype": "checkbox",
+            "label": "Enable Recurring Deployments",
+            "toggle": true,
+            "other-readOnlyConition": "!(data.RecurrenceOfDplyId===undefined || data.RecurrenceOfDplyId===null)"
+          },
+          {
+            "key": "fg_RecurrenceSettings",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "orientation": "grouped",
+            "children": [
+              {
+                "key": "RecurrenceFrequency",
+                "data-buildertype": "dropdown",
+                "label": "Frequency",
+                "fluid": true,
+                "selection": true,
+                "data-elements": [
+                  {
+                    "value": "DAILY",
+                    "text": "Daily"
+                  },
+                  {
+                    "value": "WEEKLY",
+                    "text": "Weekly"
+                  },
+                  {
+                    "value": "MONTHLY",
+                    "text": "Monthly"
+                  },
+                  {
+                    "value": "QUARTERLY",
+                    "text": "Quarterly"
+                  },
+                  {
+                    "value": "HALF_YEARLY",
+                    "text": "Half Yearly"
+                  },
+                  {
+                    "value": "ANNUALLY",
+                    "text": "Annually"
+                  },
+                  {
+                    "value": "BIENNIALLY",
+                    "text": "Biennially"
+                  },
+                  {
+                    "value": "CUSTOM",
+                    "text": "Custom"
+                  }
+                ],
+                "placeholder": "Select frequency of recurrence",
+                "style-width": "300px",
+                "other-customValidation": "!data.RecurrenceEnabled || (value!==undefined&&value!==null&&value!==\"\") ? true : \" is required\"",
+                "style-source": ""
+              },
+              {
+                "key": "container_3",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "header_5",
+                    "data-buildertype": "header",
+                    "content": "Custom Frequency",
+                    "size": "small",
+                    "textAlign": "left"
+                  },
+                  {
+                    "key": "container_5",
+                    "data-buildertype": "container",
+                    "children": [
+                      {
+                        "key": "SelectedCustomFrequencyId",
+                        "data-buildertype": "input",
+                        "label": "Input",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "style-hidden": true
+                      },
+                      {
+                        "key": "customFrequencyModal",
+                        "data-buildertype": "swzmodal",
+                        "other-visibleConition": "data.RecurrenceFrequency === 'CUSTOM'",
+                        "content": "Add",
+                        "style-display": "none",
+                        "children": [
+                          {
+                            "key": "form_1",
+                            "data-buildertype": "form",
+                            "children": [
+                              {
+                                "key": "header_4",
+                                "data-buildertype": "header",
+                                "content": "Custom Frequency",
+                                "size": "medium"
+                              },
+                              {
+                                "key": "CustomFrequencyType",
+                                "data-buildertype": "dropdown",
+                                "label": "",
+                                "fluid": false,
+                                "selection": true,
+                                "data-elements": [
+                                  {
+                                    "value": "EXACT DATE",
+                                    "text": "Specific date"
+                                  },
+                                  {
+                                    "key": 1,
+                                    "value": "N DAY N MONTH",
+                                    "text": "N Day of N Month"
+                                  },
+                                  {
+                                    "value": "N WEEK N MONTH",
+                                    "text": "N Week of N Month"
+                                  },
+                                  {
+                                    "key": 2,
+                                    "value": "N DAY EACH MONTH",
+                                    "text": "N Day of Every Month"
+                                  },
+                                  {
+                                    "value": "N WEEK EACH MONTH",
+                                    "text": "N Week of Every Month"
+                                  },
+                                  {
+                                    "key": 3,
+                                    "value": "N LAST DAY N MONTH",
+                                    "text": "Last N Day of N Month"
+                                  },
+                                  {
+                                    "value": "N LAST WEEK N MONTH",
+                                    "text": "Last N Week of N Month"
+                                  },
+                                  {
+                                    "value": "N LAST DAY EACH MONTH",
+                                    "text": "Last N Day of Every Month"
+                                  },
+                                  {
+                                    "value": "N LAST WEEK EACH MONTH",
+                                    "text": "Last N Week of Every Month"
+                                  }
+                                ],
+                                "events": {},
+                                "style-width": "300px",
+                                "style-source": "",
+                                "placeholder": "Select custom frequency type",
+                                "other-visibleConition": ""
+                              },
+                              {
+                                "key": "CustomFrequencyDate",
+                                "data-buildertype": "input",
+                                "label": "Exact Date",
+                                "fluid": true,
+                                "onChangeTimeout": 200,
+                                "type": "date",
+                                "other-visibleConition": "data.CustomFrequencyType === 'EXACT DATE'",
+                                "style-width": "",
+                                "size": "",
+                                "style-source": "",
+                                "events": {},
+                                "style-marginBottom": ""
+                              },
+                              {
+                                "key": "customFrequencyDateSpacing",
+                                "data-buildertype": "container",
+                                "other-visibleConition": "data.CustomFrequencyType === 'EXACT DATE'",
+                                "style-marginBottom": "250px"
+                              },
+                              {
+                                "key": "formgroup_4",
+                                "data-buildertype": "formgroup",
+                                "widths": "custom",
+                                "children": [
+                                  {
+                                    "key": "CustomFrequencyDay",
+                                    "data-buildertype": "dropdown",
+                                    "label": "Day",
+                                    "fluid": true,
+                                    "selection": true,
+                                    "data-elements": [
+                                      {
+                                        "value": "1",
+                                        "text": "1"
+                                      },
+                                      {
+                                        "value": "2",
+                                        "text": "2"
+                                      },
+                                      {
+                                        "value": "3",
+                                        "text": "3"
+                                      },
+                                      {
+                                        "value": "4",
+                                        "text": "4"
+                                      },
+                                      {
+                                        "value": "5",
+                                        "text": "5"
+                                      },
+                                      {
+                                        "value": "6",
+                                        "text": "6"
+                                      },
+                                      {
+                                        "value": "7",
+                                        "text": "7"
+                                      },
+                                      {
+                                        "value": "8",
+                                        "text": "8"
+                                      },
+                                      {
+                                        "value": "9",
+                                        "text": "9"
+                                      },
+                                      {
+                                        "value": "10",
+                                        "text": "10"
+                                      },
+                                      {
+                                        "value": "11",
+                                        "text": "11"
+                                      },
+                                      {
+                                        "value": "12",
+                                        "text": "12"
+                                      },
+                                      {
+                                        "value": "13",
+                                        "text": "13"
+                                      },
+                                      {
+                                        "value": "14",
+                                        "text": "14"
+                                      },
+                                      {
+                                        "value": "15",
+                                        "text": "15"
+                                      },
+                                      {
+                                        "value": "16",
+                                        "text": "16"
+                                      },
+                                      {
+                                        "value": "17",
+                                        "text": "17"
+                                      },
+                                      {
+                                        "value": "18",
+                                        "text": "18"
+                                      },
+                                      {
+                                        "value": "19",
+                                        "text": "19"
+                                      },
+                                      {
+                                        "value": "20",
+                                        "text": "20"
+                                      },
+                                      {
+                                        "value": "21",
+                                        "text": "21"
+                                      },
+                                      {
+                                        "value": "22",
+                                        "text": "22"
+                                      },
+                                      {
+                                        "value": "23",
+                                        "text": "23"
+                                      },
+                                      {
+                                        "value": "24",
+                                        "text": "24"
+                                      },
+                                      {
+                                        "value": "25",
+                                        "text": "25"
+                                      },
+                                      {
+                                        "value": "26",
+                                        "text": "26"
+                                      },
+                                      {
+                                        "value": "27",
+                                        "text": "27"
+                                      },
+                                      {
+                                        "value": "28",
+                                        "text": "28"
+                                      },
+                                      {
+                                        "value": "29",
+                                        "text": "29"
+                                      },
+                                      {
+                                        "value": "30",
+                                        "text": "30"
+                                      },
+                                      {
+                                        "value": "31",
+                                        "text": "31"
+                                      }
+                                    ],
+                                    "placeholder": "Select Day",
+                                    "style-width": "300px",
+                                    "other-visibleConition": "data.CustomFrequencyType === 'N DAY N MONTH' || data.CustomFrequencyType === 'N DAY EACH MONTH' || data.CustomFrequencyType === 'N LAST DAY N MONTH' || data.CustomFrequencyType === 'N LAST DAY EACH MONTH'"
+                                  },
+                                  {
+                                    "key": "CustomFrequencyWeek",
+                                    "data-buildertype": "dropdown",
+                                    "label": "Week",
+                                    "fluid": true,
+                                    "selection": true,
+                                    "data-elements": [
+                                      {
+                                        "value": "1",
+                                        "text": "1"
+                                      },
+                                      {
+                                        "value": "2",
+                                        "text": "2"
+                                      },
+                                      {
+                                        "value": "3",
+                                        "text": "3"
+                                      },
+                                      {
+                                        "value": "4",
+                                        "text": "4"
+                                      },
+                                      {
+                                        "value": "5",
+                                        "text": "5"
+                                      },
+                                      {
+                                        "value": "6",
+                                        "text": "6"
+                                      }
+                                    ],
+                                    "style-width": "300px",
+                                    "style-customcss": "",
+                                    "events": {},
+                                    "other-visibleConition": "data.CustomFrequencyType === 'N WEEK N MONTH' || data.CustomFrequencyType === 'N WEEK EACH MONTH' || data.CustomFrequencyType === 'N LAST WEEK N MONTH' || data.CustomFrequencyType === 'N LAST WEEK EACH MONTH'",
+                                    "placeholder": "Select Week"
+                                  },
+                                  {
+                                    "key": "CustomFrequencyMonth",
+                                    "data-buildertype": "dropdown",
+                                    "label": "Month",
+                                    "fluid": true,
+                                    "selection": true,
+                                    "data-elements": [
+                                      {
+                                        "value": "1",
+                                        "text": "January"
+                                      },
+                                      {
+                                        "value": "2",
+                                        "text": "February"
+                                      },
+                                      {
+                                        "value": "3",
+                                        "text": "March"
+                                      },
+                                      {
+                                        "value": "4",
+                                        "text": "April"
+                                      },
+                                      {
+                                        "value": "5",
+                                        "text": "May"
+                                      },
+                                      {
+                                        "value": "6",
+                                        "text": "June"
+                                      },
+                                      {
+                                        "value": "7",
+                                        "text": "July"
+                                      },
+                                      {
+                                        "value": "8",
+                                        "text": "August"
+                                      },
+                                      {
+                                        "value": "9",
+                                        "text": "September"
+                                      },
+                                      {
+                                        "value": "10",
+                                        "text": "October"
+                                      },
+                                      {
+                                        "value": "11",
+                                        "text": "November"
+                                      },
+                                      {
+                                        "value": "12",
+                                        "text": "December"
+                                      }
+                                    ],
+                                    "placeholder": "Select Month",
+                                    "events": {},
+                                    "other-visibleConition": "data.CustomFrequencyType === 'N DAY N MONTH' || data.CustomFrequencyType === 'N LAST DAY N MONTH' || data.CustomFrequencyType === 'N WEEK N MONTH' || data.CustomFrequencyType  === 'N LAST WEEK N MONTH'",
+                                    "style-width": "300px"
+                                  }
+                                ],
+                                "orientation": "inline",
+                                "widthsCustom": "2",
+                                "style-marginTop": "0px",
+                                "style-marginBottom": "0px",
+                                "style-marginLeft": "0px",
+                                "style-marginRight": "0px",
+                                "style-width": "100%"
+                              },
+                              {
+                                "key": "container_4",
+                                "data-buildertype": "container",
+                                "children": [
+                                  {
+                                    "key": "btnCancelCustomRecurrence",
+                                    "data-buildertype": "button",
+                                    "content": "Cancel",
+                                    "secondary": true,
+                                    "events": {
+                                      "onClick": {
+                                        "active": true,
+                                        "actions": [
+                                          "closeCustomFrequencyModal"
+                                        ],
+                                        "targets": [],
+                                        "parameters": []
+                                      }
+                                    },
+                                    "floated": "",
+                                    "size": "",
+                                    "style-source": "float: right"
+                                  },
+                                  {
+                                    "key": "btnSaveCustomRecurrence",
+                                    "data-buildertype": "button",
+                                    "content": "Save",
+                                    "primary": true,
+                                    "floated": "",
+                                    "style-source": "float:right",
+                                    "events": {
+                                      "onClick": {
+                                        "active": true,
+                                        "actions": [
+                                          "saveCustomFrequency"
+                                        ],
+                                        "targets": [],
+                                        "parameters": []
+                                      }
+                                    }
+                                  }
+                                ],
+                                "style-float": "right",
+                                "style-marginTop": "10px",
+                                "style-marginBottom": "10px",
+                                "style-width": "100%"
+                              }
+                            ]
+                          }
+                        ],
+                        "secondary": true,
+                        "style-source": "",
+                        "style-marginRight": "",
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "resetCustomFrequencyModal"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "style-height": "500px",
+                        "isOpen": ""
+                      }
+                    ],
+                    "style-marginBottom": "10px",
+                    "style-float": "left"
+                  },
+                  {
+                    "key": "btnDeleteCustomFrequency",
+                    "data-buildertype": "button",
+                    "content": "Delete",
+                    "secondary": true,
+                    "floated": "left",
+                    "style-source": "float: left;",
+                    "style-marginTop": "",
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "confirm",
+                          "gridDelete"
+                        ],
+                        "targets": [
+                          "gdCustomFrequency"
+                        ],
+                        "parameters": [
+                          {
+                            "name": "formName",
+                            "value": "QNN_DPLY_CUSTOM_RECURRENCE"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "key": "gdCustomFrequency",
+                    "data-buildertype": "gridview",
+                    "columns": [
+                      {
+                        "key": "CustomFrequencyType",
+                        "name": "Custom Frequency Type",
+                        "resizable": true,
+                        "sortable": false,
+                        "filterable": false,
+                        "width": 250
+                      },
+                      {
+                        "key": "RecurrenceOn",
+                        "name": "Recurrence On ",
+                        "sortable": false,
+                        "filterable": false,
+                        "resizable": true,
+                        "width": "",
+                        "type": "custom"
+                      }
+                    ],
+                    "events": {
+                      "onRowClick": {
+                        "active": false,
+                        "actions": [
+                          "setCustomFrequencyControlsVisibility",
+                          "setCustomFrequencyControlsValue"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      },
+                      "onRowDblClick": {
+                        "active": true,
+                        "actions": [
+                          "setCustomFrequencyControlsVisibility",
+                          "setCustomFrequencyControlsValue"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "other-visibleConition": "data.RecurrenceFrequency === 'CUSTOM'",
+                    "style-width": "",
+                    "multiselect": true,
+                    "editForm": "",
+                    "editFormShowType": "",
+                    "pagerType": "server",
+                    "autoHeight": false,
+                    "rowKey": "Id",
+                    "defaultSort": "CustomFrequencyType ASC",
+                    "pageSize": "",
+                    "disableSort": false
+                  }
+                ],
+                "other-visibleConition": "data.RecurrenceFrequency === 'CUSTOM'",
+                "style-marginBottom": "10px",
+                "style-customcss": "ui info message"
+              },
+              {
+                "key": "RecurrenceEndDate",
+                "data-buildertype": "input",
+                "label": "Do not recur on or after",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "date",
+                "placeholder": "Select end date",
+                "other-customValidation": "!data.RecurrenceEnabled || (data.RecurrenceEnabled && value !== undefined && value !== null && value !== \"\") ? true : \" is required\"",
+                "events": {}
+              },
+              {
+                "key": "staticcontent_2",
+                "data-buildertype": "staticcontent",
+                "content": "You may specify the survey administrator email addresses to be notified when the recurrences are created. Use a comma to separate multiple addresses.",
+                "style-customcss": "ui info message"
+              },
+              {
+                "key": "RecurrenceNotify",
+                "data-buildertype": "input",
+                "label": "Notify email(s)",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "placeholder": ""
+              },
+              {
+                "key": "IsCreateInAdvance",
+                "data-buildertype": "checkbox",
+                "label": "Create deployment in advance of start date",
+                "toggle": true,
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "toggleDaysInAdvance"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              },
+              {
+                "key": "fg_CreateInAdvance",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "RecurrenceAdvanceDays",
+                    "data-buildertype": "input",
+                    "label": "Days in advance of deployment start",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "type": "number",
+                    "style-width": "200px",
+                    "other-visibleConition": "",
+                    "defaultValue": "",
+                    "other-customValidation": "(!data.RecurrenceEnabled || (data.RecurrenceEnabled && ( !data.IsCreateInAdvance || (  (value > 0) )   )    ) ) ? true : \"Must be at least one day in advance\""
+                  },
+                  {
+                    "key": "staticcontent_1",
+                    "data-buildertype": "staticcontent",
+                    "content": "Note: When the recurrence is created in advance it is necessary to manually open the new deployment before its start date and make it visible to respondents (and to make any other adjustments as desired).",
+                    "style-customcss": "ui info message"
+                  }
+                ],
+                "orientation": "grouped",
+                "other-visibleConition": "data.IsCreateInAdvance || (data.RecurrenceAdvanceDays > 0)"
+              },
+              {
+                "key": "container_399",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "IsRecurrencePrePopulateEnabled",
+                    "data-buildertype": "checkbox",
+                    "label": "Enable Pre-Populate Previous Recurring Data",
+                    "toggle": true,
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "other-readOnlyConition": ""
+                  },
+                  {
+                    "key": "container_499",
+                    "data-buildertype": "container",
+                    "children": [
+                      {
+                        "key": "header_499",
+                        "data-buildertype": "header",
+                        "content": "Pre-Populate Fields",
+                        "size": "small",
+                        "other-visibleConition": "",
+                        "textAlign": "left"
+                      },
+                      {
+                        "key": "container_599",
+                        "data-buildertype": "container",
+                        "children": [
+                          {
+                            "key": "PrePopulateFields",
+                            "data-buildertype": "collectioneditor",
+                            "idField": "Id",
+                            "parentIdField": "ParentId",
+                            "columns": [
+                              {
+                                "key": "QnnFieldName",
+                                "name": "Field Name",
+                                "control": "span"
+                              },
+                              {
+                                "key": "QnnFieldType",
+                                "name": "Type",
+                                "control": "span"
+                              },
+                              {
+                                "control": "checkbox",
+                                "name": "PrePopulate",
+                                "key": "PrePopulate"
+                              }
+                            ],
+                            "disableAdd": true,
+                            "disableDelete": true,
+                            "header": false,
+                            "readOnly": false,
+                            "headerTitle": "Pre-Populate Field",
+                            "other-visibleConition": ""
+                          }
+                        ],
+                        "style-source": "overflow-y: scroll;\nmax-height: 300px;\noverflow-x: hidden;"
+                      },
+                      {
+                        "key": "addAllFields",
+                        "data-buildertype": "breadcrumb",
+                        "items": [
+                          {
+                            "text": "Add All",
+                            "url": "/"
+                          }
+                        ],
+                        "events": {
+                          "onItemClick": {
+                            "active": true,
+                            "actions": [
+                              "addAllFields"
+                            ],
+                            "targets": [
+                              "PrePopulateFields"
+                            ],
+                            "parameters": []
+                          }
+                        }
+                      },
+                      {
+                        "key": "RemoveAllFields",
+                        "data-buildertype": "breadcrumb",
+                        "items": [
+                          {
+                            "text": "Remove All",
+                            "url": "/"
+                          }
+                        ],
+                        "events": {
+                          "onItemClick": {
+                            "active": true,
+                            "actions": [
+                              "removeAllFields"
+                            ],
+                            "targets": [
+                              "PrePopulateFields"
+                            ],
+                            "parameters": []
+                          }
+                        },
+                        "style-marginLeft": "10px"
+                      }
+                    ],
+                    "style-customcss": "ui info message",
+                    "other-visibleConition": "data.IsRecurrencePrePopulateEnabled",
+                    "events": {},
+                    "style-source": "",
+                    "style-width": "",
+                    "style-height": ""
+                  }
+                ],
+                "style-marginTop": "10px",
+                "style-marginBottom": "10px",
+                "other-customValidation": "",
+                "other-visibleConition": "!(data.IsMultipleResponse || data.IsAnonymous)"
+              }
+            ],
+            "other-visibleConition": "data.RecurrenceEnabled && (data.RecurrenceOfDplyId===undefined || data.RecurrenceOfDplyId===null)"
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "style-float": "",
+            "children": [
+              {
+                "key": "btn_Save",
+                "data-buildertype": "button",
+                "content": "Save",
+                "primary": true,
+                "style-marginRight": "20px",
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "validate",
+                      "updateRecurrence"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              },
+              {
+                "key": "btn_Cancel",
+                "data-buildertype": "button",
+                "content": "Cancel",
+                "secondary": true,
+                "events": {
+                  "onClick": {
+                    "active": true,
+                    "actions": [
+                      "redirectToForm"
+                    ],
+                    "targets": [],
+                    "parameters": [
+                      {
+                        "name": "formName",
+                        "value": "QNN_DPLY"
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "style-width": "100%",
+            "style-marginTop": "20px",
+            "style-marginBottom": ""
+          },
+          {
+            "key": "fg_NextDeployment",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "other-visibleConition": "data.RecurrenceEnabled && !(data.RecurrenceNextDate===undefined || data.RecurrenceNextDate===null)",
+            "children": [
+              {
+                "key": "header_2",
+                "data-buildertype": "header",
+                "content": "Next Deployment Recurrence",
+                "size": "small",
+                "textAlign": "left"
+              },
+              {
+                "key": "RecurrenceNextDate",
+                "data-buildertype": "input",
+                "label": "Start Date",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "readOnly": true
+              },
+              {
+                "key": "RecurrenceJobId",
+                "data-buildertype": "input",
+                "label": "Job Id",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "readOnly": true,
+                "style-width": "200px",
+                "other-visibleConition": "CloverApp.API.checkRole('Admins')"
+              }
+            ],
+            "orientation": "grouped",
+            "style-customcss": "ui info message",
+            "style-marginTop": "20px"
+          },
+          {
+            "key": "formgroup_1",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "other-visibleConition": "",
+            "children": [
+              {
+                "key": "header_3",
+                "data-buildertype": "header",
+                "content": "Previous Recurrences",
+                "size": "small",
+                "textAlign": "left"
+              },
+              {
+                "key": "gv_Recurrences",
+                "data-buildertype": "gridview",
+                "columns": [
+                  {
+                    "key": "Name",
+                    "name": "Deployment",
+                    "resizable": true,
+                    "sortable": true,
+                    "filterable": false
+                  },
+                  {
+                    "key": "CreatedDate",
+                    "name": "Created",
+                    "type": "datetime",
+                    "resizable": true,
+                    "sortable": true,
+                    "filterable": false
+                  },
+                  {
+                    "key": "DateStart",
+                    "name": "Start",
+                    "type": "datetime",
+                    "resizable": true,
+                    "sortable": true,
+                    "filterable": false
+                  },
+                  {
+                    "key": "DateEnd",
+                    "name": "End",
+                    "type": "datetime",
+                    "resizable": true,
+                    "sortable": true,
+                    "filterable": false
+                  }
+                ],
+                "rowKey": "Id",
+                "defaultSort": "DateStart DESC",
+                "editForm": "QNN_DPLY",
+                "events": {
+                  "onRowClick": {
+                    "active": false,
+                    "actions": [],
+                    "targets": [],
+                    "parameters": []
+                  },
+                  "onRowDblClick": {
+                    "active": true,
+                    "actions": [
+                      "gridEdit"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                }
+              }
+            ],
+            "orientation": "grouped",
+            "style-customcss": "ui info message",
+            "style-marginTop": "20px"
+          }
+        ],
+        "other-visibleConition": "data.RecurrenceOfDplyId===undefined || data.RecurrenceOfDplyId===null"
+      }
+    ],
+    "style-width": "800px"
+  }
+]

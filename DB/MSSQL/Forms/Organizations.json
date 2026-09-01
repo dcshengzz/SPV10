@@ -1,0 +1,63 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Organisation Structure",
+    "size": "large",
+    "textAlign": "left"
+  },
+  {
+    "key": "button_1",
+    "data-buildertype": "button",
+    "content": "Save",
+    "primary": true,
+    "inverted": false,
+    "events": {
+      "onClick": {
+        "active": true,
+        "actions": [
+          "validate",
+          "save",
+          "refresh"
+        ],
+        "targets": [
+          "collectioneditor_1"
+        ],
+        "parameters": []
+      }
+    },
+    "compact": false,
+    "floated": "right",
+    "style-marginRight": "20px"
+  },
+  {
+    "key": "collectioneditor_1",
+    "data-buildertype": "collectioneditor",
+    "idField": "Id",
+    "parentIdField": "ParentId",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "width": "30%"
+      }
+    ],
+    "hierarchical": true,
+    "disableAdd": false,
+    "disableDelete": false,
+    "header": true,
+    "draggable": false,
+    "collapseAll": false,
+    "other-visibleConition": "",
+    "events": {
+      "onChange": {
+        "active": true,
+        "actions": [
+          "onChangeOrg"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    }
+  }
+]

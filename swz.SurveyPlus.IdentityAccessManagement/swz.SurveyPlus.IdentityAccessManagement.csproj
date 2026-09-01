@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>swz.SurveyPlus.IdentityAccessManagement</RootNamespace>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\swz.SurveyPlus.IntranetApplication\swz.SurveyPlus.IntranetApplication.csproj" />
+	</ItemGroup>
+</Project>

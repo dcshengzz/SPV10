@@ -1,0 +1,279 @@
+{
+    downloadEmailTemplate: function(args){
+
+                 var text = '';
+                text += 'ANNUAL SURVEY ON {DplyName} 2020 \n'
+                text += 'Purpose of the Survey:\n'
+                text +='The purpose of the Survey is to obtain data of the profile for the period from 1 June to 31 May.\n'
+                text +='Statistics compiled from the collected data will be used to assist in policy-making efforts.\n'
+                text +='Submission of the Questionnaire:\n'
+                text +='We would be grateful if you could return the completed questionnaire by the due date stated above. \n'
+                text +=' \n'
+                text +='The following are your login information:\n'
+                text +='Company name: {Name}\n'
+                text +='Username: {UID}\n'
+                text +='Password: {Password}\n'
+                text +=' \n'
+                
+                text +='Other tokens:\n'
+                text +='UID: {UID}\n'
+                text +='Password: {Password}\n'
+                text +='Questionnaire Name: {DplyQnn}\n'
+                text +='List Name: {DplyList}\n'
+                text +='Deployment Name: {DplyName}\n'
+                text +='Category Name: {DplyCategory}\n'
+                text +='UIDPeer: {UIDPeer}\n'
+                text +='Account Active Status: {ActiveYN}\n'
+                
+                 var hiddenElement = document.createElement('a');
+                    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(text);
+                    hiddenElement.target = '_blank';
+                    hiddenElement.download = 'EmailTemplate.txt';
+                    hiddenElement.click();
+    },
+    
+    addNewSample: function(args){
+        
+        var dplyId = args.data.Id;
+        var listId = args.data.ListId;
+        var formData = new FormData();
+        formData.append('dplyId', dplyId);
+        formData.append('listId', listId);        
+        var url = '/deployment/addnewsample';
+
+        fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                if (response.success) {
+                    //console.log('addNewSample args:', args);
+                    alertify.success(response.message);
+                    args.controlRef.refresh();
+                    
+
+                } else {
+                    alertify.error(response.message);
+                }
+
+            })
+            .catch(error => {
+                alertify.error(error.message);;
+            });
+            
+
+    },
+    manageDueDate: function(args){
+        
+        //console.log("manageDueDate", args);
+        if(args.controlRef.state.selectedIndexes.length==0){
+            args.component.refs.swzmodal_1.close();
+             alertify.error("Please select at least one list sample");
+            
+        }
+        else{
+            args.component.refs.swzmodal_1.props.swzData.isOpen = true;
+            
+        }
+        
+    },
+    changeDueDate: function(args){
+        
+        //console.log("changeDueDate", args);
+        if(args.controlRef.state.selectedIndexes.length==0){
+            args.component.refs.swzmodal_1.close();
+             alertify.error("Please select at least one list sample");
+            
+        }
+        else{
+            args.component.refs.swzmodal_1.props.swzData.isOpen = true;
+        }
+        var dplyId = args.data.Id;
+        var dueDate = args.data.dueDate;
+        var listSampleIds = [];
+        
+        for (var i = 0; i < args.controlRef.state.selectedIndexes.length; i++) {
+            var gridIndex = args.controlRef.state.selectedIndexes[i];
+            var listSampleId = args.controlRef.state.items[gridIndex].ListSampleId;
+            listSampleIds.push(listSampleId);
+        }
+        
+        var listId = args.data.ListId;
+        var formData = new FormData();
+        formData.append('dplyId', dplyId);
+        formData.append('dueDate', dueDate);
+        formData.append('listSampleIds', listSampleIds);        
+        var url = '/deployment/changeDueDate';
+
+        fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                if (response.success) {
+                    args.component.refs.swzmodal_1.close();
+                    alertify.success(response.message);
+
+                } else {
+                    alertify.error(response.message);
+                }
+
+            })
+            .catch(error => {
+                alertify.error(error.message);;
+            });        
+        
+        
+    },    
+    goBack: function(args) {
+        args.state.router.history.goBack();
+    },
+    manageResend: function(args){
+        if(args.controlRef.state.selectedIndexes.length==0){
+            args.component.refs.swzmodal_2.close();
+            alertify.error("Please select at least one list sample");
+            
+        }
+        else{
+            args.component.refs.swzmodal_2.props.swzData.isOpen = true;
+        }
+        
+    },
+    reSend: function(args){
+             Pace.start();
+        var dplyId = args.data.Id;
+        var mailMerge = (args.data.cbMailMerge==null || args.data.cbMailMerge==undefined)? false : args.data.cbMailMerge;
+        var email = (args.data.cbEmail==null || args.data.cbEmail==undefined)? false : args.data.cbEmail;
+        var emailFrom = (email && args.data.emailFrom)? args.data.emailFrom : "";
+        var scheduledDate = (email && args.data.scheduledDate)? args.data.scheduledDate : "";        
+        var profile = (args.data.cbProfile==null || args.data.cbProfile==undefined)? false : args.data.cbProfile;        
+        if(!mailMerge && !email && !profile){
+            return alertify.error("Check at least one");
+        }
+        
+        var msgContent = "";
+        if(email || mailMerge){
+            msgContent = args.component.refs.htmlEditor.state.htmlData;
+        }
+        var subject = args.data.subject;
+        
+        if(email && (subject==undefined || subject==null || subject.length==0)){
+            return alertify.error("Please input email subject");
+                        
+        }
+        
+        if((email || mailMerge) && msgContent.length==0){
+            return alertify.error("Please input messange content.");
+        }
+                
+        $('body').loadingModal({
+            text: 'Processing...',
+            animation: 'wave',
+            backgroundColor: '#1262E2'});
+   
+        //var formName = args.data.formName;
+        var listSampleIds = [];
+        
+        for (var i = 0; i < args.controlRef.state.selectedIndexes.length; i++) {
+            var gridIndex = args.controlRef.state.selectedIndexes[i];
+            var listSampleId = args.controlRef.state.items[gridIndex].ListSampleId;
+            listSampleIds.push(listSampleId);
+        }
+        
+        var listId = args.data.ListId;
+        var formData = new FormData();
+        formData.append('msgContent', msgContent);
+        formData.append('dplyId', dplyId);
+        formData.append('mailMerge', mailMerge);
+        formData.append('profile', profile);        
+        formData.append('subject', subject);
+        //formData.append('formName', formName);
+        formData.append('email', email);    
+        formData.append('emailFrom', emailFrom);
+        formData.append('scheduledDate', scheduledDate);        
+        formData.append('listSampleIds', listSampleIds);        
+        var url = '/deployment/resend';
+
+        fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                Pace.stop();
+                $('body').loadingModal('destroy');
+                if (response.success) {
+                    args.component.refs.swzmodal_2.close();
+                    alertify.success(response.message);
+
+                } else {
+                    alertify.error(response.message);
+                }
+
+            })
+            .catch(error => {
+                alertify.error(error.message);;
+            });   
+        
+    },
+    
+    sampleResetPassword: function(args){
+        
+        if (args.controlRef.state.selectedIndexes.length < 1){
+            alertify.error("Please select at least one list sample");
+            return
+        }
+        console.log("Sample reset password!", args);
+        var sampleIds = [];
+        for (var i = 0; i < args.controlRef.state.selectedIndexes.length; i++) {
+            var gridIndex = args.controlRef.state.selectedIndexes[i];
+            var sampleId = args.controlRef.state.items[gridIndex].SampleId;
+            sampleIds.push(sampleId);
+        }
+        CloverApp.API.setDataField("loading", "");
+        //CloverApp.API.setDataField("loading", "Loading...");
+        var formData = new FormData();
+        formData.append('sampleIds', sampleIds);        
+        var url = '/deployment/resetresppassword';
+        alertify.success("Loading...");
+        fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                if (response.success) {
+                    alertify.success(response.message);
+                    //CloverApp.API.setDataField("loading", response.message);
+                } else {
+                    alertify.error(response.message);
+                }
+
+            })
+            .catch(error => {
+                alertify.error(error.message);
+                //CloverApp.API.setDataField("loading", error.message);
+            });   
+        
+    },
+    showModal: function(args){
+        args.component.refs.swzmodal_2.props.swzData.isOpen = true;
+    }
+        
+    
+
+}

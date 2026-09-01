@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<NoWarn>1701;1702;1998</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Schemas\saml-schema-assertion-2.0.xsd" />
+	  <None Remove="Schemas\saml-schema-protocol-2.0.xsd" />
+	  <None Remove="Schemas\xenc-schema.xsd" />
+	  <None Remove="Schemas\xmldsig-core-schema.xsd" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Schemas\saml-schema-assertion-2.0.xsd">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="Schemas\saml-schema-protocol-2.0.xsd">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="Schemas\xenc-schema.xsd">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="Schemas\xmldsig-core-schema.xsd">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Hangfire" Version="1.8.24" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.22.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\swz.Clover.Core\swz.Clover.Core.csproj" />
+		<ProjectReference Include="..\swz.Clover.Security\swz.Clover.Security.csproj" />
+		<ProjectReference Include="..\swz.KeyUtils\swz.KeyUtils.csproj" />
+		<ProjectReference Include="..\swz.SurveyPlus.Application\swz.SurveyPlus.Application.csproj" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,183 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "frm_ResponseQuota",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "header_1",
+            "data-buildertype": "header",
+            "content": "Response Quota Settings",
+            "size": "medium"
+          },
+          {
+            "key": "Name",
+            "data-buildertype": "input",
+            "label": "Deployment",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "readOnly": true
+          },
+          {
+            "key": "container_4",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "formgroup_1",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "header_2",
+                    "data-buildertype": "header",
+                    "content": "Overall",
+                    "size": "small"
+                  },
+                  {
+                    "key": "MaxResponse",
+                    "data-buildertype": "input",
+                    "label": "Maximum Number of Responses (-1 is unlimited)",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "style-width": "10em",
+                    "reference": "Maximum Number of Responses",
+                    "type": "number",
+                    "defaultValue": "-1",
+                    "other-customValidation": "(/^-?\\d+$/.test(value)) ? value >= -1 ? true: 'must be -1, 0 or positive number' : 'must be whole number'",
+                    "other-required": true
+                  }
+                ],
+                "orientation": "grouped"
+              }
+            ],
+            "style-source": "clear:both;\nborder: 1px solid black;\npadding: 20px;",
+            "style-marginTop": "20px"
+          },
+          {
+            "key": "container_5",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "formgroup_2",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "children": [
+                  {
+                    "key": "header_3",
+                    "data-buildertype": "header",
+                    "content": "Limit Responses by Stratum",
+                    "size": "small"
+                  },
+                  {
+                    "key": "StrataSource",
+                    "data-buildertype": "input",
+                    "label": "Strata Source (Alias)",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "reference": "Strata Source",
+                    "style-width": "15em",
+                    "other-required": false,
+                    "other-customValidation": "",
+                    "defaultValue": ""
+                  },
+                  {
+                    "key": "container_3",
+                    "data-buildertype": "container",
+                    "children": [
+                      {
+                        "key": "Stratum",
+                        "data-buildertype": "collectioneditor",
+                        "idField": "Id",
+                        "parentIdField": "ParentId",
+                        "columns": [
+                          {
+                            "key": "StrataValue",
+                            "name": "Strata Value",
+                            "width": "300px",
+                            "control": "input"
+                          },
+                          {
+                            "key": "MaxResponse",
+                            "name": "Maximum Responses ",
+                            "control": "number",
+                            "width": "100px"
+                          },
+                          {
+                            "key": "Description",
+                            "name": "Description",
+                            "control": "input",
+                            "width": "400px"
+                          }
+                        ],
+                        "other-visibleConition": "data.StrataSource!=null&&data.StrataSource!==\"\"",
+                        "header": false,
+                        "headerTitle": "",
+                        "other-customValidation": "",
+                        "events": {}
+                      }
+                    ],
+                    "style-width": "800px"
+                  }
+                ],
+                "orientation": "grouped"
+              }
+            ],
+            "style-source": "clear:both;\nborder: 1px solid black;\npadding: 20px;",
+            "style-marginTop": "20px"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "style-marginTop": "20px",
+    "style-marginBottom": "20px",
+    "children": [
+      {
+        "key": "btnSave",
+        "data-buildertype": "button",
+        "content": "Save",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "validate",
+              "save",
+              "init"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        }
+      },
+      {
+        "key": "btnCancel",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

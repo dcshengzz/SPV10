@@ -1,0 +1,157 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_1",
+        "data-buildertype": "header",
+        "content": "Data Validation Rules",
+        "size": "huge",
+        "style-marginBottom": "",
+        "style-marginTop": "10px"
+      },
+      {
+        "key": "container_3",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "buttonAdd",
+            "data-buildertype": "button",
+            "content": "Create",
+            "primary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "gridCreate"
+                ],
+                "targets": [
+                  "gridRule"
+                ],
+                "parameters": []
+              }
+            }
+          },
+          {
+            "key": "buttonDelete",
+            "data-buildertype": "button",
+            "content": "Delete",
+            "secondary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "confirm",
+                  "gridDelete",
+                  "gridRefresh",
+                  "clearServerCache"
+                ],
+                "targets": [
+                  "gridRule"
+                ],
+                "parameters": [
+                  {
+                    "name": "confirmTitle",
+                    "value": "deletionConfirmTitle"
+                  },
+                  {
+                    "name": "confirmText",
+                    "value": "deletionConfirmText"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "style-float": "right",
+        "events": {},
+        "style-marginBottom": "",
+        "style-marginRight": "20px"
+      },
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "style-float": "left",
+        "children": [
+          {
+            "key": "FilterSearch",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": false,
+            "onChangeTimeout": 200,
+            "placeholder": "Search...",
+            "style-width": "300px",
+            "events": {
+              "onClick": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              },
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "updateFilter"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "events": {},
+    "style-marginBottom": "1em",
+    "style-width": "100%"
+  },
+  {
+    "key": "container_4",
+    "data-buildertype": "container",
+    "style-source": "clear: both",
+    "style-marginBottom": "50px",
+    "events": {}
+  },
+  {
+    "key": "gridRule",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "Description",
+        "name": "Description",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      }
+    ],
+    "editForm": "QNN_RULE",
+    "multiselect": true,
+    "rowKey": "Id",
+    "autoHeight": false,
+    "offSet": "-285px",
+    "defaultSort": "Name ASC",
+    "events": {
+      "onRowClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "style-marginTop": "1em",
+    "pagerType": "server",
+    "rowHeight": "80",
+    "pageSize": "50",
+    "minHeight": "500"
+  }
+]

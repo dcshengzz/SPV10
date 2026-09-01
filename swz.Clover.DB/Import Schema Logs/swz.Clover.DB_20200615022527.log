@@ -1,0 +1,85 @@
+15/6/2020 10:25:27 AM	This log contains information about the import schema operation into project 'swz.Clover.DB' on computer 'DESKTOP-9A58I11' by user 'ben'.
+15/6/2020 10:25:28 AM	Import of database schema has started.
+15/6/2020 10:25:28 AM	Gathering database credentials
+15/6/2020 10:25:28 AM	Gathering database options
+15/6/2020 10:25:28 AM	Gathering generic database scoped configuration option
+15/6/2020 10:25:28 AM	Gathering users
+15/6/2020 10:25:28 AM	Gathering roles
+15/6/2020 10:25:28 AM	Gathering application roles
+15/6/2020 10:25:28 AM	Gathering role memberships
+15/6/2020 10:25:28 AM	Gathering filegroups
+15/6/2020 10:25:28 AM	Gathering full-text catalogs
+15/6/2020 10:25:28 AM	Gathering assemblies
+15/6/2020 10:25:28 AM	Gathering certificates
+15/6/2020 10:25:28 AM	Gathering asymmetric keys
+15/6/2020 10:25:28 AM	Gathering symmetric keys
+15/6/2020 10:25:28 AM	Gathering encrypted symmetric keys
+15/6/2020 10:25:28 AM	Gathering schemas
+15/6/2020 10:25:28 AM	Gathering XML schema collections
+15/6/2020 10:25:28 AM	Gathering user-defined data types
+15/6/2020 10:25:28 AM	Gathering user-defined types
+15/6/2020 10:25:28 AM	Gathering table types
+15/6/2020 10:25:28 AM	Gathering unique keys for table types
+15/6/2020 10:25:28 AM	Gathering primary keys for table types
+15/6/2020 10:25:28 AM	Gathering indexes for table types
+15/6/2020 10:25:28 AM	Gathering check constraints for table types
+15/6/2020 10:25:28 AM	Gathering default constraints for table types
+15/6/2020 10:25:28 AM	Gathering partition functions
+15/6/2020 10:25:28 AM	Gathering partition schemes
+15/6/2020 10:25:28 AM	Gathering functions
+15/6/2020 10:25:28 AM	Gathering encrypted functions
+15/6/2020 10:25:28 AM	Gathering aggregates
+15/6/2020 10:25:28 AM	Gathering procedures
+15/6/2020 10:25:28 AM	Gathering encrypted procedures
+15/6/2020 10:25:28 AM	Gathering tables
+15/6/2020 10:25:28 AM	Gathering primary keys
+15/6/2020 10:25:28 AM	Gathering unique constraints
+15/6/2020 10:25:29 AM	Gathering foreign keys
+15/6/2020 10:25:29 AM	Gathering default constraints
+15/6/2020 10:25:29 AM	Gathering check constraints
+15/6/2020 10:25:29 AM	Gathering views
+15/6/2020 10:25:29 AM	Gathering encrypted views
+15/6/2020 10:25:29 AM	Gathering indexes
+15/6/2020 10:25:29 AM	Gathering statistics
+15/6/2020 10:25:29 AM	Gathering full-text index stoplists
+15/6/2020 10:25:29 AM	Gathering search property lists
+15/6/2020 10:25:29 AM	Gathering search properties
+15/6/2020 10:25:29 AM	Gathering full-text indexes
+15/6/2020 10:25:29 AM	Gathering column store indexes
+15/6/2020 10:25:29 AM	Gathering spatial indexes
+15/6/2020 10:25:29 AM	Gathering XML indexes
+15/6/2020 10:25:29 AM	Gathering Selective XML indexes
+15/6/2020 10:25:29 AM	Gathering encrypted triggers
+15/6/2020 10:25:29 AM	Gathering triggers
+15/6/2020 10:25:29 AM	Gathering encrypted and clr ddl triggers
+15/6/2020 10:25:29 AM	Gathering ddl triggers
+15/6/2020 10:25:29 AM	Gathering synonyms
+15/6/2020 10:25:29 AM	Gathering defaults
+15/6/2020 10:25:29 AM	Gathering data constraint uddt bindings
+15/6/2020 10:25:29 AM	Gathering rules
+15/6/2020 10:25:29 AM	Gathering data constraint uddt bindings
+15/6/2020 10:25:29 AM	Gathering message types
+15/6/2020 10:25:29 AM	Gathering queues
+15/6/2020 10:25:29 AM	Gathering contracts
+15/6/2020 10:25:29 AM	Gathering services
+15/6/2020 10:25:29 AM	Gathering event notifications
+15/6/2020 10:25:29 AM	Gathering remote service bindings
+15/6/2020 10:25:29 AM	Gathering broker priorities
+15/6/2020 10:25:29 AM	Gathering signatures
+15/6/2020 10:25:29 AM	Gathering data compression options
+15/6/2020 10:25:29 AM	Gathering sequence types
+15/6/2020 10:25:29 AM	Gathering security policies
+15/6/2020 10:25:29 AM	Gather column encryption keys
+15/6/2020 10:25:29 AM	Gathering column master keys
+15/6/2020 10:25:29 AM	Gathering external data sources
+15/6/2020 10:25:29 AM	Gathering external file formats
+15/6/2020 10:25:29 AM	Gathering external tables
+15/6/2020 10:25:29 AM	Gathering extended properties
+15/6/2020 10:25:29 AM	Gathering credentials
+15/6/2020 10:25:29 AM	Gathering logins
+15/6/2020 10:25:29 AM	Gathering server audits
+15/6/2020 10:25:29 AM	Scanning project for duplicate elements
+15/6/2020 10:25:30 AM	Finished duplicate element processing
+15/6/2020 10:25:32 AM	Finished importing database.
+15/6/2020 10:25:32 AM	A summary of the import was saved to the following location: C:\Users\ben\Documents\swz-appbuilder-clover\swz.Clover.DB\Import Schema Logs\swz.Clover.DB_20200615022527.log
+15/6/2020 10:25:32 AM	Click Finish to continue...

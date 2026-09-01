@@ -1,0 +1,182 @@
+{
+
+    init: function(args){
+
+        var innerArgs = args;            
+            var url = '/swzdata/getmultiple?type=RespDashboard';
+               
+            var gridModelRewriter = function (model) {
+                if (Array.isArray(model.columns)) {
+                    model.columns[1].customFormatter = function (p) {
+                        if(p.row.Type=="Offline"){
+                            
+                            var strTokens = p.row.Tokens;
+                            var strOfflineLanguages = p.row.OfflineLanguages;
+                            var tokens = strTokens.split('||');
+                            var offlineLanguages = strOfflineLanguages.split('||');      
+                            var elements = [];
+    
+                            tokens.forEach(genOfflineFormLinks.bind(null, p, elements, offlineLanguages));                            
+                            return CloverApp.API.createElement("div", {}, elements);
+                            
+                            return CloverApp.API.createElement("a", { href: url}, p.value); 
+                        }
+                        else if(p.row.Type=="Online"){
+                            
+                            var strFormNames = p.row.FormNames;
+                            var strLanguages = p.row.Languages;
+                            var formNames = strFormNames.split('||');
+                            var languages = strLanguages.split('||');      
+                            var elements = [];
+    
+                            formNames.forEach(genFormLinkButtons.bind(null, p, elements, languages));
+                            return CloverApp.API.createElement("div", {}, elements);                            
+                            
+                        }
+                        else{
+                            return CloverApp.API.createElement("div", {}, p.value); 
+                        }
+                    };
+                    
+                     model.columns[model.columns.length-1].customFormatter = function (p) {
+                        //args.state.app.form.data.modified.sampleInfoId = p.row.Id;
+                        return CloverApp.API.createElement("button", { onClick: () => showModal(innerArgs, p.row.Id), className: "ui button mini secondary invert" }, "Get Password");
+                    };               
+                    
+                }
+                return model;
+            };
+            
+            var gridviewModelRewriter = function (model) {
+                if (Array.isArray(model.columns)) {
+                    model.columns[1].customFormatter = function (p) {
+                        if(p.row.Type=="Offline"){
+                            var strTokens = p.row.Tokens;
+                            var strOfflineLanguages = p.row.OfflineLanguages;
+                            var tokens = strTokens.split('||');
+                            var offlineLanguages = strOfflineLanguages.split('||');      
+                            var elements = [];
+    
+                            tokens.forEach(genOfflineFormLinkButtons.bind(null, p, elements, offlineLanguages));                            
+                            return CloverApp.API.createElement("div", {}, elements);
+                            
+                            return CloverApp.API.createElement("a", { href: url}, p.value); 
+                        }
+                        else if(p.row.Type=="Online"){
+                            var strFormNames = p.row.FormNames;
+                            var strLanguages = p.row.Languages;
+                            var formNames = strFormNames.split('||');
+                            var languages = strLanguages.split('||');      
+                            var elements = [];
+    
+                            formNames.forEach(genFormLinkButtons.bind(null, p, elements, languages));
+                            return CloverApp.API.createElement("div", {}, elements);  
+                        }
+                        else{
+                            return CloverApp.API.createElement("div", {}, p.value); 
+                        }
+                    };
+                    
+                     model.columns[model.columns.length-1].customFormatter = function (p) {
+                        //args.state.app.form.data.modified.sampleInfoId = p.row.Id;
+                        return CloverApp.API.createElement("button", { onClick: () => showModal(innerArgs, p.row.Id), className: "ui button mini secondary invert" }, "Get Password");
+                    };                  
+                    
+                }
+                return model;
+            };      
+            
+             CloverApp.API.rewriteControlModel("grid", gridModelRewriter);
+            CloverApp.API.rewriteControlModel("gridview", gridviewModelRewriter);
+            args.component.refs.grid.refresh();
+            args.component.refs.gridview.refresh();
+            
+           /* var genFormLinks = function(p, elements, languages, value, index){
+                var linkUrl = '/form/' + value + "/?dlsi=" + p.row.Id;
+                var element = CloverApp.API.createElement("a", { href: linkUrl, target: "_blank"}, languages[index]);
+                elements.push(element);
+                element = CloverApp.API.createElement("span", {className: "linkPaddingRight"}, " ");
+                elements.push(element);
+            };*/
+            var genOfflineFormLinks = function(p, elements, languages, value, index){
+                var linkUrl = "/respondent/download/survey/" + p.row.Id + "/"  + value + "/" + p.row.RespId;
+                var element = CloverApp.API.createElement("a", { href: linkUrl}, languages[index]);
+                elements.push(element);
+                element = CloverApp.API.createElement("span", {className: "linkPaddingRight"}, " ");
+                elements.push(element);
+            };    
+            
+            var genFormLinkButtons = function(p, elements, languages, value, index){
+                var linkUrl = '/form/' + value + "/dlsi/" + p.row.Id;
+                var element = CloverApp.API.createElement("span", { onClick: () =>  {
+                    CloverApp.API.redirect('form', value, 'dlsi/'+ p.row.Id)
+                }, className: "link-style" }, languages[index]);
+                elements.push(element);
+                element = CloverApp.API.createElement("span", {className: "linkPaddingRight"}, " ");
+                elements.push(element);
+            };           
+            
+            var showModal = function (args, id) {
+                return getPasswordAsync(args, id);
+            }; 
+            
+            var getPasswordAsync = function (args, id) {
+                var formData = new FormData();
+                formData.append('id', id);
+                var url = '/respondent/getpassword';
+                fetch(url,
+                    {
+                        credentials: 'same-origin',
+                        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                        method: 'post',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(response => {
+                        if (response.success) {
+                            console.log("getPasswordAsync args", args);
+                            args.controlRef.refs.passwordModal.openModal();
+                            args.component.state.data.password = response.item;
+                            args.component.refs.password.forceUpdate();
+                            console.log('response.item', response.item);
+    
+                        } else {
+                            alertify.error(response.message);
+                        }
+                    })
+                    .catch(error => {
+                        alertify.error(error.message);;
+                    });
+    
+    
+            };        
+            
+            
+            $.get(url).done(function (data) {
+            if(data.success){
+                
+                var htmlData = [];
+                for (var i=0; i<data.data.length; i++){
+                            htmlData.push(data.data[i].editorState);
+                }
+                CloverApp.API.setDataField("respDashboardHtmlView", htmlData);
+            }
+            else
+              console.log(data.message);
+            }).fail(function (jqxhr, textStatus, error) {
+             console.log(textStatus);
+            }); 
+            return {};
+        
+    },
+    
+    closeModal: function (args) {
+
+        args.component.refs.passwordModal.close();
+        return {
+        };
+
+    }
+    
+    
+}

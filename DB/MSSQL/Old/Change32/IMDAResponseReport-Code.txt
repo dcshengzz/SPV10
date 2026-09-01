@@ -1,0 +1,133 @@
+{
+    
+   getCounts: function(args){
+        
+        //console.log(args);
+        if(!args.data.dplyId){ 
+            CloverApp.API.setDataField("dplychoiceqnns", null);
+            return;
+        }
+        //console.log("args.data.dplyId", args.data.dplyId);
+        CloverApp.API.setDataField("dplychoiceqnns", args.data.dplyId);
+        
+    },
+
+
+  onExport: function (args){
+   //CloverApp.API.setDataField('deployment', '123');
+   
+  var _loadingStart = function() {
+            $('body').loadingModal({
+                text: 'Loading...',
+                animation: 'foldingCube',
+                backgroundColor: '#1262E2'
+            });
+        };
+   
+          var _loadingStop = function() {
+            $('body').loadingModal('destroy');
+        };
+   
+   var dplyId = args.data.ddlDeployment;
+   var surveyType = args.data.ddlSurveyType;
+  
+   
+   var week = args.data.ddlWeek;
+   
+   console.log(dplyId);
+   console.log(surveyType);
+   console.log(week);
+   
+    var formData = new FormData();
+        formData.append('dplyId', dplyId);
+        formData.append('flag',surveyType);
+     var url = '/report/imdaresponsereport';
+   _loadingStart();
+     fetch(url,
+            {
+                credentials: 'same-origin',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                method: 'post',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(response => {
+                
+                _loadingStop();
+                if (response.success) {
+                    //debugger;
+                    
+                    
+                    
+                  var JSON1 = response.UpperTableData;
+                  var JSON2 = response.LowerTableData;
+                  console.log(JSON1);
+                  var objArray = JSON1.concat(JSON2);
+                  
+                  
+                 // var objArray = response.LowerTableData;
+                  console.log(objArray);
+                  
+                  
+           
+       
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+                      var str = ' ';
+                      
+                      for (var i = 0; i< array.length; i++)
+                      {
+                          var line = ' ';
+                          
+                          for (var index in array[i])
+                          {
+                              line += ' '+ array[i][index] + ',';
+                              
+                          }
+                          
+                          line.slice(0,line.length-1);
+                          str += line + '\r\n';
+                      }
+                      
+                      //window.open("data:text/csv;charset=utf-8," + escape(str))
+   
+                  
+                 // debugger;
+                  
+                  var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+                var yyyy = today.getFullYear();
+
+                    today = mm  + dd + yyyy;
+                 var filename = "IMDAResponseReport_"+surveyType+"_"+today;
+                 var downloadLink = document.createElement("a");
+                 var blob = new Blob(["\ufeff", str]);
+                 var url = URL.createObjectURL(blob);
+                    downloadLink.href = url;
+                    downloadLink.download = filename+".csv"; 
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+            
+        
+                  
+                 
+               } else {
+                    alertify.error(response.message);
+                }
+
+            })
+           .catch(error => {
+               alertify.error(error.message);;
+            });
+ 
+  },
+  
+  
+  
+  showData: function(args){
+      console.log("show data", args);
+  }
+  
+}
+

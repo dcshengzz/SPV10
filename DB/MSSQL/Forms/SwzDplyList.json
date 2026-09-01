@@ -1,0 +1,460 @@
+[
+  {
+    "key": "container_4",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "header_2",
+        "data-buildertype": "header",
+        "content": "Deployments",
+        "size": "huge",
+        "style-source": "",
+        "events": {}
+      }
+    ],
+    "events": {},
+    "style-source": "width: 100%;\nfloat:left;",
+    "style-marginRight": "",
+    "style-marginTop": "",
+    "style-marginBottom": "1em"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "buttonAdd",
+        "data-buildertype": "button",
+        "content": "Create",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "gridCreate"
+            ],
+            "targets": [
+              "gridview_1"
+            ],
+            "parameters": []
+          }
+        },
+        "style-marginBottom": "0.25em",
+        "floated": "left"
+      },
+      {
+        "key": "container_5",
+        "data-buildertype": "container",
+        "style-float": "left",
+        "children": [
+          {
+            "key": "deleteModal",
+            "data-buildertype": "swzmodal",
+            "secondary": true,
+            "children": [
+              {
+                "key": "header_1",
+                "data-buildertype": "header",
+                "content": "Delete Deployment",
+                "size": "medium",
+                "textAlign": "left",
+                "subheader": ""
+              },
+              {
+                "key": "deleteGridView",
+                "data-buildertype": "gridview",
+                "columns": [
+                  {
+                    "key": "Name",
+                    "name": "Deployment Name",
+                    "sortable": true,
+                    "filterable": false,
+                    "resizable": true
+                  }
+                ],
+                "events": {}
+              },
+              {
+                "key": "container_3",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "DeleteConfirm",
+                    "data-buildertype": "button",
+                    "content": "Ok",
+                    "primary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "gridDelete",
+                          "closeDeleteModal"
+                        ],
+                        "targets": [
+                          "gridview_1"
+                        ],
+                        "parameters": []
+                      }
+                    }
+                  },
+                  {
+                    "key": "CancelDelete",
+                    "data-buildertype": "button",
+                    "content": "Cancel",
+                    "secondary": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "closeDeleteModal"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    }
+                  }
+                ],
+                "style-float": "right",
+                "style-source": "text-align: right;",
+                "style-marginTop": "20px",
+                "style-marginBottom": "20px"
+              }
+            ],
+            "style-display": "none",
+            "content": "Delete",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "openDeleteModal"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": []
+              }
+            },
+            "isOpen": "",
+            "other-visibleConition": "CloverApp.API.checkPermission(\"Edit\")"
+          }
+        ]
+      }
+    ],
+    "style-float": "right",
+    "style-marginBottom": "50px",
+    "style-source": "",
+    "style-width": "",
+    "style-marginRight": "20px"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "formgroup_2",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "children": [
+              {
+                "key": "FilterSearch",
+                "data-buildertype": "input",
+                "label": "",
+                "fluid": false,
+                "onChangeTimeout": 200,
+                "placeholder": "Search...",
+                "style-width": "300px",
+                "style-source": "",
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "updateFilter"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "style-marginBottom": "",
+                "style-marginRight": ""
+              }
+            ],
+            "style-source": "float: left;",
+            "style-marginBottom": "20px",
+            "style-marginRight": "20px"
+          },
+          {
+            "key": "formgroup_1",
+            "data-buildertype": "formgroup",
+            "widths": "equal",
+            "children": [
+              {
+                "key": "FilterRecurrenceType",
+                "data-buildertype": "dropdown",
+                "label": "",
+                "fluid": false,
+                "selection": true,
+                "data-elements": [
+                  {
+                    "key": 1,
+                    "value": "AllRecurrenceType",
+                    "text": "(Recurring Survey: no filter)"
+                  },
+                  {
+                    "value": "IR",
+                    "text": "Recurring only"
+                  },
+                  {
+                    "value": "I",
+                    "text": "Recurring Initial only"
+                  },
+                  {
+                    "key": 2,
+                    "value": "R",
+                    "text": "Recurring Recurrences only"
+                  },
+                  {
+                    "key": 3,
+                    "value": "N",
+                    "text": "Not-recurring only"
+                  }
+                ],
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "updateFilter"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "defaultValue": "AllRecurrenceType",
+                "style-source": "",
+                "style-marginBottom": "",
+                "style-marginRight": "",
+                "placeholder": "",
+                "style-width": "250px"
+              },
+              {
+                "key": "FilterAnonymous",
+                "data-buildertype": "dropdown",
+                "label": "",
+                "fluid": false,
+                "selection": true,
+                "data-elements": [
+                  {
+                    "key": 1,
+                    "value": "AllAnonymous",
+                    "text": "(Anonymous Survey: no filter)"
+                  },
+                  {
+                    "key": 2,
+                    "value": "true",
+                    "text": "Anonymous only"
+                  },
+                  {
+                    "key": 3,
+                    "value": "false",
+                    "text": "Not-anonymous only"
+                  }
+                ],
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "updateFilter"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "defaultValue": "AllAnonymous",
+                "style-source": "",
+                "style-marginBottom": "",
+                "style-marginRight": "",
+                "placeholder": "",
+                "style-width": "250px"
+              },
+              {
+                "key": "FilterMultiple",
+                "data-buildertype": "dropdown",
+                "label": "",
+                "fluid": false,
+                "selection": true,
+                "data-elements": [
+                  {
+                    "key": 1,
+                    "value": "AllMultiple",
+                    "text": "(Multiple Response: no filter)"
+                  },
+                  {
+                    "key": 2,
+                    "value": "true",
+                    "text": "Multiple only"
+                  },
+                  {
+                    "key": 3,
+                    "value": "false",
+                    "text": "Not-multiple only"
+                  }
+                ],
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "updateFilter"
+                    ],
+                    "targets": [],
+                    "parameters": []
+                  }
+                },
+                "defaultValue": "AllMultiple",
+                "style-marginBottom": "",
+                "style-marginRight": "",
+                "style-width": "250px"
+              }
+            ],
+            "style-source": "float: left;",
+            "style-marginBottom": "20px",
+            "style-marginRight": "20px"
+          }
+        ],
+        "style-width": "100%"
+      }
+    ],
+    "style-marginBottom": ""
+  },
+  {
+    "key": "gridview_1",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": ""
+      },
+      {
+        "key": "QnnTitle",
+        "name": "Form Properties",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": 200
+      },
+      {
+        "key": "ListName",
+        "name": "Sample List",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "width": 200
+      },
+      {
+        "key": "Tags",
+        "name": "Tags",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "type": "custom",
+        "width": 250
+      },
+      {
+        "key": "RecurrenceType",
+        "name": "Recur",
+        "type": "",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 64
+      },
+      {
+        "key": "IsAnonymous",
+        "name": "Anon",
+        "type": "checkbox",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 64
+      },
+      {
+        "key": "IsMultipleResponse",
+        "name": "Multi",
+        "type": "checkbox",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 64
+      },
+      {
+        "key": "CreatedDate",
+        "name": "Created",
+        "type": "datetime",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 150
+      },
+      {
+        "key": "RespCount",
+        "type": "custom",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "name": "Responses",
+        "width": 128
+      },
+      {
+        "key": "Action",
+        "name": "Action",
+        "type": "custom",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false,
+        "width": 128
+      }
+    ],
+    "editForm": "QNN_DPLY",
+    "rowKey": "Id",
+    "multiselect": true,
+    "defaultSort": "Name ASC",
+    "events": {
+      "onRowClick": {
+        "active": true,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onRowDblClick": {
+        "active": false,
+        "actions": [
+          "gridEdit"
+        ],
+        "targets": [],
+        "parameters": []
+      },
+      "onSelectionChanged": {
+        "active": false,
+        "actions": [],
+        "targets": [],
+        "parameters": []
+      }
+    },
+    "pagerType": "server",
+    "autoHeight": false,
+    "offSet": "100px",
+    "style-marginTop": "100px",
+    "rowHeight": "80",
+    "minHeight": "500",
+    "style-source": "clear: both;",
+    "disableSort": false
+  }
+]

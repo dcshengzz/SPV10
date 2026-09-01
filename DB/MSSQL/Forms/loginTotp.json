@@ -1,0 +1,69 @@
+[
+  {
+    "key": "divLoginPage",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "formLogin",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "code",
+            "data-buildertype": "input",
+            "label": "Security Code",
+            "fluid": true,
+            "type": "password"
+          },
+          {
+            "key": "remember",
+            "data-buildertype": "checkbox",
+            "label": "Remember",
+            "slider": false,
+            "style-hidden": true
+          },
+          {
+            "key": "btnVerifyTotp",
+            "data-buildertype": "button",
+            "content": "Verify",
+            "fluid": true,
+            "primary": true,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "verifyTotp"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          },
+          {
+            "key": "btnCancel",
+            "data-buildertype": "button",
+            "content": "Cancel",
+            "fluid": true,
+            "primary": false,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "cancel"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "secondary": true
+          }
+        ],
+        "style-width": ""
+      }
+    ],
+    "style-width": "350px",
+    "style-marginLeft": "auto",
+    "style-marginRight": "auto",
+    "style-source": "",
+    "style-height": ""
+  }
+]

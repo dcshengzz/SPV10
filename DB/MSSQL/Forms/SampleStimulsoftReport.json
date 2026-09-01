@@ -1,0 +1,55 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Stimulsoft Sample Report",
+    "size": "medium"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "ddlReport",
+        "data-buildertype": "dropdown",
+        "label": "Report Options",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [
+          {
+            "key": 1,
+            "value": "ChartStyles",
+            "text": "Chart Styles"
+          },
+          {
+            "key": 2,
+            "value": "SimpleList",
+            "text": "Simple List"
+          },
+          {
+            "key": 3,
+            "value": "MultiColumnList",
+            "text": "Multi Column List"
+          }
+        ],
+        "placeholder": "Select a report",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "viewReport"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        }
+      },
+      {
+        "key": "staticcontent_1",
+        "data-buildertype": "staticcontent",
+        "content": "<div id='stiReportViewer'></div>",
+        "isHtml": true
+      }
+    ]
+  }
+]

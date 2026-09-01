@@ -1,0 +1,18 @@
+[
+  {
+    "key": "subject",
+    "data-buildertype": "staticcontent",
+    "content": "Survey response must be resubmitted",
+    "isHtml": true
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container"
+  },
+  {
+    "key": "body",
+    "data-buildertype": "staticcontent",
+    "content": "Dear {Name},<br>\n\n<p>\nYour response to the survey \"{QnnTitle}\" must be resubmitted.\n</p>\n\n\n<p>\n{MessageToRespondent}\n</p>\n\n",
+    "isHtml": true
+  }
+]

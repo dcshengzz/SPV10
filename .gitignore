@@ -1,0 +1,79 @@
+# Special cases
+#	surveyplus-utils.js is an embedded resource in swz.SurveyPlus.Application but when debugging it can be useful
+#   to put a copy in the web appplication itself to edit and refresh without recompiling (as the one in the assembly
+#   won't update until recompile). (It works because the default file provider is checked first)
+# BUT: we do not want to accidentally commit the test/debug copy!
+swz.SurveyPlus.IntranetWeb/wwwroot/js/surveyplus-utils.js
+swz.SurveyPlus.InternetWeb/wwwroot/js/surveyplus-utils.js
+
+
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Visual Studio 2015
+.vs/
+swz-admin/node_modules
+swz-app/node_modules
+swz-builder/node_modules
+swz.SurveyPlus.IntranetWeb/node_modules
+swz.SurveyPlus.IntranetWeb/bower_components
+*.pubxml
+
+swz.SurveyPlus.IntranetWeb/wwwroot/js/login.js.map
+swz.SurveyPlus.IntranetWeb/wwwroot/js/admin.js.map
+packages/
+[Ll]ogs/
+swz.SurveyPlus.IntranetWeb/Logs/
+swz-survey-builder/node_modules/
+swz-survey-admin/node_modules/
+compiler-batch-files/
+swz-useradmin/node_modules/
+swz-help/node_modules/
+swz.SurveyPlus.IntranetWeb/export
+swz.SurveyPlus.IntranetWeb/Temp
+DLL/
+swz.SurveyPlus.IntranetWeb/.config/
+swz.Clover.DB/swz.Clover.DB.jfm
+swz.Clover.DB/swz.Clover.DB.dbmdl
+license.key
+
+#From internet side
+swz.SurveyPlus.InternetWeb/node_modules
+swz.SurveyPlus.InternetWeb/bower_components
+swz.SurveyPlus.InternetWeb/node_modules
+swz.SurveyPlus.InternetWeb/bower_components
+swz.SurveyPlus.InternetWeb/wwwroot/js/login.js.map
+swz.SurveyPlus.InternetWeb/wwwroot/js/admin.js.map
+swz.SurveyPlus.InternetWeb/Logs/
+swz.SurveyPlus.InternetWeb/RespFilesDownload/
+swz.MockClamRestApi/.config/dotnet-tools.json
+swz.MockNevis/.config/dotnet-tools.json

@@ -1,0 +1,109 @@
+{
+  "isSurvey": false,
+  "structDivisionId": "72d461b2-234b-40d6-b410-b261964ba291",
+  "name": "QNN_TRK_LIST_SAMPLE",
+  "lastUpdate": "2023-05-25T16:06:26.6784691+08:00",
+  "entityId": "245660f8-437f-4716-b14b-03a040a0f220",
+  "isTemplate": false,
+  "triggers": [],
+  "dataMap": [
+    {
+      "id": "784b4f21-a409-e116-de1f-ff06612fabd3",
+      "attributeId": "93d5e831-d471-4fdf-b562-60d70ed73b64",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "8a7180f8-f9f9-f505-d986-5c21decc75ef",
+      "attributeId": "a6337ff6-c08d-4998-b235-f0c4609d44e4",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "3cb61126-816a-5daf-9544-029c6d3f777a",
+      "attributeId": "7d603136-3dbb-488f-81ef-482d2592184e",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "8ebb8374-aa46-f57b-2dc2-0288ad9cfcff",
+      "attributeId": "1c65984e-89ce-4030-8cbb-60d8eb2455d7",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "9deeb8ec-ac97-e5f9-20b5-4b3ddd830b92",
+      "attributeId": "665424d0-9759-437b-b620-d5d5243287c8",
+      "control": "Email",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "a9ffe2f4-669e-6ef6-20d8-ebee1236862e",
+      "attributeId": "9ed7f898-6b13-4cd0-be8d-4ce5183f0da8",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "35ba6fe2-9599-40ba-01ad-d9c43ef76a77",
+      "attributeId": "8f29d669-5d1d-4e3d-90b4-97153c2bbdfb",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "528c299a-5646-1359-80a7-a89fc01401dc",
+      "attributeId": "ec0e063b-9864-49a5-9469-72c6e2f2546e",
+      "control": "Name",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "297fc5ba-be15-336a-f453-3a9df8e6c3da",
+      "attributeId": "b84d9d22-dd5c-4077-a8f7-a45a55496c0a",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "4316c2e5-c884-3e9e-9937-a5c2e8f3ac46",
+      "attributeId": "67bb8933-188d-46ff-a9ce-7152447c3e6a",
+      "control": "Remarks",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "42830c72-4bd5-eec2-e6fb-e32acff4746b",
+      "attributeId": "97f7aa0f-e033-4b9f-80e9-1dd6730c65f9",
+      "control": "Status",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "0c3543e6-145e-59a2-5533-f53d0e9bb5e5",
+      "attributeId": "aec40eba-82df-4090-8bda-87bc9ae2bdac",
+      "control": "TrkListId",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "689af3a3-6d26-0795-0833-95d10696fcbc",
+      "attributeId": "5671f841-1602-4210-90f3-77b8c2a51aaf",
+      "control": "UID",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "2aacbbe5-5a1f-1248-3289-731b02c05151",
+      "attributeId": "4b041d0e-1bed-4dd0-87ea-1c8812ec54de",
+      "isEditable": true,
+      "isLoadable": true
+    },
+    {
+      "id": "914fbc30-3ce8-b5a2-7e6d-2829f0e349be",
+      "attributeId": "f042fa99-cffb-480c-af49-86b679f57c1e",
+      "isEditable": true,
+      "isLoadable": true
+    }
+  ],
+  "dataColl": [],
+  "securityGroup": "List"
+}

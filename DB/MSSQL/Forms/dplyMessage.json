@@ -1,0 +1,484 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Deployment Message",
+    "size": "huge"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "staticcontent_2",
+        "data-buildertype": "staticcontent",
+        "content": "<h5 class=\"ui header\">Email Subject: </h5> {EmailSubj}<p/>\n<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Email Template: </h5> {MsgContent}<p/>\n<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Email From: </h5>\n\n",
+        "isHtml": true
+      },
+      {
+        "key": "staticcontent_EmailFrom",
+        "data-buildertype": "staticcontent",
+        "content": "{EmailFrom}",
+        "isHtml": false,
+        "other-visibleConition": "(data.EmailFrom != null && data.EmailFrom != \"\")"
+      },
+      {
+        "key": "staticcontent_EmailFromDefault",
+        "data-buildertype": "staticcontent",
+        "content": "<i>(Default Sender)</i>",
+        "isHtml": true,
+        "other-visibleConition": "(data.EmailFrom == null || data.EmailFrom == \"\")"
+      },
+      {
+        "key": "container_4",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "staticcontent_3",
+            "data-buildertype": "staticcontent",
+            "content": "<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Scheduled time:</h5>{ScheduledDate}<p/>",
+            "isHtml": true,
+            "other-visibleConition": "data.ScheduledDate"
+          }
+        ]
+      },
+      {
+        "key": "statusContainer",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "StatusStatic",
+            "data-buildertype": "staticcontent",
+            "content": "<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">For Status:</h5><p name=\"status\"><p/>",
+            "isHtml": true
+          },
+          {
+            "key": "StatusCollection",
+            "data-buildertype": "collectioneditor",
+            "idField": "Id",
+            "parentIdField": "ParentId",
+            "columns": [
+              {
+                "key": "ForStatus_Title",
+                "name": ""
+              }
+            ],
+            "readOnly": true,
+            "hierarchical": false,
+            "disableAdd": true,
+            "disableDelete": true,
+            "header": false,
+            "events": {},
+            "collapseAll": false,
+            "draggable": false,
+            "style-hidden": true
+          },
+          {
+            "key": "SampleCollection",
+            "data-buildertype": "collectioneditor",
+            "idField": "Id",
+            "parentIdField": "ParentId",
+            "columns": [
+              {
+                "key": "Id",
+                "name": ""
+              }
+            ],
+            "readOnly": true,
+            "hierarchical": false,
+            "disableAdd": true,
+            "disableDelete": true,
+            "header": false,
+            "events": {},
+            "collapseAll": false,
+            "draggable": false,
+            "style-hidden": true
+          }
+        ],
+        "other-visibleConition": "data.StatusCollection.length !== 0"
+      }
+    ],
+    "style-marginBottom": "20px",
+    "style-customcss": "ui message",
+    "other-visibleConition": "",
+    "style-width": "100%",
+    "events": {},
+    "other-required": false
+  },
+  {
+    "key": "container_5",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "swzmodal_2",
+        "data-buildertype": "swzmodal",
+        "style-display": "none",
+        "children": [
+          {
+            "key": "container_11",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_3",
+                "data-buildertype": "container",
+                "style-source": "clear: both;",
+                "children": [
+                  {
+                    "key": "breadcrumb_1",
+                    "data-buildertype": "breadcrumb",
+                    "items": [
+                      {
+                        "text": "Download Template",
+                        "url": ""
+                      }
+                    ],
+                    "events": {
+                      "onItemClick": {
+                        "active": true,
+                        "actions": [
+                          "downloadEmailTemplate"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "style-width": "100%",
+                    "style-source": "padding-top: 20px;"
+                  }
+                ],
+                "style-marginBottom": "20px",
+                "style-float": "left"
+              },
+              {
+                "key": "container_6",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "staticcontent_4",
+                    "data-buildertype": "staticcontent",
+                    "content": "<i>(Changes to the email message text and schedule will also be applied to Mail Merge generation)</i>",
+                    "isHtml": true
+                  }
+                ],
+                "other-visibleConition": "(data.NotifyMerge!=null&&data.NotifyMerge==1)",
+                "style-source": "clear: both;\nborder: 1px solid red;\npadding: 25px;",
+                "style-marginBottom": "20px"
+              },
+              {
+                "key": "container_14",
+                "data-buildertype": "container",
+                "style-source": "clear: both;",
+                "children": [
+                  {
+                    "key": "staticcontent_1",
+                    "data-buildertype": "staticcontent",
+                    "content": "<h5 class=\"ui header\">Status Filter</h5>",
+                    "isHtml": true
+                  },
+                  {
+                    "key": "dictionaryStatus",
+                    "data-buildertype": "dictionary",
+                    "label": "",
+                    "fluid": true,
+                    "selection": true,
+                    "dataModel": "QNN_STATUS",
+                    "columns": "Title, NumberId ASC",
+                    "events": {
+                      "onChange": {
+                        "active": false,
+                        "actions": [],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "style-marginBottom": "20px",
+                    "clearable": true,
+                    "placeholder": "Select Status",
+                    "multiple": true,
+                    "other-visibleConition": "data.StatusCollection.length > 0",
+                    "other-required": false
+                  }
+                ]
+              },
+              {
+                "key": "container_13",
+                "data-buildertype": "container",
+                "style-customcss": "",
+                "children": [
+                  {
+                    "key": "emailFrom",
+                    "data-buildertype": "input",
+                    "label": "From",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "other-visibleConition": "",
+                    "style-marginBottom": "20px",
+                    "events": {},
+                    "other-required": false
+                  },
+                  {
+                    "key": "emailSubj",
+                    "data-buildertype": "input",
+                    "label": "Subject",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "other-visibleConition": "",
+                    "style-marginBottom": "20px",
+                    "other-required": false
+                  },
+                  {
+                    "key": "scheduledDate",
+                    "data-buildertype": "input",
+                    "label": "Start From",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "reference": "Start From",
+                    "other-visibleConition": "",
+                    "type": "datetime",
+                    "style-marginBottom": "20px",
+                    "other-required": true
+                  },
+                  {
+                    "key": "formgroup_1",
+                    "data-buildertype": "formgroup",
+                    "widths": "equal",
+                    "children": [
+                      {
+                        "key": "UseRawHtml",
+                        "data-buildertype": "checkbox",
+                        "label": "Use Raw HTML Template",
+                        "style-marginTop": "10px",
+                        "style-marginBottom": "10px",
+                        "events": {},
+                        "toggle": true
+                      },
+                      {
+                        "key": "htmlRaw",
+                        "data-buildertype": "textarea",
+                        "label": "",
+                        "fluid": true,
+                        "rows": "12",
+                        "events": {},
+                        "style-width": "100%",
+                        "other-visibleConition": "data.UseRawHtml"
+                      }
+                    ],
+                    "orientation": "grouped"
+                  },
+                  {
+                    "key": "msgContentEditor",
+                    "data-buildertype": "swzhtml",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "onHtmlChange"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "other-visibleConition": "!data.UseRawHtml",
+                    "other-customValidation": "",
+                    "defaultValue": "",
+                    "hideOutput": "block",
+                    "other-required": true
+                  }
+                ],
+                "style-source": "",
+                "style-marginTop": "20px",
+                "style-marginBottom": "20px"
+              },
+              {
+                "key": "container_15",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "button_SubmitMessage",
+                    "data-buildertype": "button",
+                    "content": "Submit",
+                    "secondary": false,
+                    "inverted": false,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "updateProfileMailMerge"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "primary": true
+                  },
+                  {
+                    "key": "btnCancel_1",
+                    "data-buildertype": "button",
+                    "content": "Cancel",
+                    "secondary": true,
+                    "inverted": false,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "closeModal"
+                        ],
+                        "targets": [
+                          "swzmodal_2"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "primary": false
+                  }
+                ],
+                "style-marginTop": "20px"
+              }
+            ],
+            "style-customcss": "ui message"
+          }
+        ],
+        "content": "Edit",
+        "secondary": false,
+        "inverted": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "onEditClick"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-customcss": "",
+        "style-source": "",
+        "size": "",
+        "primary": true,
+        "other-visibleConition": "!data.JobIsCanceled && data.MsgContentJson != null && data.ScheduledDate && new Date(data.ScheduledDate )>new Date()"
+      }
+    ],
+    "style-float": "left"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "cancelJob",
+        "data-buildertype": "button",
+        "content": "Cancel This Job",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "confirm",
+              "cancelJob"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "other-visibleConition": "!data.JobIsCanceled && data.ScheduledDate && new Date(data.ScheduledDate )>new Date()"
+      },
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Exit",
+        "primary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "goBack"
+            ],
+            "targets": [],
+            "parameters": [
+              {}
+            ]
+          }
+        },
+        "other-visibleConition": "",
+        "inverted": false,
+        "secondary": true
+      }
+    ],
+    "style-marginBottom": "20px",
+    "style-float": ""
+  },
+  {
+    "key": "input_1",
+    "data-buildertype": "input",
+    "label": "",
+    "fluid": true,
+    "onChangeTimeout": 200,
+    "placeholder": "Filter by UID",
+    "events": {
+      "onChange": {
+        "active": true,
+        "actions": [
+          "setFilter",
+          "applyFilter"
+        ],
+        "targets": [
+          "gridview_1"
+        ],
+        "parameters": [
+          {
+            "name": "column",
+            "value": "UID"
+          }
+        ]
+      }
+    },
+    "style-marginBottom": "20px",
+    "style-width": "300px"
+  },
+  {
+    "key": "gridview_1",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "UID",
+        "name": "UID",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true
+      },
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true
+      },
+      {
+        "key": "ToEmails",
+        "name": "Sent To",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false
+      },
+      {
+        "key": "CcEmails",
+        "name": "CC",
+        "resizable": true,
+        "sortable": true,
+        "filterable": false
+      },
+      {
+        "key": "EmailSentDate",
+        "name": "Sent Date",
+        "sortable": true,
+        "filterable": false,
+        "resizable": true,
+        "type": "datetime"
+      }
+    ],
+    "rowKey": "Id",
+    "pageSize": "50",
+    "defaultSort": "UID ASC",
+    "pagerType": "server"
+  }
+]

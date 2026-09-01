@@ -1,0 +1,392 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Data Pre-Populate",
+    "size": "huge",
+    "subheader": " {Name}"
+  },
+  {
+    "key": "message_notsupported",
+    "data-buildertype": "message",
+    "header": "Not Supported",
+    "content": "Pre-Population for multiple-response or anonymous survey types is not supported.",
+    "error": true,
+    "other-visibleConition": "data.IsMultipleResponse || data.IsAnonymous"
+  },
+  {
+    "key": "container_8",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_12",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "PrepopulateInfo",
+            "data-buildertype": "message",
+            "header": "Pre-populate Answers",
+            "content": "Pre-populate will initialise response data in this deployment as specified below. It only pre-sets answers where the sample has yet to start responding. For these cases any existing pre-populated data will be cleared and replaced with the data specified below.\nYou can optionally schedule the pre-population to occur in the future by selecting a date and time to run the job, otherwise it will be run immediately. ",
+            "info": true
+          },
+          {
+            "key": "PrePopulateInfo",
+            "data-buildertype": "staticcontent",
+            "content": "",
+            "isHtml": true
+          }
+        ],
+        "style-marginTop": "10px",
+        "style-marginBottom": "10px"
+      },
+      {
+        "key": "formgroup_2",
+        "data-buildertype": "formgroup",
+        "widths": "equal",
+        "orientation": "grouped",
+        "children": [
+          {
+            "key": "DataSource",
+            "data-buildertype": "radiogroup",
+            "label": "Pre-Populate Data From",
+            "data-elements": [
+              {
+                "key": 1,
+                "value": 1,
+                "text": "Online Deployment"
+              },
+              {
+                "key": 2,
+                "value": 2,
+                "text": "Upload CSV"
+              }
+            ],
+            "reference": "Import Data From",
+            "defaultValue": ""
+          },
+          {
+            "key": "ScheduledTime",
+            "data-buildertype": "input",
+            "label": "Schedule pre-population at",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "type": "datetime",
+            "events": {
+              "onClick": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              },
+              "onChange": {
+                "active": true,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "events": {},
+    "other-readOnlyConition": "",
+    "other-visibleConition": "!(data.IsMultipleResponse || data.IsAnonymous)"
+  },
+  {
+    "key": "container_7",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_1",
+        "data-buildertype": "container",
+        "style-float": "",
+        "children": [
+          {
+            "key": "Deployment",
+            "data-buildertype": "dictionary",
+            "label": "Source Deployment",
+            "fluid": true,
+            "selection": true,
+            "dataModel": "vSP_DeploymentOnline",
+            "columns": "Name ASC",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "removeAllFields",
+                  "getDeploymentFields"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-customcss": "",
+            "clearable": true,
+            "multiple": false,
+            "filters": "[{\"column\":\"Id\", \"value\":\"{Id}\", \"term\":\"!=\"}]"
+          }
+        ],
+        "style-width": "",
+        "style-marginBottom": "10px",
+        "events": {}
+      },
+      {
+        "key": "container_13",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "header_2",
+            "data-buildertype": "header",
+            "content": "Pre-Populate Fields",
+            "size": "medium"
+          },
+          {
+            "key": "form_2",
+            "data-buildertype": "form",
+            "children": [
+              {
+                "key": "formgroup_1",
+                "data-buildertype": "formgroup",
+                "widths": "equal",
+                "orientation": "grouped",
+                "children": [
+                  {
+                    "key": "container_3",
+                    "data-buildertype": "container",
+                    "style-float": "",
+                    "children": [
+                      {
+                        "key": "DeploymentQnnFields",
+                        "data-buildertype": "collectioneditor",
+                        "idField": "Id",
+                        "parentIdField": "ParentId",
+                        "columns": [
+                          {
+                            "key": "Name",
+                            "name": "Field Name",
+                            "control": "span",
+                            "width": ""
+                          },
+                          {
+                            "key": "Type",
+                            "name": "Type",
+                            "control": "span"
+                          },
+                          {
+                            "key": "PrePopulate",
+                            "name": "PrePopulate",
+                            "control": "checkbox"
+                          }
+                        ],
+                        "disableAdd": true,
+                        "disableDelete": true,
+                        "other-visibleConition": "data.Deployment",
+                        "header": false,
+                        "headerTitle": "Pre-Populate Fields"
+                      }
+                    ],
+                    "style-width": "",
+                    "style-marginBottom": "",
+                    "events": {},
+                    "other-visibleConition": "",
+                    "style-customcss": "",
+                    "style-source": "overflow-y: scroll;\nmax-height: 300px;\noverflow-x: hidden;",
+                    "style-marginTop": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "container_6",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "addAllFields",
+                "data-buildertype": "breadcrumb",
+                "items": [
+                  {
+                    "text": "Add All",
+                    "url": "/",
+                    "active": false
+                  }
+                ],
+                "events": {
+                  "onItemClick": {
+                    "active": true,
+                    "actions": [
+                      "addAllFields"
+                    ],
+                    "targets": [
+                      "DeploymentQnnFields"
+                    ],
+                    "parameters": []
+                  }
+                },
+                "style-marginRight": "10px"
+              },
+              {
+                "key": "breadcrumb_1",
+                "data-buildertype": "breadcrumb",
+                "items": [
+                  {
+                    "text": "Remove All",
+                    "url": "/",
+                    "active": false
+                  }
+                ],
+                "events": {
+                  "onItemClick": {
+                    "active": true,
+                    "actions": [
+                      "removeAllFields"
+                    ],
+                    "targets": [
+                      "DeploymentQnnFields"
+                    ],
+                    "parameters": []
+                  }
+                }
+              }
+            ],
+            "style-float": ""
+          }
+        ],
+        "style-source": "",
+        "style-customcss": "ui info message",
+        "style-float": "",
+        "style-width": "",
+        "other-visibleConition": "data.Deployment"
+      }
+    ],
+    "other-visibleConition": "data.DataSource == 1",
+    "style-width": "80%",
+    "style-marginTop": "20px"
+  },
+  {
+    "key": "container_9",
+    "data-buildertype": "container",
+    "other-visibleConition": "data.DataSource == 2",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "container_11",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "CsvInfo",
+                "data-buildertype": "staticcontent",
+                "content": "The CSV must have a header row to provide alias/field names and contain a UID column. If using a previously exported response CSV do be aware that pre-population pays no special attention to the Status column. Any rows to to be excluded should be removed from the CSV prior to upload."
+              }
+            ],
+            "style-marginTop": "10px",
+            "style-marginBottom": "10px"
+          },
+          {
+            "key": "CsvFileUploaded",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "type": "file",
+            "events": {
+              "onChange": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-hidden": false,
+            "style-source": ""
+          }
+        ],
+        "style-width": "50%",
+        "style-marginBottom": "20px",
+        "style-marginTop": "20px"
+      }
+    ]
+  },
+  {
+    "key": "container_10",
+    "data-buildertype": "container",
+    "style-source": "clear: both;",
+    "style-marginBottom": "10px"
+  },
+  {
+    "key": "container_2",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "children": [
+      {
+        "key": "btn_OnlinePrePopulate",
+        "data-buildertype": "button",
+        "content": "Schedule Pre-Populate (From Dply)",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "prePopulate"
+            ],
+            "targets": [
+              "DeploymentQnnFields"
+            ],
+            "parameters": []
+          }
+        },
+        "other-customValidation": "",
+        "other-visibleConition": "data.DataSource == 1"
+      },
+      {
+        "key": "btn_CSVPrePopulate",
+        "data-buildertype": "button",
+        "content": "Schedule Pre-Populate (From CSV)",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "prePopulateCSV"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "primary": true,
+        "style-hidden": false,
+        "secondary": false,
+        "other-visibleConition": "data.DataSource == 2"
+      },
+      {
+        "key": "button_2",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "primary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        },
+        "secondary": true,
+        "inverted": false
+      }
+    ],
+    "style-marginBottom": "20px",
+    "events": {},
+    "other-visibleConition": ""
+  }
+]

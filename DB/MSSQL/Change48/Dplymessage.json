@@ -1,0 +1,137 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Deployment Message",
+    "size": "huge"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "staticcontent_2",
+        "data-buildertype": "staticcontent",
+        "content": "<h5 class=\"ui header\">Email Subject: </h5> {EmailSubj}<p />\n<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Email Template: </h5> {MsgContent}<p />\n<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Email From: </h5> {EmailFrom}<p />\n<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Scheduled time:</h5>{ScheduledDate}<p />\n<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">For Status:</h5>{ForStatus_Title}<p />\n\n",
+        "isHtml": true
+      }
+    ],
+    "style-marginBottom": "20px",
+    "style-customcss": "ui message",
+    "other-visibleConition": "data.ScheduledDate",
+    "style-width": "100%"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "cancelJob",
+        "data-buildertype": "button",
+        "content": "Cancel Job",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "confirm",
+              "cancelJob"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "other-visibleConition": "!data.JobIsCanceled && data.ScheduledDate && new Date(data.ScheduledDate )>new Date()"
+      },
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Back",
+        "primary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "goBack"
+            ],
+            "targets": [],
+            "parameters": [
+              {}
+            ]
+          }
+        },
+        "other-visibleConition": "",
+        "inverted": false,
+        "secondary": true
+      }
+    ],
+    "style-marginBottom": "20px"
+  },
+  {
+    "key": "input_1",
+    "data-buildertype": "input",
+    "label": "",
+    "fluid": true,
+    "onChangeTimeout": 200,
+    "placeholder": "Filter by UID",
+    "events": {
+      "onChange": {
+        "active": true,
+        "actions": [
+          "setFilter",
+          "applyFilter"
+        ],
+        "targets": [
+          "gridview_1"
+        ],
+        "parameters": [
+          {
+            "name": "column",
+            "value": "UID"
+          }
+        ]
+      }
+    },
+    "style-marginBottom": "20px",
+    "style-width": "300px"
+  },
+  {
+    "key": "gridview_1",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "UID",
+        "name": "UID",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "Email",
+        "name": "Email",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "EmailSentDate",
+        "name": "Sent Date",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      }
+    ],
+    "rowKey": "Id",
+    "pageSize": "50",
+    "defaultSort": "UID ASC",
+    "pagerType": "server"
+  }
+]

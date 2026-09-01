@@ -1,0 +1,494 @@
+[
+  {
+    "key": "header_1",
+    "data-buildertype": "header",
+    "content": "Global Mail Message",
+    "size": "huge"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "staticcontent_2",
+        "data-buildertype": "staticcontent",
+        "content": "<h5 class=\"ui header\">Email Subject: </h5><p>{EmailSubj}</p>\n<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Email Template: </h5>{MsgContent}<p/>\n<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Email From: </h5>\n",
+        "isHtml": true
+      },
+      {
+        "key": "staticcontent_emailFrom",
+        "data-buildertype": "staticcontent",
+        "content": "{EmailFrom}",
+        "isHtml": false,
+        "other-visibleConition": "(data.EmailFrom != null && data.EmailFrom != \"\")"
+      },
+      {
+        "key": "staticcontent_DefaultEmailFrom",
+        "data-buildertype": "staticcontent",
+        "content": "<i>(Default Sender)</i>",
+        "isHtml": true,
+        "other-visibleConition": "(data.EmailFrom==null || data.EmailFrom==\"\")"
+      },
+      {
+        "key": "container_4",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "staticcontent_3",
+            "data-buildertype": "staticcontent",
+            "content": "<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">Scheduled time:</h5>{ScheduledDate}<p/>",
+            "isHtml": true,
+            "other-visibleConition": "data.ScheduledDate"
+          }
+        ]
+      },
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "staticcontent_1",
+            "data-buildertype": "staticcontent",
+            "content": "<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">For Status:</h5><p name=\"status\"><p/>",
+            "isHtml": true
+          },
+          {
+            "key": "StatusCollection",
+            "data-buildertype": "collectioneditor",
+            "idField": "Id",
+            "parentIdField": "ParentId",
+            "columns": [
+              {
+                "key": "ForStatus_Title",
+                "name": ""
+              }
+            ],
+            "readOnly": true,
+            "hierarchical": false,
+            "disableAdd": true,
+            "disableDelete": true,
+            "header": false,
+            "events": {},
+            "collapseAll": false,
+            "draggable": false,
+            "style-hidden": true
+          }
+        ],
+        "other-visibleConition": "data.StatusCollection.length !== 0"
+      },
+      {
+        "key": "container_5",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "staticcontent_4",
+            "data-buildertype": "staticcontent",
+            "content": "<div class=\"ui divider\"></div>\n<h5 class=\"ui header\">This scheduled job was cancelled</h5><p/>",
+            "isHtml": true,
+            "other-visibleConition": "data.ScheduledDate"
+          }
+        ],
+        "other-visibleConition": "data.JobIsCanceled"
+      }
+    ],
+    "style-marginBottom": "20px",
+    "style-customcss": "ui message",
+    "other-visibleConition": "",
+    "style-width": "100%"
+  },
+  {
+    "key": "container_6",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "swzmodal_2",
+        "data-buildertype": "swzmodal",
+        "style-display": "none",
+        "children": [
+          {
+            "key": "container_11",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "container_14",
+                "data-buildertype": "container",
+                "style-source": "clear: both;",
+                "children": [
+                  {
+                    "key": "organization",
+                    "data-buildertype": "dictionary",
+                    "label": "",
+                    "fluid": true,
+                    "selection": true,
+                    "placeholder": "Organization",
+                    "dataModel": "vStructDivisionParentsAndThisName",
+                    "columns": "Name, Id ASC",
+                    "filters": "[{ column : \"ParentId\" , value : \"{UserStructId}\" , term : \"=\" }]",
+                    "paging": true,
+                    "search": true,
+                    "style-marginBottom": "10px"
+                  },
+                  {
+                    "key": "target",
+                    "data-buildertype": "radiogroup",
+                    "label": "To",
+                    "data-elements": [
+                      {
+                        "key": 1,
+                        "value": "intranetUsers",
+                        "text": "Intranet Users"
+                      },
+                      {
+                        "key": 2,
+                        "value": "activeSamples",
+                        "text": "Active Samples"
+                      }
+                    ],
+                    "style-marginTop": ""
+                  },
+                  {
+                    "key": "dictionaryStatus",
+                    "data-buildertype": "dictionary",
+                    "label": "",
+                    "fluid": true,
+                    "selection": true,
+                    "dataModel": "QNN_STATUS",
+                    "columns": "Title, NumberId ASC",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "style-marginBottom": "20px",
+                    "clearable": true,
+                    "placeholder": "Select Status",
+                    "multiple": true,
+                    "other-visibleConition": "data.target == null ? data.IsTargetUsers == true ? false : true : data.target == \"activeSamples\" ? true : false",
+                    "other-customValidation-soft": false
+                  }
+                ]
+              },
+              {
+                "key": "container_13",
+                "data-buildertype": "container",
+                "style-customcss": "",
+                "children": [
+                  {
+                    "key": "emailFrom",
+                    "data-buildertype": "input",
+                    "label": "From",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "other-visibleConition": "",
+                    "style-marginBottom": "20px",
+                    "events": {},
+                    "other-required": false
+                  },
+                  {
+                    "key": "emailSubj",
+                    "data-buildertype": "input",
+                    "label": "Subject",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "other-visibleConition": "",
+                    "style-marginBottom": "20px",
+                    "other-required": false
+                  },
+                  {
+                    "key": "scheduledDate",
+                    "data-buildertype": "input",
+                    "label": "Start From",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "reference": "Start From",
+                    "other-visibleConition": "",
+                    "type": "datetime",
+                    "style-marginBottom": "20px",
+                    "other-required": true
+                  },
+                  {
+                    "key": "msgContentEditor",
+                    "data-buildertype": "swzhtml",
+                    "events": {
+                      "onChange": {
+                        "active": true,
+                        "actions": [
+                          "onHtmlChange"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "other-visibleConition": "",
+                    "other-customValidation": "",
+                    "defaultValue": "",
+                    "hideOutput": "block",
+                    "other-required": true
+                  }
+                ],
+                "style-source": "",
+                "style-marginTop": "20px",
+                "style-marginBottom": "20px"
+              },
+              {
+                "key": "container_15",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "btn_SubmitEdit",
+                    "data-buildertype": "button",
+                    "content": "Submit",
+                    "secondary": false,
+                    "inverted": false,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "editEmail"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "primary": true
+                  },
+                  {
+                    "key": "btnCancelEdit",
+                    "data-buildertype": "button",
+                    "content": "Cancel",
+                    "secondary": true,
+                    "inverted": false,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "closeModal"
+                        ],
+                        "targets": [
+                          "swzmodal_2"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "primary": false
+                  }
+                ],
+                "style-marginTop": "20px"
+              }
+            ],
+            "style-customcss": "ui message"
+          }
+        ],
+        "content": "Edit",
+        "secondary": false,
+        "inverted": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "onEditClick"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-customcss": "",
+        "style-source": "",
+        "size": "",
+        "primary": true,
+        "other-visibleConition": "!data.JobIsCanceled && data.MsgContentJson != null && data.ScheduledDate && new Date(data.ScheduledDate )>new Date()"
+      }
+    ],
+    "style-float": "left"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "cancelJob",
+        "data-buildertype": "button",
+        "content": "Cancel This Job",
+        "primary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "confirm",
+              "cancelJob"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "other-visibleConition": "!data.JobIsCanceled && data.ScheduledDate && new Date(data.ScheduledDate )>new Date()"
+      },
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Exit",
+        "primary": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "value": "/form/SwzGlobalMailer",
+                "name": "target"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "",
+        "inverted": false,
+        "secondary": true
+      }
+    ],
+    "style-marginBottom": "20px"
+  },
+  {
+    "key": "searchSample",
+    "data-buildertype": "input",
+    "label": "",
+    "fluid": true,
+    "onChangeTimeout": 200,
+    "placeholder": "Filter by UID",
+    "events": {
+      "onChange": {
+        "active": true,
+        "actions": [
+          "setFilter",
+          "applyFilter"
+        ],
+        "targets": [
+          "sampleGrid"
+        ],
+        "parameters": [
+          {
+            "name": "column",
+            "value": "UID"
+          }
+        ]
+      }
+    },
+    "style-marginBottom": "20px",
+    "style-width": "300px",
+    "other-visibleConition": "data.IsTargetUsers == 0 ? true : false"
+  },
+  {
+    "key": "searchUser",
+    "data-buildertype": "input",
+    "label": "",
+    "fluid": true,
+    "onChangeTimeout": 200,
+    "placeholder": "Filter by UID",
+    "events": {
+      "onChange": {
+        "active": true,
+        "actions": [
+          "setFilter",
+          "applyFilter"
+        ],
+        "targets": [
+          "userGrid"
+        ],
+        "parameters": [
+          {
+            "name": "column",
+            "value": "Name"
+          }
+        ]
+      }
+    },
+    "style-marginBottom": "20px",
+    "style-width": "300px",
+    "other-visibleConition": "data.IsTargetUsers == 1 ? true : false"
+  },
+  {
+    "key": "sampleGrid",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "UID",
+        "name": "UID",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "ToEmails",
+        "name": "Sent To",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "CcEmails",
+        "name": "Cc",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "EmailSentDate",
+        "name": "Sent",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      }
+    ],
+    "rowKey": "Id",
+    "pageSize": "50",
+    "defaultSort": "UID ASC",
+    "pagerType": "server",
+    "other-visibleConition": "data.IsTargetUsers == 0 ? true : false"
+  },
+  {
+    "key": "userGrid",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "Name",
+        "name": "Name",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "Email",
+        "name": "Email",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "EmailSentDate",
+        "name": "Sent Date",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      }
+    ],
+    "rowKey": "Id",
+    "pageSize": "50",
+    "defaultSort": "Name ASC",
+    "pagerType": "server",
+    "other-visibleConition": "data.IsTargetUsers == 1 ? true : false"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "key": "swzPage_1",
+    "data-buildertype": "swzPage",
+    "children": [
+      {
+        "key": "menu_1",
+        "data-buildertype": "menu",
+        "items": [
+          {
+            "target": "Introduction",
+            "title": "Introduction"
+          },
+          {
+            "target": "Section A",
+            "title": "Section A"
+          },
+          {
+            "target": "Section B",
+            "title": "Section B",
+            "children": []
+          },
+          {
+            "target": "End",
+            "title": "End"
+          }
+        ],
+        "activeitem": "Introduction",
+        "pointing": false,
+        "tabular": true
+      },
+      {
+        "key": "swzQuestion_3",
+        "data-buildertype": "block",
+        "children": [
+          {
+            "key": "staticcontent_3",
+            "data-buildertype": "staticcontent",
+            "content": "<strong>Introduction</strong></br>\nHello, my name is {interviewer name} from {interviewer company}, an independent market research agency. We are currently conducting a survey to understand your thoughts and concerns as seniors living in Singapore and would appreciate your participation in the survey. Please reset assured that all your views will be kept strictly confidential. The information collected will be analysed on an aggregate level and will not be inblockidually identifiable.",
+            "isHtml": true
+          }
+        ]
+      },
+      {
+        "key": "swzDivider_1",
+        "data-buildertype": "swzDivider"
+      },
+      {
+        "key": "swzQuestion_1",
+        "data-buildertype": "block",
+        "children": [
+          {
+            "key": "staticcontent_1",
+            "data-buildertype": "staticcontent",
+            "content": "<strong>D1. Including yourself,  how many people in your household are </br></strong>\n&nbsp&nbsp&nbsp&nbsp&nbspi) Born between 1950 to 1959 <b><u>and</u></b></br>\n&nbsp&nbsp&nbsp&nbsp&nbspii) Born in Singapore OR became a Singapore Citizen on or before 31 Dec 1996?</br>\n&nbsp</br>",
+            "isHtml": true
+          },
+          {
+            "key": "radiogroup_1",
+            "data-buildertype": "radiogroup",
+            "label": "",
+            "data-elements": [
+              {
+                "key": 1,
+                "value": 1,
+                "text": "At least one"
+              },
+              {
+                "key": 2,
+                "value": 2,
+                "text": "None"
+              }
+            ],
+            "direction": "v",
+            "style-width": ""
+          }
+        ]
+      },
+      {
+        "key": "swzDivider_2",
+        "data-buildertype": "swzDivider"
+      },
+      {
+        "key": "swzQuestion_2",
+        "data-buildertype": "block",
+        "children": [
+          {
+            "key": "staticcontent_2",
+            "data-buildertype": "staticcontent",
+            "content": "<strong>D2. Of the 10 of you, may I speak to the one who last celebrated his/her birthday?</strong></br>\n&nbsp</br>",
+            "isHtml": true
+          },
+          {
+            "key": "dropdown_1",
+            "data-buildertype": "dropdown",
+            "label": "",
+            "fluid": false,
+            "selection": true,
+            "data-elements": [
+              {
+                "key": 1,
+                "value": 1,
+                "text": "Yes"
+              },
+              {
+                "key": 2,
+                "value": 2,
+                "text": "No"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "swzDivider_3",
+        "data-buildertype": "swzDivider"
+      },
+      {
+        "key": "swzQuestion_4",
+        "data-buildertype": "block",
+        "children": [
+          {
+            "key": "staticcontent_4",
+            "data-buildertype": "staticcontent",
+            "content": "<strong>D3. Nationality at birth:</strong></br>\n&nbsp</br>",
+            "isHtml": true
+          },
+          {
+            "key": "input_1",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "placeholder": "Nationality"
+          }
+        ]
+      },
+      {
+        "key": "swzDivider_4",
+        "data-buildertype": "swzDivider"
+      },
+      {
+        "key": "swzQuestion_5",
+        "data-buildertype": "block",
+        "children": [
+          {
+            "key": "staticcontent_5",
+            "data-buildertype": "staticcontent",
+            "content": "<strong>D4. In which year did you obtain your Singapore Citizenship?</strong></br>\n&nbsp</br>",
+            "isHtml": true
+          },
+          {
+            "key": "input_2",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": false,
+            "onChangeTimeout": 200,
+            "labelPosition": "",
+            "placeholder": "Year",
+            "size": "",
+            "transparent": false,
+            "type": "number"
+          }
+        ]
+      }
+    ],
+    "save": true,
+    "saveExit": true,
+    "back": true,
+    "next": true,
+    "footerLabel": "Copyright © 2019. All Rights Reserved.",
+    "headerLabel": "Merdeka Generation Package Survey 2019",
+    "onimage": true,
+    "imagesrc": "https://www.mci.gov.sg/~/media/mci logo hoizontal.png?h=173&w=767&la=en",
+    "headerlabel": "Merdeka Generation Package Survey 2019",
+    "footerlabel": "Copyright © 2019. All Rights Reserved.",
+    "imagewidth": "300px",
+    "lastsaved": false,
+    "onpagedisplay": true,
+    "onscrolltoview": false
+  }
+]

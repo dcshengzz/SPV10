@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	<PackageId>swz.Clover.MSSQL</PackageId>
+    <AssemblyVersion>2.4.0.0</AssemblyVersion>
+    <FileVersion>2.4.0.0</FileVersion>
+    <Version>2.4.0</Version>
+    <PackageTags>clover, bpm, formbuilder, workflow, swz, mssql</PackageTags>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>swzClover.snk</AssemblyOriginatorKeyFile>
+    <Copyright>swz Clover 2018</Copyright>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\DLL\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\DLL\</OutputPath>
+  </PropertyGroup>
+    <PropertyGroup>
+        <NoWarn>1701;1702;1705;1591;1998</NoWarn>
+        <DelaySign>false</DelaySign>
+    </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.21.0" />
+	<PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NETCore_swz.Workflow.MSSQL\NETCore_swz.Workflow.MSSQL.csproj" />
+    <ProjectReference Include="..\swz.Clover.Core\swz.Clover.Core.csproj" />
+  </ItemGroup>
+</Project>

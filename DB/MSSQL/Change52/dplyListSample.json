@@ -1,0 +1,710 @@
+[
+  {
+    "key": "container_5",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_9",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "header_1",
+            "data-buildertype": "header",
+            "content": "{Name}",
+            "size": "huge",
+            "subheader": "Manage list of samples specific to this deployment"
+          }
+        ],
+        "style-float": "left"
+      },
+      {
+        "key": "container_10",
+        "data-buildertype": "container",
+        "children": [],
+        "style-float": "right"
+      }
+    ],
+    "style-source": "clear: both;"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "container_2",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "input_4",
+            "data-buildertype": "input",
+            "label": "",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "setFilter",
+                  "applyFilter"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": [
+                  {
+                    "name": "column",
+                    "value": "UIDName"
+                  },
+                  {
+                    "name": "fieldName",
+                    "value": "txtResend"
+                  }
+                ]
+              },
+              "onClick": {
+                "active": false,
+                "actions": [],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "other-readOnlyConition": "",
+            "placeholder": "Filter UID",
+            "labelPosition": "",
+            "style-marginBottom": "20px"
+          },
+          {
+            "key": "container_6",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "input_1",
+                "data-buildertype": "input",
+                "label": "Filter Due Date  >=",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "setFilter",
+                      "applyFilter"
+                    ],
+                    "targets": [
+                      "gridview_1"
+                    ],
+                    "parameters": [
+                      {
+                        "name": "column",
+                        "value": "DueDate"
+                      },
+                      {
+                        "name": "term",
+                        "value": ">="
+                      }
+                    ]
+                  }
+                },
+                "placeholder": "",
+                "style-marginBottom": "20px",
+                "style-marginTop": ""
+              },
+              {
+                "key": "input_5",
+                "data-buildertype": "input",
+                "label": "Filter Due Date  <=",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "setFilter",
+                      "applyFilter"
+                    ],
+                    "targets": [
+                      "gridview_1"
+                    ],
+                    "parameters": [
+                      {
+                        "name": "column",
+                        "value": "DueDate"
+                      },
+                      {
+                        "name": "term",
+                        "value": "<="
+                      }
+                    ]
+                  }
+                },
+                "placeholder": "",
+                "style-marginBottom": "20px",
+                "style-marginTop": "20px"
+              }
+            ],
+            "style-marginTop": "",
+            "style-marginBottom": "20px"
+          },
+          {
+            "key": "swzmodal_1",
+            "data-buildertype": "swzmodal",
+            "style-display": "none",
+            "children": [
+              {
+                "key": "container_8",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "dueDate",
+                    "data-buildertype": "input",
+                    "label": "Due Date",
+                    "fluid": true,
+                    "onChangeTimeout": 200,
+                    "type": "datetime"
+                  },
+                  {
+                    "key": "button_5",
+                    "data-buildertype": "button",
+                    "content": "Submit",
+                    "secondary": true,
+                    "inverted": true,
+                    "events": {
+                      "onClick": {
+                        "active": true,
+                        "actions": [
+                          "changeDueDate"
+                        ],
+                        "targets": [
+                          "gridview_1"
+                        ],
+                        "parameters": []
+                      }
+                    },
+                    "style-marginTop": "20px"
+                  }
+                ],
+                "style-customcss": "ui message"
+              }
+            ],
+            "content": "Manage Due Date",
+            "secondary": true,
+            "inverted": true,
+            "style-customcss": "",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "manageDueDate"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": []
+              }
+            }
+          }
+        ],
+        "events": {},
+        "style-marginTop": "20px",
+        "style-marginBottom": "20px",
+        "style-float": "left",
+        "style-customcss": "ui message"
+      },
+      {
+        "key": "container_4",
+        "data-buildertype": "container",
+        "children": [
+          {
+            "key": "dictionaryStatus",
+            "data-buildertype": "dictionary",
+            "label": "",
+            "fluid": true,
+            "selection": true,
+            "placeholder": "Filter Status",
+            "dataModel": "QNN_STATUS",
+            "columns": "Title, NumberId ASC",
+            "events": {
+              "onChange": {
+                "active": true,
+                "actions": [
+                  "setFilter",
+                  "applyFilter"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": [
+                  {
+                    "name": "column",
+                    "value": "Status"
+                  }
+                ]
+              }
+            },
+            "style-marginBottom": "20px"
+          },
+          {
+            "key": "container_7",
+            "data-buildertype": "container",
+            "children": [
+              {
+                "key": "input_2",
+                "data-buildertype": "input",
+                "label": "Filter Generated Date  >=",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "setFilter",
+                      "applyFilter"
+                    ],
+                    "targets": [
+                      "gridview_1"
+                    ],
+                    "parameters": [
+                      {
+                        "name": "column",
+                        "value": "CreatedDate"
+                      },
+                      {
+                        "name": "term",
+                        "value": ">="
+                      }
+                    ]
+                  }
+                },
+                "placeholder": "",
+                "style-marginBottom": "20px",
+                "style-marginTop": "20px"
+              },
+              {
+                "key": "input_3",
+                "data-buildertype": "input",
+                "label": "Filter Generated Date  <=",
+                "fluid": true,
+                "onChangeTimeout": 200,
+                "type": "datetime",
+                "events": {
+                  "onChange": {
+                    "active": true,
+                    "actions": [
+                      "setFilter",
+                      "applyFilter"
+                    ],
+                    "targets": [
+                      "gridview_1"
+                    ],
+                    "parameters": [
+                      {
+                        "name": "column",
+                        "value": "CreatedDate"
+                      },
+                      {
+                        "name": "term",
+                        "value": "<="
+                      }
+                    ]
+                  }
+                },
+                "placeholder": "",
+                "style-marginBottom": "20px",
+                "style-marginTop": "20px"
+              }
+            ],
+            "style-marginTop": "",
+            "style-marginBottom": "20px"
+          },
+          {
+            "key": "btnResetPassword",
+            "data-buildertype": "button",
+            "content": "Reset Password",
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "sampleResetPassword"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": []
+              }
+            },
+            "primary": true,
+            "style-marginTop": "",
+            "style-source": "float:left;\n",
+            "style-marginBottom": "",
+            "style-marginLeft": "",
+            "style-marginRight": "10px",
+            "floated": "left"
+          },
+          {
+            "key": "swzmodal_2",
+            "data-buildertype": "swzmodal",
+            "style-display": "none",
+            "children": [
+              {
+                "key": "container_11",
+                "data-buildertype": "container",
+                "children": [
+                  {
+                    "key": "container_12",
+                    "data-buildertype": "container",
+                    "style-float": "left",
+                    "children": [
+                      {
+                        "key": "cbMailMerge",
+                        "data-buildertype": "checkbox",
+                        "label": "Mail Merge",
+                        "toggle": true,
+                        "slider": true,
+                        "events": {
+                          "onChange": {
+                            "active": true,
+                            "actions": [
+                              "showModal"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "style-marginRight": "20px"
+                      },
+                      {
+                        "key": "cbEmail",
+                        "data-buildertype": "checkbox",
+                        "label": "Email",
+                        "slider": true,
+                        "toggle": true,
+                        "events": {
+                          "onChange": {
+                            "active": true,
+                            "actions": [
+                              "showModal"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "style-marginRight": "20px"
+                      },
+                      {
+                        "key": "cbProfile",
+                        "data-buildertype": "checkbox",
+                        "label": "Generate Profile",
+                        "slider": true,
+                        "toggle": true,
+                        "events": {
+                          "onChange": {
+                            "active": true,
+                            "actions": [
+                              "showModal"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        }
+                      },
+                      {
+                        "key": "breadcrumb_1",
+                        "data-buildertype": "breadcrumb",
+                        "items": [
+                          {
+                            "text": "Download Template",
+                            "active": false
+                          }
+                        ],
+                        "events": {
+                          "onItemClick": {
+                            "active": true,
+                            "actions": [
+                              "downloadEmailTemplate"
+                            ],
+                            "targets": [],
+                            "parameters": []
+                          }
+                        },
+                        "style-source": "padding-top: 20px;",
+                        "style-width": "100%"
+                      }
+                    ],
+                    "style-customcss": "",
+                    "style-source": ""
+                  },
+                  {
+                    "key": "container_14",
+                    "data-buildertype": "container",
+                    "style-source": "clear: both;"
+                  },
+                  {
+                    "key": "container_13",
+                    "data-buildertype": "container",
+                    "style-customcss": "",
+                    "children": [
+                      {
+                        "key": "emailFrom",
+                        "data-buildertype": "input",
+                        "label": "From",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "other-visibleConition": "data.cbEmail",
+                        "style-marginBottom": "20px"
+                      },
+                      {
+                        "key": "subject",
+                        "data-buildertype": "input",
+                        "label": "Subject",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "other-visibleConition": "data.cbEmail",
+                        "style-marginBottom": "20px"
+                      },
+                      {
+                        "key": "scheduledDate",
+                        "data-buildertype": "input",
+                        "label": "Start From",
+                        "fluid": true,
+                        "onChangeTimeout": 200,
+                        "reference": "Start From",
+                        "other-visibleConition": "data.cbEmail",
+                        "type": "datetime",
+                        "style-marginBottom": "20px"
+                      }
+                    ],
+                    "style-source": "",
+                    "style-marginTop": "20px"
+                  },
+                  {
+                    "key": "htmlEditor",
+                    "data-buildertype": "swzhtml",
+                    "hideOutput": "block",
+                    "events": {
+                      "onChange": {
+                        "active": false,
+                        "actions": [
+                          "onHtmlChange"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      },
+                      "onClick": {
+                        "active": false,
+                        "actions": [
+                          "showModal"
+                        ],
+                        "targets": [],
+                        "parameters": []
+                      }
+                    },
+                    "other-visibleConition": "data.cbMailMerge||data.cbEmail"
+                  },
+                  {
+                    "key": "container_15",
+                    "data-buildertype": "container",
+                    "children": [
+                      {
+                        "key": "button_2",
+                        "data-buildertype": "button",
+                        "content": "Submit",
+                        "secondary": true,
+                        "inverted": true,
+                        "events": {
+                          "onClick": {
+                            "active": true,
+                            "actions": [
+                              "reSend"
+                            ],
+                            "targets": [
+                              "gridview_1"
+                            ],
+                            "parameters": []
+                          }
+                        }
+                      }
+                    ],
+                    "style-marginTop": "20px"
+                  }
+                ],
+                "style-customcss": "ui message"
+              }
+            ],
+            "content": "Send Message",
+            "secondary": true,
+            "inverted": false,
+            "events": {
+              "onClick": {
+                "active": true,
+                "actions": [
+                  "manageResend"
+                ],
+                "targets": [
+                  "gridview_1"
+                ],
+                "parameters": []
+              }
+            },
+            "style-customcss": "",
+            "style-source": ""
+          }
+        ],
+        "style-marginBottom": "20px",
+        "style-float": "left",
+        "style-marginTop": "20px",
+        "style-marginLeft": "20px",
+        "style-customcss": "ui message"
+      }
+    ],
+    "style-source": "clear: both;"
+  },
+  {
+    "key": "gridview_1",
+    "data-buildertype": "gridview",
+    "columns": [
+      {
+        "key": "UIDName",
+        "name": "UID (Name)",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "PeerName",
+        "name": "Peer UID (Name)",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "StatusTitle",
+        "name": "Status",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      },
+      {
+        "key": "DueDate",
+        "name": "Due Date",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      },
+      {
+        "key": "RespDateStart",
+        "name": "Response Start",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      },
+      {
+        "key": "RespDateEnd",
+        "name": "Response End",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false,
+        "type": "datetime"
+      },
+      {
+        "key": "CreatedDate",
+        "name": "Generated On",
+        "type": "datetime",
+        "sortable": true,
+        "filterable": false,
+        "resizable": false
+      }
+    ],
+    "rowKey": "Id",
+    "pagerType": "server",
+    "defaultSort": "UIDName ASC",
+    "multiselect": true,
+    "rowHeight": "80",
+    "pageSize": "80"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Add New List Sample",
+        "secondary": false,
+        "inverted": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "confirm",
+              "addNewSample",
+              "gridRefresh"
+            ],
+            "targets": [
+              "gridview_1"
+            ],
+            "parameters": [
+              {
+                "name": "confirmTitle",
+                "value": "addSampleConfirmTitle"
+              },
+              {
+                "name": "confirmText",
+                "value": "addSampleConfirmText"
+              }
+            ]
+          }
+        },
+        "primary": true
+      },
+      {
+        "key": "button_4",
+        "data-buildertype": "button",
+        "content": "Manage Message History",
+        "secondary": true,
+        "inverted": false,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "dplyMessages"
+              }
+            ]
+          }
+        },
+        "primary": false
+      },
+      {
+        "key": "button_3",
+        "data-buildertype": "button",
+        "content": "Back",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirectToForm"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "formName",
+                "value": "QNN_DPLY"
+              }
+            ]
+          }
+        },
+        "secondary": true
+      }
+    ]
+  }
+]

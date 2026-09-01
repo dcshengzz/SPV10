@@ -1,0 +1,193 @@
+[
+  {
+    "key": "header_2",
+    "data-buildertype": "header",
+    "content": "Online Help Content Management",
+    "size": "large"
+  },
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "form_1",
+        "data-buildertype": "form",
+        "children": [
+          {
+            "key": "Type",
+            "data-buildertype": "dropdown",
+            "label": "Type",
+            "fluid": true,
+            "selection": true,
+            "data-elements": [
+              {
+                "key": 2,
+                "value": "admin",
+                "text": "Survey Admin"
+              },
+              {
+                "key": 3,
+                "value": "resp",
+                "text": "Respondent Portal"
+              }
+            ],
+            "style-width": "320px",
+            "events": {},
+            "defaultValue": "",
+            "placeholder": "",
+            "other-required": true
+          },
+          {
+            "key": "Topic",
+            "data-buildertype": "input",
+            "label": "Topic",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-required": true,
+            "style-width": "480px"
+          },
+          {
+            "key": "Heading",
+            "data-buildertype": "input",
+            "label": "Heading",
+            "fluid": true,
+            "onChangeTimeout": 200,
+            "other-required": true,
+            "style-width": "480px"
+          },
+          {
+            "key": "Status",
+            "data-buildertype": "checkbox",
+            "label": "Visible",
+            "toggle": true,
+            "events": {}
+          },
+          {
+            "key": "container_2",
+            "data-buildertype": "container",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "container_5",
+    "data-buildertype": "container",
+    "children": [
+      {
+        "key": "HelpContent",
+        "data-buildertype": "swzhtml",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onHtmlChange"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "other-visibleConition": "",
+        "other-customValidation": "",
+        "defaultValue": "",
+        "hideOutput": "none",
+        "other-required": true,
+        "style-width": "640px"
+      }
+    ],
+    "style-width": "800px"
+  },
+  {
+    "key": "container_3",
+    "data-buildertype": "container",
+    "style-float": "left",
+    "children": [
+      {
+        "key": "btnSave",
+        "data-buildertype": "button",
+        "content": "Save",
+        "events": {
+          "onClick": {
+            "actions": [
+              "validate",
+              "save"
+            ],
+            "active": true,
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "primary": true
+      },
+      {
+        "key": "button_2",
+        "data-buildertype": "button",
+        "content": "Save Editor",
+        "events": {
+          "onClick": {
+            "actions": [
+              "submitHtmlData"
+            ],
+            "active": true,
+            "targets": [],
+            "parameters": [
+              {}
+            ]
+          }
+        },
+        "primary": true,
+        "disabled": false,
+        "fluid": false,
+        "circular": true,
+        "inverted": true,
+        "compact": false,
+        "secondary": true,
+        "style-hidden": true
+      },
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Fetch Editor State",
+        "events": {
+          "onClick": {
+            "actions": [
+              "fetchEditorState"
+            ],
+            "active": true,
+            "targets": [],
+            "parameters": [
+              {}
+            ]
+          }
+        },
+        "primary": false,
+        "disabled": false,
+        "secondary": true,
+        "style-hidden": true
+      },
+      {
+        "key": "btnExit",
+        "data-buildertype": "button",
+        "content": "Cancel",
+        "events": {
+          "onClick": {
+            "actions": [
+              "redirect"
+            ],
+            "active": true,
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/swzHelpList"
+              }
+            ]
+          }
+        },
+        "secondary": true
+      }
+    ],
+    "style-marginBottom": "20px"
+  }
+]

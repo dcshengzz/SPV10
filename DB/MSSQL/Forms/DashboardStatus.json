@@ -1,0 +1,166 @@
+[
+  {
+    "key": "headerSurveyStatus",
+    "data-buildertype": "header",
+    "content": "Survey Response Status Dashboard - {dplyHeader}",
+    "size": "huge",
+    "subheader": "",
+    "style-marginTop": "10px"
+  },
+  {
+    "key": "form_1",
+    "data-buildertype": "form",
+    "children": [
+      {
+        "key": "deployment",
+        "data-buildertype": "dictionary",
+        "label": "Deployment",
+        "fluid": true,
+        "selection": true,
+        "dataModel": "QNN_DPLY",
+        "columns": "Name ASC",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "changeHeader",
+              "onChangeDeployment"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "search": true,
+        "clearable": false,
+        "onChangeTimeout": "200",
+        "filters": "",
+        "style-height": "",
+        "paging": true
+      },
+      {
+        "key": "statusType",
+        "data-buildertype": "dropdown",
+        "label": "Status",
+        "fluid": true,
+        "selection": true,
+        "data-elements": [],
+        "events": {
+          "onClick": {
+            "active": false,
+            "actions": [],
+            "targets": [],
+            "parameters": []
+          },
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "style-width": "50%",
+        "style-height": "",
+        "multiple": true,
+        "other-visibleConition": "data.onOverallResponse == 1"
+      },
+      {
+        "key": "container_addRemoveStatus",
+        "data-buildertype": "container",
+        "style-marginTop": "-15px",
+        "style-marginBottom": "10px",
+        "children": [
+          {
+            "key": "actionAddAllStatus",
+            "data-buildertype": "breadcrumb",
+            "items": [
+              {
+                "text": "Add All Status",
+                "url": ""
+              }
+            ],
+            "events": {
+              "onItemClick": {
+                "active": true,
+                "actions": [
+                  "actionAddAllStatus"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-source": "margin: 5px;"
+          },
+          {
+            "key": "actionRemoveAllStatus",
+            "data-buildertype": "breadcrumb",
+            "items": [
+              {
+                "text": "RemoveAll Status",
+                "url": ""
+              }
+            ],
+            "events": {
+              "onItemClick": {
+                "active": true,
+                "actions": [
+                  "actionRemoveAllStatus"
+                ],
+                "targets": [],
+                "parameters": []
+              }
+            },
+            "style-source": "margin: 5px;"
+          }
+        ],
+        "other-visibleConition": "data.onOverallResponse == 1"
+      },
+      {
+        "key": "excludeExempted",
+        "data-buildertype": "checkbox",
+        "label": "Exclude 'exempted' status",
+        "defaultValue": "true",
+        "events": {
+          "onChange": {
+            "active": true,
+            "actions": [
+              "onChangeFilter"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        },
+        "other-visibleConition": "data.onOverallResponse == 1 && (  !data.statusType || (Array.isArray(data.statusType) && data.statusType.length==0) )"
+      },
+      {
+        "key": "result",
+        "data-buildertype": "staticcontent",
+        "content": "Text...",
+        "isHtml": true,
+        "fetchData": true,
+        "isPre": true
+      },
+      {
+        "key": "btnExportDetails",
+        "data-buildertype": "button",
+        "content": "Export Cases",
+        "other-visibleConition": "data.onOverallResponse == 1",
+        "secondary": true,
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "exportDetails"
+            ],
+            "targets": [],
+            "parameters": []
+          }
+        }
+      }
+    ],
+    "style-source": "",
+    "style-marginBottom": "30px"
+  }
+]

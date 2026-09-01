@@ -1,0 +1,328 @@
+[
+  {
+    "key": "container_1",
+    "data-buildertype": "container",
+    "style-source": "max-width: 1200px;\nmargin-left: auto;\nmargin-right: auto;",
+    "children": [
+      {
+        "key": "btnDeployments",
+        "data-buildertype": "button",
+        "content": "Deployments",
+        "style-source": "border-radius: 25px;\nbackground: #62a4f5;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/SwzDplyList"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"SurveyAdmin\") ? true : false"
+      },
+      {
+        "key": "btnSampleList",
+        "data-buildertype": "button",
+        "content": "Sample Lists",
+        "style-source": "border-radius: 25px;\nbackground: #99f2e9;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/SwzListList"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "(CloverApp.API.checkRole(\"SampleAdmin\") || CloverApp.API.checkRole(\"SurveyAdmin\"))  ? true : false"
+      },
+      {
+        "key": "button_1",
+        "data-buildertype": "button",
+        "content": "Samples",
+        "style-source": "border-radius: 25px;\nbackground: #3dd4d4;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/swzsamplelist"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "(CloverApp.API.checkRole(\"SampleAdmin\") || CloverApp.API.checkRole(\"SurveyAdmin\"))  ? true : false"
+      },
+      {
+        "key": "btnDataEditor",
+        "data-buildertype": "button",
+        "content": "Data Editor",
+        "style-source": "border-radius: 25px;\nbackground: #adf590;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/DataEditorDeploymentList"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"DataEditor\") ? true : false"
+      },
+      {
+        "key": "btnFormDesigner",
+        "data-buildertype": "button",
+        "content": "Form Designer",
+        "style-source": "border-radius: 25px;\nbackground: #fc876a;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/surveydesigner"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"SurveyDesigner\") ? true : false"
+      },
+      {
+        "key": "btnSecurity",
+        "data-buildertype": "button",
+        "content": "Security",
+        "style-source": "border-radius: 25px;\nbackground: #cfa1bc;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/useradmin"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"UserAdmin\") ? true : false"
+      },
+      {
+        "key": "btnAuditTrail",
+        "data-buildertype": "button",
+        "content": "Audit Trail",
+        "style-source": "border-radius: 25px;\nbackground: #a6a59c;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/audittrail"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"AuditAdmin\") ? true : false"
+      },
+      {
+        "key": "btnUserAccessMatrix",
+        "data-buildertype": "button",
+        "content": "User Access Matrix",
+        "style-source": "border-radius: 25px;\nbackground: #bfafc9;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/UserAccessMatrix"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"UserAdmin\") ? true : false"
+      },
+      {
+        "key": "btnOnlineHelpContent",
+        "data-buildertype": "button",
+        "content": "Online Help Content",
+        "style-source": "border-radius: 25px;\nbackground: #fabb28;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/swzHelpList"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"HelpEditor\") ? true : false"
+      },
+      {
+        "key": "btnRespondentContentManagement",
+        "data-buildertype": "button",
+        "content": "Respondent Content Management",
+        "style-source": "border-radius: 25px;\nbackground: #ff911c;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/SwzRespAdminList"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"HelpEditor\") ? true : false"
+      },
+      {
+        "key": "btnMaintenanceTests",
+        "data-buildertype": "button",
+        "content": "Maintenance Tests",
+        "style-source": "border-radius: 25px;\nbackground: #00911c;\npadding: 20px; \nfont-size: larger;",
+        "style-width": "300px",
+        "style-height": "200px",
+        "floated": "left",
+        "style-marginTop": "30px",
+        "style-marginBottom": "30px",
+        "style-marginLeft": "30px",
+        "style-marginRight": "30px",
+        "events": {
+          "onClick": {
+            "active": true,
+            "actions": [
+              "redirect"
+            ],
+            "targets": [],
+            "parameters": [
+              {
+                "name": "target",
+                "value": "/form/MaintenanceTests"
+              }
+            ]
+          }
+        },
+        "other-visibleConition": "CloverApp.API.checkRole(\"Maintenance\") ? true : false"
+      }
+    ]
+  }
+]
