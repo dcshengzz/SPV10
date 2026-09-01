@@ -1,0 +1,201 @@
+warn: Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository[50]
+      Using an in-memory repository. Keys will not be persisted to storage.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[59]
+      Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {a96eec3d-5f67-4c2c-bd62-b99e2138af0a} may be persisted to storage in unencrypted form.
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      Application startup. Logging has been configured. EnvironmentName=Production, lowestAllowedLogLevel=Information, logFilePath=D:/ProgramData/SurveyPlus_MPA_Intranet/Logs/ProdLogs-{Date}.txt
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      System.Environment.Version=8.0.29, FrameworkDescription=.NET 8.0.29
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      Database connection string verified. Database=swz_surveyplus_mpa, ServerVersion=15.00.4480
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=223704f336ae72612ddbaf7785a96bfd,span_id=16cbb56140398b6c,trace_sampled=true] SignInAsync for su.Name=Xian Guo TEO (RSD), login=SOE\sg-t1xgteo, remember=False, su.Id=0b730467-d6af-ed81-7c63-83c3ddaff3c7
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=223704f336ae72612ddbaf7785a96bfd,span_id=4f0f5bbf65cd568d,trace_sampled=true] Host for licensing is pz2misapp1v.onempa.gov.sg
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=223704f336ae72612ddbaf7785a96bfd,span_id=4f0f5bbf65cd568d,trace_sampled=true] Registering license from license.key
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=99035f225d01f57c30b94d5a9ca6886a,span_id=3ead646fc79fe02e,trace_sampled=true] SignInAsync for su.Name=Xian Guo TEO (RSD), login=SOE\sg-t1xgteo, remember=False, su.Id=0b730467-d6af-ed81-7c63-83c3ddaff3c7
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=efb2e197a6864f6866471516c2a05dd3,span_id=405057fcc19499e3,trace_sampled=true] SignInAsync for su.Name=Karen CHOO (SDSD), login=SOE\sg-lychoo, remember=False, su.Id=f8772327-5dec-dcd0-c801-91b77c36bdac
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess[0]
+      ExportParticipationReport - starting job
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess[0]
+      ExportParticipationReport - completed job
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=bc83eb6f27ee03019396557bd1a32bc3,span_id=d0df39bd253af681,trace_sampled=true] SignInAsync for su.Name=Karen CHOO (SDSD), login=SOE\sg-lychoo, remember=False, su.Id=f8772327-5dec-dcd0-c801-91b77c36bdac
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=0db94a50768621948f23a3bfcd6cf9ca,span_id=0c6fc021bdd6199b,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=1785aeee-4fe8-4eb1-acde-dfb5e0a4c4d4
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=1785aeee-4fe8-4eb1-acde-dfb5e0a4c4d4, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Bunkering
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\1343941f-64f7-42f0-9d93-086fbb64bb98.zip to database with token 0aed20ef-a46a-4b7e-a808-8d0e23d3fa53 and issued ticket c192c5c1-cc6f-4de1-ac21-e55bdc75c222, size=5304
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Bunkering to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Bunkering. ticket=c192c5c1-cc6f-4de1-ac21-e55bdc75c222, email=karen_choo@mpa.gov.sg, duration=243 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=a40bf2c2cdc96d101baa8b89fea8c168,span_id=714649fe27cb2558,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=6d395ba8-438e-4db4-b395-8fcc47ad6e28
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=6d395ba8-438e-4db4-b395-8fcc47ad6e28, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Bunkering_AIS
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\ce9a8347-cf7b-4ac8-ac93-a728863e5d58.zip to database with token 33953d8d-92b5-4e2c-b27b-632b60ddd14c and issued ticket 9ce30926-8d7d-4f39-ae8f-cbfb1d3f62a4, size=6868
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Bunkering_AIS to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Bunkering_AIS. ticket=9ce30926-8d7d-4f39-ae8f-cbfb1d3f62a4, email=karen_choo@mpa.gov.sg, duration=91 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=a48e610328eeb751570a54b898c98ec6,span_id=5589343d35a7fe85,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=a9bfb5a6-d390-4bda-8450-54d53767863a
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=a9bfb5a6-d390-4bda-8450-54d53767863a, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - General
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\1f528380-b731-4aef-826d-effce68c3fd8.zip to database with token a29216a6-1e95-46c3-b6c4-942863ee3d52 and issued ticket 7717b199-5562-4840-b852-baac12b772a0, size=32664
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - General to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - General. ticket=7717b199-5562-4840-b852-baac12b772a0, email=karen_choo@mpa.gov.sg, duration=273 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=8c25266d26781d370a2a198050c69d8b,span_id=314238482bc30b9f,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=0a43e166-001d-44ab-9160-511ef0829e61
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=0a43e166-001d-44ab-9160-511ef0829e61, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - General_AIS
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\63d43ce5-2fd5-4c3a-9089-1693a5275a6d.zip to database with token 1c5e7fe6-bf5d-4d0a-86c5-80f3585e71cf and issued ticket b343f2be-3a51-478f-a8ff-d213dde0c0d1, size=12492
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - General_AIS to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - General_AIS. ticket=b343f2be-3a51-478f-a8ff-d213dde0c0d1, email=karen_choo@mpa.gov.sg, duration=115 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=a27d41eeef9f6d44b9349e1ae0a20161,span_id=ccb74b138c45dd22,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=449347c9-7417-4910-b4a8-796457a17440
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=449347c9-7417-4910-b4a8-796457a17440, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Harbour Craft
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\8d2f9655-e6b4-472e-8269-2162980bd5f0.zip to database with token d82546a0-fdc8-4504-9aeb-ebf8ee583393 and issued ticket d567ba4d-5167-46b5-a072-b4230cab2d18, size=11773
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Harbour Craft to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Harbour Craft. ticket=d567ba4d-5167-46b5-a072-b4230cab2d18, email=karen_choo@mpa.gov.sg, duration=149 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=2d52f57b65129e5851ca6118347c3474,span_id=92190c03331a87bb,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=c3d0a8ef-52f7-4a1b-b530-99cb682bd6fe
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=c3d0a8ef-52f7-4a1b-b530-99cb682bd6fe, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Harbour Craft_AIS
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\d5977370-c324-4616-bc2c-e96dd9c8cce6.zip to database with token 309eb976-673b-40c6-bf41-e573d0bc0b44 and issued ticket d3f1e8a9-24a5-431e-aa6c-a561ecab3373, size=7885
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Harbour Craft_AIS to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Harbour Craft_AIS. ticket=d3f1e8a9-24a5-431e-aa6c-a561ecab3373, email=karen_choo@mpa.gov.sg, duration=104 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=fdbeb72fddfb3622a3ce7bd702a5e772,span_id=019baaec5dce37ad,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=3e9b3f29-30d3-48b0-bdec-6a89a96fa7a9
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=3e9b3f29-30d3-48b0-bdec-6a89a96fa7a9, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Ship Broking
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\4b3e2328-2cde-4857-a413-060606fc9daa.zip to database with token 169c8f13-6c2b-44da-aff9-a3a75b8230f0 and issued ticket ee083679-002b-4565-a81d-5599d2f41c00, size=17006
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Ship Broking to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Ship Broking. ticket=ee083679-002b-4565-a81d-5599d2f41c00, email=karen_choo@mpa.gov.sg, duration=171 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=3f949fd244efada20c0efebb5bd1b492,span_id=1bb8e7a8666368b6,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=5b44f3ff-7b55-48ac-a6ff-a8b8bb9bb9f2
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=5b44f3ff-7b55-48ac-a6ff-a8b8bb9bb9f2, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Ship Broking_AIS
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\9f95cff2-34ca-470b-8d0c-aebcc571ae65.zip to database with token 7ee3af3b-6d9d-49e5-a23f-643f1584a626 and issued ticket 2e94e269-fd2a-45f9-a0b8-4e9ab64607bd, size=5470
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Ship Broking_AIS to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Ship Broking_AIS. ticket=2e94e269-fd2a-45f9-a0b8-4e9ab64607bd, email=karen_choo@mpa.gov.sg, duration=86 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=3f1fc926d8b5eb7d44af8e90f928e5d1,span_id=32115fa0650d2bb0,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=dc0175b7-d079-491c-b056-4bed619afd22
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=dc0175b7-d079-491c-b056-4bed619afd22, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Ship Mgmt
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\80045967-9c09-4797-855c-3e004814d239.zip to database with token fa05b197-755b-4883-a192-c609f75ffdad and issued ticket 822550ad-6fc5-4c72-b0cf-c20db935bdf2, size=19981
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Ship Mgmt to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Ship Mgmt. ticket=822550ad-6fc5-4c72-b0cf-c20db935bdf2, email=karen_choo@mpa.gov.sg, duration=205 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=1ceba26dc53a5ad8e4b6ad483894d68e,span_id=23ef0c164546a63e,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=498b975d-456a-459f-a70d-8a2ef2a13432
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=498b975d-456a-459f-a70d-8a2ef2a13432, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Ship Mgmt_AIS
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\705cc91e-0f8c-4a79-945b-0fd5ea248428.zip to database with token e7d664d4-b3da-4b1b-9efd-b923543dd06e and issued ticket 096c9b91-77c5-4211-87df-3749c2944646, size=6358
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Ship Mgmt_AIS to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Ship Mgmt_AIS. ticket=096c9b91-77c5-4211-87df-3749c2944646, email=karen_choo@mpa.gov.sg, duration=78 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=9dfeb80fa35d91a6917cf0a91b04a314,span_id=8b4b5426ef3bab8e,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=dae14be5-2ccf-44c0-9204-f41cbaec7100
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=dae14be5-2ccf-44c0-9204-f41cbaec7100, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Ship Owning/Operating
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\d5eb1d4e-9739-459d-a082-ad0dca26a019.zip to database with token 677ab3e8-7d1a-469e-a514-b61c5747168e and issued ticket 7e7d34b3-9607-4671-b378-efeaa67255d8, size=52403
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Ship Owning/Operating to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Ship Owning/Operating. ticket=7e7d34b3-9607-4671-b378-efeaa67255d8, email=karen_choo@mpa.gov.sg, duration=540 (1 minutes)
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess+Enqueue[0]
+      [!dt trace_id=895f864bff1fbb5a95d029f1c0b1d7ac,span_id=436afb45778746dc,trace_sampled=true] ExportDeploymentResponseData - user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), dplyId=aca4fb34-8a1a-4db6-8d36-bcc951bfd010
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Executing deployment response data export. dplyId=aca4fb34-8a1a-4db6-8d36-bcc951bfd010, user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), deployment=2026 Maritime Census - Ship Owning/Operating_AIS
+info: swz.SurveyPlus.IntranetApplication.FileTicketApplication[0]
+      MoveFileToDatabaseAndIssueTicket - moved D:\ProgramData\SurveyPlus_MPA_Intranet\TempFiles\ExportedDeploymentResponse\a276bae5-d9c2-49cf-86fb-bc1e2abb6016.zip to database with token c6cbfae3-05ca-4e9e-acff-f6acefb474b4 and issued ticket be455abd-fdab-4ed0-95dd-7569d0be6264, size=10759
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      EmailDownloadLink - sending ResponseData extraction download link for deployment 2026 Maritime Census - Ship Owning/Operating_AIS to Karen CHOO (SDSD) at karen_choo@mpa.gov.sg
+info: swz.SurveyPlus.IntranetApplication.ResponseExportService[0]
+      ExportDeploymentResponseData - Completed for 2026 Maritime Census - Ship Owning/Operating_AIS. ticket=be455abd-fdab-4ed0-95dd-7569d0be6264, email=karen_choo@mpa.gov.sg, duration=117 (1 minutes)
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=44d471f6783ab99040d638cb2157914b,span_id=72d245a939630c99,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=0aed20efa46a4b7ea8088d0e23d3fa53, ticketId=c192c5c1-cc6f-4de1-ac21-e55bdc75c222 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=0aeb3a183c48e3639e1578c8448f8eb0,span_id=161a7b30d7e527be,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=33953d8d92b54e2cb27b632b60ddd14c, ticketId=9ce30926-8d7d-4f39-ae8f-cbfb1d3f62a4 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=917aac6232fa758241e23ec00daafccd,span_id=da2c6d209102841c,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=a29216a61e9546c3b6c4942863ee3d52, ticketId=7717b199-5562-4840-b852-baac12b772a0 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=99af6da6a475c89b5c697df62295e463,span_id=a45e60f6fc9a79cf,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=1c5e7fe6bf5d4d0a86c580f3585e71cf, ticketId=b343f2be-3a51-478f-a8ff-d213dde0c0d1 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=f2c3e68246c4df6689db133d9bd5c52e,span_id=8456e25f165e96fa,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=d82546a0fdc845049aebebf8ee583393, ticketId=d567ba4d-5167-46b5-a072-b4230cab2d18 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=11858725800a567129b8dd65ec1015fa,span_id=b580db0d907e4f6b,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=309eb976673b40c6bf41e573d0bc0b44, ticketId=d3f1e8a9-24a5-431e-aa6c-a561ecab3373 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=da018fcff9ff07bea9d0f57785b1468e,span_id=3d35bf64b54d1b64,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=169c8f136c2b44daaff9a3a75b8230f0, ticketId=ee083679-002b-4565-a81d-5599d2f41c00 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=a77abd28f1b4b923fc369545a2babb0f,span_id=85b246b6729bcb2b,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=7ee3af3b6d9d49e5a23f643f1584a626, ticketId=2e94e269-fd2a-45f9-a0b8-4e9ab64607bd 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=40e5b9d2db87ee8abf0844caa8cd75e2,span_id=ebf7161535a85907,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=fa05b197755b4883a192c609f75ffdad, ticketId=822550ad-6fc5-4c72-b0cf-c20db935bdf2 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=2e9574f4900e9ec365c45d45897d5d69,span_id=c4490e1fc2accbca,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=e7d664d4b3da4b1b9efdb923543dd06e, ticketId=096c9b91-77c5-4211-87df-3749c2944646 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=9615543233ecb04ec27fe4cefc31eb8a,span_id=4f92beb6b7e1b0a2,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=677ab3e87d1a469ea514b61c5747168e, ticketId=7e7d34b3-9607-4671-b378-efeaa67255d8 
+info: swz.SurveyPlus.IntranetWeb.Controllers.FileTicketController[0]
+      [!dt trace_id=9c946c53d4f59f6ce55b05db19c63785,span_id=892137cf08c9c512,trace_sampled=true] FileTicketDownload - returning file to user=f8772327-5dec-dcd0-c801-91b77c36bdac (Karen CHOO (SDSD)), token=c6cbfae305ca4e9eacfff6acefb474b4, ticketId=be455abd-fdab-4ed0-95dd-7569d0be6264 
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=61ea8a1d145ed45bd19cc0ff7470b818,span_id=440f9af5bfbbac4f,trace_sampled=true] SignInAsync for su.Name=Xian Guo TEO (RSD), login=SOE\sg-t1xgteo, remember=False, su.Id=0b730467-d6af-ed81-7c63-83c3ddaff3c7
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=4df2cddf90f660d71cd7a7d5355ee0a5,span_id=3dea778445b37437,trace_sampled=true] SignInAsync for su.Name=Karen CHOO (SDSD), login=SOE\sg-lychoo, remember=False, su.Id=f8772327-5dec-dcd0-c801-91b77c36bdac
+warn: swz.Clover.AuthServices.Jwt.Services.JwtService[0]
+      [!dt trace_id=14b72e6a3381ab8d9f137544f9544438,span_id=ae17def923260e73,trace_sampled=true] LookupUser - token not found in DB, tokenId/sessionId=0025eca73894467d92fb9988e2dcbb68
+warn: swz.SurveyPlus.IntranetWeb.Controllers.IntegrationApiController[0]
+      [!dt trace_id=14b72e6a3381ab8d9f137544f9544438,span_id=ae17def923260e73,trace_sampled=true] LogViolationAndDenyPermission - Name=(null), Id=(null), Roles=(null), StructDivisionId=(null), method=GET, rawTarget=/api/resp/verify
+      swz.SurveyPlus.Application.InvalidRespondentTokenException: Invalid Authorization header. Session may have been invalidated
+         at swz.SurveyPlus.IntranetWeb.Controllers.IntegrationApiController.VerifySampleAuthorizationAsync(HttpRequest request) in C:\swz\swz-misp\swz.SurveyPlus.IntranetWeb\Controllers\IntegrationApiController.cs:line 2276
+         at swz.SurveyPlus.IntranetWeb.Controllers.IntegrationApiController.VerifyAccessToken() in C:\swz\swz-misp\swz.SurveyPlus.IntranetWeb\Controllers\IntegrationApiController.cs:line 2105
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=65c31ef2faaf8fb7a65a7e1c1231f619,span_id=88fac545181c108a,trace_sampled=true] SignInAsync for su.Name=Xian Guo TEO (RSD), login=SOE\sg-t1xgteo, remember=False, su.Id=0b730467-d6af-ed81-7c63-83c3ddaff3c7
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=0e0e70e21e8bbd4a4f139356d88ce699,span_id=2f33bcdeaead62cb,trace_sampled=true] SignInAsync for su.Name=Karen CHOO (SDSD), login=SOE\sg-lychoo, remember=False, su.Id=f8772327-5dec-dcd0-c801-91b77c36bdac
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=282aab7280a7ee33aac3e28bd431be87,span_id=4b63ce232b5b847b,trace_sampled=true] SignInAsync for su.Name=Xian Guo TEO (RSD), login=SOE\sg-t1xgteo, remember=False, su.Id=0b730467-d6af-ed81-7c63-83c3ddaff3c7
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=76a73ded7195d3645c8b3e971bbece5b,span_id=57a08c7e3c8e3d5e,trace_sampled=true] SignInAsync for su.Name=Xian Guo TEO (RSD), login=SOE\sg-t1xgteo, remember=False, su.Id=0b730467-d6af-ed81-7c63-83c3ddaff3c7
+info: swz.Clover.Security.Providers.SecurityProvider[0]
+      [!dt trace_id=afd69b9e015a9eae69edaac8e080be6e,span_id=1156e445d3ab5769,trace_sampled=true] SignInAsync for su.Name=Karen CHOO (SDSD), login=SOE\sg-lychoo, remember=False, su.Id=f8772327-5dec-dcd0-c801-91b77c36bdac
+fail: swz.SurveyPlus.IntranetApplication.InternetAccountApplication[0]
+      [!dt trace_id=8bc1477b6fb8eba04912fde6a8e7b047,span_id=10b1168f5dac1f49,trace_sampled=true] SPCPLogin - did not find a QNN_SAMPLE with UID=202236459H
+warn: swz.Clover.AuthServices.Jwt.Services.JwtService[0]
+      [!dt trace_id=2bf45fd272120e787c0ae028cc00a99e,span_id=b59954c4a71fbd77,trace_sampled=true] LookupUser - token not found in DB, tokenId/sessionId=9ab131d4cb13487c8fe3685489b77184
+warn: swz.SurveyPlus.IntranetWeb.Controllers.IntegrationApiController[0]
+      [!dt trace_id=2bf45fd272120e787c0ae028cc00a99e,span_id=b59954c4a71fbd77,trace_sampled=true] LogViolationAndDenyPermission - Name=(null), Id=(null), Roles=(null), StructDivisionId=(null), method=GET, rawTarget=/api/resp/verify
+      swz.SurveyPlus.Application.InvalidRespondentTokenException: Invalid Authorization header. Session may have been invalidated
+         at swz.SurveyPlus.IntranetWeb.Controllers.IntegrationApiController.VerifySampleAuthorizationAsync(HttpRequest request) in C:\swz\swz-misp\swz.SurveyPlus.IntranetWeb

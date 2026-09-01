@@ -1,0 +1,12 @@
+warn: Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository[50]
+      Using an in-memory repository. Keys will not be persisted to storage.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[59]
+      Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {da62239b-6b7d-4279-9818-a44c8697f900} may be persisted to storage in unencrypted form.
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      Application startup. Logging has been configured. EnvironmentName=Production, lowestAllowedLogLevel=Information, logFilePath=D:/ProgramData/SurveyPlus_MPA_Intranet/Logs/ProdLogs-{Date}.txt
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      System.Environment.Version=8.0.29, FrameworkDescription=.NET 8.0.29
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      Database connection string verified. Database=swz_surveyplus_mpa, ServerVersion=15.00.4470

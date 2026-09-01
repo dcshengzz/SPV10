@@ -1,0 +1,16 @@
+warn: Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository[50]
+      Using an in-memory repository. Keys will not be persisted to storage.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[59]
+      Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {a3433942-746f-417c-9cd2-355051079743} may be persisted to storage in unencrypted form.
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      Application startup. Logging has been configured. EnvironmentName=Production, lowestAllowedLogLevel=Information, logFilePath=D:/ProgramData/SurveyPlus_MPA_Intranet/Logs/ProdLogs-{Date}.txt
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      System.Environment.Version=8.0.29, FrameworkDescription=.NET 8.0.29
+info: swz.SurveyPlus.IntranetWeb.StartupIntranet[0]
+      Database connection string verified. Database=swz_surveyplus_mpa, ServerVersion=15.00.4470
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess[0]
+      ProcessDormantUsers - job starting
+info: swz.SurveyPlus.IntranetApplication.BusinessProcess[0]
+      ProcessDormantUsers - Completed processing dormant users. 0 users were locked, 0 users were warned
