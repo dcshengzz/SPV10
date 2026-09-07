@@ -1,0 +1,355 @@
+info: swz.SurveyPlus.InternetWeb.StartupInternet[0]
+      Application startup. Logging has been configured. EnvironmentName=Production, lowestAllowedLogLevel=Information, logFilePath=F:/ProgramData/SurveyPlus_MPA_Internet/Logs/ProdLogs-{Date}.txt
+info: swz.SurveyPlus.InternetWeb.StartupInternet[0]
+      System.Environment.Version=8.0.29, FrameworkDescription=.NET 8.0.29
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.UserInterfaceController[0]
+      GetForm - caught unexpected exception, name=mc2026_sm_ais, wrapResult=True, enableSecurity=True
+      System.AggregateException: One or more errors occurred. (Failed to fetch metadata file mc2026_sm_ais.json in folder metadata/forms)
+       ---> System.Exception: Failed to fetch metadata file mc2026_sm_ais.json in folder metadata/forms
+       ---> System.Threading.Tasks.TaskCanceledException: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+       ---> System.TimeoutException: The operation was canceled.
+       ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+       ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+       ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+         --- End of inner exception stack trace ---
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+         at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         --- End of inner exception stack trace ---
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         at swz.SurveyPlus.ApiSupport.UAppUtils.SendApiRequestAsync(IHttpClientFactory httpClientFactory, WebApiAdditionalHeaderOptions apiHeaderOptions, ApiRequest request, Boolean applyResponseValidationHeuristics) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\UAppUtils.cs:line 345
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 331
+         --- End of inner exception stack trace ---
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 381
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentOrNullAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 406
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetFormAsync(String formName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 287
+         --- End of inner exception stack trace ---
+         at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+         at swz.Clover.Core.Model.MetadataToModelConverter.GetForm(String formName, Boolean isInternetSurvey) in C:\swz\swz-misp\swz.Clover.Core\Model\MetadataToModelConverter.cs:line 231
+         at swz.SurveyPlus.InternetWeb.Controllers.UserInterfaceController.GetForm(String name, Boolean wrapResult, Boolean enableSecurity) in C:\swz\swz-misp\swz.SurveyPlus.InternetWeb\Controllers\UserInterfaceController.cs:line 99
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.DataController[0]
+      GetData - caught unexpected exception, name=mc2026_gen_ais, control=(null)
+      System.Threading.Tasks.TaskCanceledException: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+       ---> System.TimeoutException: The operation was canceled.
+       ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+       ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+       ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+         --- End of inner exception stack trace ---
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+         at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         --- End of inner exception stack trace ---
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         at swz.SurveyPlus.ApiSupport.InternetApiDataSource.GetApiDataForUrlAsync(GetDataRequest request, String dataUrl) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiDataSource.cs:line 335
+         at swz.SurveyPlus.ApiSupport.InternetApiDataSource.GetDataForFormAsync(GetDataRequest getDataRequest) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiDataSource.cs:line 267
+         at swz.SurveyPlus.InternetWeb.Controllers.DataController.GetData(IDataSource dataSource, String name, String control, String urlFilter, String options, String filter, String paging, String sort) in C:\swz\swz-misp\swz.SurveyPlus.InternetWeb\Controllers\DataController.cs:line 151
+fail: swz.SurveyPlus.InternetWeb.Controllers.UserInterfaceController[0]
+      GetForm - caught unexpected exception, name=mc2026_gen_ais, wrapResult=True, enableSecurity=True
+      System.AggregateException: One or more errors occurred. (Failed to fetch metadata file mc2026_gen_ais.json in folder metadata/forms)
+       ---> System.Exception: Failed to fetch metadata file mc2026_gen_ais.json in folder metadata/forms
+       ---> System.Threading.Tasks.TaskCanceledException: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+       ---> System.TimeoutException: The operation was canceled.
+       ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+       ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+       ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+         --- End of inner exception stack trace ---
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+         at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         --- End of inner exception stack trace ---
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         at swz.SurveyPlus.ApiSupport.UAppUtils.SendApiRequestAsync(IHttpClientFactory httpClientFactory, WebApiAdditionalHeaderOptions apiHeaderOptions, ApiRequest request, Boolean applyResponseValidationHeuristics) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\UAppUtils.cs:line 345
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 331
+         --- End of inner exception stack trace ---
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 381
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentOrNullAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 406
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetFormAsync(String formName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 287
+         --- End of inner exception stack trace ---
+         at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+         at swz.Clover.Core.Model.MetadataToModelConverter.GetForm(String formName, Boolean isInternetSurvey) in C:\swz\swz-misp\swz.Clover.Core\Model\MetadataToModelConverter.cs:line 231
+         at swz.SurveyPlus.InternetWeb.Controllers.UserInterfaceController.GetForm(String name, Boolean wrapResult, Boolean enableSecurity) in C:\swz\swz-misp\swz.SurveyPlus.InternetWeb\Controllers\UserInterfaceController.cs:line 99
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.UserInterfaceController[0]
+      GetForm - caught unexpected exception, name=mc2026_soo_ais, wrapResult=True, enableSecurity=True
+      System.AggregateException: One or more errors occurred. (Failed to fetch metadata file mc2026_soo_ais.json in folder metadata/forms)
+       ---> System.Exception: Failed to fetch metadata file mc2026_soo_ais.json in folder metadata/forms
+       ---> System.Threading.Tasks.TaskCanceledException: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+       ---> System.TimeoutException: The operation was canceled.
+       ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+       ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+       ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+         --- End of inner exception stack trace ---
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+         at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         --- End of inner exception stack trace ---
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         at swz.SurveyPlus.ApiSupport.UAppUtils.SendApiRequestAsync(IHttpClientFactory httpClientFactory, WebApiAdditionalHeaderOptions apiHeaderOptions, ApiRequest request, Boolean applyResponseValidationHeuristics) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\UAppUtils.cs:line 345
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 331
+         --- End of inner exception stack trace ---
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 381
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetMetadataContentOrNullAsync(String fileName, String folderName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 406
+         at swz.SurveyPlus.ApiSupport.InternetApiMetadataProvider.GetFormAsync(String formName) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiMetadataProvider.cs:line 287
+         --- End of inner exception stack trace ---
+         at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+         at swz.Clover.Core.Model.MetadataToModelConverter.GetForm(String formName, Boolean isInternetSurvey) in C:\swz\swz-misp\swz.Clover.Core\Model\MetadataToModelConverter.cs:line 231
+         at swz.SurveyPlus.InternetWeb.Controllers.UserInterfaceController.GetForm(String name, Boolean wrapResult, Boolean enableSecurity) in C:\swz\swz-misp\swz.SurveyPlus.InternetWeb\Controllers\UserInterfaceController.cs:line 99
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.DataController[0]
+      GetData - caught unexpected exception, name=mc2026_soo_ais, control=(null)
+      System.Threading.Tasks.TaskCanceledException: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+       ---> System.TimeoutException: The operation was canceled.
+       ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+       ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+       ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+         --- End of inner exception stack trace ---
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Http.HttpConnection.InitialFillAsync(Boolean async)
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+         at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         --- End of inner exception stack trace ---
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         at swz.SurveyPlus.ApiSupport.InternetApiDataSource.GetApiDataForUrlAsync(GetDataRequest request, String dataUrl) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiDataSource.cs:line 335
+         at swz.SurveyPlus.ApiSupport.InternetApiDataSource.GetDataForFormAsync(GetDataRequest getDataRequest) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiDataSource.cs:line 267
+         at swz.SurveyPlus.InternetWeb.Controllers.DataController.GetData(IDataSource dataSource, String name, String control, String urlFilter, String options, String filter, String paging, String sort) in C:\swz\swz-misp\swz.SurveyPlus.InternetWeb\Controllers\DataController.cs:line 151
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.DataController[0]
+      GetData - caught unexpected exception, name=mc2026_gen_ais, control=(null)
+      System.Threading.Tasks.TaskCanceledException: The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+       ---> System.TimeoutException: The operation was canceled.
+       ---> System.Threading.Tasks.TaskCanceledException: The operation was canceled.
+       ---> System.IO.IOException: Unable to read data from the transport connection: The I/O operation has been aborted because of either a thread exit or an application request..
+       ---> System.Net.Sockets.SocketException (995): The I/O operation has been aborted because of either a thread exit or an application request.
+         --- End of inner exception stack trace ---
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+         at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.EnsureFullTlsFrameAsync[TIOAdapter](CancellationToken cancellationToken, Int32 estimatedSize)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Security.SslStream.ReadAsyncInternal[TIOAdapter](Memory`1 buffer, CancellationToken cancellationToken)
+         at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+         at System.Net.Http.HttpConnection.InitialFillAsync(Boolean async)
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+         at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         --- End of inner exception stack trace ---
+         --- End of inner exception stack trace ---
+         at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+         at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+         at swz.SurveyPlus.ApiSupport.InternetApiDataSource.GetApiDataForUrlAsync(GetDataRequest request, String dataUrl) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiDataSource.cs:line 335
+         at swz.SurveyPlus.ApiSupport.InternetApiDataSource.GetDataForFormAsync(GetDataRequest getDataRequest) in C:\swz\swz-misp\swz.SurveyPlus.ApiSupport\InternetApiDataSource.cs:line 267
+         at swz.SurveyPlus.InternetWeb.Controllers.DataController.GetData(IDataSource dataSource, String name, String control, String urlFilter, String options, String filter, String paging, String sort) in C:\swz\swz-misp\swz.SurveyPlus.InternetWeb\Controllers\DataController.cs:line 151
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      SPCPLogin: SurveyPlus respondent login failed with reason InvalidCredentials
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
+fail: swz.SurveyPlus.InternetWeb.Controllers.RespController[0]
+      LegacyIAmEntityLogin - use of legacy SPCP route /resp/corppassloginv2 (this endpoint will be removed soon)
